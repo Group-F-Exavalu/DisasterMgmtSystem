@@ -33,7 +33,7 @@
       } else if (request.getSession().getAttribute("LoggedinStatus").equals("user")) {%>
             <ul class="nav nav-pills">
                 <li class="nav-item"><a href="#" class="nav-link active" aria-current="page" >Home</a></li>
-                <li class="nav-item"><a href="#" class="nav-link px-2 text-black">Donates</a></li>
+                <li class="nav-item"><a href="donateMain.jsp" class="nav-link px-2 text-black">Donate</a></li>
                 <li class="nav-item"><a href="#" class="nav-link px-2 text-black">Support</a></li>
                 <li class="nav-item"><a href="#" class="nav-link px-2 text-black">Contacts</a></li>
                 <li class="nav-item"><a href="#" class="nav-link px-2 text-black">Events</a></li>
