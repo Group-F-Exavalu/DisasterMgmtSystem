@@ -10,7 +10,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="css/header.css" rel="stylesheet">
-        <title>Employee Management</title>
+        <title>Disaster Management</title>
     </head>
     <jsp:include page="menu.jsp"></jsp:include>
     <jsp:include page="index.jsp"></jsp:include>
