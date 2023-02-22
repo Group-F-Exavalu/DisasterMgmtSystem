@@ -46,7 +46,7 @@
     
         
 	 <form action="" method="post">
-            <h1 class="h3 mb-3 fw-normal">Donate Essential Form</h1>
+            <h1 class="h3 mb-3 fw-normal">Form for Donation of Essentials</h1>
 		<label for="name">User Id</label>
 		<input type="text" id="userId" name="userId">
 
