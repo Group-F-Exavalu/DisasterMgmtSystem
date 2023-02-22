@@ -75,8 +75,8 @@
             /* .btn-group button:hover { */
 
             .btn-group-vertical button:hover {
-                background-color: violet;
-                color: #0b6d11;
+                background-color: palevioletred;
+                color: white;
             }
         </style>
         <div id="fetchDetails"></div>
