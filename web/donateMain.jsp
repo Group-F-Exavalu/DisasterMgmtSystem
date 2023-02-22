@@ -35,7 +35,7 @@
         </div>
         <style>
             .btn-group-vertical {
-                padding-left: 450px;
+                padding-left: 30%;
                 display: inline;
                 align-items: center;
                 justify-content: center;
