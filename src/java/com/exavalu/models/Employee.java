@@ -4,7 +4,7 @@
  */
 package com.exavalu.models;
 
-import com.exavalu.services.LoginService;
+import com.exavalu.services.LoginService_2;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import java.io.Serializable;
@@ -46,7 +46,7 @@ public class Employee extends ActionSupport implements ApplicationAware, Session
     public String doLogin() throws Exception {
         String result = "FAILURE";
 
-        boolean success = LoginService.getInstance().doLogin(this);
+        boolean success = LoginService_2.getInstance().doLogin(this);
 
         if (success) {
             System.out.println("returning Success from doLogin method");
