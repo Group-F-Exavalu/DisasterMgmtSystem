@@ -33,21 +33,61 @@
         <link rel="mask-icon" href="/docs/5.3/assets/img/favicons/safari-pinned-tab.svg" color="#712cf9">
         <link rel="icon" href="/docs/5.3/assets/img/favicons/favicon.ico">
         <meta name="theme-color" content="#712cf9">
+        <style>
+		form {
+			max-width: 400px;
+			margin: auto;
+			padding: 20px;
+			background-color: #f5f5f5;
+			border: 1px solid #ddd;
+			border-radius: 5px;
+		}
+
+		label {
+			display: block;
+			font-weight: bold;
+			margin-bottom: 10px;
+		}
+
+		input, select {
+			display: block;
+			width: 95%;
+			padding: 10px;
+			margin-bottom: 20px;
+			border: 1px solid #ccc;
+			border-radius: 5px;
+		}
+
+		button {
+			display: block;
+			margin: 0 auto;
+			padding: 10px 20px;
+			background-color: #4CAF50;
+			color: white;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+		}
+
+		button:hover {
+			opacity: 0.8;
+		}
+	</style>
 
 
 
 
 
         <!-- Custom styles for this template -->
-        <link href="css/bootstrap.min.css" rel="stylesheet" >
+<!--        <link href="css/bootstrap.min.css" rel="stylesheet" >
         <link href="css/menu_css.css" rel="stylesheet" >
-        <link href="css/product.css" rel="stylesheet" >
+        <link href="css/product.css" rel="stylesheet" >-->
         <!--        <link href="css/signin.css" rel="stylesheet">-->
 
     </head>
     <body class="text-center">
         <div id="body">
-            <jsp:include page="menu.jsp"></jsp:include>
+            <%--<jsp:include page="menu.jsp"></jsp:include>--%>
 
                 <main class="form-signin w-50 m-auto">
 
