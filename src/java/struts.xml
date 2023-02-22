@@ -5,9 +5,15 @@
 <struts>
     <!-- Configuration for the default package. -->
     <package name="default" namespace="/" extends="struts-default">
-        <action name="Login" class="com.exavalu.models.Employee" method="doLogin">
-            <result name="SUCCESS">employeeDetails.jsp</result>
+        <action name="Login" class="com.exavalu.models.User" method="doLogin">
+            <result name="USER">landingPage.jsp</result>
+            <result name="ORG">menu.jsp</result>
+            <result name="ADMIN">menu.jsp</result>
             <result name="FAILURE">login.jsp</result>
-        </action>       
+        </action>  
+        <action name="Logout" class="com.exavalu.models.User" method="doLogout">
+            <result name="SUCCESS">login.jsp</result>
+            <result name="FAILURE">employeeDetails.jsp</result>
+        </action> 
     </package>
 </struts>
