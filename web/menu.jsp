@@ -1,0 +1,76 @@
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Disaster Management</title>
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <meta name="theme-color" content="#712cf9">
+
+        <!-- Custom styles for this template -->
+        <link href="css/header.css" rel="stylesheet">
+        <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet'>
+        <link href='https://fonts.googleapis.com/css?family=Playfair Display' rel='stylesheet'>
+        <!--<link href="css/carousel.css" rel="stylesheet">-->
+    </head>
+    <div class="container">
+    <header class="d-flex flex-wrap justify-content-around py-3 mb-4 border-bottom">
+      <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+        <!--<svg class="bi me-2" width="40" height="32"><use xlink:href="images/mainlogo.svg"/></svg>-->
+        <img src="images/mainlogo.svg" width="50" height="50"></img>
+        <!--<span class="fs-4">Simple header</span>-->
+      </a>
+
+      <ul class="nav nav-pills">
+          <li class="nav-item"><a href="#" class="nav-link active" aria-current="page" >Home</a></li>
+        <li class="nav-item"><a href="#" class="nav-link px-2 text-black">Donates</a></li>
+        <li class="nav-item"><a href="#" class="nav-link px-2 text-black">Support</a></li>
+        <li class="nav-item"><a href="#" class="nav-link px-2 text-black">Contacts</a></li>
+        <li class="nav-item"><a href="#" class="nav-link px-2 text-black">Events</a></li>
+        <li class="nav-item"><a href="login_1.jsp" class="nav-link px-2 text-black">Login</a></li>
+      </ul>
+    </header>
+  </div>
+<!--    <header class="p-3 text-bg-light">
+        <div class="container">
+            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+                    <img src="images/mainlogo.svg" width="75" height="75"></img>
+                </a>
+
+                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                    <li><a href="#" class="nav-link px-2 text-black">Home</a></li>
+                    <li><a href="#" class="nav-link px-2 text-white">Features</a></li>
+                    <li><a href="#" class="nav-link px-2 text-white">Pricing</a></li>
+                    <li><a href="#" class="nav-link px-2 text-white">FAQs</a></li>
+                    <li><a href="#" class="nav-link px-2 text-white">About</a></li>
+                </ul>
+
+                <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+                    <input type="search" class="form-control form-control-dark text-bg-dark" placeholder="Search..." aria-label="Search">
+                </form>
+
+                <div class="text-end">
+                    <% if (request.getSession().getAttribute("Loggedin") == null) {%>
+
+                    <a href="login.jsp">
+                        <button type="button" class="btn btn-outline-light me-2" >Login</button>
+                    </a>
+                    <a href="signup.jsp">
+                        <button type="button" class="btn btn-warning">Sign-up</button>
+                    </a>
+                    <%
+                        }
+                    else {%>
+
+                    <a href="Logout">
+                        <button type="button" class="btn btn-outline-light me-2" >Log Out</button>
+                    </a>
+                    <%
+                        }
+                    %>
+
+
+                </div>
+            </div>
+        </div>
+    </header>-->

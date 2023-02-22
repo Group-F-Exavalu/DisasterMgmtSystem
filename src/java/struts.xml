@@ -1,0 +1,13 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <!-- Configuration for the default package. -->
+    <package name="default" namespace="/" extends="struts-default">
+        <action name="Login" class="com.exavalu.models.Employee" method="doLogin">
+            <result name="SUCCESS">employeeDetails.jsp</result>
+            <result name="FAILURE">login.jsp</result>
+        </action>       
+    </package>
+</struts>
