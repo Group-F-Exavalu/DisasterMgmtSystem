@@ -1,7 +1,4 @@
-<%@page import="com.exavalu.models.Department"%>
 <%@page import="java.util.Iterator"%>
-<%@page import="com.exavalu.services.DepartmentService"%>
-<%@page import="com.exavalu.services.RoleService"%>
 <%@page import="java.util.ArrayList"%>
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <!doctype html>
