@@ -10,7 +10,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Donation</title>
+        <title>Sign Up</title>
     </head>
     <body>
 
@@ -29,8 +29,8 @@
         </script>
         <div >
             <div class="btn-group-vertical">
-                <button  type="button" onclick="loadNewContent('donateMoney.jsp', 'fetchDetails')">Donate Money</button>
-                <button  type="button" onclick="loadNewContent('donateEssentials.jsp', 'fetchDetails')">Donate Essentials</button>
+                <button  type="button" onclick="loadNewContent('signupUser.jsp', 'fetchDetails')">Individual User</button>
+                <button  type="button" onclick="loadNewContent('signupOrg.jsp', 'fetchDetails')">Organisation</button>
             </div>
         </div>
         <style>

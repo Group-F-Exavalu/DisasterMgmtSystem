@@ -10,16 +10,21 @@
         <meta name="generator" content="Hugo 0.104.2">
         <title>Sign up for Organizations</title>
 
-       <link href="css/bootstrap.min.css" rel="stylesheet">
+<!--       <link href="css/bootstrap.min.css" rel="stylesheet">
 
-         <!--Custom styles for this template--> 
-        <link href="css/signin_2.css" rel="stylesheet">
+         Custom styles for this template 
+        <link href="css/signin_2.css" rel="stylesheet">-->
 
     </head>
      <style>
         .btn-color{
             background-color: #0e1c36;
             color: #fff;
+
+        }
+        .btn-color-cancel{
+            background-color: grey;
+            color: whitesmoke
 
         }
 
@@ -35,6 +40,11 @@
 
         a{
             text-decoration: none;
+        }
+        
+        #titles{
+            font-family: cursive;
+            
         }
     </style>
 
@@ -78,27 +88,27 @@
                     <img src="images/mainlogo.svg" class="img-fluid profile-image-pic img-thumbnail rounded-circle my-4"
                          width="250px" alt="profile">
                 </div>
-                <h1 class="h3 mb-3 fw-normal">Please provide SignUp Details</h1>
+                <h2 id="titles" class="h3 mb-3 fw-normal">Create Organisation Account</h2>
 
-                <div class="mb-3">
+                <div class="form-floating mb-2">
                     <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="emailAddress" value="${User.getEmailAddress()}">
                     <label for="floatingInput">Email address</label>
                 </div>
-                <div class="mb-3">
+                <div class="form-floating mb-2">
                     <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password" value="${User.getPassword()}">
                     <label for="floatingPassword">Password</label>
                 </div>
-                <div class="mb-3">
+                <div class="form-floating mb-2">
                     <input type="text" class="form-control" id="organisationName" placeholder="organisationName" name="organisationName" value="${User.getFirstName()}">
-                    <label for="firstName">Organization Name</label>
+                    <label for="floatingInput">Organisation Name</label>
                 </div>
                 
-                <div class="mb-3">
+                <div class="form-floating mb-2">
                     <input type="text" class="form-control" id="regnNumber" placeholder="regnNumber" name="regnNumber" value="${User.getPhoneNumber()}">
-                    <label for="phoneNumber">Org. Registration Number</label>
+                    <label for="floatingInput">Organisation Registration Number</label>
                 </div>
           
-                <div class="mb-3">
+                <div class="form-floating mb-2">
 
                     <select name="country" class="form-select" id="country" onchange="fetchContent('country', 'state')">
                         <option value="">Select a Country</option>
@@ -108,7 +118,7 @@
                     </select>
                 </div>
 
-                <div class="mb-3">
+                <div class="form-floating mb-2">
 
                     <select name="state" class="form-select" id="state" onchange="fetchContent('state', 'district')">
                         <option value="">Select a Province</option>
@@ -116,7 +126,7 @@
                     </select>
                 </div>
 
-                <div class="mb-3">
+                <div class="form-floating mb-2">
 
                     <select name="district" class="form-select" id="district" >
                         <option value="">Select a District</option>
@@ -129,10 +139,10 @@
                         <input type="checkbox" value="remember-me"> Remember me
                     </label>
                 </div>
-                <button class="w-100 btn btn-lg btn-primary" type="submit">Sign Up</button>
+                <div display="flex"><button type="submit" class="btn btn-color px-2 mb-1 w-100">Sign Up</button>
                 <a href="landingPage.jsp">
-                    <button type="button" class="w-100 btn btn-lg btn-warning">Cancel</button>
-                </a>
+                    <button type="button" class="btn btn-color-cancel px-2 mb-1 w-100">Cancel</button>
+                </a></div>
                 <p class="mt-5 mb-3 text-muted">&copy; 2023-2024</p>
             </form>
                     </div>
