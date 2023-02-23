@@ -28,6 +28,7 @@
                 <li class="nav-item"><a href="#" class="nav-link px-2 text-black">Contact</a></li>
                 <li class="nav-item"><a href="#" class="nav-link px-2 text-black">Events</a></li>
                 <li class="nav-item"><a href="login.jsp" class="nav-link px-2 text-black">Login</a></li>
+                <li class="nav-item"><a href="signupMain.jsp" class="nav-link px-2 text-black">Sign Up</a></li>
             </ul>
             <%
       } else if (request.getSession().getAttribute("LoggedinStatus").equals("user")) {%>
