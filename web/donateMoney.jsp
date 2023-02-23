@@ -94,7 +94,7 @@
                     <form action="DonateMoney" method="post" id="myForm">
 
 
-                        <h1 class="h3 mb-3 fw-normal">Please add employee details</h1>
+                        <h1 class="h3 mb-3 fw-normal">Form for  Monetary Donation</h1>
                         
                         <div class="form-floating">
                             <input type="text" class="form-control" id="floatingInput" placeholder="user ID" name="userId" required>
