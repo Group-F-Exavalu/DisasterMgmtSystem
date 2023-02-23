@@ -5,7 +5,7 @@
 package com.exavalu.models;
 
 import com.exavalu.services.LoginService;
-import com.exavalu.services.LoginService_2;
+import com.exavalu.services.UserService;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -198,6 +198,10 @@ public class User extends ActionSupport implements ApplicationAware, SessionAwar
         boolean successUser = LoginService.getInstance().doLoginUser(this.emailAddress,this.password);
         boolean successOrg = LoginService.getInstance().doLoginOrganisation(this.emailAddress,this.password);
         boolean successAdmin = LoginService.getInstance().doLoginAdmin(this.emailAddress,this.password);
+        
+        User user = UserService.getUser(userId);
+        
+        sessionMap.put("User", user);
 
         if (successUser) {
             System.out.println("returning Success from doLoginUser method");
@@ -218,7 +222,7 @@ public class User extends ActionSupport implements ApplicationAware, SessionAwar
 
             result = "ADMIN";
         }else{
-            Logger log = Logger.getLogger(LoginService_2.class.getName());
+            Logger log = Logger.getLogger(LoginService.class.getName());
             log.error(LocalDateTime.now() + "--Wrong email ID or password");
             System.out.println("returning Failure from doLogin method");
         }

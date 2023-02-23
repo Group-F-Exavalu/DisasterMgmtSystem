@@ -3,7 +3,7 @@
 <!doctype html>
 <html lang="en">
     <head>
-        <title>Sign in - Employee Management</title>
+        <title>Sign in</title>
 
         <link href="css/bootstrap.min.css" rel="stylesheet">
 
