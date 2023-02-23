@@ -8,9 +8,9 @@
         <meta name="description" content="">
         <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
         <meta name="generator" content="Hugo 0.104.2">
-        <title>Sign up for Individual User</title>
+        <title>Sign up for Organizations</title>
 
-        <link href="css/bootstrap.min.css" rel="stylesheet">
+       <link href="css/bootstrap.min.css" rel="stylesheet">
 
          <!--Custom styles for this template--> 
         <link href="css/signin_2.css" rel="stylesheet">
@@ -89,51 +89,15 @@
                     <label for="floatingPassword">Password</label>
                 </div>
                 <div class="mb-3">
-                    <input type="text" class="form-control" id="firstName" placeholder="first name" name="firstName" value="${User.getFirstName()}">
-                    <label for="firstName">First Name</label>
+                    <input type="text" class="form-control" id="organisationName" placeholder="organisationName" name="organisationName" value="${User.getFirstName()}">
+                    <label for="firstName">Organization Name</label>
                 </div>
+                
                 <div class="mb-3">
-                    <input type="text" class="form-control" id="lastName" placeholder="last name" name="lastName" value="${User.getLastName()}">
-                    <label for="lastName">Last Name</label>
+                    <input type="text" class="form-control" id="regnNumber" placeholder="regnNumber" name="regnNumber" value="${User.getPhoneNumber()}">
+                    <label for="phoneNumber">Org. Registration Number</label>
                 </div>
-                <div class="mb-3">
-                    <input type="text" class="form-control" id="phoneNumber" placeholder="phone number" name="phoneNumber" value="${User.getPhoneNumber()}">
-                    <label for="phoneNumber">Phone Number</label>
-                </div>
-                <div class="mb-3">
-
-                    <select name="gender"  class="form-select" id="gender" required>
-
-                        <option value="Male">Male</option>  
-                        <option value="Female">Female</option> 
-                        <option value="Other">Other</option> 
-                    </select>
-                    <label for="floatingInput">Gender</label>
-
-                </div>
-
-                <div class="mb-3">
-                    <c:set var="idList" value="${RegistrationService.getInstance().getGovtProof()}"></c:set>
-                        <select name="govtProof" class="form-select" id="govtProof" required>
-                            <option value="">Select a Govt ID Card</option>
-                        <c:forEach var="govt" items="${idList}">
-                            <option value=${govt.govtProof}> ${govt.docName}  </option>
-                        </c:forEach>
-                    </select>
-                    <label for="floatingInput">Govt ID Proof</label>
-                </div>
-
-                <div class="mb-3">
-                    <input type="text" class="form-control" id="govtId" placeholder="govtId" name="govtId" value="${User.getAddress()}">
-                    <label for="govtId">Govt. ID Card Number</label>
-                </div>
-
-                <div class="mb-3">
-                    <input type="text" class="form-control" id="address" placeholder="address" name="address" value="${User.getAddress()}">
-                    <label for="address">Address Line 1</label>
-                </div>
-
-
+          
                 <div class="mb-3">
 
                     <select name="country" class="form-select" id="country" onchange="fetchContent('country', 'state')">

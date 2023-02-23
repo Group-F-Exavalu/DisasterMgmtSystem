@@ -90,6 +90,7 @@
             <%--<jsp:include page="menu.jsp"></jsp:include>--%>
 
                 <main class="form-signin w-50 m-auto">
+                    
 
                     <form action="DonateMoney" method="post" id="myForm">
 
@@ -97,7 +98,7 @@
                         <h1 class="h3 mb-3 fw-normal">Form for  Monetary Donation</h1>
                         
                         <div class="form-floating">
-                            <input type="text" class="form-control" id="floatingInput" placeholder="user ID" name="userId" required>
+                            <input type="text" class="form-control" id="floatingInput" placeholder="user ID" name="userId" value=${User.userId} readonly>
                             <label for="floatingInput">User ID</label>
                         </div>
                         <div class="form-floating">
@@ -122,7 +123,7 @@
                             <label for="floatingInput">Amount</label>
                         </div>
                         <div class="form-floating">
-                        <c:set var="deptList" value="${DonateService.getInstance().getEventTopics()}"></c:set>
+                        <c:set var="eventList" value="${DonateService.getInstance().getEventTopics()}"></c:set>
                             <select name="eventId" class="form-select" id="eventId" required>
                                 <option value="">Select an event</option>
                             <c:forEach var="event" items="${eventList}">
