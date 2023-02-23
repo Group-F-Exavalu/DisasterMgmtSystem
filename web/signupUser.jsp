@@ -56,9 +56,10 @@
         {
             signupForm.submit();
         }
+        
         function fetchContent(selectedId, targetId)
                 {
-//            alert("'#"+selectedId.name+"'");
+                     alert(selectedId);
             
                             $.ajax({
                                     url: 'PreSignUp',
@@ -66,7 +67,8 @@
                                             [selectedId]: $("#" + selectedId).val()
                                     },
                                     success: function (responseText) {
-//                        alert(responseText);
+                                    console.log(responseText);
+                                    alert(responseText);
                                             $("#" + targetId).html(responseText);
                                     }
                             });
@@ -82,7 +84,8 @@
             <div class="row">
             <div class="col-md-6 offset-md-3">
             <div class="card my-5">
-            <form action="PreSignUp" class="card-body cardbody-color p-lg-5 mb-2" method="Post" id="signupForm">
+               
+            <form action="SignUpUser" class="card-body cardbody-color p-lg-5 mb-2" method="Post" id="signupForm">
                 <div class="text-center">
                     <img src="images/mainlogo.svg" class="img-fluid profile-image-pic img-thumbnail rounded-circle my-4"
                          width="250px" alt="profile">
@@ -125,7 +128,7 @@
 
                 </div>
 
-                <div class="form-floating mb-2">
+<!--                <div class="form-floating mb-2">
                     <c:set var="idList" value="${RegistrationService.getInstance().getGovtProof()}"></c:set>
                         <select name="govtProof" class="form-select" id="govtProof" required>
                             <option value="">Select a Govt ID Card</option>
@@ -134,7 +137,18 @@
                         </c:forEach>
                     </select>
                     <label for="floatingInput">Govt ID Proof</label>
-                </div>
+                </div>-->
+                  <div class="form-floating mb-2">
+
+                    <select name="govtProof"  class="form-select mb-2" id="govtProof" required>
+
+                        <option value="1">Aadhar Card</option>  
+                        <option value="2">Driving License</option> 
+                        <option value="3">Voter Card</option> 
+                    </select>
+                    <label for="floatingInput">Govt ID Proof</label>
+
+                </div>  
 
                 <div class="form-floating mb-2">
                     <input type="text" class="form-control" id="govtId" placeholder="govtId" name="govtId" >
@@ -151,9 +165,10 @@
 
                     <select name="country" class="form-select" id="country" onchange="fetchContent('country', 'state')">
                         <option value="">Select a Country</option>
-                        <c:forEach var="country" items="${CountryList}">
-                            <option value=${country.getCountryCode()}<c:if test="${country.getCountryCode()==User.getCountryCode()}"> selected </c:if>> ${country.getCountryName()}  </option>
+                        <c:forEach items="${CountryList}" var="country" >
+                            <option value=${country.getCountry()}> ${country.getCountryName()}  </option>
                         </c:forEach>
+                            
                     </select>
                 </div>
 

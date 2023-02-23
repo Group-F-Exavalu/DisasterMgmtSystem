@@ -5,10 +5,15 @@
  */
 package com.exavalu.models;
 
+import com.exavalu.services.LoginService;
+import com.exavalu.services.SignupService;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import java.io.Serializable;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Map;
+import org.apache.log4j.Logger;
 import org.apache.struts2.dispatcher.ApplicationMap;
 import org.apache.struts2.dispatcher.SessionMap;
 import org.apache.struts2.interceptor.ApplicationAware;
@@ -135,5 +140,58 @@ public class Organisation extends ActionSupport implements ApplicationAware, Ses
      * @return the vehicleNumber
      */
     
-    
+    public String doSignUpOrg() throws Exception {
+
+        String result = "FAILURE";
+        boolean success = SignupService.getInstance().doSignupOrg(this);
+
+        if (success) {            
+            sessionMap.put("SuccessSignUp", "Successfully Registered");
+            System.out.println("Returning from success");
+            result = "SUCCESS";
+        } else {
+            Logger log = Logger.getLogger(LoginService.class.getName());
+            log.error(LocalDateTime.now() + "--Email Id already exists");
+            sessionMap.put("FailSignUp", "Email address Already Exists");
+            System.out.println("Returning from failure");
+        }
+        System.out.println(sessionMap);
+        return result;
+
+    }
+        public String doPreSignUp() throws Exception {
+        sessionMap.clear();
+        String result = "SUCCESS";
+        //check all data and submit
+        ArrayList countryList = LoginService.getInstance().getAllCountries();
+        System.err.println("country list: "+countryList);
+        ArrayList stateList = null;
+        ArrayList distList = null;
+        sessionMap.put("CountryList", countryList);
+        System.out.println("countries are" + this.country);
+        System.out.println("States are" + this.state);
+
+        if (this.country != null) {
+            stateList = LoginService.getInstance().getAllStates(this.country);
+            System.err.println("Country is: "+this.country);
+            sessionMap.put("StateList", stateList);
+            sessionMap.put("Organisation", this);
+            result = "STATELIST";
+        }
+        if (this.state != null) {
+            distList = LoginService.getInstance().getAllDistricts(this.state);
+            sessionMap.put("DistList", distList);
+            sessionMap.put("Organisation", this);
+            result = "DISTLIST";
+        }
+
+//        if (this.firstName != null && this.firstName.length() > 0 && this.lastName != null && this.lastName.length() > 0 && this.emailAddess != null && this.emailAddess.length() > 0 && this.password != null && this.password.length() > 0 && this.stateCode != null && this.stateCode.length() > 0 && this.countryCode != null && this.countryCode.length() > 0 && this.distCode != null && this.distCode.length() > 0 && this.phoneNumber != null && this.phoneNumber.length() > 0 && this.addressLine1 != null && this.addressLine1.length() > 0 && this.addressLine2 != null && this.addressLine2.length() > 0) {
+//            result = this.doSignUp();
+//
+//            System.out.println(sessionMap);
+//
+//        }
+
+        return result;
+    }
 }

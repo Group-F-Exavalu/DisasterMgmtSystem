@@ -29,8 +29,8 @@
         </script>
         <div >
             <div class="btn-group-vertical">
-                <button  type="button" onclick="loadNewContent('signupUser.jsp', 'fetchDetails')">Individual User</button>
-                <button  type="button" onclick="loadNewContent('signupOrg.jsp', 'fetchDetails')">Organisation</button>
+                <button  type="button" onclick="loadNewContent('PreSignUp', 'fetchDetails')">Individual User</button>
+                <button  type="button" onclick="loadNewContent('PreSignUpOrg', 'fetchDetails')">Organisation</button>
             </div>
         </div>
         <style>

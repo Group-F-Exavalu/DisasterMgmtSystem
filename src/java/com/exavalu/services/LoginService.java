@@ -4,12 +4,16 @@
  */
 package com.exavalu.services;
 
+import com.exavalu.models.Country;
+import com.exavalu.models.Districts;
+import com.exavalu.models.States;
 import com.exavalu.utils.JDBCConnectionManager;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import org.apache.log4j.Logger;
 
 /**
@@ -153,67 +157,69 @@ public class LoginService {
 //        }
 //        return result;
 //    }
-//    public ArrayList getAllCountries()
-//    {
-//        ArrayList countryList = new ArrayList();
-//        try {
-//            Connection con = JDBCConnectionManager.getConnection();
-//            //String sql = "SELECT employeeId, firstName, lastName, phone, address, gender, age, basicSalary, .employees, employeedb.departments, employeedb.roles where employees.departmentId = departments.departmentId and employees.roleId = roles.roleId carAllowance, departmentName, roleName FROM employeedb.employees, employeedb.departments, employeedb.roles where employees.departmentId = departments.departmentId and employees.roleId = roles.roleId order by employeeId;";
-//            String sql = "SELECT * FROM country";
-//            PreparedStatement preparedStatement = con.prepareStatement(sql);
-//
-//            ResultSet rs = preparedStatement.executeQuery();
-//
-//
-//            while(rs.next())
-//            {
-//                Country country = new Country();
-//                country.setCountryName(rs.getString("countryName"));
-//                country.setCountryCode(rs.getString("countryCode"));
-//                
-//                
-//                countryList.add(country);
-//
-//            }
-//
-//
-//        } catch (SQLException ex) {
-//            ex.printStackTrace();
-//        }
-//        System.err.println("Number of countries = "+countryList.size());
-//        return countryList;
-//    }
-//    public ArrayList getAllStates(String countryCode)
-//    {
-//        ArrayList stateList = new ArrayList();
-//        try {
-//            Connection con = JDBCConnectionManager.getConnection();
-//            //String sql = "SELECT employeeId, firstName, lastName, phone, address, gender, age, basicSalary, .employees, employeedb.departments, employeedb.roles where employees.departmentId = departments.departmentId and employees.roleId = roles.roleId carAllowance, departmentName, roleName FROM employeedb.employees, employeedb.departments, employeedb.roles where employees.departmentId = departments.departmentId and employees.roleId = roles.roleId order by employeeId;";
-//            String sql = "SELECT * FROM state where countryCode=?";
-//            PreparedStatement preparedStatement = con.prepareStatement(sql);
-//            preparedStatement.setString(1, countryCode);
-//
-//            ResultSet rs = preparedStatement.executeQuery();
-//
-//
-//            while(rs.next())
-//            {
-//                State state = new State();
-//                
-//                state.setStateCode(rs.getString("stateCode"));
-//                state.setStateName(rs.getString("stateName"));
-//                
-//                stateList.add(state);
-//
-//            }
-//
-//
-//        } catch (SQLException ex) {
-//            ex.printStackTrace();
-//        }
-//        System.err.println("Number of states = "+stateList.size());
-//        return stateList;
-//    }
+    public ArrayList getAllCountries()
+    {
+        ArrayList countryList = new ArrayList();
+        try {
+            Connection con = JDBCConnectionManager.getConnection();
+            //String sql = "SELECT employeeId, firstName, lastName, phone, address, gender, age, basicSalary, .employees, employeedb.departments, employeedb.roles where employees.departmentId = departments.departmentId and employees.roleId = roles.roleId carAllowance, departmentName, roleName FROM employeedb.employees, employeedb.departments, employeedb.roles where employees.departmentId = departments.departmentId and employees.roleId = roles.roleId order by employeeId;";
+            String sql = "Select * from countries";
+            PreparedStatement preparedStatement = con.prepareStatement(sql);
+            System.out.println("prep statement:" +preparedStatement);
+
+            ResultSet rs = preparedStatement.executeQuery();
+
+
+            while(rs.next())
+            {
+                Country country = new Country();
+                country.setCountry(rs.getString("country"));
+                country.setCountryName(rs.getString("countryName"));
+                
+                
+                
+                countryList.add(country);
+
+            }
+
+            System.err.println("Number of countries = "+countryList.size());
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        
+        return countryList;
+    }
+    public ArrayList getAllStates(String countryCode)
+    {
+        ArrayList stateList = new ArrayList();
+        try {
+            Connection con = JDBCConnectionManager.getConnection();
+            //String sql = "SELECT employeeId, firstName, lastName, phone, address, gender, age, basicSalary, .employees, employeedb.departments, employeedb.roles where employees.departmentId = departments.departmentId and employees.roleId = roles.roleId carAllowance, departmentName, roleName FROM employeedb.employees, employeedb.departments, employeedb.roles where employees.departmentId = departments.departmentId and employees.roleId = roles.roleId order by employeeId;";
+            String sql = "SELECT * FROM states where country=?";
+            PreparedStatement preparedStatement = con.prepareStatement(sql);
+            preparedStatement.setString(1, countryCode);
+
+            ResultSet rs = preparedStatement.executeQuery();
+
+
+            while(rs.next())
+            {
+                States state = new States();
+                
+                state.setState(rs.getString("state"));
+                state.setStateName(rs.getString("stateName"));
+                
+                stateList.add(state);
+
+            }
+
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        System.err.println("Number of states = "+stateList.size());
+        return stateList;
+    }
 //    
 //    public static User getUser(String emailAddress) {
 //        User user= new User();
@@ -239,35 +245,35 @@ public class LoginService {
 //        return user;
 //    }
 
-//    public ArrayList getAllDistricts(String stateCode) {
-//        
-//        ArrayList districtList = new ArrayList();
-//        try {
-//            Connection con = JDBCConnectionManager.getConnection();
-//            //String sql = "SELECT employeeId, firstName, lastName, phone, address, gender, age, basicSalary, .employees, employeedb.departments, employeedb.roles where employees.departmentId = departments.departmentId and employees.roleId = roles.roleId carAllowance, departmentName, roleName FROM employeedb.employees, employeedb.departments, employeedb.roles where employees.departmentId = departments.departmentId and employees.roleId = roles.roleId order by employeeId;";
-//            String sql = "SELECT * FROM district where stateCode=?";
-//            PreparedStatement preparedStatement = con.prepareStatement(sql);
-//            preparedStatement.setString(1, stateCode);
-//
-//            ResultSet rs = preparedStatement.executeQuery();
-//
-//
-//            while(rs.next())
-//            {
-//                District district = new District();
-//                
-//                district.setDistrictCode(rs.getString("districtCode"));
-//                district.setDistrictName(rs.getString("districtName"));
-//                
-//                districtList.add(district);
-//
-//            }
-//
-//
-//        } catch (SQLException ex) {
-//            ex.printStackTrace();
-//        }
-//        System.err.println("Number of districts = "+districtList.size());
-//        return districtList;
-//    }
+    public ArrayList getAllDistricts(String stateCode) {
+        
+        ArrayList districtList = new ArrayList();
+        try {
+            Connection con = JDBCConnectionManager.getConnection();
+            //String sql = "SELECT employeeId, firstName, lastName, phone, address, gender, age, basicSalary, .employees, employeedb.departments, employeedb.roles where employees.departmentId = departments.departmentId and employees.roleId = roles.roleId carAllowance, departmentName, roleName FROM employeedb.employees, employeedb.departments, employeedb.roles where employees.departmentId = departments.departmentId and employees.roleId = roles.roleId order by employeeId;";
+            String sql = "SELECT * FROM districts where state=?";
+            PreparedStatement preparedStatement = con.prepareStatement(sql);
+            preparedStatement.setString(1, stateCode);
+
+            ResultSet rs = preparedStatement.executeQuery();
+
+
+            while(rs.next())
+            {
+                Districts district = new Districts();
+                
+                district.setDistrict(rs.getString("district"));
+                district.setDistrictName(rs.getString("districtName"));
+                
+                districtList.add(district);
+
+            }
+
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        System.err.println("Number of districts = "+districtList.size());
+        return districtList;
+    }
 }

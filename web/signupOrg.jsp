@@ -62,7 +62,7 @@
 //            alert("'#"+selectedId.name+"'");
             
                             $.ajax({
-                                    url: 'PreSignUp',
+                                    url: 'PreSignUpOrg',
                                     data: {
                                             [selectedId]: $("#" + selectedId).val()
                                     },
@@ -83,7 +83,7 @@
             <div class="row">
             <div class="col-md-6 offset-md-3">
             <div class="card my-5">
-            <form action="PreSignUp" class="card-body cardbody-color p-lg-5" method="Post" id="signupForm">
+            <form action="SignUpOrg" class="card-body cardbody-color p-lg-5" method="Post" id="signupForm">
                 <div class="text-center">
                     <img src="images/mainlogo.svg" class="img-fluid profile-image-pic img-thumbnail rounded-circle my-4"
                          width="250px" alt="profile">
@@ -113,7 +113,7 @@
                     <select name="country" class="form-select" id="country" onchange="fetchContent('country', 'state')">
                         <option value="">Select a Country</option>
                         <c:forEach var="country" items="${CountryList}">
-                            <option value=${country.getCountryCode()}<c:if test="${country.getCountryCode()==User.getCountryCode()}"> selected </c:if>> ${country.getCountryName()}  </option>
+                            <option value=${country.getCountry()}<c:if test="${country.getCountry()==Organisation.getCountry()}"> selected </c:if>> ${country.getCountryName()}  </option>
                         </c:forEach>
                     </select>
                 </div>

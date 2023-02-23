@@ -5,12 +5,14 @@
 package com.exavalu.models;
 
 import com.exavalu.services.LoginService;
+import com.exavalu.services.SignupService;
 import com.exavalu.services.UserService;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Map;
 import org.apache.struts2.dispatcher.ApplicationMap;
 import org.apache.struts2.dispatcher.SessionMap;
@@ -230,57 +232,62 @@ public class User extends ActionSupport implements ApplicationAware, SessionAwar
         return result;
     }
 
-//    public String doSignUp() throws Exception {
-//
-//        String result = "FAILURE";
-//        boolean success = LoginService.getInstance().doSignUp(this);
-//
-//        if (success) {
-//            result = "SUCCESS";
-//            sessionMap.put("SuccessSignUp", "Successfully Registered");
-//            System.out.println("Returning from success");
-//        } else {
-//            Logger log = Logger.getLogger(LoginService.class.getName());
-//            log.error(LocalDateTime.now() + "--Email Id already exists");
-//            sessionMap.put("FailSignUp", "Email address Already Exists");
-//            System.out.println("Returning from failure");
-//        }
-//        System.out.println(sessionMap);
-//        return result;
-//
-//    }
+    public String doSignUp() throws Exception {
 
-//    public String doPreSignUp() throws Exception {
-//        String result = "FAILURE";
-//        //check all data and submit
-//        ArrayList countryList = LoginService.getAllCountries();
-//        ArrayList stateList = null;
-//        ArrayList distList = null;
-//        sessionMap.put("CountryList", countryList);
-//
-//        if (this.stateCode != null) {
-//            distList = LoginService.getAllDistricts(this.stateCode);
-//            sessionMap.put("DistList", distList);
-//            sessionMap.put("User", this);
-//            result = "DISTLIST";
-//        }
-//
-//        if (this.countryCode != null) {
-//            stateList = LoginService.getAllStates(this.countryCode);
-//            sessionMap.put("StateList", stateList);
-//            sessionMap.put("User", this);
-//            result = "STATELIST";
-//        }
-//
+        String result = "FAILURE";
+        boolean success = SignupService.getInstance().doSignupUser(this);
+
+        if (success) {            
+            sessionMap.put("SuccessSignUp", "Successfully Registered");
+            System.out.println("Returning from success");
+            result = "SUCCESS";
+        } else {
+            Logger log = Logger.getLogger(LoginService.class.getName());
+            log.error(LocalDateTime.now() + "--Email Id already exists");
+            sessionMap.put("FailSignUp", "Email address Already Exists");
+            System.out.println("Returning from failure");
+        }
+        System.out.println(sessionMap);
+        return result;
+
+    }
+    
+
+    public String doPreSignUp() throws Exception {
+        sessionMap.clear();
+        String result = "SUCCESS";
+        //check all data and submit
+        ArrayList countryList = LoginService.getInstance().getAllCountries();
+        System.err.println("country list: "+countryList);
+        ArrayList stateList = null;
+        ArrayList distList = null;
+        sessionMap.put("CountryList", countryList);
+        System.out.println("countries are" + this.country);
+        System.out.println("States are" + this.state);
+
+        if (this.country != null) {
+            stateList = LoginService.getInstance().getAllStates(this.country);
+            System.err.println("Country is: "+this.country);
+            sessionMap.put("StateList", stateList);
+            sessionMap.put("User", this);
+            result = "STATELIST";
+        }
+        if (this.state != null) {
+            distList = LoginService.getInstance().getAllDistricts(this.state);
+            sessionMap.put("DistList", distList);
+            sessionMap.put("User", this);
+            result = "DISTLIST";
+        }
+
 //        if (this.firstName != null && this.firstName.length() > 0 && this.lastName != null && this.lastName.length() > 0 && this.emailAddess != null && this.emailAddess.length() > 0 && this.password != null && this.password.length() > 0 && this.stateCode != null && this.stateCode.length() > 0 && this.countryCode != null && this.countryCode.length() > 0 && this.distCode != null && this.distCode.length() > 0 && this.phoneNumber != null && this.phoneNumber.length() > 0 && this.addressLine1 != null && this.addressLine1.length() > 0 && this.addressLine2 != null && this.addressLine2.length() > 0) {
 //            result = this.doSignUp();
 //
 //            System.out.println(sessionMap);
 //
 //        }
-//
-//        return result;
-//    }
+
+        return result;
+    }
 
     public String doLogout() {
         String result = "SUCCESS";
