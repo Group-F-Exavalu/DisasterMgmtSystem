@@ -91,26 +91,26 @@
 
                 <div class="form-floating mb-2">
                     
-                    <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="emailAddress" value="${User.getEmailAddress()}">
+                    <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="emailAddress" >
                     <label for="floatingInput">Email Address</label>
                 </div>
                 <div class="form-floating mb-2">
                     
-                    <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password" value="${User.getPassword()}">
+                    <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password" >
                     <label for="floatingInput">Password</label>
                 </div>
                 <div class="form-floating mb-2">
                      
-                    <input type="text" class="form-control" id="firstName" placeholder="first name" name="firstName" value="${User.getFirstName()}">
+                    <input type="text" class="form-control" id="firstName" placeholder="first name" name="firstName" >
                    <label for="floatingInput">First Name</label>
                 </div>
                 <div class="form-floating mb-2">
                     
-                    <input type="text" class="form-control" id="lastName" placeholder="last name" name="lastName" value="${User.getLastName()}">
+                    <input type="text" class="form-control" id="lastName" placeholder="last name" name="lastName" >
                     <label for="floatingInput">Last Name</label>
                 </div>
                 <div class="form-floating mb-2">
-                    <input type="text" class="form-control" id="phoneNumber" placeholder="phone number" name="phoneNumber" value="${User.getPhoneNumber()}">
+                    <input type="text" class="form-control" id="phoneNumber" placeholder="phone number" name="phoneNumber" >
                     <label for="floatingInput">Phone Number</label>
                 </div>
                 <div class="form-floating mb-2">
@@ -137,12 +137,12 @@
                 </div>
 
                 <div class="form-floating mb-2">
-                    <input type="text" class="form-control" id="govtId" placeholder="govtId" name="govtId" value="${User.getAddress()}">
+                    <input type="text" class="form-control" id="govtId" placeholder="govtId" name="govtId" >
                     <label for="floatingInput">Govt. ID Card Number</label>
                 </div>
 
                 <div class="form-floating mb-2">
-                    <input type="text" class="form-control" id="address" placeholder="address" name="address" value="${User.getAddress()}">
+                    <input type="text" class="form-control" id="address" placeholder="address" name="address" >
                     <label for="floatingInput">Address Line 1</label>
                 </div>
 

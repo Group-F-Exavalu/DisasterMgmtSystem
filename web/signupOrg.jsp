@@ -91,20 +91,20 @@
                 <h2 id="titles" class="h3 mb-3 fw-normal">Create Organisation Account</h2>
 
                 <div class="form-floating mb-2">
-                    <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="emailAddress" value="${User.getEmailAddress()}">
+                    <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="emailAddress" >
                     <label for="floatingInput">Email address</label>
                 </div>
                 <div class="form-floating mb-2">
-                    <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password" value="${User.getPassword()}">
+                    <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password" >
                     <label for="floatingPassword">Password</label>
                 </div>
                 <div class="form-floating mb-2">
-                    <input type="text" class="form-control" id="organisationName" placeholder="organisationName" name="organisationName" value="${User.getFirstName()}">
+                    <input type="text" class="form-control" id="organisationName" placeholder="organisationName" name="organisationName" >
                     <label for="floatingInput">Organisation Name</label>
                 </div>
                 
                 <div class="form-floating mb-2">
-                    <input type="text" class="form-control" id="regnNumber" placeholder="regnNumber" name="regnNumber" value="${User.getPhoneNumber()}">
+                    <input type="text" class="form-control" id="regnNumber" placeholder="regnNumber" name="regnNumber" >
                     <label for="floatingInput">Organisation Registration Number</label>
                 </div>
           
