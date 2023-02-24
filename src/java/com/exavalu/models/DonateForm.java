@@ -46,8 +46,9 @@ public class DonateForm extends ActionSupport implements ApplicationAware, Sessi
     public void setSession(Map<String, Object> session) {
         sessionMap = (SessionMap) session;
     }
-    public String insertMoneyForm(){
+    public String insertMoneyFormUser(){
         String result = "FAILURE";
+        donorType = "1";
         boolean res = DonateService.getInstance().insertMoneyForm(this);
         if(res){
             result="SUCCESS";
@@ -55,8 +56,29 @@ public class DonateForm extends ActionSupport implements ApplicationAware, Sessi
         }
         return result;
     }
-    public String insertEssentialsForm(){
+    public String insertMoneyFormOrg(){
         String result = "FAILURE";
+        donorType = "2";
+        boolean res = DonateService.getInstance().insertMoneyForm(this);
+        if(res){
+            result="SUCCESS";
+            System.out.println("Payment Record Added to database");
+        }
+        return result;
+    }
+    public String insertEssentialsFormUser(){
+        String result = "FAILURE";
+        donorType = "1";
+        boolean res = DonateService.getInstance().insertEssentialsForm(this);
+        if(res){
+            result="SUCCESS";
+            System.out.println("Essentials Record Added to database");
+        }
+        return result;
+    }
+    public String insertEssentialsFormOrg(){
+        String result = "FAILURE";
+        donorType = "2";
         boolean res = DonateService.getInstance().insertEssentialsForm(this);
         if(res){
             result="SUCCESS";

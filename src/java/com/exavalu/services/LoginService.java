@@ -6,7 +6,9 @@ package com.exavalu.services;
 
 import com.exavalu.models.Country;
 import com.exavalu.models.Districts;
+import com.exavalu.models.Organisation;
 import com.exavalu.models.States;
+import com.exavalu.models.User;
 import com.exavalu.utils.JDBCConnectionManager;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -221,29 +223,65 @@ public class LoginService {
         return stateList;
     }
 //    
-//    public static User getUser(String emailAddress) {
-//        User user= new User();
-//        try {
-//            Connection con = JDBCConnectionManager.getConnection();
-//            String sql = "Select * from users where emailAddress=?";
-//            PreparedStatement preparedStatement = con.prepareStatement(sql);
-//            preparedStatement.setString(1, emailAddress);
-//
-//            ResultSet rs = preparedStatement.executeQuery();
-//
-//            if(rs.next())
-//            {
-//
-//                user.setFirstName(rs.getString("firstName"));
-//                user.setLastName(rs.getString("lastName"));
-//            }
-//            
-//        } catch (SQLException ex) {
-//
-//        }
-//
-//        return user;
-//    }
+    public static User getUser(String emailAddress) {
+        User user= new User();
+        try {
+            Connection con = JDBCConnectionManager.getConnection();
+            String sql = "Select * from users where emailAddress=?";
+            PreparedStatement preparedStatement = con.prepareStatement(sql);
+            preparedStatement.setString(1, emailAddress);
+
+            ResultSet rs = preparedStatement.executeQuery();
+
+            if(rs.next())
+            {
+                user.setUserId(rs.getInt("userId"));
+                user.setFirstName(rs.getString("firstName"));
+                user.setLastName(rs.getString("lastName"));
+                user.setAddress(rs.getString("address"));
+                user.setCountry(rs.getString("country"));
+                user.setDistrict(rs.getString("district"));
+                user.setGender(rs.getString("gender"));
+                user.setGovtId(rs.getString("govtId"));
+                user.setPhoneNumber(rs.getString("phoneNumber"));
+                
+                System.out.println("User Phone :" +rs.getString("phoneNumber"));
+            }
+            
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+
+        return user;
+    }
+        public static Organisation getOrganisation(String emailAddress) {
+        Organisation org = new Organisation();
+        try {
+            Connection con = JDBCConnectionManager.getConnection();
+            String sql = "Select * from users where emailAddress=?";
+            PreparedStatement preparedStatement = con.prepareStatement(sql);
+            preparedStatement.setString(1, emailAddress);
+
+            ResultSet rs = preparedStatement.executeQuery();
+
+            if(rs.next())
+            {
+
+                org.setOrganisationId(rs.getInt("organisationId"));
+                org.setOrganisationName(rs.getString("organisationName"));
+                org.setRegnNumber(rs.getString("regnNumber"));
+                org.setCountry(rs.getString("country"));
+                org.setDistrict(rs.getString("disrict"));
+                org.setState(rs.getString("state"));
+                
+            }
+            
+        } catch (SQLException ex) {
+
+        }
+
+        return org;
+    }
 
     public ArrayList getAllDistricts(String stateCode) {
         

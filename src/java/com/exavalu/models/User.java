@@ -4,6 +4,7 @@
  */
 package com.exavalu.models;
 
+import com.exavalu.services.DonateService;
 import com.exavalu.services.LoginService;
 import com.exavalu.services.SignupService;
 import com.exavalu.services.UserService;
@@ -201,21 +202,25 @@ public class User extends ActionSupport implements ApplicationAware, SessionAwar
         boolean successOrg = LoginService.getInstance().doLoginOrganisation(this.emailAddress,this.password);
         boolean successAdmin = LoginService.getInstance().doLoginAdmin(this.emailAddress,this.password);
         
-        User user = UserService.getUser(userId);
+        User user = LoginService.getUser(emailAddress);
+        System.out.println("User Phone :" + user.getPhoneNumber());
+        Organisation organisation = LoginService.getOrganisation(emailAddress);
+        ArrayList eventList = DonateService.getInstance().getEvents();
         
-        sessionMap.put("User", user);
+        
 
         if (successUser) {
             System.out.println("returning Success from doLoginUser method");
             sessionMap.put("Loggedin", this);
             sessionMap.put("LoggedinStatus", "user");
-
+            sessionMap.put("User", user);
+            sessionMap.put("EventList", eventList);
             result = "USER";
         } else if (successOrg) {
             System.out.println("returning Success from doLoginOrganization method");
             sessionMap.put("Loggedin", this);
             sessionMap.put("LoggedinStatus", "org");
-
+            sessionMap.put("Organisation", organisation);
             result = "ORG";
         } else if (successAdmin) {
             System.out.println("returning Success from doLoginAdmin method");

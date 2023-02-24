@@ -15,6 +15,8 @@
     </head>
     <div class="container">
         <style>
+        #menu{background-color: white;}</style>
+        <style>
                 ul.nav li a:hover {
                     background-color: palevioletred;
                     color: white;
@@ -32,7 +34,7 @@
                     });
                 }
             </script>
-        <header class="d-flex flex-wrap justify-content-around py-3 mb-4 border-bottom">
+        <header class="d-flex flex-wrap justify-content-around py-3 mb-4 border-bottom" id ="menu">
             <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
                 <!--<svg class="bi me-2" width="40" height="32"><use xlink:href="images/mainlogo.svg"/></svg>-->
                 <img src="images/mainlogo.svg" width="50" height="50"></img>
@@ -50,6 +52,17 @@
             </ul>
             <%
       } else if (request.getSession().getAttribute("LoggedinStatus").equals("user")) {%>
+            <ul class="nav nav-pills">
+                <li class="nav-item"><a href="#" class="nav-link active" aria-current="page" >Home</a></li>
+                <li class="nav-item"><a href="donateMain.jsp" class="nav-link px-2 text-black">Donate</a></li>
+                <li class="nav-item"><a href="needSupport.jsp" class="nav-link px-2 text-black">Support</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-black">Contacts</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-black">Events</a></li>
+                <li class="nav-item"><a href="logout.jsp" class="nav-link px-2 text-black">Logout</a></li>
+            </ul>
+            <%
+                }else if (request.getSession().getAttribute("LoggedinStatus").equals("org")) {%>
+            %>
             <ul class="nav nav-pills">
                 <li class="nav-item"><a href="#" class="nav-link active" aria-current="page" >Home</a></li>
                 <li class="nav-item"><a href="donateMain.jsp" class="nav-link px-2 text-black">Donate</a></li>
