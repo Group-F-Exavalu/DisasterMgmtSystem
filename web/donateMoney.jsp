@@ -34,95 +34,96 @@
         <link rel="icon" href="/docs/5.3/assets/img/favicons/favicon.ico">
         <meta name="theme-color" content="#712cf9">
         <style>
-		form {
-			max-width: 400px;
-			margin: auto;
-			padding: 20px;
-			background-color: #f5f5f5;
-			border: 1px solid #ddd;
-			border-radius: 5px;
-		}
+            form {
+                max-width: 400px;
+                margin: auto;
+                padding: 20px;
+                background-color: #f5f5f5;
+                border: 1px solid #ddd;
+                border-radius: 5px;
+            }
 
-		label {
-			display: block;
-			font-weight: bold;
-			margin-bottom: 10px;
-		}
+            label {
+                display: block;
+                font-weight: bold;
+                margin-bottom: 10px;
+            }
 
-		input, select {
-			display: block;
-			width: 95%;
-			padding: 10px;
-			margin-bottom: 20px;
-			border: 1px solid #ccc;
-			border-radius: 5px;
-		}
+            input, select {
+                display: block;
+                width: 95%;
+                padding: 10px;
+                margin-bottom: 20px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+            }
 
-		button {
-			display: block;
-			margin: 0 auto;
-			padding: 10px 20px;
-			background-color: #4CAF50;
-			color: white;
-			border: none;
-			border-radius: 5px;
-			cursor: pointer;
-		}
+            button {
+                display: block;
+                margin: 0 auto;
+                padding: 10px 20px;
+                background-color: #4CAF50;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+            }
 
-		button:hover {
-			opacity: 0.8;
-		}
-	</style>
+            button:hover {
+                opacity: 0.8;
+            }
+        </style>
 
 
 
 
 
         <!-- Custom styles for this template -->
-<!--        <link href="css/bootstrap.min.css" rel="stylesheet" >
-        <link href="css/menu_css.css" rel="stylesheet" >
-        <link href="css/product.css" rel="stylesheet" >-->
+        <!--        <link href="css/bootstrap.min.css" rel="stylesheet" >
+                <link href="css/menu_css.css" rel="stylesheet" >
+                <link href="css/product.css" rel="stylesheet" >-->
         <!--        <link href="css/signin.css" rel="stylesheet">-->
 
     </head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
     <body class="text-center">
         <div id="body">
             <%--<jsp:include page="menu.jsp"></jsp:include>--%>
 
-                <main class="form-signin w-50 m-auto">
-                    
-
-                    <form action="DonateMoney" method="post" id="myForm">
+            <main class="form-signin w-50 m-auto">
 
 
-                        <h1 class="h3 mb-3 fw-normal">Form for  Monetary Donation</h1>
-                        
-                        <div class="form-floating">
-                            <input type="text" class="form-control" id="floatingInput" placeholder="user ID" name="userId" value=${User.userId} readonly>
-                            <label for="floatingInput">User ID</label>
-                        </div>
-                        <div class="form-floating">
-                            <input type="text" class="form-control" id="floatingInput" placeholder="first name" name="firstName" required>
-                            <label for="floatingInput">First Name</label>
-                        </div>
-                        <div class="form-floating">
-                            <input type="text" class="form-control" id="floatingInput" placeholder="last name" name="lastName" required>
-                            <label for="floatingInput">Last Name</label>
-                        </div>
+                <form action="DonateMoney" method="post" id="myForm">
 
-                        <div class="form-floating">
-                            <input type="text" class="form-control" id="floatingInput" placeholder="phone Number" name="phoneNumber" oninvalid="this.setCustomValidity('Enter valid 10 digit number')" pattern="[6789][0-9]{9}" required >
-                            <label for="floatingInput">Phone Number</label>
-                        </div>
-                        <div class="form-floating">
-                            <input type="text" class="form-control" id="floatingInput" placeholder="address" name="address" required >
-                            <label for="floatingInput">Address</label>
-                        </div>
-                        <div class="form-floating">
-                            <input type="text" class="form-control" id="floatingInput" placeholder="amount" name="amount" required>
-                            <label for="floatingInput">Amount</label>
-                        </div>
-                        <div class="form-floating">
+
+                    <h1 class="h3 mb-3 fw-normal">Form for  Monetary Donation</h1>
+
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="floatingInput" placeholder="user ID" name="userId" value=${User.userId} readonly>
+                        <label for="floatingInput">User ID</label>
+                    </div>
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="floatingInput" placeholder="first name" name="firstName" required>
+                        <label for="floatingInput">First Name</label>
+                    </div>
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="floatingInput" placeholder="last name" name="lastName" required>
+                        <label for="floatingInput">Last Name</label>
+                    </div>
+
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="floatingInput" placeholder="phone Number" name="phoneNumber" oninvalid="this.setCustomValidity('Enter valid 10 digit number')" pattern="[6789][0-9]{9}" required >
+                        <label for="floatingInput">Phone Number</label>
+                    </div>
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="floatingInput" placeholder="address" name="address" required >
+                        <label for="floatingInput">Address</label>
+                    </div>
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="floatingInput" placeholder="amount" name="amount" required>
+                        <label for="floatingInput">Amount</label>
+                    </div>
+                    <div class="form-floating">
                         <c:set var="eventList" value="${DonateService.getInstance().getEventTopics()}"></c:set>
                             <select name="eventId" class="form-select" id="eventId" required>
                                 <option value="">Select an event</option>
@@ -131,6 +132,7 @@
                             </c:forEach>
                         </select>
                         <label for="floatingInput">Event</label>
+                        <button id="button">Generate PDF</button>
                     </div>
 
                     <button class="w-100 btn btn-lg btn-primary" type="button" id="submitBtn">Submit</button>
@@ -139,43 +141,55 @@
             </main>
 
         </div>
-        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-<!--        <script>
-            // Get the form and submit button elements
-            var form = document.getElementById("myForm");
-            var submitBtn = document.getElementById("submitBtn");
-            var responseDiv = document.getElementById("responseDiv");
+        <script>
+            var button = document.getElementById("button");
+            button.addEventListener("click", function () {
+                var doc = new jsPDF("p", "mm", [300, 300]);
+                var makePDF = document.querySelector("#myForm");
+                var formContent = makePDF.innerHTML;
 
-            // Add a click event listener to the submit button
-            submitBtn.addEventListener("click", function (event) {
-                document.getElementById("body").style.display = 'none';
-                // Prevent the default form submission behavior
-                event.preventDefault();
-
-                // Create a new XMLHttpRequest object
-                var xhr = new XMLHttpRequest();
-
-                // Set the request method and URL
-                xhr.open("POST", "AddEmployee", true);
-
-                // Set the request headers (if needed)
-//                xhr.setRequestHeader("Content-Type", "application/json");
-
-                // Set the callback function to handle the response
-                xhr.onreadystatechange = function () {
-                    if (xhr.readyState === 4 && xhr.status === 200) {
-                        // Do something with the response (if needed)
-                        console.log(xhr.responseText);
-                        responseDiv.innerHTML = xhr.responseText;
-//                        document.body.innerHTML = xhr.responseText;
-                    }
-                };
-
-                // Get the form data and send the request
-                var formData = new FormData(form);
-                xhr.send(formData);
+                // fromHTML Method
+                doc.fromHTML(formContent);
+                doc.save("output.pdf");
             });
-        </script>-->
+        </script>
+        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+        <!--        <script>
+                    // Get the form and submit button elements
+                    var form = document.getElementById("myForm");
+                    var submitBtn = document.getElementById("submitBtn");
+                    var responseDiv = document.getElementById("responseDiv");
+        
+                    // Add a click event listener to the submit button
+                    submitBtn.addEventListener("click", function (event) {
+                        document.getElementById("body").style.display = 'none';
+                        // Prevent the default form submission behavior
+                        event.preventDefault();
+        
+                        // Create a new XMLHttpRequest object
+                        var xhr = new XMLHttpRequest();
+        
+                        // Set the request method and URL
+                        xhr.open("POST", "AddEmployee", true);
+        
+                        // Set the request headers (if needed)
+        //                xhr.setRequestHeader("Content-Type", "application/json");
+        
+                        // Set the callback function to handle the response
+                        xhr.onreadystatechange = function () {
+                            if (xhr.readyState === 4 && xhr.status === 200) {
+                                // Do something with the response (if needed)
+                                console.log(xhr.responseText);
+                                responseDiv.innerHTML = xhr.responseText;
+        //                        document.body.innerHTML = xhr.responseText;
+                            }
+                        };
+        
+                        // Get the form data and send the request
+                        var formData = new FormData(form);
+                        xhr.send(formData);
+                    });
+                </script>-->
 
         <div id="responseDiv" ></div>
 
