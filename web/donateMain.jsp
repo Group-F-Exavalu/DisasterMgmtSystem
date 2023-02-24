@@ -28,10 +28,16 @@
             }
         </script>
         <div >
+        <c:if test="${user!=null}">
             <div class="btn-group-vertical">
-                <button  type="button" onclick="loadNewContent('donateMoney.jsp', 'fetchDetails')">Donate Money</button>
-                <button  type="button" onclick="loadNewContent('donateEssentials.jsp', 'fetchDetails')">Donate Essentials</button>
-            </div>
+                <button  type="button" onclick="loadNewContent('DonateMoney', 'fetchDetails')">Donate Money</button>
+                <button  type="button" onclick="loadNewContent('DonateEssentials', 'fetchDetails')">Donate Essentials</button>
+            </div></c:if>
+        <c:if test="${organisation!=null}">
+            <div class="btn-group-vertical">
+                <button  type="button" onclick="loadNewContent('DonateMoney', 'fetchDetails')">Donate Money</button>
+                <button  type="button" onclick="loadNewContent('DonateEssentials', 'fetchDetails')">Donate Essentials</button>
+            </div></c:if>
         </div>
         <style>
             .btn-group-vertical {
