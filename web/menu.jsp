@@ -13,28 +13,31 @@
         <link href='https://fonts.googleapis.com/css?family=Playfair Display' rel='stylesheet'>
         <!--<link href="css/carousel.css" rel="stylesheet">-->
     </head>
+    <style>
+        #menuback{
+            background-color: white;
+        }
+    </style>
     <div class="container">
         <style>
-        #menu{background-color: white;}</style>
-        <style>
-                ul.nav li a:hover {
-                    background-color: palevioletred;
-                    color: white;
-                }
-            </style>
-            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-            <script type="text/javascript">
-                function loadNewContent(url, id, ) {
-                    //                    document.getElementById("MENU").style.display = 'none';
-                    $.ajax({
-                        url: url,
-                        success: function (response) {
-                            $('#' + id).html(response);
-                        }
-                    });
-                }
-            </script>
-        <header class="d-flex flex-wrap justify-content-around py-3 mb-4 border-bottom" id ="menu">
+            ul.nav li a:hover {
+                background-color: palevioletred;
+                color: white;
+            }
+        </style>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script type="text/javascript">
+            function loadNewContent(url, id, ) {
+                //                    document.getElementById("MENU").style.display = 'none';
+                $.ajax({
+                    url: url,
+                    success: function (response) {
+                        $('#' + id).html(response);
+                    }
+                });
+            }
+        </script>
+        <header class="d-flex site-header sticky-lg-top justify-content-around py-3 mb-4 border-bottom" id="menuback">
             <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
                 <!--<svg class="bi me-2" width="40" height="32"><use xlink:href="images/mainlogo.svg"/></svg>-->
                 <img src="images/mainlogo.svg" width="50" height="50"></img>
@@ -42,16 +45,16 @@
             </a>
             <% if (request.getSession().getAttribute("Loggedin") == null) {%>
             <ul class="nav nav-pills">
-                <li class="nav-item"><a href="#" class="nav-link active" aria-current="page" >Home</a></li>
-                <li class="nav-item"><a href="#" class="nav-link px-2 text-black">Donate</a></li>
-                <li class="nav-item"><a href="#" class="nav-link px-2 text-black">Support</a></li>
+                <li class="nav-item"><a href="landingPage.jsp" class="nav-link active" aria-current="page" >Home</a></li>
+                <li class="nav-item"><a href="login.jsp" class="nav-link px-2 text-black">Donate</a></li>
+                <li class="nav-item"><a href="login.jsp" class="nav-link px-2 text-black">Support</a></li>
                 <li class="nav-item"><a href="#" class="nav-link px-2 text-black">Contact</a></li>
                 <li class="nav-item"><a href="#" class="nav-link px-2 text-black">Events</a></li>
                 <li class="nav-item"><a href="login.jsp" class="nav-link px-2 text-black">Login</a></li>
                 <li class="nav-item"><a href="signupMain.jsp" class="nav-link px-2 text-black">Sign Up</a></li>
             </ul>
             <%
-      } else if (request.getSession().getAttribute("LoggedinStatus").equals("user")) {%>
+            } else if (request.getSession().getAttribute("LoggedinStatus").equals("user")) {%>
             <ul class="nav nav-pills">
                 <li class="nav-item"><a href="#" class="nav-link active" aria-current="page" >Home</a></li>
                 <li class="nav-item"><a href="donateMain.jsp" class="nav-link px-2 text-black">Donate</a></li>
@@ -61,7 +64,7 @@
                 <li class="nav-item"><a href="logout.jsp" class="nav-link px-2 text-black">Logout</a></li>
             </ul>
             <%
-                }else if (request.getSession().getAttribute("LoggedinStatus").equals("org")) {%>
+            } else if (request.getSession().getAttribute("LoggedinStatus").equals("org")) {%>
             %>
             <ul class="nav nav-pills">
                 <li class="nav-item"><a href="#" class="nav-link active" aria-current="page" >Home</a></li>
@@ -105,7 +108,7 @@
         <button type="button" class="btn btn-warning">Sign-up</button>
     </a>
     <%
-                    } else {%>
+    } else {%>
 
     <a href="Logout">
         <button type="button" class="btn btn-outline-light me-2" >Log Out</button>

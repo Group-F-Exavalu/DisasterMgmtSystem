@@ -36,7 +36,7 @@
             <result name="FAILURE">signupOrg.jsp</result>
         </action>
         <action name="DonateMoneyUser" class="com.exavalu.models.DonateForm" method="insertMoneyFormUser">
-            <result name="SUCCESS">donateMoney.jsp</result>
+            <result name="SUCCESS">donateMain.jsp</result>
             <result name="FAILURE">donateMoney.jsp</result>
         </action>
         <action name="DonateMoneyOrg" class="com.exavalu.models.User" method="doLogout">
@@ -44,7 +44,7 @@
             <result name="FAILURE">landingPage.jsp</result>
         </action>
         <action name="DonateEssentialUser" class="com.exavalu.models.DonateForm" method="insertEssentialsFormUser">
-            <result name="SUCCESS">donateEssentials.jsp</result>
+            <result name="SUCCESS">donateMain.jsp</result>
             <result name="FAILURE">donateEssentials.jsp</result>
         </action>
     </package>
