@@ -17,7 +17,8 @@
 
     </head>
      <style>
-        .btn-color{
+       
+         .btn-color{
             background-color: #0e1c36;
             color: #fff;
 
@@ -44,6 +45,9 @@
         #titles{
             font-family: cursive;
             
+        }
+        body {
+            background-image: url('https://technext.github.io/givehope/images/img_3.jpg');
         }
     </style>
 

@@ -46,6 +46,9 @@
             font-family: cursive;
             
         }
+        body {
+            background-image: url('https://technext.github.io/givehope/images/img_3.jpg');
+        }
     </style>
 
     <script src="https://code.jquery.com/jquery-3.6.3.js" 

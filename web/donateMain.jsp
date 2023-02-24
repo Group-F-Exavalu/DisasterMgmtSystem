@@ -28,15 +28,15 @@
             }
         </script>
         <div >
-        <c:if test="${user!=null}">
+        <c:if test="${User!=null}">
             <div class="btn-group-vertical">
-                <button  type="button" onclick="loadNewContent('DonateMoney', 'fetchDetails')">Donate Money</button>
-                <button  type="button" onclick="loadNewContent('DonateEssentials', 'fetchDetails')">Donate Essentials</button>
+                <button  type="button" onclick="loadNewContent('donateMoney.jsp', 'fetchDetails')">Donate Money</button>
+                <button  type="button" onclick="loadNewContent('donateEssentials.jsp', 'fetchDetails')">Donate Essentials</button>
             </div></c:if>
-        <c:if test="${organisation!=null}">
+        <c:if test="${Organisation!=null}">
             <div class="btn-group-vertical">
-                <button  type="button" onclick="loadNewContent('DonateMoney', 'fetchDetails')">Donate Money</button>
-                <button  type="button" onclick="loadNewContent('DonateEssentials', 'fetchDetails')">Donate Essentials</button>
+                <button  type="button" onclick="loadNewContent('DonateMoneyOrg', 'fetchDetails')">Donate Money</button>
+                <button  type="button" onclick="loadNewContent('DonateEssentialsOrg', 'fetchDetails')">Donate Essentials</button>
             </div></c:if>
         </div>
         <style>

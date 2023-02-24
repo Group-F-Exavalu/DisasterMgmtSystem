@@ -72,7 +72,19 @@
             button:hover {
                 opacity: 0.8;
             }
+            body {
+                background-image: url('https://demo.w3layouts.com/demos_new/template_demo/12-03-2018/relief-demo_Free/1550522509/web/images/banner4.jpg');
+            }
         </style>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script>
+                      // Function to GeneratePdf
+            function GeneratePdf() {
+                var element = document.getElementById('myForm');
+                html2pdf(element);
+            }
+        </script>
+        
 
 
 
@@ -85,38 +97,61 @@
         <!--        <link href="css/signin.css" rel="stylesheet">-->
 
     </head>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
+    <style>
+        .btn-color{
+            background-color: #0e1c36;
+            color: #fff;
+
+        }
+
+        .profile-image-pic{
+            height: 200px;
+            width: 200px;
+            object-fit: cover;
+        }
+
+        .cardbody-color{
+            background-color: whitesmoke;
+        }
+
+        a{
+            text-decoration: none;
+        }
+    </style>
+<!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.8.1/html2pdf.bundle.min.js"></script>
     <body class="text-center">
+        
         <div id="body">
             <%--<jsp:include page="menu.jsp"></jsp:include>--%>
-
+            <div id ="success">
             <main class="form-signin w-50 m-auto">
 
 
-                <form action="DonateMoney" method="post" id="myForm">
+                <form action="DonateMoneyUser" method="post" id="myForm">
 
 
-                    <h1 class="h3 mb-3 fw-normal">Form for  Monetary Donation</h1>
+                    <h1 class="h3 mb-3 fw-normal">Monetary Donation</h1>
 
                     <div class="form-floating">
-                        <input type="text" class="form-control" id="floatingInput" placeholder="user ID" name="userId" value=${User.userId} readonly>
+                        <input type="text" class="form-control" id="floatingInput" placeholder="user ID" name="donorId" value=${User.userId} readonly>
                         <label for="floatingInput">User ID</label>
                     </div>
                     <div class="form-floating">
-                        <input type="text" class="form-control" id="floatingInput" placeholder="first name" name="firstName" required>
+                        <input type="text" class="form-control" id="floatingInput" placeholder="first name" name="firstName" value=${User.firstName} readonly>
                         <label for="floatingInput">First Name</label>
                     </div>
                     <div class="form-floating">
-                        <input type="text" class="form-control" id="floatingInput" placeholder="last name" name="lastName" required>
+                        <input type="text" class="form-control" id="floatingInput" placeholder="last name" name="lastName" value=${User.lastName} readonly>
                         <label for="floatingInput">Last Name</label>
                     </div>
 
                     <div class="form-floating">
-                        <input type="text" class="form-control" id="floatingInput" placeholder="phone Number" name="phoneNumber" oninvalid="this.setCustomValidity('Enter valid 10 digit number')" pattern="[6789][0-9]{9}" required >
+                        <input type="text" class="form-control" id="floatingInput" placeholder="phone Number" name="phoneNumber" value=${User.phoneNumber} readonly>
                         <label for="floatingInput">Phone Number</label>
                     </div>
                     <div class="form-floating">
-                        <input type="text" class="form-control" id="floatingInput" placeholder="address" name="address" required >
+                        <input type="text" class="form-control" id="floatingInput" placeholder="address" name="address" value=${User.address} readonly>
                         <label for="floatingInput">Address</label>
                     </div>
                     <div class="form-floating">
@@ -124,23 +159,24 @@
                         <label for="floatingInput">Amount</label>
                     </div>
                     <div class="form-floating">
-                        <c:set var="eventList" value="${DonateService.getInstance().getEventTopics()}"></c:set>
+                        
                             <select name="eventId" class="form-select" id="eventId" required>
                                 <option value="">Select an event</option>
-                            <c:forEach var="event" items="${eventList}">
+                            <c:forEach var="event" items="${EventList}">
                                 <option value=${event.eventId}> ${event.eventTopic}  </option>
                             </c:forEach>
                         </select>
                         <label for="floatingInput">Event</label>
-                        <button id="button">Generate PDF</button>
+                        <button onclick= "GeneratePdf()" class="btn btn-color px-2 mb-2 w-100" type="button" id="button">Generate PDF</button>
                     </div>
 
-                    <button class="w-100 btn btn-lg btn-primary" type="button" id="submitBtn">Submit</button>
+                    <button class="btn btn-color px-2 mb-2 w-100" type="submit" id="submitBtn">Submit</button>
 
                 </form>
             </main>
 
         </div>
+                        </div>
         <script>
             var button = document.getElementById("button");
             button.addEventListener("click", function () {
