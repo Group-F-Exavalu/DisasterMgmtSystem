@@ -64,7 +64,7 @@
                 <li class="nav-item"><a href="logout.jsp" class="nav-link px-2 text-black">Logout</a></li>
             </ul>
             <%
-            } else if (request.getSession().getAttribute("LoggedinStatus").equals("org")) {%>
+            } else if (request.getSession().getAttribute("LoggedinStatus").equals("org")) {
             %>
             <ul class="nav nav-pills">
                 <li class="nav-item"><a href="#" class="nav-link active" aria-current="page" >Home</a></li>

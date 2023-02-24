@@ -39,11 +39,15 @@
             <result name="SUCCESS">donateMain.jsp</result>
             <result name="FAILURE">donateMoney.jsp</result>
         </action>
-        <action name="DonateMoneyOrg" class="com.exavalu.models.User" method="doLogout">
-            <result name="SUCCESS">login.jsp</result>
-            <result name="FAILURE">landingPage.jsp</result>
+        <action name="DonateMoneyOrg" class="com.exavalu.models.DonateForm" method="insertMoneyFormOrg">
+            <result name="SUCCESS">donateMain.jsp</result>
+            <result name="FAILURE">donateMoney.jsp</result>
         </action>
         <action name="DonateEssentialUser" class="com.exavalu.models.DonateForm" method="insertEssentialsFormUser">
+            <result name="SUCCESS">donateMain.jsp</result>
+            <result name="FAILURE">donateEssentials.jsp</result>
+        </action>
+        <action name="DonateEssentialOrg" class="com.exavalu.models.DonateForm" method="insertEssentialsFormOrg">
             <result name="SUCCESS">donateMain.jsp</result>
             <result name="FAILURE">donateEssentials.jsp</result>
         </action>
