@@ -258,7 +258,7 @@ public class LoginService {
         Organisation org = new Organisation();
         try {
             Connection con = JDBCConnectionManager.getConnection();
-            String sql = "Select * from users where emailAddress=?";
+            String sql = "Select * from organisations where emailAddress=?";
             PreparedStatement preparedStatement = con.prepareStatement(sql);
             preparedStatement.setString(1, emailAddress);
 
@@ -271,7 +271,7 @@ public class LoginService {
                 org.setOrganisationName(rs.getString("organisationName"));
                 org.setRegnNumber(rs.getString("regnNumber"));
                 org.setCountry(rs.getString("country"));
-                org.setDistrict(rs.getString("disrict"));
+                org.setDistrict(rs.getString("district"));
                 org.setState(rs.getString("state"));
                 
             }

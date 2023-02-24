@@ -35,8 +35,8 @@
             </div></c:if>
         <c:if test="${Organisation!=null}">
             <div class="btn-group-vertical">
-                <button  type="button" onclick="loadNewContent('DonateMoneyOrg', 'fetchDetails')">Donate Money</button>
-                <button  type="button" onclick="loadNewContent('DonateEssentialsOrg', 'fetchDetails')">Donate Essentials</button>
+                <button  type="button" onclick="loadNewContent('donateMoney.jsp', 'fetchDetails')">Donate Money</button>
+                <button  type="button" onclick="loadNewContent('donateEssentials.jsp', 'fetchDetails')">Donate Essentials</button>
             </div></c:if>
         </div>
         <style>

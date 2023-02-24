@@ -221,6 +221,7 @@ public class User extends ActionSupport implements ApplicationAware, SessionAwar
             sessionMap.put("Loggedin", this);
             sessionMap.put("LoggedinStatus", "org");
             sessionMap.put("Organisation", organisation);
+            sessionMap.put("EventList", eventList);
             result = "ORG";
         } else if (successAdmin) {
             System.out.println("returning Success from doLoginAdmin method");
