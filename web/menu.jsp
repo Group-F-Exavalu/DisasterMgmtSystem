@@ -20,10 +20,45 @@
     </style>
     <div class="container">
         <style>
-            ul.nav li a:hover {
+            a {
+/*                background-image: linear-gradient(
+                    to right,
+                    #8B4000,
+                    #8B4000 50%,
+                    #000 50%
+                    );*/
+                background-size: 200% 100%;
+                background-position: -100%;
+                display: inline-block;
+                padding: 5px 0;
+                position: relative;
+                
+                transition: all 0.3s ease-in-out;
+            }
+
+            a:before{
+                content: '';
+                background: #DC582A;
+                display: block;
+                position: absolute;
+                bottom: -3px;
+                left: 0;
+                width: 0;
+                height: 3px;
+                transition: all 0.3s ease-in-out;
+            }
+
+            a:hover {
+                background-position: 0;
+            }
+
+            a:hover::before{
+                width: 100%;
+            }
+/*            ul.nav li a:hover {
                 background-color: palevioletred;
                 color: white;
-            }
+            }*/
         </style>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script type="text/javascript">
@@ -41,11 +76,12 @@
             <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
                 <!--<svg class="bi me-2" width="40" height="32"><use xlink:href="images/mainlogo.svg"/></svg>-->
                 <img src="images/mainlogo.svg" width="50" height="50"></img>
-                <!--<span class="fs-4">Simple header</span>-->
+
+                <!--<span class="fs-4">Simple header</span>aria-current="page"-->
             </a>
             <% if (request.getSession().getAttribute("Loggedin") == null) {%>
             <ul class="nav nav-pills">
-                <li class="nav-item"><a href="landingPage.jsp" class="nav-link active" aria-current="page" >Home</a></li>
+                <li class="nav-item"><a href="landingPage.jsp" class="nav-link px-2 text-black">Home</a></li>
                 <li class="nav-item"><a href="login.jsp" class="nav-link px-2 text-black">Donate</a></li>
                 <li class="nav-item"><a href="login.jsp" class="nav-link px-2 text-black">Support</a></li>
                 <li class="nav-item"><a href="#" class="nav-link px-2 text-black">Contact</a></li>
@@ -56,22 +92,22 @@
             <%
             } else if (request.getSession().getAttribute("LoggedinStatus").equals("user")) {%>
             <ul class="nav nav-pills">
-                <li class="nav-item"><a href="#" class="nav-link active" aria-current="page" >Home</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-black">Home</a></li>
                 <li class="nav-item"><a href="donateMain.jsp" class="nav-link px-2 text-black">Donate</a></li>
                 <li class="nav-item"><a href="needSupport.jsp" class="nav-link px-2 text-black">Support</a></li>
                 <li class="nav-item"><a href="#" class="nav-link px-2 text-black">Contacts</a></li>
-                <li class="nav-item"><a href="#" class="nav-link px-2 text-black">Events</a></li>
+                <li class="nav-item"><a href="eventList.jsp" class="nav-link px-2 text-black">Events</a></li>
                 <li class="nav-item"><a href="logout.jsp" class="nav-link px-2 text-black">Logout</a></li>
             </ul>
             <%
             } else if (request.getSession().getAttribute("LoggedinStatus").equals("org")) {
             %>
             <ul class="nav nav-pills">
-                <li class="nav-item"><a href="#" class="nav-link active" aria-current="page" >Home</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-black">Home</a></li>
                 <li class="nav-item"><a href="donateMain.jsp" class="nav-link px-2 text-black">Donate</a></li>
                 <li class="nav-item"><a href="needSupport.jsp" class="nav-link px-2 text-black">Support</a></li>
                 <li class="nav-item"><a href="#" class="nav-link px-2 text-black">Contacts</a></li>
-                <li class="nav-item"><a href="#" class="nav-link px-2 text-black">Events</a></li>
+                <li class="nav-item"><a href="eventList.jsp" class="nav-link px-2 text-black">Events</a></li>
                 <li class="nav-item"><a href="logout.jsp" class="nav-link px-2 text-black">Logout</a></li>
             </ul>
             <%
