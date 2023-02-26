@@ -19,19 +19,11 @@ import org.apache.struts2.interceptor.SessionAware;
  */
 public class GmailUser extends ActionSupport implements ApplicationAware, SessionAware, Serializable {
 
-    private int id;
+    private String id;
     private String firstName;
     private String lastName;
     private String emailAddress;
     private String imageUrl;
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getFirstName() {
         return firstName;
@@ -77,6 +69,20 @@ public class GmailUser extends ActionSupport implements ApplicationAware, Sessio
     @Override
     public void setSession(Map<String, Object> session) {
         sessionMap = (SessionMap) session;
+    }
+
+    /**
+     * @return the id
+     */
+    public String getId() {
+        return id;
+    }
+
+    /**
+     * @param id the id to set
+     */
+    public void setId(String id) {
+        this.id = id;
     }
 
   
