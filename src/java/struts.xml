@@ -7,7 +7,7 @@
     <package name="default" namespace="/" extends="struts-default">
         <action name="Login" class="com.exavalu.models.User" method="doLogin">
             <result name="USER">landingPage.jsp</result>
-            <result name="ORG">menu.jsp</result>
+            <result name="ORG">landingPage.jsp</result>
             <result name="ADMIN">menu.jsp</result>
             <result name="FAILURE">login.jsp</result>
         </action>  

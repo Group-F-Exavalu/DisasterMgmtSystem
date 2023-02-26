@@ -192,7 +192,7 @@
                 <form action="DonateMoneyOrg" method="post" id="myForm">
 
 
-                    <h1 class="h3 mb-3 fw-normal">Monetary Donation</h1>
+                    <h1 class="h3 mb-3 fw-normal text-center">Monetary Donation</h1>
 
                     <div class="form-floating">
                         <input type="text" class="form-control" id="floatingInput" placeholder="Organisation ID" name="donorId" value=${Organisation.organisationId} readonly>
