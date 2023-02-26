@@ -4,6 +4,9 @@
  */
 package com.exavalu.models;
 
+import com.exavalu.services.DonateService;
+import com.exavalu.services.SupportService;
+
 /**
  *
  * @author Preyangsee
@@ -69,5 +72,24 @@ public class Event {
      */
     public void setStatus(String status) {
         this.status = status;
+    }
+    public String insertEventUser(){
+        String result = "FAILURE";
+        
+        boolean res = SupportService.getInstance().insertEvents(this);
+        if(res){
+            result="SUCCESS";
+            System.out.println("Events submitted");
+        }
+        return result;
+    }
+    public String insertEventOrg(){
+        String result = "FAILURE";
+        boolean res = SupportService.getInstance().insertEvents(this);
+        if(res){
+            result="SUCCESS";
+            System.out.println("Events submitted");
+        }
+        return result;
     }
 }

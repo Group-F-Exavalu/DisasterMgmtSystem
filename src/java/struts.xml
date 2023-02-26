@@ -51,5 +51,13 @@
             <result name="SUCCESS">donateMain.jsp</result>
             <result name="FAILURE">donateEssentials.jsp</result>
         </action>
+        <action name="NeedSupportUser" class="com.exavalu.models.Event" method="insertEventUser">
+            <result name="SUCCESS">landingPage.jsp</result>
+            <result name="FAILURE">needSupport.jsp</result>
+        </action>
+        <action name="NeedSupportOrg" class="com.exavalu.models.Event" method="insertEventOrg">
+            <result name="SUCCESS">landingPage.jsp</result>
+            <result name="FAILURE">needSupport.jsp</result>
+        </action>
     </package>
 </struts>

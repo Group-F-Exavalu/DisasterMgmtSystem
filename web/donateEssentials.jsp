@@ -141,8 +141,7 @@
                 <label for="name">Registration Number</label>
                 <input type="text" id="lastName" placeholder="last name" name="lastName" value=${Organisation.regnNumber} readonly>
 
-                <label for="name"> Address </label>
-                <input type="text" placeholder="Address" name="address" value=${Organisation.district} readonly>
+                
                 <div class="form-floating">
                         
                             <select name="eventId" class="form-select" id="eventId" required>

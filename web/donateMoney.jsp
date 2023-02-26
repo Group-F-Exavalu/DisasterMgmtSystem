@@ -207,10 +207,7 @@
                         <input type="text" class="form-control" id="floatingInput" placeholder="phone Number" name="phoneNumber" value=${User.phoneNumber} readonly>
                         <label for="floatingInput">Phone Number</label>
                     </div>-->
-                    <div class="form-floating">
-                        <input type="text" class="form-control" id="floatingInput" placeholder="Address" name="address" value=${Organisation.district} readonly>
-                        <label for="floatingInput">Address</label>
-                    </div>
+                    
                     <div class="form-floating">
                         <input type="text" class="form-control" id="floatingInput" placeholder="amount" name="amount" required>
                         <label for="floatingInput">Amount</label>

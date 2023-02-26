@@ -170,8 +170,8 @@
                             <h1 class="h3 mb-3 fw-normal">I Need Help</h1>
 
                             <div class="form-floating">
-                                <input type="text" class="form-control" id="floatingInput" placeholder="user ID" name="userId" value=${User.userId} readonly>
-                                <label for="floatingInput">User ID</label>
+                                <input type="text" class="form-control" id="floatingInput" placeholder="user ID" name="userId" value=${Organisation.organisationId} readonly>
+                                <label for="floatingInput">Organisation ID</label>
                             </div>
                             <div class="form-floating">
                                 <input type="text" class="form-control" id="floatingInput" placeholder="event Topic" name="eventTopic">
