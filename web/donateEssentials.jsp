@@ -135,7 +135,7 @@
 
         <div class="col-lg-6">
             <form action="DonateEssentialOrg" method="post" id="myForm">
-                <h1 class="h3 mb-3 fw-normal">Donation of Essentials</h1>
+                <h1 class="h3 mb-3 fw-normal text-center">Donation of Essentials</h1>
                 <label for="name">Organisation Id</label>
                 <input type="text" id="userId" name="donorId" value=${Organisation.organisationId} readonly>
 
