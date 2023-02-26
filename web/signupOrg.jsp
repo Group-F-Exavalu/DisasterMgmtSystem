@@ -27,6 +27,10 @@
             color: whitesmoke
 
         }
+        .btn:hover {
+                background-color: #CD5A00;
+                color: white;
+        }
 
         .profile-image-pic{
             height: 200px;
@@ -42,10 +46,10 @@
             text-decoration: none;
         }
         
-        #titles{
+/*        #titles{
             font-family: cursive;
             
-        }
+        }*/
         body {
             background-image: url('https://technext.github.io/givehope/images/img_3.jpg');
         }
@@ -91,7 +95,7 @@
                     <img src="images/mainlogo.svg" class="img-fluid profile-image-pic img-thumbnail rounded-circle my-4"
                          width="250px" alt="profile">
                 </div>
-                <h2 id="titles" class="h3 mb-3 fw-normal">Create Organisation Account</h2>
+                <h1 id="titles" class="h3 mb-3 fw-normal text-center">Create Organisation Account</h1>
 
                 <div class="form-floating mb-2">
                     <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="emailAddress" >
@@ -142,11 +146,10 @@
                         <input type="checkbox" value="remember-me"> Remember me
                     </label>
                 </div>
-                <div display="flex"><button type="submit" class="btn btn-color px-2 mb-1 w-100">Sign Up</button>
-                <a href="landingPage.jsp">
-                    <button type="button" class="btn btn-color-cancel px-2 mb-1 w-100">Cancel</button>
-                </a></div>
-                <p class="mt-5 mb-3 text-muted">&copy; 2023-2024</p>
+                <div display="flex"><button type="submit" class="btn btn-color px-2 mb-1 w-100" id="button">Sign Up</button>
+                <div id="emailHelp" class="form-text text-center mb-5 text-dark">Not Interested? <a href="landingPage.jsp" class="text-dark fw-bold"> Cancel</a>
+                </div>
+                <p class="mt-5 mb-3 text-muted text-center">&copy; 2023-2024</p>
             </form>
                     </div>
                     </div>
