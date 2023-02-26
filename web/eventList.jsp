@@ -1,4 +1,5 @@
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -68,6 +69,8 @@
     <section class="ftco-section">
       <div class="container">
         <div class="row">
+        <c:if test="${EventList!=null}">
+            <c:forEach items="${EventList}" var="event">
         	<div class="col-md-4 d-flex ftco-animate">
           	<div class="blog-entry align-self-stretch">
               <a href="blog-single.html" class="block-20" style="background-image: url('images/event-1.jpg');">
@@ -78,14 +81,17 @@
                   <div><a href="#">Admin</a></div>
                   <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
                 </div>
-                <h3 class="heading mb-4"><a href="#">World Wide Donation</a></h3>
-                <p class="time-loc"><span class="mr-2"><i class="icon-clock-o"></i> 10:30AM-03:30PM</span> <span><i class="icon-map-o"></i> Venue Main Campus</span></p>
-                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+                <h3 class="heading mb-4">${event.getEventTopic()}</h3>
+                <p class="time-loc"><span class="mr-2"><i class="icon-clock-o"></i> 10:30AM-03:30PM</span> </p>
+<!--                    <span><i class="icon-map-o"></i> Venue Main Campus</span></p>-->
+                <p>${event.getEventDetails()}</p>
                 <p><a href="event.html">Join Event <i class="ion-ios-arrow-forward"></i></a></p>
               </div>
             </div>
           </div>
-          <div class="col-md-4 d-flex ftco-animate">
+                </c:forEach>
+                </c:if>
+<!--          <div class="col-md-4 d-flex ftco-animate">
           	<div class="blog-entry align-self-stretch">
               <a href="blog-single.html" class="block-20" style="background-image: url('images/event-2.jpg');">
               </a>
@@ -101,8 +107,8 @@
                 <p><a href="event.html">Join Event <i class="ion-ios-arrow-forward"></i></a></p>
               </div>
             </div>
-          </div>
-          <div class="col-md-4 d-flex ftco-animate">
+          </div>-->
+<!--          <div class="col-md-4 d-flex ftco-animate">
           	<div class="blog-entry align-self-stretch">
               <a href="blog-single.html" class="block-20" style="background-image: url('images/event-3.jpg');">
               </a>
@@ -118,8 +124,8 @@
                 <p><a href="event.html">Join Event <i class="ion-ios-arrow-forward"></i></a></p>
               </div>
             </div>
-          </div>
-          <div class="col-md-4 d-flex ftco-animate">
+          </div>-->
+<!--          <div class="col-md-4 d-flex ftco-animate">
           	<div class="blog-entry align-self-stretch">
               <a href="blog-single.html" class="block-20" style="background-image: url('images/event-4.jpg');">
               </a>
@@ -135,8 +141,8 @@
                 <p><a href="event.html">Join Event <i class="ion-ios-arrow-forward"></i></a></p>
               </div>
             </div>
-          </div>
-          <div class="col-md-4 d-flex ftco-animate">
+          </div>-->
+<!--          <div class="col-md-4 d-flex ftco-animate">
           	<div class="blog-entry align-self-stretch">
               <a href="blog-single.html" class="block-20" style="background-image: url('images/event-5.jpg');">
               </a>
@@ -152,8 +158,8 @@
                 <p><a href="event.html">Join Event <i class="ion-ios-arrow-forward"></i></a></p>
               </div>
             </div>
-          </div>
-          <div class="col-md-4 d-flex ftco-animate">
+          </div>-->
+<!--          <div class="col-md-4 d-flex ftco-animate">
           	<div class="blog-entry align-self-stretch">
               <a href="blog-single.html" class="block-20" style="background-image: url('images/event-6.jpg');">
               </a>
@@ -169,7 +175,7 @@
                 <p><a href="event.html">Join Event <i class="ion-ios-arrow-forward"></i></a></p>
               </div>
             </div>
-          </div>
+          </div>-->
         </div>
         <div class="row mt-5">
           <div class="col text-center">

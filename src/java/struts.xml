@@ -59,5 +59,9 @@
             <result name="SUCCESS">landingPage.jsp</result>
             <result name="FAILURE">needSupport.jsp</result>
         </action>
+        <action name="DisplayEvent" class="com.exavalu.models.DonateForm" method="getAllEvents">
+            <result name="SUCCESS">eventList.jsp</result>
+            <result name="FAILURE">landingPage.jsp</result>
+        </action>
     </package>
 </struts>

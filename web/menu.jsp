@@ -89,7 +89,7 @@
                 <li class="nav-item"><a href="login.jsp" class="nav-link px-2 text-black">Donate</a></li>
                 <li class="nav-item"><a href="login.jsp" class="nav-link px-2 text-black">Support</a></li>
                 <li class="nav-item"><a href="#" class="nav-link px-2 text-black">Contact</a></li>
-                <li class="nav-item"><a href="eventList.jsp" class="nav-link px-2 text-black">Events</a></li>
+                <li class="nav-item"><a href="DisplayEvent" class="nav-link px-2 text-black">Events</a></li>
                 <li class="nav-item"><a href="login.jsp" class="nav-link px-2 text-black">Login</a></li>
                 <li class="nav-item"><a href="signupMain.jsp" class="nav-link px-2 text-black">Sign Up</a></li>
             </ul>
@@ -100,7 +100,7 @@
                 <li class="nav-item"><a href="donateMain.jsp" class="nav-link px-2 text-black">Donate</a></li>
                 <li class="nav-item"><a href="needSupport.jsp" class="nav-link px-2 text-black">Support</a></li>
                 <li class="nav-item"><a href="#" class="nav-link px-2 text-black">Contacts</a></li>
-                <li class="nav-item"><a href="eventList.jsp" class="nav-link px-2 text-black">Events</a></li>
+                <li class="nav-item"><a href="DisplayEvent" class="nav-link px-2 text-black">Events</a></li>
                 <li class="nav-item"><a href="logout.jsp" class="nav-link px-2 text-black">Logout</a></li>
             </ul>
             <%
@@ -111,7 +111,7 @@
                 <li class="nav-item"><a href="donateMain.jsp" class="nav-link px-2 text-black">Donate</a></li>
                 <li class="nav-item"><a href="needSupport.jsp" class="nav-link px-2 text-black">Support</a></li>
                 <li class="nav-item"><a href="#" class="nav-link px-2 text-black">Contacts</a></li>
-                <li class="nav-item"><a href="eventList.jsp" class="nav-link px-2 text-black">Events</a></li>
+                <li class="nav-item"><a href="DisplayEvent" class="nav-link px-2 text-black">Events</a></li>
                 <li class="nav-item"><a href="logout.jsp" class="nav-link px-2 text-black">Logout</a></li>
             </ul>
             <%
