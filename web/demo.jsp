@@ -1,89 +1,46 @@
-<%-- 
-    Document   : demo
-    Created on : Feb 24, 2023, 11:46:48 AM
-    Author     : hp
---%>
-
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 
     <head>
-        <title>jsPDF Library</title>
+        <title>Google Auth Demo</title>
 
-        <!--JSPDF CDN-->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js">
-        </script>
-
-        <style>
-            .container {
-                position: fixed;
-                top: 20%;
-                left: 28%;
-                margin-top: -65px;
-                margin-left: -100px;
-                border-radius: 7px;
-            }
-
-            #makepdf {
-                box-sizing: content-box;
-                width: 700px;
-                height: 150px;
-                padding: 30px;
-                border: 1px solid black;
-                font-style: sans-serif;
-                background-color: #f0f0f0;
-            }
-
-            #button {
-                background-color: #4caf50;
-                border-radius: 5px;
-                margin-left: 650px;
-                margin-bottom: 5px;
-                color: white;
-            }
-
-            h2 {
-                text-align: center;
-                color: #24650b;
-            }
-        </style>
+        <meta name="google-signin-client_id" content="223541131739-eerfpk0khhegn7c1vc8f74203pvmk34f.apps.googleusercontent.com">
+        <script src="https://accounts.google.com/gsi/client" async defer></script>
     </head>
-
     <body>
-        <div class="container">
-            <button id="button">Generate PDF</button>
-            <div id="makepdf">
-                <h2>Welcome to GeeksforGeeks</h2>
-                <ul>
-                    <li>
-                        <h4>
-                            We are going to generate a pdf
-                            from the area inside the box
-                        </h4>
-                    </li>
-                    <li>
-                        <h4>
-                            This is an example of generating
-                            pdf from HTML during runtime
-                        </h4>
-                    </li>
-                </ul>
-            </div>
+        <div id="g_id_onload"
+                  data-client_id="223541131739-eerfpk0khhegn7c1vc8f74203pvmk34f.apps.googleusercontent.com"
+                  data-context="signin"
+                  data-ux_mode="popup"
+                  data-callback="handleCredentialResponse"
+                 data-auto_prompt="false">
+                 
         </div>
-
+         <div class="g_id_signin"
+                  data-type="standard"
+                  data-shape="pill"
+                  data-theme="outline"
+                  data-text="signin_with"
+                  data-size="large"
+                  data-logo_alignment="left">
+            
+             </div>
         <script>
-            var button = document.getElementById("button");
-            button.addEventListener("click", function () {
-                var doc = new jsPDF("p", "mm", [300, 300]);
-                var makePDF = document.querySelector("#makepdf");
-
-                // fromHTML Method
-                doc.fromHTML(makePDF);
-                doc.save("output.pdf");
-            });
-        </script>
-    </body>
-
+                            function handleCredentialResponse(response) {
+                                    const responsePayLoad = decodeJwtResponse(response.credential);
+                                    console.log("ID: " + responsePayLoad.sub);
+                                    console.log("Name: " + responsePayLoad.name);
+                                    console.log("Given Name: " + responsePayLoad.given_name);
+                                    console.log("family Name: " + responsePayLoad.family_name);
+                                    console.log("Image URL: " + responsePayLoad.picture);
+                                    console.log("Email: " + responsePayLoad.email);
+                            }                            
+                    </script>
+                    <script>
+                        function decodeJwtResponse(data) {
+                                    var tokens = data.split(".");
+                                    return JSON.parse(atob(tokens[1]));
+                            }
+                    </script>
+</body>
 </html>
-
