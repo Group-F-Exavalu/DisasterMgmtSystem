@@ -68,6 +68,10 @@
         a{
             text-decoration: none;
         }
+        .btn:hover {
+                background-color: #CD5A00;
+                color: white;
+        }
     </style>
         <script>
                       // Function to GeneratePdf
@@ -83,7 +87,7 @@
 
         <div class="col-lg-6">
             <form action="DonateEssentialUser" method="post" id="myForm">
-                <h1 class="h3 mb-3 fw-normal">Donation of Essentials</h1>
+                <h1 class="h3 mb-3 fw-normal text-center">Donation of Essentials</h1>
                 <label for="name">User Id</label>
                 <input type="text" id="userId" name="donorId" value=${User.userId} readonly>
 
@@ -141,7 +145,8 @@
                 <label for="name">Registration Number</label>
                 <input type="text" id="lastName" placeholder="last name" name="lastName" value=${Organisation.regnNumber} readonly>
 
-                
+                <label for="name"> Address </label>
+                <input type="text" placeholder="Address" name="address" value=${Organisation.district} readonly>
                 <div class="form-floating">
                         
                             <select name="eventId" class="form-select" id="eventId" required>

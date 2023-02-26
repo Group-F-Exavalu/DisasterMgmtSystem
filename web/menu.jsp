@@ -17,7 +17,11 @@
         #menuback{
             background-color: white;
         }
+        #header {
+            background: white;
+        }
     </style>
+    <div id="header">
     <div class="container">
         <style>
             a {
@@ -115,6 +119,7 @@
             %>
         </header>
     </div>
+        </div>
     <!--    <header class="p-3 text-bg-light">
             <div class="container">
                 <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">

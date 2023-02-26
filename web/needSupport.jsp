@@ -115,7 +115,10 @@
         .cardbody-color{
             background-color: whitesmoke;
         }
-
+        .btn:hover {
+                background-color: #CD5A00;
+                color: white;
+        }
         a{
             text-decoration: none;
         }
@@ -134,7 +137,7 @@
                         <form action="NeedSupportUser" method="post" id="myForm">
 
 
-                            <h1 class="h3 mb-3 fw-normal" id="name">I Need Help</h1>
+                            <h1 class="h3 mb-3 fw-normal text-center">I Need Help</h1>
 
                             <div class="form-floating">
                                 <input type="text" class="form-control" id="floatingInput" placeholder="user ID" name="userId" value=${User.userId} readonly>
@@ -170,8 +173,8 @@
                             <h1 class="h3 mb-3 fw-normal">I Need Help</h1>
 
                             <div class="form-floating">
-                                <input type="text" class="form-control" id="floatingInput" placeholder="user ID" name="userId" value=${Organisation.organisationId} readonly>
-                                <label for="floatingInput">Organisation ID</label>
+                                <input type="text" class="form-control" id="floatingInput" placeholder="user ID" name="userId" value=${User.userId} readonly>
+                                <label for="floatingInput">User ID</label>
                             </div>
                             <div class="form-floating">
                                 <input type="text" class="form-control" id="floatingInput" placeholder="event Topic" name="eventTopic">

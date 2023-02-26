@@ -51,7 +51,7 @@
             }/* .btn-group button {   */
 
             .btn-group-vertical button {
-                background-color: teal;
+                background-color: black;
                 /* Black background */
                 border: 1px solid rgb(239, 240, 239);
                 /*  border */
@@ -81,7 +81,7 @@
             /* .btn-group button:hover { */
 
             .btn-group-vertical button:hover {
-                background-color: palevioletred;
+                background-color: #CD5A00;
                 color: white;
             }
         </style>
