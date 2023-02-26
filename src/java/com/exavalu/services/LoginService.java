@@ -6,6 +6,7 @@ package com.exavalu.services;
 
 import com.exavalu.models.Country;
 import com.exavalu.models.Districts;
+import com.exavalu.models.GmailUser;
 import com.exavalu.models.Organisation;
 import com.exavalu.models.States;
 import com.exavalu.models.User;
@@ -314,4 +315,74 @@ public class LoginService {
         System.err.println("Number of districts = "+districtList.size());
         return districtList;
     }
+    public GmailUser doLoginGmailUser(String emailAddress)
+    {
+        GmailUser gmailUser = new GmailUser();
+        
+        String sql = "SELECT * FROM gmailusers where emailAddress=?";
+        
+        try {
+            Connection con = JDBCConnectionManager.getConnection();
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, emailAddress);
+            
+            System.out.println("Login Gmail Service :: "+ps);
+            
+            ResultSet rs = ps.executeQuery();
+            
+            if(rs.next())
+            {
+                gmailUser.setEmailAddress(rs.getString("emailAddress"));
+                gmailUser.setFirstName(rs.getString("firstName"));
+                gmailUser.setId(rs.getString("id"));
+                gmailUser.setImageUrl(rs.getString("imageUrl"));
+                gmailUser.setLastName(rs.getString("lastName"));
+            }
+            
+        } catch (SQLException ex) {
+            Logger log = Logger.getLogger(LoginService.class.getName());
+            log.error(LocalDateTime.now()+ "Error Code: " + ex.getErrorCode() +"Error Message: " + ex.getMessage());
+        }
+        
+        
+        return gmailUser;
+    }
+    public boolean insertGmailUser(GmailUser gmailUser){
+        boolean result = false;
+        String sql = "INSERT INTO gmailusers\n"
+                + "(id,\n"
+                + "firstName,\n"
+                + "lastName,\n"
+                + "emailAddress,\n"
+                + "imageUrl)\n"
+                + "VALUES\n"
+                + "(? ,\n"
+                + "? ,\n"
+                + "? ,\n"
+                + "? ,\n"
+                + "? );";
+        Connection con = JDBCConnectionManager.getConnection();
+        try{
+            
+            //String sql = "INSERT INTO users(emailAddress, password, firstName,lastName,gender,phoneNumber,address,govtProof,govtId,country,state,district)" + "VALUES(? ,? ,? ,? ,? ,? ,? ,? ,? ,?,?,?)";
+            PreparedStatement preparedStatement = con.prepareStatement(sql);
+            preparedStatement.setString(1, gmailUser.getId());
+            preparedStatement.setString(2, gmailUser.getFirstName());
+            preparedStatement.setString(3, gmailUser.getLastName());
+            preparedStatement.setString(4, gmailUser.getEmailAddress());
+            preparedStatement.setString(5,gmailUser.getImageUrl());
+            
+            int row = preparedStatement.executeUpdate();
+            
+            if(row==1){
+                result = true;
+            }
+        }catch(SQLException ex){
+            Logger log = Logger.getLogger(LoginService.class.getName());
+            log.error(LocalDateTime.now()+ " Error Code: " + ex.getErrorCode()+ " Error Message: " + ex.getMessage());
+
+        }
+        return result;
+    }
+
 }
