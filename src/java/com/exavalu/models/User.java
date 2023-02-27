@@ -7,7 +7,6 @@ package com.exavalu.models;
 import com.exavalu.services.DonateService;
 import com.exavalu.services.LoginService;
 import com.exavalu.services.SignupService;
-import com.exavalu.services.UserService;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -165,8 +164,6 @@ public class User extends ActionSupport implements ApplicationAware, SessionAwar
         this.lastName = lastName;
     }
 
-    
-
     /**
      * @return the password
      */
@@ -198,16 +195,14 @@ public class User extends ActionSupport implements ApplicationAware, SessionAwar
     public String doLogin() throws Exception {
         String result = "FAILURE";
 
-        boolean successUser = LoginService.getInstance().doLoginUser(this.emailAddress,this.password);
-        boolean successOrg = LoginService.getInstance().doLoginOrganisation(this.emailAddress,this.password);
-        boolean successAdmin = LoginService.getInstance().doLoginAdmin(this.emailAddress,this.password);
-        
+        boolean successUser = LoginService.getInstance().doLoginUser(this.emailAddress, this.password);
+        boolean successOrg = LoginService.getInstance().doLoginOrganisation(this.emailAddress, this.password);
+        boolean successAdmin = LoginService.getInstance().doLoginAdmin(this.emailAddress, this.password);
+
         User user = LoginService.getUser(emailAddress);
         System.out.println("User Phone :" + user.getPhoneNumber());
         Organisation organisation = LoginService.getOrganisation(emailAddress);
         ArrayList eventList = DonateService.getInstance().getEvents();
-        
-        
 
         if (successUser) {
             System.out.println("returning Success from doLoginUser method");
@@ -229,7 +224,7 @@ public class User extends ActionSupport implements ApplicationAware, SessionAwar
             sessionMap.put("LoggedinStatus", "admin");
 
             result = "ADMIN";
-        }else{
+        } else {
             Logger log = Logger.getLogger(LoginService.class.getName());
             log.error(LocalDateTime.now() + "--Wrong email ID or password");
             System.out.println("returning Failure from doLogin method");
@@ -243,7 +238,7 @@ public class User extends ActionSupport implements ApplicationAware, SessionAwar
         String result = "FAILURE";
         boolean success = SignupService.getInstance().doSignupUser(this);
 
-        if (success) {            
+        if (success) {
             sessionMap.put("SuccessSignUp", "Successfully Registered");
             System.out.println("Returning from success");
             result = "SUCCESS";
@@ -257,14 +252,13 @@ public class User extends ActionSupport implements ApplicationAware, SessionAwar
         return result;
 
     }
-    
 
     public String doPreSignUp() throws Exception {
         sessionMap.clear();
         String result = "SUCCESS";
         //check all data and submit
         ArrayList countryList = LoginService.getInstance().getAllCountries();
-        System.err.println("country list: "+countryList);
+        System.err.println("country list: " + countryList);
         ArrayList stateList = null;
         ArrayList distList = null;
         sessionMap.put("CountryList", countryList);
@@ -273,7 +267,7 @@ public class User extends ActionSupport implements ApplicationAware, SessionAwar
 
         if (this.country != null) {
             stateList = LoginService.getInstance().getAllStates(this.country);
-            System.err.println("Country is: "+this.country);
+            System.err.println("Country is: " + this.country);
             sessionMap.put("StateList", stateList);
             sessionMap.put("User", this);
             result = "STATELIST";
@@ -291,7 +285,6 @@ public class User extends ActionSupport implements ApplicationAware, SessionAwar
 //            System.out.println(sessionMap);
 //
 //        }
-
         return result;
     }
 
@@ -317,5 +310,4 @@ public class User extends ActionSupport implements ApplicationAware, SessionAwar
 //        return result;
 //
 //    }
-
 }

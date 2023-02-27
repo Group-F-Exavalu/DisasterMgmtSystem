@@ -12,6 +12,10 @@
         <link href="css/header.css" rel="stylesheet">
         <title>Disaster Management</title>
     </head>
-    <jsp:include page="menu.jsp"></jsp:include>
-    <jsp:include page="index.jsp"></jsp:include>
+    <body>
+        <div>
+            <jsp:include page="menu.jsp"></jsp:include>
+            <jsp:include page="index.jsp"></jsp:include>
+        </div>
+    </body>
 </html>

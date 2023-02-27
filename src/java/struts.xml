@@ -63,5 +63,9 @@
             <result name="SUCCESS">eventList.jsp</result>
             <result name="FAILURE">landingPage.jsp</result>
         </action>
+        <action name="GmailLogin" class="com.exavalu.models.GmailUser" method="gmailLogin">
+            <result name="GMAILUSER">landingPage.jsp</result>
+            <result name="FAILURE">login.jsp</result>
+        </action>
     </package>
 </struts>

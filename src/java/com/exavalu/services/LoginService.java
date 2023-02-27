@@ -315,28 +315,25 @@ public class LoginService {
         System.err.println("Number of districts = "+districtList.size());
         return districtList;
     }
-    public GmailUser doLoginGmailUser(String emailAddress)
+    public boolean doGmailLoginUser(String id, String email)
     {
-        GmailUser gmailUser = new GmailUser();
+        boolean success = false;
         
-        String sql = "SELECT * FROM gmailusers where emailAddress=?";
+        String sql = "SELECT * FROM gmailusers where emailAddress=? and id=?";
         
         try {
             Connection con = JDBCConnectionManager.getConnection();
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setString(1, emailAddress);
+            ps.setString(1, email);
+            ps.setString(2, id);
             
-            System.out.println("Login Gmail Service :: "+ps);
+            System.out.println("LoginService :: "+ps);
             
             ResultSet rs = ps.executeQuery();
             
             if(rs.next())
             {
-                gmailUser.setEmailAddress(rs.getString("emailAddress"));
-                gmailUser.setFirstName(rs.getString("firstName"));
-                gmailUser.setId(rs.getString("id"));
-                gmailUser.setImageUrl(rs.getString("imageUrl"));
-                gmailUser.setLastName(rs.getString("lastName"));
+                success = true;
             }
             
         } catch (SQLException ex) {
@@ -345,32 +342,22 @@ public class LoginService {
         }
         
         
-        return gmailUser;
+        return success;
     }
     public boolean insertGmailUser(GmailUser gmailUser){
         boolean result = false;
-        String sql = "INSERT INTO gmailusers\n"
-                + "(id,\n"
-                + "firstName,\n"
-                + "lastName,\n"
-                + "emailAddress,\n"
-                + "imageUrl)\n"
-                + "VALUES\n"
-                + "(? ,\n"
-                + "? ,\n"
-                + "? ,\n"
-                + "? ,\n"
-                + "? );";
+        String sql = "INSERT INTO gmailusers(id,firstName,lastName,emailAddress,imageUrl)"
+                + "VALUES(? ,? ,?, ?, ? )";
         Connection con = JDBCConnectionManager.getConnection();
         try{
             
             //String sql = "INSERT INTO users(emailAddress, password, firstName,lastName,gender,phoneNumber,address,govtProof,govtId,country,state,district)" + "VALUES(? ,? ,? ,? ,? ,? ,? ,? ,? ,?,?,?)";
             PreparedStatement preparedStatement = con.prepareStatement(sql);
-            preparedStatement.setString(1, gmailUser.getId());
-            preparedStatement.setString(2, gmailUser.getFirstName());
-            preparedStatement.setString(3, gmailUser.getLastName());
-            preparedStatement.setString(4, gmailUser.getEmailAddress());
-            preparedStatement.setString(5,gmailUser.getImageUrl());
+            preparedStatement.setString(1, gmailUser.getSub());
+            preparedStatement.setString(2, gmailUser.getGiven_name());
+            preparedStatement.setString(3, gmailUser.getFamily_name());
+            preparedStatement.setString(4, gmailUser.getEmail());
+            preparedStatement.setString(5,gmailUser.getPicture());
             
             int row = preparedStatement.executeUpdate();
             
@@ -383,6 +370,32 @@ public class LoginService {
 
         }
         return result;
+    }
+    public static GmailUser getGmailUser(String emailAddress) {
+        GmailUser guser = new GmailUser();
+        try {
+            Connection con = JDBCConnectionManager.getConnection();
+            String sql = "Select * from gmailusers where emailAddress=?";
+            PreparedStatement preparedStatement = con.prepareStatement(sql);
+            preparedStatement.setString(1, emailAddress);
+
+            ResultSet rs = preparedStatement.executeQuery();
+
+            if(rs.next())
+            {   
+                guser.setSub(rs.getString("id"));
+                guser.setGiven_name(rs.getString("firstName"));
+                guser.setFamily_name(rs.getString("lastName"));
+                guser.setPicture(rs.getString("imageUrl"));             
+                
+//                System.out.println("User Phone :" +rs.getString("phoneNumber"));
+            }
+            
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+
+        return guser;
     }
 
 }

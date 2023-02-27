@@ -104,6 +104,16 @@
                 <li class="nav-item"><a href="logout.jsp" class="nav-link px-2 text-black">Logout</a></li>
             </ul>
             <%
+            } else if (request.getSession().getAttribute("LoggedinStatus").equals("gmailuser")) {%>
+            <ul class="nav nav-pills">
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-black">Home</a></li>
+                <li class="nav-item"><a href="donateMain.jsp" class="nav-link px-2 text-black">Donate</a></li>
+                <li class="nav-item"><a href="needSupport.jsp" class="nav-link px-2 text-black">Support</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-black">Contacts</a></li>
+                <li class="nav-item"><a href="DisplayEvent" class="nav-link px-2 text-black">Events</a></li>
+                <li class="nav-item"><a href="logout.jsp" class="nav-link px-2 text-black">Logout</a></li>
+            </ul>
+            <%
             } else if (request.getSession().getAttribute("LoggedinStatus").equals("org")) {
             %>
             <ul class="nav nav-pills">

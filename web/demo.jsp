@@ -28,6 +28,7 @@
         <script>
                             function handleCredentialResponse(response) {
                                     const responsePayLoad = decodeJwtResponse(response.credential);
+                                    console.log(responsePayLoad);
                                     console.log("ID: " + responsePayLoad.sub);
                                     console.log("Name: " + responsePayLoad.name);
                                     console.log("Given Name: " + responsePayLoad.given_name);
