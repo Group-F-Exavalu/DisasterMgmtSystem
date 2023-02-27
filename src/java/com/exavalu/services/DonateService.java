@@ -34,6 +34,66 @@ public class DonateService {
             return donateService;
         }
     }
+    public ArrayList getMoney(){
+        ArrayList eventList = new ArrayList();
+        String sql = "Select * from donatemoney";
+        try {
+            Connection con = JDBCConnectionManager.getConnection();
+            PreparedStatement ps = con.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            
+            while(rs.next())
+            {
+                DonateForm donateform = new DonateForm();
+                
+                donateform.setEventId(rs.getString("eventId"));
+                donateform.setFormId(rs.getString("formId"));
+                donateform.setDonorId(rs.getString("donorId"));
+                donateform.setDonorType(rs.getString("donorType"));
+                donateform.setAmount(rs.getString("amount"));
+                donateform.setStatus(rs.getString("status"));
+                
+                eventList.add(donateform);
+            }
+            
+            
+        }
+        catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        System.err.println("Total rows:"+eventList.size());
+        return eventList;
+    }
+    public ArrayList getEssentials(){
+        ArrayList eventList = new ArrayList();
+        String sql = "Select * from donateessentials";
+        try {
+            Connection con = JDBCConnectionManager.getConnection();
+            PreparedStatement ps = con.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            
+            while(rs.next())
+            {
+                DonateForm donateform = new DonateForm();
+                
+                donateform.setEventId(rs.getString("eventId"));
+                donateform.setFormId(rs.getString("formId"));
+                donateform.setDonorId(rs.getString("donorId"));
+                donateform.setDonorType(rs.getString("donorType"));
+                donateform.setEssentialName(rs.getString("essentialName"));
+                donateform.setStatus(rs.getString("status"));
+                
+                eventList.add(donateform);
+            }
+            
+            
+        }
+        catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        System.err.println("Total rows:"+eventList.size());
+        return eventList;
+    }
     public ArrayList getEvents(){
         ArrayList eventList = new ArrayList();
         String sql = "Select * from events";

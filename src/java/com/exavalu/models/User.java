@@ -203,6 +203,8 @@ public class User extends ActionSupport implements ApplicationAware, SessionAwar
         System.out.println("User Phone :" + user.getPhoneNumber());
         Organisation organisation = LoginService.getOrganisation(emailAddress);
         ArrayList eventList = DonateService.getInstance().getEvents();
+        ArrayList moneyList = DonateService.getInstance().getMoney();
+        ArrayList essentialList = DonateService.getInstance().getEssentials();
 
         if (successUser) {
             System.out.println("returning Success from doLoginUser method");
@@ -222,6 +224,9 @@ public class User extends ActionSupport implements ApplicationAware, SessionAwar
             System.out.println("returning Success from doLoginAdmin method");
             sessionMap.put("Loggedin", this);
             sessionMap.put("LoggedinStatus", "admin");
+            sessionMap.put("EventList", eventList);
+            sessionMap.put("MoneyList", moneyList);
+            sessionMap.put("EssentialList", essentialList);
 
             result = "ADMIN";
         } else {
