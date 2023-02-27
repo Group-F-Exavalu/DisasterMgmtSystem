@@ -30,6 +30,47 @@
     <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
+      <style>
+            a {
+/*                background-image: linear-gradient(
+                    to right,
+                    #8B4000,
+                    #8B4000 50%,
+                    #000 50%
+                    );*/
+                background-size: 200% 100%;
+                background-position: -100%;
+                display: inline-block;
+                padding: 5px 0;
+                position: relative;
+                
+                transition: all 0.3s ease-in-out;
+            }
+
+            a:before{
+                content: '';
+                background: #DC582A;
+                display: block;
+                position: absolute;
+                bottom: -3px;
+                left: 0;
+                width: 0;
+                height: 3px;
+                transition: all 0.3s ease-in-out;
+            }
+
+            a:hover {
+                background-position: 0;
+            }
+
+            a:hover::before{
+                width: 100%;
+            }
+/*            ul.nav li a:hover {
+                background-color: palevioletred;
+                color: white;
+            }*/
+        </style>
     
 <!--  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
     <div class="container">
@@ -58,7 +99,7 @@
       <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
           <div class="col-md-7 ftco-animate text-center" data-scrollax=" properties: { translateY: '70%' }">
-             <p class="breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-2"><a href="index.html">Home</a></span> <span>Event</span></p>
+             <!--<p class="breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-2"><a href="index.html">Home</a></span> <span>Event</span></p>-->
             <h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Events</h1>
           </div>
         </div>
@@ -72,20 +113,22 @@
         <c:if test="${EventList!=null}">
             <c:forEach items="${EventList}" var="event">
         	<div class="col-md-4 d-flex ftco-animate">
-          	<div class="blog-entry align-self-stretch">
+          	<div class="blog-entry">
               <a href="blog-single.html" class="block-20" style="background-image: url('images/event-1.jpg');">
               </a>
               <div class="text p-4 d-block">
-              	<div class="meta mb-3">
-                  <div><a href="#">Sep. 10, 2018</a></div>
+              	<!--<div class="meta mb-3">-->
+<!--                  <div><a href="#">Sep. 10, 2018</a></div>
                   <div><a href="#">Admin</a></div>
                   <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
-                </div>
+                </div>-->
                 <h3 class="heading mb-4">${event.getEventTopic()}</h3>
                 <p class="time-loc"><span class="mr-2"><i class="icon-clock-o"></i> 10:30AM-03:30PM</span> </p>
 <!--                    <span><i class="icon-map-o"></i> Venue Main Campus</span></p>-->
                 <p>${event.getEventDetails()}</p>
-                <p><a href="event.html">Join Event <i class="ion-ios-arrow-forward"></i></a></p>
+                <p>
+                    <c:if test='${Loggedin==null}'><a href="login.jsp" style="color:black">Join Event <i class="ion-ios-arrow-forward"></i></a></p></c:if>
+                    <c:if test='${Loggedin!=null}'><a href="donateMain.jsp" style="color:black">Join Event <i class="ion-ios-arrow-forward"></i></a></p></c:if>
               </div>
             </div>
           </div>
@@ -177,7 +220,7 @@
             </div>
           </div>-->
         </div>
-        <div class="row mt-5">
+<!--        <div class="row mt-5">
           <div class="col text-center">
             <div class="block-27">
               <ul>
@@ -192,7 +235,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div>-->
     </section>
 		
 
