@@ -21,10 +21,11 @@ import org.apache.struts2.interceptor.SessionAware;
 public class Event extends ActionSupport implements ApplicationAware, SessionAware, Serializable {
 
     private String eventId;
-    private String userId;
+    private int userId;
     private String eventTopic;
     private String eventDetails;
     private String status;
+    
 
     private SessionMap<String, Object> sessionMap = (SessionMap) ActionContext.getContext().getSession();
 
@@ -120,14 +121,14 @@ public class Event extends ActionSupport implements ApplicationAware, SessionAwa
     /**
      * @return the userId
      */
-    public String getUserId() {
+    public int getUserId() {
         return userId;
     }
 
     /**
      * @param userId the userId to set
      */
-    public void setUserId(String userId) {
+    public void setUserId(int userId) {
         this.userId = userId;
     }
 }
