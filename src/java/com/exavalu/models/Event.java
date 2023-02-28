@@ -104,6 +104,7 @@ public class Event extends ActionSupport implements ApplicationAware, SessionAwa
         if (res) {
             result = "SUCCESS";
             System.out.println("Events submitted");
+            sessionMap.put("SuccessSupport","You have successfully submitted details! We hope to reach you and help you soon!");
         }
         return result;
     }
@@ -114,6 +115,7 @@ public class Event extends ActionSupport implements ApplicationAware, SessionAwa
         if (res) {
             result = "SUCCESS";
             System.out.println("Events submitted");
+            sessionMap.put("SuccessSupport","You have successfully submitted details! We hope to reach you and help you soon!");
         }
         return result;
     }

@@ -9,6 +9,9 @@
         <meta name="description" content="">
         <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
         <meta name="generator" content="Hugo 0.108.0">
+        <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/style.css">
         <title>I Need Help</title>
 
         <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/sign-in/">
@@ -127,14 +130,25 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.8.1/html2pdf.bundle.min.js"></script>
     <body class="text-center">
         <jsp:include page="menu.jsp"></jsp:include>
+        <c:if test='${SuccessSupport!=null}'>
+            <div class="container shadow-lg p-3 mb-5 bg-white rounded" style="padding:50px; background-color: #FBCEB1; width: 400px; border-left-color: #CD5A00">
+                <div class="row">
+                    
+                        <div class="msg msg-success msg-success-text"> <span>&#10004;</span> ${SuccessSupport}</div>
+                    
+                    
+                </div>
+            </div>
+        </c:if>
         <c:if test='${User!=null}'>
             <div id="body">
                 <%--<jsp:include page="menu.jsp"></jsp:include>--%>
                 <div id ="success">
+                    
                     <main class="form-signin w-50 m-auto">
 
 
-                        <form action="NeedSupportUser" method="post" id="myForm">
+                        <form action="NeedSupportUser" method="post" id="myForm" class="shadow-lg p-3 mb-5 bg-white rounded">
 
 
                             <h1 class="h3 mb-3 fw-normal text-center">I Need Help</h1>
@@ -148,15 +162,23 @@
                                 <label for="floatingInput">Support Topic</label>
                             </div>
                             <div class="form-floating">
-                                <input type="text" class="form-control" id="floatingInput" placeholder="event Details" name="eventDetails">
+<!--                                <input type="textarea" class="form-control" id="floatingInput" placeholder="event Details" name="eventDetails">
+                                <textarea class="form-control"  placeholder="Your Message" name="eventDetails" type="text" class="txt_3"></textarea>-->
+                                <textarea name="eventDetails" class="form-control" id="message" cols="30" rows="4" placeholder="event Details"></textarea>
                                 <label for="floatingInput">Please Mention Details</label>
                             </div>
 
-                            <button class="btn btn-color px-2 mb-2 w-100" type="submit" id="submitBtn">Submit</button>
+<!--                                <div class="col-md-12">-->
+                                    <div class="form-group">
+                                        <input type="submit" value="Submit" class="btn btn-primary px-2 mb-2 w-100" id="submitBtn">
+                                        <div class="submitting"></div>
+                                    </div>
+<!--                                </div>-->
+                            <!--<button class="btn btn-color px-2 mb-2 w-100" type="submit" id="submitBtn">Submit</button>-->
 
                         </form>
                     </main>
-
+                    
                 </div>
             </div>
         </c:if>
@@ -167,7 +189,7 @@
                     <main class="form-signin w-50 m-auto">
 
 
-                        <form action="NeedSupportOrg" method="post" id="myForm">
+                        <form action="NeedSupportOrg" method="post" id="myForm" class="shadow-lg p-3 mb-5 bg-white rounded">
 
 
                             <h1 class="h3 mb-3 fw-normal">I Need Help</h1>
@@ -180,12 +202,24 @@
                                 <input type="text" class="form-control" id="floatingInput" placeholder="event Topic" name="eventTopic">
                                 <label for="floatingInput">Support Topic</label>
                             </div>
-                            <div class="form-floating">
+                                <div class="form-floating">
+                                    <!--                                <input type="textarea" class="form-control" id="floatingInput" placeholder="event Details" name="eventDetails">
+                                                                    <textarea class="form-control"  placeholder="Your Message" name="eventDetails" type="text" class="txt_3"></textarea>-->
+                                    <textarea name="eventDetails" class="form-control" id="message" cols="30" rows="4" placeholder="event Details"></textarea>
+                                    <label for="floatingInput">Please Mention Details</label>
+                                </div>
+
+                                <!--                                <div class="col-md-12">-->
+                                <div class="form-group">
+                                    <input type="submit" value="Submit" class="btn btn-primary px-2 mb-2 w-100" id="submitBtn">
+                                    <div class="submitting"></div>
+                                </div>
+<!--                            <div class="form-floating">
                                 <input type="text" class="form-control" id="floatingInput" placeholder="event Details" name="eventDetails">
                                 <label for="floatingInput">Please Mention Details</label>
                             </div>
 
-                            <button class="btn btn-color px-2 mb-2 w-100" type="submit" id="submitBtn">Submit</button>
+                            <button class="btn btn-color px-2 mb-2 w-100" type="submit" id="submitBtn">Submit</button>-->
 
                         </form>
                     </main>
@@ -205,6 +239,13 @@
                 doc.save("output.pdf");
             });
         </script>
+        <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="js/jquery.min.js"></script>
+        <script src="js/popper.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/jquery.validate.min.js"></script>
+        <!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>-->
+        <script src="js/google-map.js"></script>
+        <script src="js/main.js"></script>
         <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
         <!--        <script>
                     // Get the form and submit button elements

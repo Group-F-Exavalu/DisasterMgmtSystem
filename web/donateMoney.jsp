@@ -132,7 +132,7 @@
             <main class="form-signin w-50 m-auto">
 
 
-                <form action="DonateMoneyUser" method="post" id="myForm">
+                <form action="DonateMoneyUser" method="post" id="myForm" class="shadow-lg p-3 mb-5 bg-white rounded">
 
 
                     <h1 class="h3 mb-3 fw-normal text-center">Monetary Donation</h1>
@@ -189,7 +189,7 @@
             <main class="form-signin w-50 m-auto">
 
 
-                <form action="DonateMoneyOrg" method="post" id="myForm">
+                <form action="DonateMoneyOrg" method="post" id="myForm" class="shadow-lg p-3 mb-5 bg-white rounded">
 
 
                     <h1 class="h3 mb-3 fw-normal text-center">Monetary Donation</h1>
