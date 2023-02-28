@@ -86,7 +86,7 @@
         <div class="row">
 
         <div class="col-lg-6">
-            <form action="DonateEssentialUser" method="post" id="myForm">
+            <form action="DonateEssentialUser" method="post" id="myForm" class="shadow-lg p-3 mb-5 bg-white rounded">
                 <h1 class="h3 mb-3 fw-normal text-center">Donation of Essentials</h1>
                 <label for="name">User Id</label>
                 <input type="text" id="userId" name="donorId" value=${User.userId} readonly>
@@ -134,7 +134,7 @@
             <div class="row">
 
         <div class="col-lg-6">
-            <form action="DonateEssentialOrg" method="post" id="myForm">
+            <form action="DonateEssentialOrg" method="post" id="myForm" class="shadow-lg p-3 mb-5 bg-white rounded">
                 <h1 class="h3 mb-3 fw-normal text-center">Donation of Essentials</h1>
                 <label for="name">Organisation Id</label>
                 <input type="text" id="userId" name="donorId" value=${Organisation.organisationId} readonly>
@@ -172,7 +172,7 @@
         </div>
         <div class="col">
             <div>
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3684.1041310182027!2d88.42524581492503!3d22.575208385181504!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a02750014d7f12f%3A0xba88c52b0fa7f529!2sExavalu!5e0!3m2!1sen!2sin!4v1677215996378!5m2!1sen!2sin" width="600" height="800" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3684.1041310182027!2d88.42524581492503!3d22.575208385181504!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a02750014d7f12f%3A0xba88c52b0fa7f529!2sExavalu!5e0!3m2!1sen!2sin!4v1677215996378!5m2!1sen!2sin" class="shadow-lg p-3 mb-5 bg-white rounded" width="600" height="800" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
         </div>
                         </div>
