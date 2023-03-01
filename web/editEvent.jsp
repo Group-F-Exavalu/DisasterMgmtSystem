@@ -99,6 +99,9 @@
                                                 <c:if test="${event.getStatus()==1}">
                                                     <c:out value="${'APPROVED'}"/> 
                                                 </c:if>
+                                                <c:if test="${event.getStatus()==-1}">
+                                                    <c:out value="${'REJECTED'}"/> 
+                                                </c:if>
                                             </td>
 
 
@@ -106,7 +109,7 @@
                                                    <button class="w-100 btn btn-lg btn-primary" type="submit">Edit</button>
                                                </form> -->
 
-                                                <a href=EditFNOLStatus?fnol_id=${user.getFnol_id()}>
+                                                <a href=EditEventStatus?eventId=${event.getEventId()}>
                                                     Edit</a>                    
                                             </td>
                                         </tr>

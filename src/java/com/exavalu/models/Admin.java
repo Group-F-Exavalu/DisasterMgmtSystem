@@ -5,6 +5,7 @@
 package com.exavalu.models;
 
 import com.exavalu.services.AdminService;
+import com.exavalu.services.DonateService;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import java.io.Serializable;
@@ -21,7 +22,15 @@ import org.apache.struts2.interceptor.SessionAware;
  */
 public class Admin extends ActionSupport implements ApplicationAware, SessionAware, Serializable {
 
-    private int adminId, formId, status;
+    private int adminId, formId, status, eventId;
+
+    public int getEventId() {
+        return eventId;
+    }
+
+    public void setEventId(int eventId) {
+        this.eventId = eventId;
+    }
     private String adminName, emailAddress, password;
 
     private SessionMap<String, Object> sessionMap = (SessionMap) ActionContext.getContext().getSession();
@@ -93,13 +102,6 @@ public class Admin extends ActionSupport implements ApplicationAware, SessionAwa
         return result;
     }
 
-    public String editEssentialsForm() throws Exception {
-        String result = "SUCCESS";
-        ArrayList essentialsform = AdminService.getEssentialsbyId(this.formId);
-        sessionMap.put("EssentialsForm", essentialsform);
-        return result;
-    }
-
     public String saveMoneyStatus() throws Exception {
         String result = "FAILURE";
         
@@ -129,6 +131,86 @@ public class Admin extends ActionSupport implements ApplicationAware, SessionAwa
     }
     else {
         System.out.println("returning Failure from deleteMoneyStatus method");
+    }
+    return result;
+}
+        public String editEssentialsForm() throws Exception {
+        String result = "SUCCESS";
+        DonateForm essentialsform = AdminService.getEssentialsbyId(this.formId);
+        System.out.println("form id : "+this.formId);
+        sessionMap.put("EssentialsForm", essentialsform);
+        return result;
+    }
+
+     
+      public String saveEssentialStatus() throws Exception {
+        String result = "FAILURE";
+        
+        boolean success = AdminService.ApproveDonateEssentialStatus(formId);
+        System.out.println(this.formId);
+        if (success){
+        ArrayList essentialList = AdminService.getAllEssential();
+        sessionMap.put("EssentialList", essentialList);
+        System.out.println("returning Success from saveEssentialStatus method");
+        result = "SUCCESS";
+    }
+    else {
+        System.out.println("returning Failure from saveEssentialStatus method");
+    }
+    return result;
+}
+     public String deleteEssentialStatus() throws Exception {
+        String result = "FAILURE";
+        
+        boolean success = AdminService.RejectDonateEssentialStatus(formId);
+        System.out.println(this.formId);
+        if (success){
+        ArrayList essentialList = AdminService.getAllEssential();
+        sessionMap.put("EssentialList", essentialList);
+        System.out.println("returning Success from deleteEssentialStatus method");
+        result = "SUCCESS";
+    }
+    else {
+        System.out.println("returning Failure from deleteEssentialStatus method");
+    }
+    return result;
+}
+      public String editEventsForm() throws Exception {
+        String result = "SUCCESS";
+        Event eventform = DonateService.getInstance().getEventById(this.eventId);
+        System.out.println("event id : "+this.eventId);
+        sessionMap.put("EventForm", eventform);
+        return result;
+    }
+      public String saveEventStatus() throws Exception {
+        String result = "FAILURE";
+        
+        boolean success = DonateService.getInstance().setEventStatus(this.eventId);
+        System.out.println(this.eventId);
+        if (success){
+        ArrayList eventList = DonateService.getInstance().getEvents();
+        sessionMap.put("EventList", eventList);
+        System.out.println("returning Success from saveEventStatus method");
+        result = "SUCCESS";
+    }
+    else {
+        System.out.println("returning Failure from saveEventStatus method");
+    }
+    return result;
+}
+     public String deleteEventStatus() throws Exception {
+        String result = "FAILURE";
+        
+        boolean success = DonateService.getInstance().rejectEventStatus(this.eventId);
+        System.out.println(this.formId);
+        if (success){
+        ArrayList eventList = DonateService.getInstance().getEvents();
+        sessionMap.put("EventList", eventList);
+        System.out.println("returning Success from deleteEventStatus method");
+        result = "SUCCESS";
+    }
+    else {
+        System.out.println("returning Failure from deleteEventStatus method");
     }
     return result;
 }

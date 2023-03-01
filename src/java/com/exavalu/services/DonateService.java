@@ -122,13 +122,13 @@ public class DonateService {
         System.err.println("Total rows:"+eventList.size());
         return eventList;
     }
-    public Event getEventById(String eventId){
+    public Event getEventById(int eventId){
         Event event = new Event();
         String sql = "Select * from events where eventId=?";
         try {
             Connection con = JDBCConnectionManager.getConnection();
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setString(1, eventId);
+            ps.setInt(1, eventId);
             ResultSet rs = ps.executeQuery();
             
             while(rs.next())
@@ -136,6 +136,7 @@ public class DonateService {
                 event.setEventId(rs.getString("eventId"));
                 event.setEventTopic(rs.getString("eventTopic"));
                 event.setEventDetails(rs.getString("eventDetails"));
+                 event.setUserId(rs.getInt("userId"));
                 event.setStatus(rs.getString("status"));
                 
             }
@@ -148,14 +149,35 @@ public class DonateService {
         
         return event;
     }
-    public boolean setEventStatus(int value, String eventId){
+    public boolean setEventStatus(int eventId){
         boolean result = false;
         String sql = "UPDATE events SET status = ? WHERE eventId =?";
         try {
             Connection con = JDBCConnectionManager.getConnection();
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setInt(1,value);
-            ps.setString(2,eventId);
+            ps.setInt(1,1);
+            ps.setInt(2,eventId);
+            System.out.println("Event ID:  "+eventId);
+            
+            int row = ps.executeUpdate();
+
+                if (row == 1) {
+                    result = true;
+                }
+        }
+        catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return result;
+    }
+    public boolean rejectEventStatus(int eventId){
+        boolean result = false;
+        String sql = "UPDATE events SET status = ? WHERE eventId =?";
+        try {
+            Connection con = JDBCConnectionManager.getConnection();
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1,-1);
+            ps.setInt(2,eventId);
             
             int row = ps.executeUpdate();
 

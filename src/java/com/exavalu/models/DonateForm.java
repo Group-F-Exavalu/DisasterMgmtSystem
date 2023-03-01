@@ -114,7 +114,7 @@ public class DonateForm extends ActionSupport implements ApplicationAware, Sessi
     }
     public String getEvent(){
         String result = "FAILURE";
-        Event event = DonateService.getInstance().getEventById(eventId);
+        Event event = DonateService.getInstance().getEventById(Integer.parseInt(eventId));
         
         if(event!=null){
             result="SUCCESS";
