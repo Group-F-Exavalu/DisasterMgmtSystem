@@ -4,10 +4,12 @@
  */
 package com.exavalu.models;
 
+import com.exavalu.services.DonateService;
 import com.exavalu.services.LoginService;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Map;
 import org.apache.struts2.dispatcher.ApplicationMap;
 import org.apache.struts2.dispatcher.SessionMap;
@@ -51,7 +53,6 @@ public class GmailUser extends ActionSupport implements ApplicationAware, Sessio
 //    public void setEmailAddress(String emailAddress) {
 //        this.emailAddress = emailAddress;
 //    }
-
 //    public String getImageUrl() {
 //        return imageUrl;
 //    }
@@ -59,7 +60,6 @@ public class GmailUser extends ActionSupport implements ApplicationAware, Sessio
 //    public void setImageUrl(String imageUrl) {
 //        this.imageUrl = imageUrl;
 //    }
-
     private SessionMap<String, Object> sessionMap = (SessionMap) ActionContext.getContext().getSession();
 
     private ApplicationMap map = (ApplicationMap) ActionContext.getContext().getApplication();
@@ -87,7 +87,6 @@ public class GmailUser extends ActionSupport implements ApplicationAware, Sessio
 //    public void setId(String id) {
 //        this.id = id;
 //    }
-
     /**
      * @return the given_name
      */
@@ -135,15 +134,26 @@ public class GmailUser extends ActionSupport implements ApplicationAware, Sessio
 //        boolean success= false;
 
         boolean success = LoginService.getInstance().doGmailLoginUser(this.sub, this.email);
-        
+
+        GmailUser guser = LoginService.getGmailUser(this.sub);
+        ArrayList eventList = DonateService.getInstance().getEvents();
+
 //        GmailUser guser = LoginService.getGmailUser(email);
-        
-        if(success)
-        {   
-          sessionMap.put("Loggedin", this); 
-          sessionMap.put("LoggedinStatus", "user");
-//          sessionMap.put("GmailUser", guser);
-          result = "GMAILUSER";
+        if (success) {
+            sessionMap.put("Loggedin", this);
+            sessionMap.put("LoggedinStatus", "GmailUser");
+            sessionMap.put("GmailUser", guser);
+            sessionMap.put("EventList", eventList);
+            result = "GMAILUSER";
+        } else if (success == false) {
+            boolean successInsert = LoginService.getInstance().insertGmailUser(this);
+            if (successInsert) {
+                sessionMap.put("Loggedin", this);
+                sessionMap.put("LoggedinStatus", "user");
+                sessionMap.put("GmailUser", guser);
+                sessionMap.put("EventList", eventList);
+                result = "GMAILUSER";
+            }
         }
         System.out.println(this.sub);
         System.out.println(this.email);
@@ -151,9 +161,9 @@ public class GmailUser extends ActionSupport implements ApplicationAware, Sessio
         System.out.println(this.given_name);
         System.out.println(this.picture);
 //        System.out.println(this.);
-         System.out.println("the result is: "+result);
+        System.out.println("the result is: " + result);
         return result;
-       
+
     }
 
     /**
@@ -183,5 +193,5 @@ public class GmailUser extends ActionSupport implements ApplicationAware, Sessio
     public void setPicture(String picture) {
         this.picture = picture;
     }
-   
+
 }

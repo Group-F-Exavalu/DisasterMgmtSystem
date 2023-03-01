@@ -21,7 +21,7 @@ import org.apache.struts2.interceptor.SessionAware;
 public class Event extends ActionSupport implements ApplicationAware, SessionAware, Serializable {
 
     private String eventId;
-    private int userId;
+    private String userId;
     private String eventTopic;
     private String eventDetails;
     private String status;
@@ -108,6 +108,21 @@ public class Event extends ActionSupport implements ApplicationAware, SessionAwa
         }
         return result;
     }
+    
+    public String insertEventGmailUser() {
+        String result = "FAILURE";
+
+        boolean res = SupportService.getInstance().insertEvents(this);
+        if (res) {
+            result = "SUCCESS";
+            System.out.println("Events submitted");
+            System.out.println(this.eventDetails);
+            System.out.println(this.eventTopic);
+            System.out.println(this.userId);
+            sessionMap.put("SuccessSupport","You have successfully submitted details! We hope to reach you and help you soon!");
+        }
+        return result;
+    }
 
     public String insertEventOrg() {
         String result = "FAILURE";
@@ -123,14 +138,14 @@ public class Event extends ActionSupport implements ApplicationAware, SessionAwa
     /**
      * @return the userId
      */
-    public int getUserId() {
+    public String getUserId() {
         return userId;
     }
 
     /**
      * @param userId the userId to set
      */
-    public void setUserId(int userId) {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
 }

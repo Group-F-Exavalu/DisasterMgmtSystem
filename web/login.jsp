@@ -125,7 +125,7 @@
                 document.getElementById("firstName").value = FirstName;
                 document.getElementById("lastName").value = LastName;
                 document.getElementById("picture").value = Picture;
-//                GmailForm.submit();
+                GmailForm.submit();
 
 //                $.ajax({
 //                                    type: "POST",

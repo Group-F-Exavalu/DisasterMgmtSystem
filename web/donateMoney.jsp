@@ -79,12 +79,12 @@
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script>
                       // Function to GeneratePdf
-            function GeneratePdf() {
-                var element = document.getElementById('myForm');
-                html2pdf(element);
-            }
+                        function GeneratePdf() {
+                                var element = document.getElementById('myForm');
+                                html2pdf(element);
+                        }
         </script>
-        
+
 
 
 
@@ -114,143 +114,205 @@
             background-color: whitesmoke;
         }
         .btn:hover {
-                background-color: #CD5A00;
-                color: white;
+            background-color: #CD5A00;
+            color: white;
         }
 
         a{
             text-decoration: none;
         }
     </style>
-<!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>-->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.8.1/html2pdf.bundle.min.js"></script>
+    <!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.8.1/html2pdf.bundle.min.js"></script>
     <body class="text-center">
         <c:if test='${User!=null}'>
-        <div id="body">
-            <%--<jsp:include page="menu.jsp"></jsp:include>--%>
-            <div id ="success">
-            <main class="form-signin w-50 m-auto">
+            <div id="body">
+                <%--<jsp:include page="menu.jsp"></jsp:include>--%>
+                <div id ="success">
+                    <main class="form-signin w-50 m-auto">
 
 
-                <form action="DonateMoneyUser" method="post" id="myForm" class="shadow-lg p-3 mb-5 bg-white rounded">
+                        <form action="DonateMoneyUser" method="post" id="myForm" class="shadow-lg p-3 mb-5 bg-white rounded">
 
 
-                    <h1 class="h3 mb-3 fw-normal text-center">Monetary Donation</h1>
+                            <h1 class="h3 mb-3 fw-normal text-center">Monetary Donation</h1>
 
-                    <div class="form-floating">
-                        <input type="text" class="form-control" id="floatingInput" placeholder="user ID" name="donorId" value=${User.userId} readonly>
-                        <label for="floatingInput">User ID</label>
-                    </div>
-                    <div class="form-floating">
-                        <input type="text" class="form-control" id="floatingInput" placeholder="first name" name="firstName" value=${User.firstName} readonly>
-                        <label for="floatingInput">First Name</label>
-                    </div>
-                    <div class="form-floating">
-                        <input type="text" class="form-control" id="floatingInput" placeholder="last name" name="lastName" value=${User.lastName} readonly>
-                        <label for="floatingInput">Last Name</label>
-                    </div>
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="floatingInput" placeholder="user ID" name="donorId" value=${User.userId} readonly>
+                                <label for="floatingInput">User ID</label>
+                            </div>
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="floatingInput" placeholder="first name" name="firstName" value=${User.firstName} readonly>
+                                <label for="floatingInput">First Name</label>
+                            </div>
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="floatingInput" placeholder="last name" name="lastName" value=${User.lastName} readonly>
+                                <label for="floatingInput">Last Name</label>
+                            </div>
 
-                    <div class="form-floating">
-                        <input type="text" class="form-control" id="floatingInput" placeholder="phone Number" name="phoneNumber" value=${User.phoneNumber} readonly>
-                        <label for="floatingInput">Phone Number</label>
-                    </div>
-                    <div class="form-floating">
-                        <input type="text" class="form-control" id="floatingInput" placeholder="address" name="address" value=${User.address} readonly>
-                        <label for="floatingInput">Address</label>
-                    </div>
-                    <div class="form-floating">
-                        <input type="text" class="form-control" id="floatingInput" placeholder="amount" name="amount" required>
-                        <label for="floatingInput">Amount</label>
-                    </div>
-                    <div class="form-floating">
-                        
-                            <select name="eventId" class="form-select" id="eventId" required>
-                                <option value="">Select an event</option>
-                            <c:forEach var="event" items="${EventList}">
-                                <option value=${event.eventId}> ${event.eventTopic}  </option>
-                            </c:forEach>
-                        </select>
-                        <label for="floatingInput">Event</label>
-                        <button onclick= "GeneratePdf()" class="btn btn-color px-2 mb-2 w-100" type="button" id="button">Generate PDF</button>
-                    </div>
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="floatingInput" placeholder="phone Number" name="phoneNumber" value=${User.phoneNumber} readonly>
+                                <label for="floatingInput">Phone Number</label>
+                            </div>
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="floatingInput" placeholder="address" name="address" value=${User.address} readonly>
+                                <label for="floatingInput">Address</label>
+                            </div>
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="floatingInput" placeholder="amount" name="amount" required>
+                                <label for="floatingInput">Amount</label>
+                            </div>
+                            <div class="form-floating">
 
-                    <button class="btn btn-color px-2 mb-2 w-100" type="submit" id="submitBtn">Submit</button>
+                                <select name="eventId" class="form-select" id="eventId" required>
+                                    <option value="">Select an event</option>
+                                    <c:forEach var="event" items="${EventList}">
+                                        <option value=${event.eventId}> ${event.eventTopic}  </option>
+                                    </c:forEach>
+                                </select>
+                                <label for="floatingInput">Event</label>
+                                <button onclick= "GeneratePdf()" class="btn btn-color px-2 mb-2 w-100" type="button" id="button">Generate PDF</button>
+                            </div>
 
-                </form>
-            </main>
+                            <button class="btn btn-color px-2 mb-2 w-100" type="submit" id="submitBtn">Submit</button>
 
-        </div>
-                        </div>
+                        </form>
+                    </main>
+
+                </div>
+            </div>
         </c:if>
         <c:if test='${Organisation!=null}'>
-        <div id="body">
-            <%--<jsp:include page="menu.jsp"></jsp:include>--%>
-            <div id ="success">
-            <main class="form-signin w-50 m-auto">
+            <div id="body">
+                <%--<jsp:include page="menu.jsp"></jsp:include>--%>
+                <div id ="success">
+                    <main class="form-signin w-50 m-auto">
 
 
-                <form action="DonateMoneyOrg" method="post" id="myForm" class="shadow-lg p-3 mb-5 bg-white rounded">
+                        <form action="DonateMoneyOrg" method="post" id="myForm" class="shadow-lg p-3 mb-5 bg-white rounded">
 
 
-                    <h1 class="h3 mb-3 fw-normal text-center">Monetary Donation</h1>
+                            <h1 class="h3 mb-3 fw-normal text-center">Monetary Donation</h1>
 
-                    <div class="form-floating">
-                        <input type="text" class="form-control" id="floatingInput" placeholder="Organisation ID" name="donorId" value=${Organisation.organisationId} readonly>
-                        <label for="floatingInput">Organisation ID</label>
-                    </div>
-                    <div class="form-floating">
-                        <input type="text" class="form-control" id="floatingInput" placeholder="Organisation Name" name="firstName" value=${Organisation.organisationName} readonly>
-                        <label for="floatingInput">Organisation Name</label>
-                    </div>
-                    <div class="form-floating">
-                        <input type="text" class="form-control" id="floatingInput" placeholder="last name" name="lastName" value=${Organisation.regnNumber} readonly>
-                        <label for="floatingInput">Registration Number</label>
-                    </div>
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="floatingInput" placeholder="Organisation ID" name="donorId" value=${Organisation.organisationId} readonly>
+                                <label for="floatingInput">Organisation ID</label>
+                            </div>
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="floatingInput" placeholder="Organisation Name" name="firstName" value=${Organisation.organisationName} readonly>
+                                <label for="floatingInput">Organisation Name</label>
+                            </div>
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="floatingInput" placeholder="last name" name="lastName" value=${Organisation.regnNumber} readonly>
+                                <label for="floatingInput">Registration Number</label>
+                            </div>
 
-<!--                    <div class="form-floating">
-                        <input type="text" class="form-control" id="floatingInput" placeholder="phone Number" name="phoneNumber" value=${User.phoneNumber} readonly>
-                        <label for="floatingInput">Phone Number</label>
-                    </div>-->
-                    <div class="form-floating">
-                        <input type="text" class="form-control" id="floatingInput" placeholder="Address" name="address" value=${Organisation.district} readonly>
-                        <label for="floatingInput">Address</label>
-                    </div>
-                    <div class="form-floating">
-                        <input type="text" class="form-control" id="floatingInput" placeholder="amount" name="amount" required>
-                        <label for="floatingInput">Amount</label>
-                    </div>
-                    <div class="form-floating">
-                        
-                        <select name="eventId" class="form-select" id="eventId" required>
-                            <option value="">Select an event</option>
-                            <c:forEach var="event" items="${EventList}">
-                                <option value=${event.eventId}> ${event.eventTopic}  </option>
-                            </c:forEach>
-                        </select>
-                        <label for="floatingInput">Event</label>
-                        <button onclick= "GeneratePdf()" class="btn btn-color px-2 mb-2 w-100" type="button" id="button">Generate PDF</button>
-                    </div>
+                            <!--                    <div class="form-floating">
+                                                    <input type="text" class="form-control" id="floatingInput" placeholder="phone Number" name="phoneNumber" value=${User.phoneNumber} readonly>
+                                                    <label for="floatingInput">Phone Number</label>
+                                                </div>-->
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="floatingInput" placeholder="Address" name="address" value=${Organisation.district} readonly>
+                                <label for="floatingInput">Address</label>
+                            </div>
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="floatingInput" placeholder="amount" name="amount" required>
+                                <label for="floatingInput">Amount</label>
+                            </div>
+                            <div class="form-floating">
 
-                    <button class="btn btn-color px-2 mb-2 w-100" type="submit" id="submitBtn">Submit</button>
+                                <select name="eventId" class="form-select" id="eventId" required>
+                                    <option value="">Select an event</option>
+                                    <c:forEach var="event" items="${EventList}">
+                                        <option value=${event.eventId}> ${event.eventTopic}  </option>
+                                    </c:forEach>
+                                </select>
+                                <label for="floatingInput">Event</label>
+                                <button onclick= "GeneratePdf()" class="btn btn-color px-2 mb-2 w-100" type="button" id="button">Generate PDF</button>
+                            </div>
 
-                </form>
-            </main>
+                            <button class="btn btn-color px-2 mb-2 w-100" type="submit" id="submitBtn">Submit</button>
 
-        </div>
-                        </div>
+                        </form>
+                    </main>
+
+                </div>
+            </div>
         </c:if>
-        <script>
-            var button = document.getElementById("button");
-            button.addEventListener("click", function () {
-                var doc = new jsPDF("p", "mm", [300, 300]);
-                var makePDF = document.querySelector("#myForm");
-                var formContent = makePDF.innerHTML;
 
-                // fromHTML Method
-                doc.fromHTML(formContent);
-                doc.save("output.pdf");
-            });
-        </script>
+        <c:if test='${GmailUser!=null}'>
+            <div id="body">
+                <%--<jsp:include page="menu.jsp"></jsp:include>--%>
+                <div id ="success">
+                    <main class="form-signin w-50 m-auto">
+
+
+                        <form action="DonateMoneyUser" method="post" id="myForm" class="shadow-lg p-3 mb-5 bg-white rounded">
+
+
+                            <h1 class="h3 mb-3 fw-normal text-center">Monetary Donation</h1>
+
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="floatingInput" name="donorId" placeholder="ID" value=${GmailUser.sub} hidden>
+                            </div>
+
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="floatingInput" placeholder="Organisation ID" name="email" value=${GmailUser.email} readonly>
+                                <label for="floatingInput">Email ID</label>
+                            </div>
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="floatingInput" placeholder="Organisation Name" name="given_name" value=${GmailUser.given_name} readonly>
+                                <label for="floatingInput">First Name</label>
+                            </div>
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="floatingInput" placeholder="last name" name="family_name" value=${GmailUser.family_name} readonly>
+                                <label for="floatingInput">Last Number</label>
+                            </div>
+
+                            <!--                    <div class="form-floating">
+                                                    <input type="text" class="form-control" id="floatingInput" placeholder="phone Number" name="phoneNumber" value=${User.phoneNumber} readonly>
+                                                    <label for="floatingInput">Phone Number</label>
+                                                </div>-->
+<!--                                                                            <div class="form-floating">
+                                                                                <input type="text" class="form-control" id="floatingInput" placeholder="Address" name="address" value=${Organisation.district} readonly>
+                                                                                <label for="floatingInput">Address</label>
+                                                                            </div>-->
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="floatingInput" placeholder="amount" name="amount" required>
+                                <label for="floatingInput">Amount</label>
+                            </div>
+                            <div class="form-floating">
+
+                                <select name="eventId" class="form-select" id="eventId" required>
+                                    <option value="">Select an event</option>
+                                    <c:forEach var="event" items="${EventList}">
+                                        <option value=${event.eventId}> ${event.eventTopic}  </option>
+                                    </c:forEach>
+                                </select>
+                                <label for="floatingInput">Event</label>
+                                <button onclick= "GeneratePdf()" class="btn btn-color px-2 mb-2 w-100" type="button" id="button">Generate PDF</button>
+                            </div>
+
+                            <button class="btn btn-color px-2 mb-2 w-100" type="submit" id="submitBtn">Submit</button>
+
+                        </form>
+                    </main>
+
+                </div>
+            </div>
+        </c:if>
+        <!--        <script>
+                    var button = document.getElementById("button");
+                    button.addEventListener("click", function () {
+                        var doc = new jsPDF("p", "mm", [300, 300]);
+                        var makePDF = document.querySelector("#myForm");
+                        var formContent = makePDF.innerHTML;
+        
+                        // fromHTML Method
+                        doc.fromHTML(formContent);
+                        doc.save("output.pdf");
+                    });
+                </script>
         <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
         <!--        <script>
                     // Get the form and submit button elements

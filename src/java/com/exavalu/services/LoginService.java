@@ -371,19 +371,20 @@ public class LoginService {
         }
         return result;
     }
-    public static GmailUser getGmailUser(String emailAddress) {
+    public static GmailUser getGmailUser(String id) {
         GmailUser guser = new GmailUser();
         try {
             Connection con = JDBCConnectionManager.getConnection();
-            String sql = "Select * from gmailusers where emailAddress=?";
+            String sql = "Select * from gmailusers where id=?";
             PreparedStatement preparedStatement = con.prepareStatement(sql);
-            preparedStatement.setString(1, emailAddress);
+            preparedStatement.setString(1, id);
 
             ResultSet rs = preparedStatement.executeQuery();
 
             if(rs.next())
             {   
                 guser.setSub(rs.getString("id"));
+                guser.setEmail(rs.getString("emailAddress"));
                 guser.setGiven_name(rs.getString("firstName"));
                 guser.setFamily_name(rs.getString("lastName"));
                 guser.setPicture(rs.getString("imageUrl"));             

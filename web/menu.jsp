@@ -115,7 +115,7 @@
                 <li class="nav-item"><a href="profile.jsp"><img class="css-border" src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png" /></a></li>
             </ul>
             <%
-            } else if (request.getSession().getAttribute("LoggedinStatus").equals("gmailuser")) {%>
+            } else if (request.getSession().getAttribute("LoggedinStatus").equals("GmailUser")) {%>
             <ul class="nav nav-pills">
                 <li class="nav-item"><a href="#" class="nav-link px-2 text-black">Home</a></li>
                 <li class="nav-item"><a href="donateMain.jsp" class="nav-link px-2 text-black">Donate</a></li>

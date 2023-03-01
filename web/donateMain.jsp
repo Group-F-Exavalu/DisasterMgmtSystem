@@ -41,6 +41,11 @@
                 <button  type="button" onclick="loadNewContent('donateMoney.jsp', 'fetchDetails')">Donate Money</button>
                 <button  type="button" onclick="loadNewContent('donateEssentials.jsp', 'fetchDetails')">Donate Essentials</button>
             </div></c:if>
+            <c:if test="${GmailUser!=null}">
+            <div class="btn-group-vertical">
+                <button  type="button" class="shadow-lg p-3 mb-5 rounded" onclick="loadNewContent('donateMoney.jsp', 'fetchDetails')">Donate Money</button>
+                <button  type="button" class="shadow-lg p-3 mb-5 rounded" onclick="loadNewContent('donateEssentials.jsp', 'fetchDetails')">Donate Essentials</button>
+            </div></c:if>
         </div>
         <style>
             .btn-group-vertical {

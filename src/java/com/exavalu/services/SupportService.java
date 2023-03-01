@@ -39,7 +39,7 @@ public class SupportService {
             
                 preparedStatement.setString(1, event.getEventTopic());
                 preparedStatement.setString(2, event.getEventDetails());
-                preparedStatement.setInt(3, event.getUserId());
+                preparedStatement.setString(3, event.getUserId());
                 
                 System.out.println(preparedStatement);
                 int row = preparedStatement.executeUpdate();

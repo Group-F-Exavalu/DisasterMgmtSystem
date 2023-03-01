@@ -227,7 +227,55 @@
                 </div>
             </div>
         </c:if>
-        <script>
+        
+        <c:if test='${GmailUser!=null}'>
+            <div id="body">
+                <%--<jsp:include page="menu.jsp"></jsp:include>--%>
+                <div id ="success">
+                    
+                    <main class="form-signin w-50 m-auto">
+
+
+                        <form action="NeedSupportUser" method="post" id="myForm" class="shadow-lg p-3 mb-5 bg-white rounded">
+
+
+                            <h1 class="h3 mb-3 fw-normal text-center">I Need Help</h1>
+                            <div class="form-floating" hidden>
+                                <input type="text" class="form-control" id="floatingInput" placeholder="user ID" name="userId" value=${GmailUser.sub} readonly>
+                                <label for="floatingInput">User ID</label>
+                            </div>
+
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="floatingInput" placeholder="Email Address" name="email" value=${GmailUser.email} readonly>
+                                <label for="floatingInput">Email Address</label>
+                            </div>
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="floatingInput" placeholder="event Topic" name="eventTopic">
+                                <label for="floatingInput">Support Topic</label>
+                            </div>
+                            <div class="form-floating">
+<!--                                <input type="textarea" class="form-control" id="floatingInput" placeholder="event Details" name="eventDetails">
+                                <textarea class="form-control"  placeholder="Your Message" name="eventDetails" type="text" class="txt_3"></textarea>-->
+                                <textarea  class="form-control" id="floatingInput" cols="30" rows="4" placeholder="event Details" name="eventDetails"></textarea>
+                                <label for="floatingInput">Please Mention Details</label>
+                            </div>
+
+<!--                                <div class="col-md-12">-->
+                                    <div class="form-group">
+                                        <input type="submit" value="Submit" class="btn btn-primary px-2 mb-2 w-100" id="submitBtn">
+                                        <div class="submitting"></div>
+                                    </div>
+<!--                                </div>-->
+                            <!--<button class="btn btn-color px-2 mb-2 w-100" type="submit" id="submitBtn">Submit</button>-->
+
+                        </form>
+                    </main>
+                    
+                </div>
+            </div>
+        </c:if>
+        
+<!--        <script>
             var button = document.getElementById("button");
             button.addEventListener("click", function () {
                 var doc = new jsPDF("p", "mm", [300, 300]);
@@ -238,7 +286,7 @@
                 doc.fromHTML(formContent);
                 doc.save("output.pdf");
             });
-        </script>
+        </script>-->
         <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="js/jquery.min.js"></script>
         <script src="js/popper.js"></script>
         <script src="js/bootstrap.min.js"></script>
