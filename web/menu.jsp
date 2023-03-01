@@ -59,6 +59,15 @@
             a:hover::before{
                 width: 100%;
             }
+            .css-border {
+/*                border: 4px solid #cddc39;*/
+                padding: 2px;
+                border-radius: 50%;
+/*                border-top-color: #ff5722;
+                border-left-color: #ff5722;*/
+                width: 45px;
+                height: 45px;
+            }
 /*            ul.nav li a:hover {
                 background-color: palevioletred;
                 color: white;
@@ -102,6 +111,8 @@
                 <li class="nav-item"><a href="#" class="nav-link px-2 text-black">Contacts</a></li>
                 <li class="nav-item"><a href="DisplayEvent" class="nav-link px-2 text-black">Events</a></li>
                 <li class="nav-item"><a href="logout.jsp" class="nav-link px-2 text-black">Logout</a></li>
+                <li class="nav-item">  </li>
+                <li class="nav-item"><a href="profile.jsp"><img class="css-border" src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png" /></a></li>
             </ul>
             <%
             } else if (request.getSession().getAttribute("LoggedinStatus").equals("gmailuser")) {%>
@@ -112,6 +123,8 @@
                 <li class="nav-item"><a href="#" class="nav-link px-2 text-black">Contacts</a></li>
                 <li class="nav-item"><a href="DisplayEvent" class="nav-link px-2 text-black">Events</a></li>
                 <li class="nav-item"><a href="logout.jsp" class="nav-link px-2 text-black">Logout</a></li>
+                
+                
             </ul>
             <%
             } else if (request.getSession().getAttribute("LoggedinStatus").equals("org")) {
@@ -123,6 +136,7 @@
                 <li class="nav-item"><a href="#" class="nav-link px-2 text-black">Contacts</a></li>
                 <li class="nav-item"><a href="DisplayEvent" class="nav-link px-2 text-black">Events</a></li>
                 <li class="nav-item"><a href="logout.jsp" class="nav-link px-2 text-black">Logout</a></li>
+                <li class="nav-item"><img class="css-border" src="https://static.thenounproject.com/png/446003-200.png" /></li>
             </ul>
             <%
                 }
