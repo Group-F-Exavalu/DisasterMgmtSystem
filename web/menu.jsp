@@ -97,7 +97,7 @@
                 <li class="nav-item"><a href="landingPage.jsp" class="nav-link px-2 text-black">Home</a></li>
                 <li class="nav-item"><a href="login.jsp" class="nav-link px-2 text-black">Donate</a></li>
                 <li class="nav-item"><a href="login.jsp" class="nav-link px-2 text-black">Support</a></li>
-                <li class="nav-item"><a href="#" class="nav-link px-2 text-black">Contact</a></li>
+                <li class="nav-item"><a href="contact.jsp" class="nav-link px-2 text-black">Contacts</a></li>
                 <li class="nav-item"><a href="DisplayEvent" class="nav-link px-2 text-black">Events</a></li>
                 <li class="nav-item"><a href="login.jsp" class="nav-link px-2 text-black">Login</a></li>
                 <li class="nav-item"><a href="signupMain.jsp" class="nav-link px-2 text-black">Sign Up</a></li>
@@ -108,7 +108,7 @@
                 <li class="nav-item"><a href="#" class="nav-link px-2 text-black">Home</a></li>
                 <li class="nav-item"><a href="donateMain.jsp" class="nav-link px-2 text-black">Donate</a></li>
                 <li class="nav-item"><a href="needSupport.jsp" class="nav-link px-2 text-black">Support</a></li>
-                <li class="nav-item"><a href="#" class="nav-link px-2 text-black">Contacts</a></li>
+                <li class="nav-item"><a href="contact.jsp" class="nav-link px-2 text-black">Contacts</a></li>
                 <li class="nav-item"><a href="DisplayEvent" class="nav-link px-2 text-black">Events</a></li>
                 <li class="nav-item"><a href="logout.jsp" class="nav-link px-2 text-black">Logout</a></li>
                 <li class="nav-item">  </li>
@@ -120,7 +120,7 @@
                 <li class="nav-item"><a href="#" class="nav-link px-2 text-black">Home</a></li>
                 <li class="nav-item"><a href="donateMain.jsp" class="nav-link px-2 text-black">Donate</a></li>
                 <li class="nav-item"><a href="needSupport.jsp" class="nav-link px-2 text-black">Support</a></li>
-                <li class="nav-item"><a href="#" class="nav-link px-2 text-black">Contacts</a></li>
+                <li class="nav-item"><a href="contact.jsp" class="nav-link px-2 text-black">Contacts</a></li>
                 <li class="nav-item"><a href="DisplayEvent" class="nav-link px-2 text-black">Events</a></li>
                 <li class="nav-item"><a href="logout.jsp" class="nav-link px-2 text-black">Logout</a></li>
                 
@@ -133,7 +133,7 @@
                 <li class="nav-item"><a href="#" class="nav-link px-2 text-black">Home</a></li>
                 <li class="nav-item"><a href="donateMain.jsp" class="nav-link px-2 text-black">Donate</a></li>
                 <li class="nav-item"><a href="needSupport.jsp" class="nav-link px-2 text-black">Support</a></li>
-                <li class="nav-item"><a href="#" class="nav-link px-2 text-black">Contacts</a></li>
+                <li class="nav-item"><a href="contact.jsp" class="nav-link px-2 text-black">Contacts</a></li>
                 <li class="nav-item"><a href="DisplayEvent" class="nav-link px-2 text-black">Events</a></li>
                 <li class="nav-item"><a href="logout.jsp" class="nav-link px-2 text-black">Logout</a></li>
                 <li class="nav-item"><img class="css-border" src="https://static.thenounproject.com/png/446003-200.png" /></li>
