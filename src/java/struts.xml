@@ -67,5 +67,17 @@
             <result name="GMAILUSER">landingPage.jsp</result>
             <result name="FAILURE">login.jsp</result>
         </action>
+        <action name="EditMoneyStatus" class="com.exavalu.models.Admin" method="editMoneyForm">
+            <result name="SUCCESS">moneyDetails.jsp</result>
+            <result name="FAILURE">editDonateMoney.jsp</result>
+        </action>
+        <action name="ApproveMoney" class="com.exavalu.models.Admin" method="saveMoneyStatus">
+            <result name="SUCCESS">editDonateMoney.jsp</result>
+            <result name="FAILURE">moneyDetails.jsp</result>
+        </action>
+        <action name="RejectMoney" class="com.exavalu.models.Admin" method="deleteMoneyStatus">
+            <result name="SUCCESS">editDonateMoney.jsp</result>
+            <result name="FAILURE">moneyDetails.jsp</result>
+        </action>
     </package>
 </struts>
