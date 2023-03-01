@@ -6,6 +6,7 @@ package com.exavalu.services;
 
 import com.exavalu.models.DonateForm;
 import com.exavalu.models.Event;
+import com.exavalu.models.Volunteer;
 import com.exavalu.utils.JDBCConnectionManager;
 import java.sql.SQLException;
 import java.sql.Connection;
@@ -261,4 +262,113 @@ public class AdminService {
 
         return result;
     }
+    
+     public static Volunteer getVolunteersbyId(String emailAddress){
+        Volunteer volunteer = new Volunteer();
+        String sql = "Select * from volunteer where emailAddress=?";
+        try {
+            Connection con = JDBCConnectionManager.getConnection();
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, emailAddress);
+            ResultSet rs = ps.executeQuery();
+            
+            while(rs.next())
+            {
+                
+                
+                volunteer.setEmailAddress(rs.getString("emailAddress"));
+                volunteer.setName(rs.getString("volunteerName"));
+                volunteer.setMesssage(rs.getString("message"));
+                volunteer.setPhoneNumber(rs.getString("phoneNumber"));
+                volunteer.setAadharNumber(rs.getString("aadharNumber"));
+                volunteer.setStatus(rs.getInt("status"));
+                
+                
+            }            
+        }
+        catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        
+        return volunteer;
+    }
+     
+         public static boolean ApproveVolunteerStatus(String emailAddress) {
+        boolean result = false;
+        try {
+
+            Connection con = JDBCConnectionManager.getConnection();
+
+            String sql = "UPDATE volunteer SET status = ? WHERE emailAddress = ?;";
+
+            PreparedStatement preparedStatement = con.prepareStatement(sql);
+            preparedStatement.setInt(1, 1);
+            preparedStatement.setString(2, emailAddress);
+
+            int row = preparedStatement.executeUpdate();
+            if (row == 1) {
+                result = true;
+            }
+
+        } catch (SQLException ex) {
+           
+        }
+
+        return result;
+    }
+         
+         public static boolean RejectVolunteerStatus(String emailAddress) {
+        boolean result = false;
+        try {
+
+            Connection con = JDBCConnectionManager.getConnection();
+
+            String sql = "UPDATE volunteer SET status = ? WHERE emailAddress = ?;";
+
+            PreparedStatement preparedStatement = con.prepareStatement(sql);
+            preparedStatement.setInt(1, -1);
+            preparedStatement.setString(2, emailAddress);
+
+            int row = preparedStatement.executeUpdate();
+            if (row == 1) {
+                result = true;
+            }
+
+        } catch (SQLException ex) {
+           
+        }
+
+        return result;
+    }
+         
+          public ArrayList getAllVolunteers(){
+        ArrayList volunteerList = new ArrayList();
+        String sql = "Select * from volunteer";
+        try {
+            Connection con = JDBCConnectionManager.getConnection();
+            PreparedStatement ps = con.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            
+            while(rs.next())
+            {
+                Volunteer volunteer = new Volunteer();
+                
+                volunteer.setEmailAddress(rs.getString("emailAddress"));
+                volunteer.setName(rs.getString("volunteerName"));
+                volunteer.setMesssage(rs.getString("message"));
+                volunteer.setPhoneNumber(rs.getString("phoneNumber"));
+                volunteer.setAadharNumber(rs.getString("aadharNumber"));
+                volunteer.setStatus(rs.getInt("status"));
+                
+                volunteerList.add(volunteer);
+            }            
+        }
+        catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        System.out.println("Volunteer List: "+volunteerList);
+        return volunteerList;
+        
+    }
+    
 }
