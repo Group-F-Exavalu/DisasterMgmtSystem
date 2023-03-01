@@ -36,7 +36,7 @@ public class DonateService {
     }
     public ArrayList getMoney(){
         ArrayList eventList = new ArrayList();
-        String sql = "Select * from donatemoney";
+        String sql = "SELECT * FROM donatemoney d, events e where d.eventId=e.eventId;";
         try {
             Connection con = JDBCConnectionManager.getConnection();
             PreparedStatement ps = con.prepareStatement(sql);
@@ -52,6 +52,7 @@ public class DonateService {
                 donateform.setDonorType(rs.getString("donorType"));
                 donateform.setAmount(rs.getString("amount"));
                 donateform.setStatus(rs.getString("status"));
+                donateform.setEventName(rs.getString("eventTopic"));
                 
                 eventList.add(donateform);
             }
@@ -66,7 +67,7 @@ public class DonateService {
     }
     public ArrayList getEssentials(){
         ArrayList eventList = new ArrayList();
-        String sql = "Select * from donateessentials";
+        String sql = "Select * from donateessentials d, events e where d.eventId=e.eventId;";
         try {
             Connection con = JDBCConnectionManager.getConnection();
             PreparedStatement ps = con.prepareStatement(sql);
@@ -82,7 +83,7 @@ public class DonateService {
                 donateform.setDonorType(rs.getString("donorType"));
                 donateform.setEssentialName(rs.getString("essentialName"));
                 donateform.setStatus(rs.getString("status"));
-                
+                donateform.setEventName(rs.getString("eventTopic"));
                 eventList.add(donateform);
             }
             

@@ -22,6 +22,64 @@
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
 
 </head>
+<script>
+    function getEvents(){
+        //document.getElementById("menubar").style.display='none';
+            
+             $.ajax({
+                                 url: 'EventsTable',
+                                 
+                                 success: function (responseText) {
+                        //alert(responseText);
+                                       $("#Result").html(responseText);
+                                 }
+                                  });
+    }
+    function getFunds(){
+        //document.getElementById("menubar").style.display='none';
+            
+             $.ajax({
+                                 url: 'FundsTable',
+                                 
+                                 success: function (responseText) {
+                        //alert(responseText);
+                                       $("#Result").html(responseText);
+                                 }
+                                  });
+    }
+    function getEssentials(){
+        //document.getElementById("menubar").style.display='none';
+            
+             $.ajax({
+                                 url: 'EssentialsTable',
+                                 
+                                 success: function (responseText) {
+                        //alert(responseText);
+                                       $("#Result").html(responseText);
+                                 }
+                                  });
+    }
+    function displayEssentials(){
+        $.ajax({
+                                 url: 'EssentialsEdit',
+                                 
+                                 success: function (responseText) {
+                        //alert(responseText);
+                                       $("#Result").html(responseText);
+                                 }
+                                  });
+    }
+    function displayFunds(){
+        $.ajax({
+                                 url: 'FundsEdit',
+                                 
+                                 success: function (responseText) {
+                        //alert(responseText);
+                                       $("#Result").html(responseText);
+                                 }
+                                  });
+    }
+</script>
 
 <body id="page-top">
 
@@ -32,7 +90,7 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center">
                 <div class="sidebar-brand-icon rotate-n-15">
                     
                 </div>
@@ -44,7 +102,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="dashboard.jsp">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -62,13 +120,14 @@
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
-                    <span>Components</span>
+                    <span>Statistics</span>
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Components:</h6>
-                        <a class="collapse-item" href="buttons.html">Events</a>
-                        <a class="collapse-item" href="cards.html">Donation</a>
+                        <h6 class="collapse-header">Tables:</h6>
+                        <a class="collapse-item" onclick="getEvents()">Events</a>
+                        <a class="collapse-item" onclick="getFunds()">Funds</a>
+                        <a class="collapse-item" onclick="getEssentials()">Essentials</a>
                     </div>
                 </div>
             </li>
@@ -85,8 +144,8 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Utilities:</h6>
                         <a class="collapse-item" href="utilities-color.html">Support</a>
-                        <a class="collapse-item" href="utilities-border.html">Donate Money</a>
-                        <a class="collapse-item" href="utilities-animation.html">Donate Essentials</a>
+                        <a class="collapse-item" onclick="displayFunds()">Donate Money</a>
+                        <a class="collapse-item" onclick="displayEssentials()">Donate Essentials</a>
                         <a class="collapse-item" href="utilities-other.html">Volunteer</a>
                     </div>
                 </div>
@@ -94,13 +153,13 @@
 
             <!-- Divider -->
             <hr class="sidebar-divider">
-
-            <!-- Heading -->
+<!--
+             Heading 
             <div class="sidebar-heading">
                 Addons
             </div>
 
-            <!-- Nav Item - Pages Collapse Menu -->
+             Nav Item - Pages Collapse Menu 
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
                     aria-expanded="true" aria-controls="collapsePages">
@@ -121,27 +180,27 @@
                 </div>
             </li>
 
-            <!-- Nav Item - Charts -->
+             Nav Item - Charts 
             <li class="nav-item">
                 <a class="nav-link" href="charts.jsp">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Charts</span></a>
             </li>
 
-            <!-- Nav Item - Tables -->
+             Nav Item - Tables 
             <li class="nav-item">
                 <a class="nav-link" href="tables.jsp">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Tables</span></a>
             </li>
 
-            <!-- Divider -->
+             Divider 
             <hr class="sidebar-divider d-none d-md-block">
 
-            <!-- Sidebar Toggler (Sidebar) -->
+             Sidebar Toggler (Sidebar) 
             <div class="text-center d-none d-md-inline">
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>
-            </div>
+            </div>-->
 
 <!--             Sidebar Message 
             <div class="sidebar-card d-none d-lg-flex">
@@ -168,7 +227,7 @@
                     </button>
 
                     <!-- Topbar Search -->
-                    <form
+<!--                    <form
                         class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                         <div class="input-group">
                             <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
@@ -179,19 +238,19 @@
                                 </button>
                             </div>
                         </div>
-                    </form>
+                    </form>-->
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
 
-                        <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+<!--                         Nav Item - Search Dropdown (Visible Only XS) 
                         <li class="nav-item dropdown no-arrow d-sm-none">
                             <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-search fa-fw"></i>
-                            </a>
+                            </a>-->
                             <!-- Dropdown - Messages -->
-                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+<!--                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
                                 aria-labelledby="searchDropdown">
                                 <form class="form-inline mr-auto w-100 navbar-search">
                                     <div class="input-group">
@@ -208,15 +267,15 @@
                             </div>
                         </li>
 
-                        <!-- Nav Item - Alerts -->
+                         Nav Item - Alerts 
                         <li class="nav-item dropdown no-arrow mx-1">
                             <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-bell fa-fw"></i>
-                                <!-- Counter - Alerts -->
+                                 Counter - Alerts 
                                 <span class="badge badge-danger badge-counter">3+</span>
                             </a>
-                            <!-- Dropdown - Alerts -->
+                             Dropdown - Alerts 
                             <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="alertsDropdown">
                                 <h6 class="dropdown-header">
@@ -259,15 +318,15 @@
                             </div>
                         </li>
 
-                        <!-- Nav Item - Messages -->
+                         Nav Item - Messages 
                         <li class="nav-item dropdown no-arrow mx-1">
                             <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-envelope fa-fw"></i>
-                                <!-- Counter - Messages -->
+                                 Counter - Messages 
                                 <span class="badge badge-danger badge-counter">7</span>
                             </a>
-                            <!-- Dropdown - Messages -->
+                             Dropdown - Messages 
                             <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="messagesDropdown">
                                 <h6 class="dropdown-header">
@@ -323,7 +382,7 @@
                                 </a>
                                 <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
                             </div>
-                        </li>
+                        </li>-->
 
                         <div class="topbar-divider d-none d-sm-block"></div>
 
@@ -331,9 +390,9 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">${Admin.getAdminName()}</span>
                                 <img class="img-profile rounded-circle"
-                                    src="img/undraw_profile.svg">
+                                    src="https://static.vecteezy.com/system/resources/thumbnails/008/442/086/small/illustration-of-human-icon-user-symbol-icon-modern-design-on-blank-background-free-vector.jpg">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -351,7 +410,7 @@
                                     Activity Log
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                <a class="dropdown-item" href="Logout">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout
                                 </a>
@@ -364,7 +423,7 @@
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
-                <div class="container-fluid">
+                <div class="container-fluid" id="Result">
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
@@ -383,8 +442,8 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                Registered User</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">40,000</div>
+                                                Registered Users</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">${TotalUsers}</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -402,7 +461,7 @@
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                                 Received Funds</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">215,00</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">${Revenue}</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
@@ -419,8 +478,8 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                Registered Organisation</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">20,000</div>
+                                                Registered Organisations</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">${TotalOrgs}</div>
                                             <div class="row no-gutters align-items-center">
                                                 <div class="col">
                                                 </div>
@@ -441,8 +500,8 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                                Pending Requests</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+                                                Volunteers</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">${TotalVolunteers}</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-comments fa-2x text-gray-300"></i>
@@ -532,12 +591,12 @@
                     </div>
 
                     <!-- Content Row -->
-                    <div class="row">
+<!--                    <div class="row">
 
-                        <!-- Content Column -->
+                         Content Column 
                         <div class="col-lg-6 mb-4">
 
-                            <!-- Project Card Example -->
+                             Project Card Example 
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
                                     <h6 class="m-0 font-weight-bold text-primary">Projects</h6>
@@ -576,7 +635,7 @@
                                 </div>
                             </div>
 
-                            <!-- Color System -->
+                             Color System 
                             <div class="row">
                                 <div class="col-lg-6 mb-4">
                                     <div class="card bg-primary text-white shadow">
@@ -644,11 +703,11 @@
                                 </div>
                             </div>
 
-                        </div>
+                        </div>-->
 
-                        <div class="col-lg-6 mb-4">
+<!--                        <div class="col-lg-6 mb-4">
 
-                            <!-- Illustrations -->
+                             Illustrations 
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
                                     <h6 class="m-0 font-weight-bold text-primary">Illustrations</h6>
@@ -667,7 +726,7 @@
                                 </div>
                             </div>
 
-                            <!-- Approach -->
+                             Approach 
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
                                     <h6 class="m-0 font-weight-bold text-primary">Development Approach</h6>
@@ -684,7 +743,7 @@
                         </div>
                     </div>
 
-                </div>
+                </div>-->
                 <!-- /.container-fluid -->
 
             </div>

@@ -8,7 +8,7 @@
         <action name="Login" class="com.exavalu.models.User" method="doLogin">
             <result name="USER">landingPage.jsp</result>
             <result name="ORG">landingPage.jsp</result>
-            <result name="ADMIN">menu.jsp</result>
+            <result name="ADMIN">dashboard.jsp</result>
             <result name="FAILURE">login.jsp</result>
         </action>  
         <action name="Logout" class="com.exavalu.models.User" method="doLogout">
@@ -61,6 +61,10 @@
         </action>
         <action name="DisplayEvent" class="com.exavalu.models.DonateForm" method="getAllEvents">
             <result name="SUCCESS">eventList.jsp</result>
+            <result name="FAILURE">landingPage.jsp</result>
+        </action>
+        <action name="EventsTable" class="com.exavalu.models.DonateForm" method="getAllEvents">
+            <result name="SUCCESS">displayEvents.jsp</result>
             <result name="FAILURE">landingPage.jsp</result>
         </action>
         <action name="GmailLogin" class="com.exavalu.models.GmailUser" method="gmailLogin">
@@ -118,6 +122,23 @@
         <action name="Volunteer" class="com.exavalu.models.Volunteer" method="beVolunteer">
             <result name="SUCCESS">landingPage.jsp</result>
             <result name="FAILURE">landingPage.jsp</result>
+        </action>
+        <action name="FundsTable" class="com.exavalu.models.DonateForm" method="getAllFunds">
+            <result name="SUCCESS">displayFunds.jsp</result>
+            
+            <result name="FAILURE">dashboard.jsp</result>
+        </action>
+        <action name="EssentialsTable" class="com.exavalu.models.DonateForm" method="getAllEssentials">
+            <result name="SUCCESS">displayEssentials.jsp</result>
+            <result name="FAILURE">dashboard.jsp</result>
+        </action>
+        <action name="EssentialsEdit" class="com.exavalu.models.DonateForm" method="getAllEssentials">
+            <result name="SUCCESS">editEssentials.jsp</result>
+            <result name="FAILURE">dashboard.jsp</result>
+        </action>
+        <action name="FundsEdit" class="com.exavalu.models.DonateForm" method="getAllFunds">
+            <result name="SUCCESS">editFunds.jsp</result>
+            <result name="FAILURE">dashboard.jsp</result>
         </action>
     </package>
 </struts>

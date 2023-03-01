@@ -134,6 +134,28 @@ public class DonateForm extends ActionSupport implements ApplicationAware, Sessi
         }
         return result;
     }
+    public String getAllFunds(){
+        String result = "FAILURE";
+        ArrayList moneyList = DonateService.getInstance().getMoney();
+        
+        if(moneyList!=null){
+            result="SUCCESS";
+            sessionMap.put("MoneyList", moneyList);
+            System.out.println("MoneyList updated");
+        }
+        return result;
+    }
+    public String getAllEssentials(){
+        String result = "FAILURE";
+        ArrayList essentialsList = DonateService.getInstance().getEssentials();
+        
+        if(essentialsList!=null){
+            result="SUCCESS";
+            sessionMap.put("EssentialsList", essentialsList);
+            System.out.println("EssentialsList updated");
+        }
+        return result;
+    }
     
     /**
      * @return the formId
