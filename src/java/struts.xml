@@ -79,5 +79,29 @@
             <result name="SUCCESS">editDonateMoney.jsp</result>
             <result name="FAILURE">moneyDetails.jsp</result>
         </action>
+        <action name="EditEssentialStatus" class="com.exavalu.models.Admin" method="editEssentialsForm">
+            <result name="SUCCESS">essentialsDetails.jsp</result>
+            <result name="FAILURE">editDonateEssentials.jsp</result>
+        </action>
+        <action name="ApproveEssential" class="com.exavalu.models.Admin" method="saveEssentialStatus">
+            <result name="SUCCESS">editDonateEssentials.jsp</result>
+            <result name="FAILURE">essentialsDetails.jsp</result>
+        </action>
+        <action name="RejectEssential" class="com.exavalu.models.Admin" method="deleteEssentialStatus">
+            <result name="SUCCESS">editDonateEssentials.jsp</result>
+            <result name="FAILURE">essentialsDetails.jsp</result>
+        </action>
+        <action name="EditEventStatus" class="com.exavalu.models.Admin" method="editEventsForm">
+            <result name="SUCCESS">eventDetails.jsp</result>
+            <result name="FAILURE">editEvent.jsp</result>
+        </action>
+        <action name="ApproveEvent" class="com.exavalu.models.Admin" method="saveEventStatus">
+            <result name="SUCCESS">editEvent.jsp</result>
+            <result name="FAILURE">eventDetails.jsp</result>
+        </action>
+        <action name="RejectEvent" class="com.exavalu.models.Admin" method="deleteEventStatus">
+            <result name="SUCCESS">editEvent.jsp</result>
+            <result name="FAILURE">eventDetails.jsp</result>
+        </action>
     </package>
 </struts>
