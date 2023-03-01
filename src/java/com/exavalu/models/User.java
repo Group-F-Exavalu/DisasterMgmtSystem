@@ -4,6 +4,7 @@
  */
 package com.exavalu.models;
 
+import com.exavalu.services.AdminService;
 import com.exavalu.services.DonateService;
 import com.exavalu.services.LoginService;
 import com.exavalu.services.SignupService;
@@ -205,6 +206,7 @@ public class User extends ActionSupport implements ApplicationAware, SessionAwar
         ArrayList eventList = DonateService.getInstance().getEvents();
         ArrayList moneyList = DonateService.getInstance().getMoney();
         ArrayList essentialList = DonateService.getInstance().getEssentials();
+        ArrayList volunteerList = AdminService.getInstance().getAllVolunteers();
 
         if (successUser) {
             System.out.println("returning Success from doLoginUser method");
@@ -227,6 +229,7 @@ public class User extends ActionSupport implements ApplicationAware, SessionAwar
             sessionMap.put("EventList", eventList);
             sessionMap.put("MoneyList", moneyList);
             sessionMap.put("EssentialList", essentialList);
+            sessionMap.put("VolunteerList", volunteerList);
 
             result = "ADMIN";
         } else {

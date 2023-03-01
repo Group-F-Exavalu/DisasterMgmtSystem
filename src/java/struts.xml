@@ -103,5 +103,17 @@
             <result name="SUCCESS">editEvent.jsp</result>
             <result name="FAILURE">eventDetails.jsp</result>
         </action>
+                <action name="EditVolunteerStatus" class="com.exavalu.models.Admin" method="editVolunteerForm">
+            <result name="SUCCESS">volunteerDetails.jsp</result>
+            <result name="FAILURE">editVolunteer.jsp</result>
+        </action>
+        <action name="ApproveVolunteer" class="com.exavalu.models.Admin" method="saveVolunteerStatus">
+            <result name="SUCCESS">editVolunteer.jsp</result>
+            <result name="FAILURE">volunteerDetails.jsp</result>
+        </action>
+        <action name="RejectVolunteer" class="com.exavalu.models.Admin" method="deleteVolunteerStatus">
+            <result name="SUCCESS">editVolunteer.jsp</result>
+            <result name="FAILURE">volunteerDetails.jsp</result>
+        </action>
     </package>
 </struts>

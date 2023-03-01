@@ -23,7 +23,23 @@ import org.apache.struts2.interceptor.SessionAware;
  */
 public class Volunteer extends ActionSupport implements ApplicationAware, SessionAware, Serializable{
     
-    private String emailAddress,name,messsage;
+    private String emailAddress,name,messsage,phoneNumber,aadharNumber;
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getAadharNumber() {
+        return aadharNumber;
+    }
+
+    public void setAadharNumber(String aadharNumber) {
+        this.aadharNumber = aadharNumber;
+    }
     private int status;
     
     private SessionMap<String, Object> sessionMap = (SessionMap) ActionContext.getContext().getSession();

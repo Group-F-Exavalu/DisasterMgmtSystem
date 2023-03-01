@@ -33,12 +33,13 @@ public class VolunteerService {
         try{
             
             
-            String sql = "INSERT INTO volunteer(emailAddress,volunteerName,message)" + "VALUES(? ,? ,?)";
+            String sql = "INSERT INTO volunteer(emailAddress,volunteerName,message,phoneNumber,aadharNumber)" + "VALUES(? ,? ,?,?,?)";
             PreparedStatement preparedStatement = con.prepareStatement(sql);
             preparedStatement.setString(1, user.getEmailAddress());
             preparedStatement.setString(2, user.getName());
             preparedStatement.setString(3, user.getMesssage());
-            
+            preparedStatement.setString(4, user.getPhoneNumber());
+            preparedStatement.setString(5, user.getAadharNumber());
             
             int row = preparedStatement.executeUpdate();
             
