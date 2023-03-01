@@ -4,6 +4,7 @@
  */
 package com.exavalu.services;
 
+import com.exavalu.models.Admin;
 import com.exavalu.models.DonateForm;
 import com.exavalu.models.Event;
 import com.exavalu.models.Volunteer;
@@ -56,6 +57,106 @@ public class AdminService {
 //
 //        return result;
 //    }
+    public static Admin getAdminDetails(String emailAddress){
+        Admin admin = new Admin();
+        String sql = "SELECT * FROM admins where emailAddress=? ;";
+        try {
+            Connection con = JDBCConnectionManager.getConnection();
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, emailAddress);
+            ResultSet rs = ps.executeQuery();
+            
+            while(rs.next())
+            {
+                               
+                admin.setAdminId(rs.getInt("adminId"));
+                admin.setAdminName(rs.getString("adminName"));
+                admin.setEmailAddress(rs.getString("emailAddress"));
+                admin.setPassword(rs.getString("password"));
+                
+            }            
+        }
+        catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return admin;
+    }
+    public static String getTotalDonation(){
+        String total = "";
+        String sql = "SELECT sum(amount) FROM donatemoney";
+        try {
+            Connection con = JDBCConnectionManager.getConnection();
+            PreparedStatement ps = con.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            
+            while(rs.next())
+            {
+                               
+                total=rs.getString("sum(amount)");
+            }            
+        }
+        catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return total;
+    }
+    public static String getTotalUsers(){
+        String total = "";
+        String sql = "SELECT count(*) FROM users;";
+        try {
+            Connection con = JDBCConnectionManager.getConnection();
+            PreparedStatement ps = con.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            
+            while(rs.next())
+            {
+                               
+                total=rs.getString("count(*)");
+            }            
+        }
+        catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return total;
+    }
+    public static String getTotalOrganisations(){
+        String total = "";
+        String sql = "SELECT count(*) FROM organisations;";
+        try {
+            Connection con = JDBCConnectionManager.getConnection();
+            PreparedStatement ps = con.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            
+            while(rs.next())
+            {
+                               
+                total=rs.getString("count(*)");
+            }            
+        }
+        catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return total;
+    }
+    public static String getTotalVolunteers(){
+        String total = "";
+        String sql = "SELECT count(*) FROM volunteer where status=0;";
+        try {
+            Connection con = JDBCConnectionManager.getConnection();
+            PreparedStatement ps = con.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            
+            while(rs.next())
+            {
+                               
+                total=rs.getString("count(*)");
+            }            
+        }
+        catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return total;
+    }
     public static DonateForm getMoneybyId(int formId){
         DonateForm donateform = new DonateForm();
         String sql = "Select * from donatemoney where formId=?";

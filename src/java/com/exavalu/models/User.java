@@ -207,6 +207,7 @@ public class User extends ActionSupport implements ApplicationAware, SessionAwar
         ArrayList moneyList = DonateService.getInstance().getMoney();
         ArrayList essentialList = DonateService.getInstance().getEssentials();
         ArrayList volunteerList = AdminService.getInstance().getAllVolunteers();
+        
 
         if (successUser) {
             System.out.println("returning Success from doLoginUser method");
@@ -225,11 +226,21 @@ public class User extends ActionSupport implements ApplicationAware, SessionAwar
         } else if (successAdmin) {
             System.out.println("returning Success from doLoginAdmin method");
             sessionMap.put("Loggedin", this);
+            String revenue = AdminService.getTotalDonation();
+            String totalUsers=AdminService.getTotalUsers();
+            String totalOrgs = AdminService.getTotalOrganisations();
+            String totalVolunteers = AdminService.getTotalVolunteers();
+            Admin admin = AdminService.getAdminDetails(emailAddress);
             sessionMap.put("LoggedinStatus", "admin");
             sessionMap.put("EventList", eventList);
             sessionMap.put("MoneyList", moneyList);
             sessionMap.put("EssentialList", essentialList);
             sessionMap.put("VolunteerList", volunteerList);
+            sessionMap.put("Revenue", revenue);
+            sessionMap.put("TotalUsers", totalUsers);
+            sessionMap.put("TotalOrgs", totalOrgs);
+            sessionMap.put("TotalVolunteers",totalVolunteers);
+            sessionMap.put("Admin",admin);
 
             result = "ADMIN";
         } else {
