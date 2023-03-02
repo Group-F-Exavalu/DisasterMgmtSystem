@@ -66,7 +66,7 @@
         
         function fetchContent(selectedId, targetId)
                 {
-                     alert(selectedId);
+//                     alert(selectedId);
             
                             $.ajax({
                                     url: 'PreSignUp',
@@ -75,7 +75,7 @@
                                     },
                                     success: function (responseText) {
                                     console.log(responseText);
-                                    alert(responseText);
+//                                    alert(responseText);
                                             $("#" + targetId).html(responseText);
                                     }
                             });

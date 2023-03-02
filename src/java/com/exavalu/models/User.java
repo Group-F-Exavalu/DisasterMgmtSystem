@@ -203,7 +203,7 @@ public class User extends ActionSupport implements ApplicationAware, SessionAwar
         User user = LoginService.getUser(emailAddress);
         System.out.println("User Phone :" + user.getPhoneNumber());
         Organisation organisation = LoginService.getOrganisation(emailAddress);
-        ArrayList eventList = DonateService.getInstance().getEvents();
+        ArrayList eventList = DonateService.getInstance().getApprovedEvents();
         ArrayList moneyList = DonateService.getInstance().getMoney();
         ArrayList essentialList = DonateService.getInstance().getEssentials();
         ArrayList volunteerList = AdminService.getInstance().getAllVolunteers();

@@ -123,6 +123,34 @@ public class DonateService {
         System.err.println("Total rows:"+eventList.size());
         return eventList;
     }
+    public ArrayList getApprovedEvents(){
+        ArrayList eventList = new ArrayList();
+        String sql = "Select * from events where status=1";
+        try {
+            Connection con = JDBCConnectionManager.getConnection();
+            PreparedStatement ps = con.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            
+            while(rs.next())
+            {
+                Event event = new Event();
+                
+                event.setEventId(rs.getString("eventId"));
+                event.setEventTopic(rs.getString("eventTopic"));
+                event.setEventDetails(rs.getString("eventDetails"));
+                event.setStatus(rs.getString("status"));
+                
+                eventList.add(event);
+            }
+            
+            
+        }
+        catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        System.err.println("Total rows:"+eventList.size());
+        return eventList;
+    }
     public Event getEventById(int eventId){
         Event event = new Event();
         String sql = "Select * from events where eventId=?";
