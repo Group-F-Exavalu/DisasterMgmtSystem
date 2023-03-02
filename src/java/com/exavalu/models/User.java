@@ -232,7 +232,7 @@ public class User extends ActionSupport implements ApplicationAware, SessionAwar
             String totalVolunteers = AdminService.getTotalVolunteers();
             Admin admin = AdminService.getAdminDetails(emailAddress);
             sessionMap.put("LoggedinStatus", "admin");
-            sessionMap.put("EventList", eventList);
+            
             sessionMap.put("MoneyList", moneyList);
             sessionMap.put("EssentialList", essentialList);
             sessionMap.put("VolunteerList", volunteerList);
