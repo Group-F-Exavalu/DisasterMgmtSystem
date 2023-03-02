@@ -243,7 +243,7 @@ public class LoginService {
                 user.setCountry(rs.getString("country"));
                 user.setDistrict(rs.getString("district"));
                 user.setGender(rs.getString("gender"));
-                user.setGovtId(rs.getString("govtId"));
+                user.setAadharNumber(rs.getString("aadharNumber"));
                 user.setPhoneNumber(rs.getString("phoneNumber"));
                 
                 System.out.println("User Phone :" +rs.getString("phoneNumber"));

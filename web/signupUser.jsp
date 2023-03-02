@@ -145,21 +145,11 @@
                     </select>
                     <label for="floatingInput">Govt ID Proof</label>
                 </div>-->
-                  <div class="form-floating mb-2">
-
-                    <select name="govtProof"  class="form-select mb-2" id="govtProof" required>
-
-                        <option value="1">Aadhar Card</option>  
-                        <option value="2">Driving License</option> 
-                        <option value="3">Voter Card</option> 
-                    </select>
-                    <label for="floatingInput">Govt ID Proof</label>
-
-                </div>  
+                  
 
                 <div class="form-floating mb-2">
-                    <input type="text" class="form-control" id="govtId" placeholder="govtId" name="govtId" >
-                    <label for="floatingInput">Govt. ID Card Number</label>
+                    <input type="text" class="form-control" id="govtId" placeholder="aadharNumber" name="aadharNumber" >
+                    <label for="floatingInput">Aadhar Card Number</label>
                 </div>
 
                 <div class="form-floating mb-2">

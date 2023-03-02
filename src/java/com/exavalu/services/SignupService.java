@@ -45,7 +45,7 @@ public class SignupService {
         try{
             
             
-            String sql = "INSERT INTO users(emailAddress, password, firstName,lastName,gender,phoneNumber,address,govtProof,govtId,country,state,district)" + "VALUES(? ,? ,? ,? ,? ,? ,? ,? ,? ,?,?,?)";
+            String sql = "INSERT INTO users(emailAddress, password, firstName,lastName,gender,phoneNumber,address,aadharNumber,country,state,district)" + "VALUES(? ,? ,? ,? ,?,? ,? ,? ,?,?,?)";
             PreparedStatement preparedStatement = con.prepareStatement(sql);
             preparedStatement.setString(1, user.getEmailAddress());
             preparedStatement.setString(2, user.getPassword());
@@ -54,11 +54,10 @@ public class SignupService {
             preparedStatement.setString(5,user.getGender());
             preparedStatement.setString(6, user.getPhoneNumber());
             preparedStatement.setString(7, user.getAddress());
-            preparedStatement.setInt(8, user.getGovtProof());
-            preparedStatement.setString(9, user.getGovtId());
-            preparedStatement.setString(10, user.getCountry());
-            preparedStatement.setString(11, user.getState());
-            preparedStatement.setString(12, user.getDistrict());
+            preparedStatement.setString(8, user.getAadharNumber());
+            preparedStatement.setString(9, user.getCountry());
+            preparedStatement.setString(10, user.getState());
+            preparedStatement.setString(11, user.getDistrict());
             
             int row = preparedStatement.executeUpdate();
             

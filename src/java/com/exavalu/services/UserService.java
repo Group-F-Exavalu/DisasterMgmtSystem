@@ -42,8 +42,7 @@ public class UserService {
                 user.setPhoneNumber(rs.getString("phoneNumber"));
                 user.setGender(rs.getString("gender"));
                 user.setAddress(rs.getString("address"));
-                user.setGovtId(rs.getString("govtId"));
-                user.setGovtProof(rs.getInt("govtProof"));
+                user.setAadharNumber(rs.getString("aadharNumber"));
                 
             }
 
