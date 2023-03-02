@@ -41,7 +41,7 @@
                     formId : id
                 },
                 success: function (responseText) {
-                alert(responseText);
+                //alert(responseText);
                $.getScript('dashboard.jsp', function () {          
                     displayFunds();  
                 });  
@@ -62,7 +62,7 @@
                     displayFunds();  
                 });  
             document.getElementById("display-body").style.display='none';
-                alert(responseText);
+                //alert(responseText);
                 //document.getElementById("display-body").style.display='none';
 //                $.getScript('menuUnderwriter.jsp', function () {          
 //      loadFNOLDetails();  
@@ -136,12 +136,13 @@
                                    <span>Donor ID :  ${MoneyForm.getDonorId()}</span><br>
                                    <span>Donor Type : ${MoneyForm.getDonorType()}</span><br>
                                    <span>Amount ($) : ${MoneyForm.getAmount()}</span><br>
-                                   <span>Event ID : ${MoneyForm.getEventId()}</span></p><br>
-                                <div class="gap-3 column-gap-4" style="display: grid; grid-template-columns: repeat(2, 1fr)">
+                                   <span>Event ID : ${MoneyForm.getEventId()}</span><br>
+                                   <span>Aadhar Number : ${Aadhar}</span></p>
+                                
                                     <button type="button" class="btn btn-primary w-100" onclick="getInsuranceDetails('trial','api','${Aadhar}')">
-                                        Check Validity
+                                        Check Aadhar Validity
                                     </button>
-                                   
+                                   <div class="gap-3 column-gap-4" style="display: grid; grid-template-columns: repeat(2, 1fr)">
                                 <button type="button" class="btn btn-success w-100" onclick="approveStatus(<c:out value='${MoneyForm.getFormId()}'/>)">
                                     Approve
                                 </button>
@@ -151,7 +152,7 @@
                                 </div>
                                 </div>
                             </div>
-                              <div id="api"></div>
+                              
                                
 <!--                             Approach 
                             <div class="card shadow mb-4">
@@ -167,4 +168,7 @@
                                 </div>
                             </div>-->
 
-                        </div></div>
+                        </div>
+                         <div id="api"></div>           
+</div>
+                                    

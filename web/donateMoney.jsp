@@ -174,24 +174,25 @@
                                     </c:forEach>
                                 </select>
                                 <label for="floatingInput">Event</label>
+                                <button type="button" class="btn btn-light btn-outline-black px-2 mb-2 w-100" data-toggle="modal" data-target="#exampleModal">Scan QR Code</button>
                                 <div class="form-floating">
                                     <input type="text" class="form-control" id="floatingInput" placeholder="transaction Id" name="transactionId" required>
-                                    <label for="floatingInput">Transaction ID (Enter after scanning QR)</label>
+                                    <label for="floatingInput">UPI Transaction ID (Enter after scanning QR)</label>
                                 </div>
                                 <button onclick= "GeneratePdf()" class="btn btn-color px-2 mb-2 w-100" type="button" id="button">Generate PDF</button>
                             </div>
 
                             <button class="btn btn-color px-2 mb-2 w-100" type="submit" id="submitBtn">Submit</button>
-                            <button type="button" class="btn btn-primary"data-toggle="modal" data-target="#exampleModal">click to scan</button>
+                            
 
                             <div class="modal fade" id="exampleModal" tabindex="-1"role="dialog" aria-labelledby="exampleModalLabel"aria-hidden="true">
                                 <div class="modal-body">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
-                                            <button type="button" class="close"
+                                            <button type="button" class="close btn btn-light btn-outline-black px-2 mb-2 w-100"
                                                     data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">
-                                                    close
+                                                    Close QR Code
                                                 </span>
                                             </button>
                                             <img src="images/QRCode.jpeg" />
