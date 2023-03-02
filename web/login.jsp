@@ -60,6 +60,7 @@
                             <div class="mb-3">
                                 <input type="password" name = "password" class="form-control" id="password" placeholder="password">
                             </div>
+                            <a href="#" class="text-dark fw-bold"></a>
                             <button type="submit" class="btn btn-color px-5 mb-5 w-100">Login</button>
                             <!--<button type="submit" class="btn btn-color px-5 mb-5 w-100">Sign Up</button>-->
                             <div class="text-center">

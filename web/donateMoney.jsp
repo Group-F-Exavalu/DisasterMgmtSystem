@@ -85,7 +85,9 @@
                         }
         </script>
 
-
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 
 
 
@@ -122,7 +124,7 @@
             text-decoration: none;
         }
     </style>
-    <!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>-->
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.8.1/html2pdf.bundle.min.js"></script>
     <body class="text-center">
         <c:if test='${User!=null}'>
@@ -162,6 +164,7 @@
                                 <input type="text" class="form-control" id="floatingInput" placeholder="amount" name="amount" required>
                                 <label for="floatingInput">Amount</label>
                             </div>
+
                             <div class="form-floating">
 
                                 <select name="eventId" class="form-select" id="eventId" required>
@@ -171,12 +174,34 @@
                                     </c:forEach>
                                 </select>
                                 <label for="floatingInput">Event</label>
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="floatingInput" placeholder="transaction Id" name="transactionId" required>
+                                    <label for="floatingInput">Transaction ID (Enter after scanning QR)</label>
+                                </div>
                                 <button onclick= "GeneratePdf()" class="btn btn-color px-2 mb-2 w-100" type="button" id="button">Generate PDF</button>
                             </div>
 
                             <button class="btn btn-color px-2 mb-2 w-100" type="submit" id="submitBtn">Submit</button>
+                            <button type="button" class="btn btn-primary"data-toggle="modal" data-target="#exampleModal">click to scan</button>
+
+                            <div class="modal fade" id="exampleModal" tabindex="-1"role="dialog" aria-labelledby="exampleModalLabel"aria-hidden="true">
+                                <div class="modal-body">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <button type="button" class="close"
+                                                    data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">
+                                                    close
+                                                </span>
+                                            </button>
+                                            <img src="images/QRCode.jpeg" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
                         </form>
+
                     </main>
 
                 </div>
@@ -228,10 +253,31 @@
                                     </c:forEach>
                                 </select>
                                 <label for="floatingInput">Event</label>
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="floatingInput" placeholder="transaction Id" name="transactionId" required>
+                                    <label for="floatingInput">Transaction ID (Enter after scanning QR)</label>
+                                </div>
                                 <button onclick= "GeneratePdf()" class="btn btn-color px-2 mb-2 w-100" type="button" id="button">Generate PDF</button>
-                            </div>
 
-                            <button class="btn btn-color px-2 mb-2 w-100" type="submit" id="submitBtn">Submit</button>
+                                <button class="btn btn-color px-2 mb-2 w-100" type="submit" id="submitBtn">Submit</button>
+                                <button type="button" class="btn btn-primary"data-toggle="modal" data-target="#exampleModal">click to scan</button>
+
+                                <div class="modal fade" id="exampleModal" tabindex="-1"role="dialog" aria-labelledby="exampleModalLabel"aria-hidden="true">
+                                    <div class="modal-body">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <button type="button" class="close"
+                                                        data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">
+                                                        close
+                                                    </span>
+                                                </button>
+                                                <img src="images/QRCode.jpeg" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
                         </form>
                     </main>
@@ -273,10 +319,10 @@
                                                     <input type="text" class="form-control" id="floatingInput" placeholder="phone Number" name="phoneNumber" value=${User.phoneNumber} readonly>
                                                     <label for="floatingInput">Phone Number</label>
                                                 </div>-->
-<!--                                                                            <div class="form-floating">
-                                                                                <input type="text" class="form-control" id="floatingInput" placeholder="Address" name="address" value=${Organisation.district} readonly>
-                                                                                <label for="floatingInput">Address</label>
-                                                                            </div>-->
+                            <!--                                                                            <div class="form-floating">
+                                                                                                            <input type="text" class="form-control" id="floatingInput" placeholder="Address" name="address" value=${Organisation.district} readonly>
+                                                                                                            <label for="floatingInput">Address</label>
+                                                                                                        </div>-->
                             <div class="form-floating">
                                 <input type="text" class="form-control" id="floatingInput" placeholder="amount" name="amount" required>
                                 <label for="floatingInput">Amount</label>
@@ -290,10 +336,31 @@
                                     </c:forEach>
                                 </select>
                                 <label for="floatingInput">Event</label>
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="floatingInput" placeholder="Transaction ID" name="transactionId" required>
+                                    <label for="floatingInput">Transaction ID (Enter after scanning QR)</label>
+                                </div>
                                 <button onclick= "GeneratePdf()" class="btn btn-color px-2 mb-2 w-100" type="button" id="button">Generate PDF</button>
                             </div>
 
                             <button class="btn btn-color px-2 mb-2 w-100" type="submit" id="submitBtn">Submit</button>
+                            <button type="button" class="btn btn-primary"data-toggle="modal" data-target="#exampleModal">click to scan</button>
+
+                            <div class="modal fade" id="exampleModal" tabindex="-1"role="dialog" aria-labelledby="exampleModalLabel"aria-hidden="true">
+                                <div class="modal-body">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <button type="button" class="close"
+                                                    data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">
+                                                    close
+                                                </span>
+                                            </button>
+                                            <img src="images/QRCode.jpeg" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
                         </form>
                     </main>

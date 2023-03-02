@@ -73,7 +73,7 @@
                         <div class="block-18 color-1 align-items-stretch">
                             <div class="text">
                                 <span>Served Over</span>
-                                <strong class="number" data-number="1432805">0</strong>
+                                <strong class="number" data-number="69420">0</strong>
                                 <span>Children in 190 countries in the world</span>
                             </div>
                         </div>
