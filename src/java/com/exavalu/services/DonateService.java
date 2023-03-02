@@ -166,7 +166,8 @@ public class DonateService {
                 event.setEventId(rs.getString("eventId"));
                 event.setEventTopic(rs.getString("eventTopic"));
                 event.setEventDetails(rs.getString("eventDetails"));
-                 event.setUserId(rs.getString("userId"));
+                event.setUserId(rs.getString("userId"));
+                event.setUserId(rs.getString("supportType"));
                 event.setStatus(rs.getString("status"));
                 
             }
@@ -223,7 +224,7 @@ public class DonateService {
     public boolean insertMoneyForm(DonateForm donateForm){
         
         boolean result = false;
-        String sql = "INSERT INTO donatemoney(donorId,donorType,amount,eventId,status)"+"VALUES(? ,? ,? ,? ,?)";
+        String sql = "INSERT INTO donatemoney(donorId,donorType,amount,eventId,status,transactionId)"+"VALUES(? ,? ,? ,? ,?,?)";
         try {
 
             Connection con = JDBCConnectionManager.getConnection();
@@ -235,6 +236,7 @@ public class DonateService {
                 preparedStatement.setString(3, donateForm.getAmount());
                 preparedStatement.setString(4, donateForm.getEventId());
                 preparedStatement.setInt(5, 0);
+                preparedStatement.setString(6, donateForm.getTransactionId());
                 
                 System.out.println(preparedStatement);
                 int row = preparedStatement.executeUpdate();

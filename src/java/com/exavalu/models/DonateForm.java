@@ -32,6 +32,7 @@ public class DonateForm extends ActionSupport implements ApplicationAware, Sessi
     private String eventName;
     private String status;
     private String amount;
+    private String transactionId;
 
     private SessionMap<String, Object> sessionMap = (SessionMap) ActionContext.getContext().getSession();
 
@@ -320,6 +321,20 @@ public class DonateForm extends ActionSupport implements ApplicationAware, Sessi
      */
     public void setAmount(String amount) {
         this.amount = amount;
+    }
+
+    /**
+     * @return the transactionId
+     */
+    public String getTransactionId() {
+        return transactionId;
+    }
+
+    /**
+     * @param transactionId the transactionId to set
+     */
+    public void setTransactionId(String transactionId) {
+        this.transactionId = transactionId;
     }
     
 }
