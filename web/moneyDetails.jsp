@@ -6,6 +6,7 @@
 
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
+
 <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -72,6 +73,23 @@
             });
         }
 </script>
+
+<script type="text/javascript">
+        function getInsuranceDetails(url, id, aadharNumber) {
+//                    document.getElementById("MENU").style.display = 'none';
+            $.ajax({
+                url: url,
+                data: {
+                    aadharNumber : aadharNumber
+                },
+                success: function (response) {
+                    $('#' + id).html(response);
+                }
+            });
+        }
+    </script>
+    
+     
 <div id="Target">
 <!--<div class="d-flex flex-column gap-2 mb-3">
     <span>Form ID : ${MoneyForm.getFormId()}</span>
@@ -120,12 +138,10 @@
                                    <span>Amount ($) : ${MoneyForm.getAmount()}</span><br>
                                    <span>Event ID : ${MoneyForm.getEventId()}</span></p><br>
                                 <div class="gap-3 column-gap-4" style="display: grid; grid-template-columns: repeat(2, 1fr)">
-                                    <button type="button" class="btn btn-primary w-100" onclick="getInsuranceDetails()">
-                                        Check API Validity
+                                    <button type="button" class="btn btn-primary w-100" onclick="getInsuranceDetails('trial','api','${Aadhar}')">
+                                        Check Validity
                                     </button>
-                                    <button type="button" class="btn btn-primary w-100" onclick="getDMVDetails()">
-                                        Check API Validity
-                                    </button>
+                                   
                                 <button type="button" class="btn btn-success w-100" onclick="approveStatus(<c:out value='${MoneyForm.getFormId()}'/>)">
                                     Approve
                                 </button>
@@ -135,7 +151,7 @@
                                 </div>
                                 </div>
                             </div>
-                             
+                              <div id="api"></div>-->
                                
 <!--                             Approach 
                             <div class="card shadow mb-4">
