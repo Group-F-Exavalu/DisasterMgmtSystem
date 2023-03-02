@@ -63,7 +63,7 @@
             <result name="SUCCESS">eventList.jsp</result>
             <result name="FAILURE">landingPage.jsp</result>
         </action>
-        <action name="EventsTable" class="com.exavalu.models.DonateForm" method="getAllEvents">
+        <action name="EventsTable" class="com.exavalu.models.DonateForm" method="getAllEventsTable">
             <result name="SUCCESS">displayEvents.jsp</result>
             <result name="FAILURE">landingPage.jsp</result>
         </action>
@@ -144,7 +144,7 @@
             <result name="SUCCESS">editVolunteers.jsp</result>
             <result name="FAILURE">dashboard.jsp</result>
         </action>
-        <action name="EventsEdit" class="com.exavalu.models.DonateForm" method="getAllEvents">
+        <action name="EventsEdit" class="com.exavalu.models.DonateForm" method="getAllEventsTable">
             <result name="SUCCESS">editEvents.jsp</result>
             <result name="FAILURE">dashboard.jsp</result>
         </action>
