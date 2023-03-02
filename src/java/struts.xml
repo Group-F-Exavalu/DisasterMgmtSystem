@@ -148,5 +148,9 @@
             <result name="SUCCESS">editEvents.jsp</result>
             <result name="FAILURE">dashboard.jsp</result>
         </action>
+        <action name="trial" class="com.exavalu.models.APIUser" method="getAdharData">
+            <result name="SUCCESS">adhaarApi.jsp</result>
+            <result name="FAILURE">login.jsp</result>
+        </action>
     </package>
 </struts>
