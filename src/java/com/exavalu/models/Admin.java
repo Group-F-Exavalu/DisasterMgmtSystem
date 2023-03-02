@@ -31,7 +31,7 @@ public class Admin extends ActionSupport implements ApplicationAware, SessionAwa
     public void setEventId(int eventId) {
         this.eventId = eventId;
     }
-    private String adminName, emailAddress, password;
+    private String adminName, emailAddress, password, donorType;
 
     private SessionMap<String, Object> sessionMap = (SessionMap) ActionContext.getContext().getSession();
 
@@ -98,7 +98,19 @@ public class Admin extends ActionSupport implements ApplicationAware, SessionAwa
     public String editMoneyForm() throws Exception {
         String result = "SUCCESS";
         DonateForm moneyform = AdminService.getMoneybyId(this.formId);
+        if(moneyform.getDonorType().equals("1")){
+            String aadharNumber = AdminService.getGovtNumber(moneyform.getDonorId(),moneyform.getDonorType());
+            sessionMap.put("Aadhar", aadharNumber);
+            System.out.println("Aadhar"+aadharNumber);
+        }
+        else if(moneyform.getDonorType().equals("2")){
+            String regnNumber = AdminService.getGovtNumber(moneyform.getDonorId(),moneyform.getDonorType());
+            sessionMap.put("RegnNumber", regnNumber);
+            System.out.println("RegnNumber"+regnNumber);
+        }
         sessionMap.put("MoneyForm", moneyform);
+        
+        
         return result;
     }
 
@@ -138,6 +150,16 @@ public class Admin extends ActionSupport implements ApplicationAware, SessionAwa
         String result = "SUCCESS";
         DonateForm essentialsform = AdminService.getEssentialsbyId(this.formId);
         System.out.println("form id : "+this.formId);
+        if(essentialsform.getDonorType().equals("1")){
+            String aadharNumber = AdminService.getGovtNumber(essentialsform.getDonorId(),essentialsform.getDonorType());
+            sessionMap.put("Aadhar", aadharNumber);
+            System.out.println("Aadhar"+aadharNumber);
+        }
+        else if(essentialsform.getDonorType().equals("2")){
+            String regnNumber = AdminService.getGovtNumber(essentialsform.getDonorId(),essentialsform.getDonorType());
+            sessionMap.put("RegnNumber", regnNumber);
+            System.out.println("RegnNumber"+regnNumber);
+        }
         sessionMap.put("EssentialsForm", essentialsform);
         return result;
     }

@@ -176,7 +176,8 @@ public class AdminService {
                 donateform.setAmount(rs.getString("amount"));
                 donateform.setStatus(rs.getString("status"));
                 
-            }            
+            } 
+            System.out.println("donate type" + donateform.getDonorType());
         }
         catch (SQLException ex) {
             ex.printStackTrace();
@@ -362,6 +363,50 @@ public class AdminService {
         }
 
         return result;
+    }
+
+    public static String getGovtNumber(String donorId, String donorType) {
+        String result=null;
+        if(donorType.equals("1")){
+            String sql = "SELECT * FROM users where userId=?;";
+            try {
+
+            Connection con = JDBCConnectionManager.getConnection();
+            PreparedStatement preparedStatement = con.prepareStatement(sql);
+            preparedStatement.setString(1, donorId);
+
+            ResultSet rs = preparedStatement.executeQuery();
+            while(rs.next())
+            {
+                result = rs.getString("aadharNumber");
+            }            
+            
+        } catch (SQLException ex) {
+           
+        }
+          System.out.println("Aadhar Number fetched :" + result);
+          return result;
+        }
+        else{
+            String sql = "SELECT * FROM organisations where organisationId=?;";
+            try {
+
+            Connection con = JDBCConnectionManager.getConnection();
+            PreparedStatement preparedStatement = con.prepareStatement(sql);
+            preparedStatement.setString(1, donorId);
+
+            ResultSet rs = preparedStatement.executeQuery();
+            while(rs.next())
+            {
+                result = rs.getString("regnNumber");
+            }            
+            
+        } catch (SQLException ex) {
+           
+        }
+          System.out.println("Registration Number fetched :" + result);
+          return result;
+        }
     }
     
      
