@@ -4,12 +4,14 @@
  */
 package com.exavalu.models;
 
+import com.exavalu.services.AdminService;
 import com.exavalu.services.LoginService;
 import com.exavalu.services.VolunteerService;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Map;
 import org.apache.log4j.Logger;
 import org.apache.struts2.dispatcher.ApplicationMap;
@@ -137,4 +139,54 @@ public class Volunteer extends ActionSupport implements ApplicationAware, Sessio
         return result;
 
     }
+    public String getAllVolunteers(){
+        String result = "FAILURE";
+        ArrayList volunteerList = VolunteerService.getInstance().getAllVolunteers();
+        if(volunteerList!=null){
+            result="SUCCESS";
+            sessionMap.put("VolunteerList", volunteerList);
+            System.out.println("VolunteerList updated");
+        }
+        return result;
+    }
+    public String editVolunteerForm() throws Exception {
+        String result = "SUCCESS";
+        Volunteer volunteerform = VolunteerService.getVolunteersbyId(this.emailAddress);
+        System.out.println("email id : "+this.emailAddress);
+        sessionMap.put("VolunteerForm", volunteerform);
+        return result;
+    }
+     public String saveVolunteerStatus() throws Exception {
+        String result = "FAILURE";
+        
+        boolean success = VolunteerService.ApproveVolunteerStatus(this.emailAddress);
+        System.out.println(this.emailAddress);
+        if (success){
+        ArrayList volunteerList = VolunteerService.getInstance().getAllVolunteers();
+        sessionMap.put("VolunteerList", volunteerList);
+        System.out.println("returning Success from saveVolunteerStatus method");
+        result = "SUCCESS";
+    }
+    else {
+        System.out.println("returning Failure from saveVolunteerStatus method");
+    }
+    return result;
+}
+    
+     public String deleteVolunteerStatus() throws Exception {
+        String result = "FAILURE";
+        
+        boolean success = VolunteerService.RejectVolunteerStatus(this.emailAddress);
+        System.out.println(this.emailAddress);
+        if (success){
+        ArrayList volunteerList = VolunteerService.getInstance().getAllVolunteers();
+        sessionMap.put("VolunteerList", volunteerList);
+        System.out.println("returning Success from deleteVolunteerStatus method");
+        result = "SUCCESS";
+    }
+    else {
+        System.out.println("returning Failure from deleteVolunteerStatus method");
+    }
+    return result;
+}
 }

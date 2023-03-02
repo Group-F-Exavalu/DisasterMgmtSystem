@@ -202,7 +202,7 @@ public class Admin extends ActionSupport implements ApplicationAware, SessionAwa
         String result = "FAILURE";
         
         boolean success = DonateService.getInstance().rejectEventStatus(this.eventId);
-        System.out.println(this.formId);
+        System.out.println(this.eventId);
         if (success){
         ArrayList eventList = DonateService.getInstance().getEvents();
         sessionMap.put("EventList", eventList);
@@ -215,46 +215,7 @@ public class Admin extends ActionSupport implements ApplicationAware, SessionAwa
     return result;
 }
      
-     public String editVolunteerForm() throws Exception {
-        String result = "SUCCESS";
-        Volunteer volunteerform = AdminService.getVolunteersbyId(this.emailAddress);
-        System.out.println("event id : "+this.emailAddress);
-        sessionMap.put("VolunteerForm", volunteerform);
-        return result;
-    }
-      public String saveVolunteerStatus() throws Exception {
-        String result = "FAILURE";
-        
-        boolean success = AdminService.ApproveVolunteerStatus(this.emailAddress);
-        System.out.println(this.emailAddress);
-        if (success){
-        ArrayList volunteerList = AdminService.getInstance().getAllVolunteers();
-        sessionMap.put("VOLUNTEER List", volunteerList);
-        System.out.println("returning Success from saveVolunteerStatus method");
-        result = "SUCCESS";
-    }
-    else {
-        System.out.println("returning Failure from saveVolunteerStatus method");
-    }
-    return result;
-}
-    
-     public String deleteVolunteerStatus() throws Exception {
-        String result = "FAILURE";
-        
-        boolean success = AdminService.RejectVolunteerStatus(this.emailAddress);
-        System.out.println(this.emailAddress);
-        if (success){
-        ArrayList volunteerList = AdminService.getInstance().getAllVolunteers();
-        sessionMap.put("VolunteerList", volunteerList);
-        System.out.println("returning Success from deleteVolunteerStatus method");
-        result = "SUCCESS";
-    }
-    else {
-        System.out.println("returning Failure from deleteVolunteerStatus method");
-    }
-    return result;
-}
+     
 
 //    public String doUpdateDonateMoneyStatus() throws Exception {
 //        String result = "REJECTED";

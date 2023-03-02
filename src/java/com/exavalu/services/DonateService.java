@@ -110,6 +110,7 @@ public class DonateService {
                 event.setEventId(rs.getString("eventId"));
                 event.setEventTopic(rs.getString("eventTopic"));
                 event.setEventDetails(rs.getString("eventDetails"));
+                event.setUserId(rs.getString("userId"));
                 event.setStatus(rs.getString("status"));
                 
                 eventList.add(event);
