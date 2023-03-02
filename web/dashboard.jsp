@@ -79,6 +79,26 @@
                                  }
                                   });
     }
+    function displayVolunteers(){
+        $.ajax({
+                                 url: 'VolunteersEdit',
+                                 
+                                 success: function (responseText) {
+                        //alert(responseText);
+                                       $("#Result").html(responseText);
+                                 }
+                                  });
+    }
+    function displayEvents(){
+        $.ajax({
+                                 url: 'EventsEdit',
+                                 
+                                 success: function (responseText) {
+                        //alert(responseText);
+                                       $("#Result").html(responseText);
+                                 }
+                                  });
+    }
 </script>
 
 <body id="page-top">
@@ -142,11 +162,11 @@
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Utilities:</h6>
-                        <a class="collapse-item" href="utilities-color.html">Support</a>
+                        <h6 class="collapse-header">Status:</h6>
+                        <a class="collapse-item" onclick="displayEvents()">Support</a>
                         <a class="collapse-item" onclick="displayFunds()">Donate Money</a>
                         <a class="collapse-item" onclick="displayEssentials()">Donate Essentials</a>
-                        <a class="collapse-item" href="utilities-other.html">Volunteer</a>
+                        <a class="collapse-item" onclick="displayVolunteers()">Volunteer</a>
                     </div>
                 </div>
             </li>

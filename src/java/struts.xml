@@ -107,15 +107,15 @@
             <result name="SUCCESS">editEvent.jsp</result>
             <result name="FAILURE">eventDetails.jsp</result>
         </action>
-                <action name="EditVolunteerStatus" class="com.exavalu.models.Admin" method="editVolunteerForm">
+        <action name="EditVolunteerStatus" class="com.exavalu.models.Volunteer" method="editVolunteerForm">
             <result name="SUCCESS">volunteerDetails.jsp</result>
             <result name="FAILURE">editVolunteer.jsp</result>
         </action>
-        <action name="ApproveVolunteer" class="com.exavalu.models.Admin" method="saveVolunteerStatus">
+        <action name="ApproveVolunteer" class="com.exavalu.models.Volunteer" method="saveVolunteerStatus">
             <result name="SUCCESS">editVolunteer.jsp</result>
             <result name="FAILURE">volunteerDetails.jsp</result>
         </action>
-        <action name="RejectVolunteer" class="com.exavalu.models.Admin" method="deleteVolunteerStatus">
+        <action name="RejectVolunteer" class="com.exavalu.models.Volunteer" method="deleteVolunteerStatus">
             <result name="SUCCESS">editVolunteer.jsp</result>
             <result name="FAILURE">volunteerDetails.jsp</result>
         </action>
@@ -138,6 +138,14 @@
         </action>
         <action name="FundsEdit" class="com.exavalu.models.DonateForm" method="getAllFunds">
             <result name="SUCCESS">editFunds.jsp</result>
+            <result name="FAILURE">dashboard.jsp</result>
+        </action>
+        <action name="VolunteersEdit" class="com.exavalu.models.DonateForm" method="getAllFunds">
+            <result name="SUCCESS">editVolunteers.jsp</result>
+            <result name="FAILURE">dashboard.jsp</result>
+        </action>
+        <action name="EventsEdit" class="com.exavalu.models.DonateForm" method="getAllEvents">
+            <result name="SUCCESS">editEvents.jsp</result>
             <result name="FAILURE">dashboard.jsp</result>
         </action>
     </package>
