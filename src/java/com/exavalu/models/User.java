@@ -27,7 +27,7 @@ public class User extends ActionSupport implements ApplicationAware, SessionAwar
     /**
      * @param args the command line arguments
      */
-    private int userId, govtProof;
+    private int userId;
 
     public int getUserId() {
         return userId;
@@ -35,14 +35,6 @@ public class User extends ActionSupport implements ApplicationAware, SessionAwar
 
     public void setUserId(int userId) {
         this.userId = userId;
-    }
-
-    public int getGovtProof() {
-        return govtProof;
-    }
-
-    public void setGovtProof(int govtProof) {
-        this.govtProof = govtProof;
     }
 
     public String getGender() {
@@ -85,14 +77,6 @@ public class User extends ActionSupport implements ApplicationAware, SessionAwar
         this.district = district;
     }
 
-    public String getGovtId() {
-        return govtId;
-    }
-
-    public void setGovtId(String govtId) {
-        this.govtId = govtId;
-    }
-
     public static com.opensymphony.xwork2.util.logging.Logger getLOG() {
         return LOG;
     }
@@ -111,7 +95,7 @@ public class User extends ActionSupport implements ApplicationAware, SessionAwar
     public void setEmailAddress(String emailAddress) {
         this.emailAddress = emailAddress;
     }
-    private String password, gender, phoneNumber, address, country, state, district, govtId;
+    private String password, gender, phoneNumber, address, country, state, district, aadharNumber;
 
     public String getPhoneNumber() {
         return phoneNumber;
@@ -329,4 +313,18 @@ public class User extends ActionSupport implements ApplicationAware, SessionAwar
 //        return result;
 //
 //    }
+
+    /**
+     * @return the aadharNumber
+     */
+    public String getAadharNumber() {
+        return aadharNumber;
+    }
+
+    /**
+     * @param aadharNumber the aadharNumber to set
+     */
+    public void setAadharNumber(String aadharNumber) {
+        this.aadharNumber = aadharNumber;
+    }
 }
