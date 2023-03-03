@@ -53,6 +53,7 @@ public class DonateService {
                 donateform.setAmount(rs.getString("amount"));
                 donateform.setStatus(rs.getString("status"));
                 donateform.setEventName(rs.getString("eventTopic"));
+                donateform.setTransactionId(rs.getString("transactionId"));
                 
                 eventList.add(donateform);
             }

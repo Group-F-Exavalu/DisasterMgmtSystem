@@ -7,6 +7,8 @@ package com.exavalu.services;
 import com.exavalu.models.Admin;
 import com.exavalu.models.DonateForm;
 import com.exavalu.models.Event;
+import com.exavalu.models.Organisation;
+import com.exavalu.models.User;
 import com.exavalu.models.Volunteer;
 import com.exavalu.utils.JDBCConnectionManager;
 import java.sql.SQLException;
@@ -175,6 +177,7 @@ public class AdminService {
                 donateform.setDonorType(rs.getString("donorType"));
                 donateform.setAmount(rs.getString("amount"));
                 donateform.setStatus(rs.getString("status"));
+                donateform.setTransactionId(rs.getString("transactionId"));
                 
             } 
             System.out.println("donate type" + donateform.getDonorType());
@@ -233,6 +236,7 @@ public class AdminService {
                 donateform.setDonorType(rs.getString("donorType"));
                 donateform.setAmount(rs.getString("amount"));
                 donateform.setStatus(rs.getString("status"));
+                donateform.setTransactionId(rs.getString("transactionId"));
                 
                 eventList.add(donateform);
             }            
@@ -408,6 +412,69 @@ public class AdminService {
           return result;
         }
     }
+    public static User getDonorUser(String donorId) {
+        User user = new User();
+        
+        String sql = "SELECT * FROM users where userId=?;";
+        try {
+
+            Connection con = JDBCConnectionManager.getConnection();
+            PreparedStatement preparedStatement = con.prepareStatement(sql);
+            preparedStatement.setString(1, donorId);
+
+            ResultSet rs = preparedStatement.executeQuery();
+
+            while (rs.next()) {
+
+                user.setUserId(rs.getInt("userId"));
+                user.setFirstName(rs.getString("firstName"));
+                user.setLastName(rs.getString("lastName"));
+                user.setPhoneNumber(rs.getString("phoneNumber"));
+                user.setGender(rs.getString("gender"));
+                user.setAddress(rs.getString("address"));
+                user.setAadharNumber(rs.getString("aadharNumber"));
+                
+            }
+
+        } catch (SQLException ex) {
+
+        }
+        System.out.println("User fetched :" + user.getFirstName());
+        return user;
+     
+    }
+        
+        public static Organisation getDonorOrg(String donorId) {
+            Organisation org = new Organisation();
+            String sql = "SELECT * FROM organisations where organisationId=?;";
+            try {
+
+            Connection con = JDBCConnectionManager.getConnection();
+            PreparedStatement preparedStatement = con.prepareStatement(sql);
+            preparedStatement.setString(1, donorId);
+
+            ResultSet rs = preparedStatement.executeQuery();
+            
+
+            while(rs.next())
+            {
+
+                org.setOrganisationId(rs.getInt("organisationId"));
+                org.setOrganisationName(rs.getString("organisationName"));
+                org.setRegnNumber(rs.getString("regnNumber"));
+                org.setCountry(rs.getString("country"));
+                org.setDistrict(rs.getString("district"));
+                org.setState(rs.getString("state"));
+                
+            }          
+            
+        } catch (SQLException ex) {
+           
+        }
+          System.out.println("Organisation fetched :" + org.getOrganisationName());
+          return org;
+        }
+    
     
      
       public ArrayList getAllVolunteers(){

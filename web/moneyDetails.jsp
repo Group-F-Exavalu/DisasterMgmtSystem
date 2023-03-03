@@ -87,6 +87,17 @@
                 }
             });
         }
+        function getOrgDetails(url,id,regnNumber){
+            $.ajax({
+                url: url,
+                data: {
+                    registrationNumber : regnNumber
+                },
+                success: function (response) {
+                    $('#' + id).html(response);
+                }
+            });
+        }
     </script>
     
      
@@ -133,15 +144,29 @@
                                             src="img/undraw_posting_photo.svg" alt="...">
                                     </div>-->
                                    <p><span>Form ID : ${MoneyForm.getFormId()}</span><br>
-                                   <span>Donor ID :  ${MoneyForm.getDonorId()}</span><br>
-                                   <span>Donor Type : ${MoneyForm.getDonorType()}</span><br>
+                                   <c:if test='${User!=null}'>
+                                   <span>Donor Name :  ${User.getFirstName()} ${User.getLastName()}</span><br>
+                                   <span>Donor Phone Number : ${User.getPhoneNumber()}</span><br> </c:if>
+                                   <c:if test='${Org!=null}'>
+                                    <span>Donor Organisation :  ${Org.getOrganisationName()}</span><br>
+<!--                                   <span>Donor Phone Number : ${User.getPhoneNumber()}</span><br>-->
+                                   </c:if>
                                    <span>Amount ($) : ${MoneyForm.getAmount()}</span><br>
                                    <span>Event ID : ${MoneyForm.getEventId()}</span><br>
+                                   <c:if test='${Aadhar!=null}'>
                                    <span>Aadhar Number : ${Aadhar}</span></p>
                                 
                                     <button type="button" class="btn btn-primary w-100" onclick="getInsuranceDetails('trial','api','${Aadhar}')">
                                         Check Aadhar Validity
                                     </button>
+                                    </c:if>
+                                   <c:if test='${RegnNumber!=null}'>
+                                   <span>Registration Number : ${RegnNumber}</span></p>
+                                
+                                    <button type="button" class="btn btn-primary w-100" onclick="getOrgDetails('OrgApi','api','${RegnNumber}')">
+                                        Check Registration Validity
+                                    </button>
+                                    </c:if>
                                    <div class="gap-3 column-gap-4" style="display: grid; grid-template-columns: repeat(2, 1fr)">
                                 <button type="button" class="btn btn-success w-100" onclick="approveStatus(<c:out value='${MoneyForm.getFormId()}'/>)">
                                     Approve

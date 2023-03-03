@@ -400,6 +400,7 @@
                                             <th>Form ID</th>
                                             <th>Donor ID</th>
                                             <th>Amount($)</th>
+                                            <th>UPI Transaction ID</th>
                                             <th>Status</th>
                                             <th>Action</th>
                                         </tr>
@@ -411,6 +412,7 @@
                                             <th>Form ID</th>
                                             <th>Donor ID</th>
                                             <th>Amount($)</th>
+                                            <th>UPI Transaction ID</th>
                                             <th>Status</th>
                                             <th>Action</th>
                                         </tr>
@@ -424,6 +426,7 @@
                                             <td>${money.getFormId()} </td>
                                             <td>${money.getDonorId()} </td>
                                             <td>${money.getAmount()} </td>
+                                            <td>${money.getTransactionId()} </td>
                                             <td><c:if test='${money.getStatus().equals("0")}'>Pending</c:if><c:if test='${money.getStatus().equals("1")}'>Approved</c:if><c:if test='${money.getStatus().equals("-1")}'>Rejected</c:if></td>
                                             <td>  
                                                          <a onclick="editFunds(<c:out value='${money.getFormId()}'/>)">Edit</a>                    
