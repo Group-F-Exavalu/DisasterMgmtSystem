@@ -84,12 +84,12 @@
                                    <span>Event Details : ${EventForm.getEventDetails()}</span>
                                    
                                 <div class="gap-3 column-gap-4" style="display: grid; grid-template-columns: repeat(2, 1fr)">
-                                    <button type="button" class="btn btn-primary w-100" onclick="getInsuranceDetails()">
+<!--                                    <button type="button" class="btn btn-primary w-100" onclick="getInsuranceDetails()">
                                         Check API Validity
                                     </button>
                                     <button type="button" class="btn btn-primary w-100" onclick="getDMVDetails()">
                                         Check API Validity
-                                    </button>
+                                    </button>-->
                                 <button type="button" class="btn btn-success w-100" onclick="approveStatus(<c:out value='${EventForm.getEventId()}'/>)">
                                     Approve
                                 </button>
