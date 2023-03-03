@@ -139,7 +139,7 @@ Your message was sent, thank you!
 <span class="fa fa-map-marker"></span>
 </div>
 <div class="text pl-3 text-white">
-<p><span>Address:</span> Plot 3, BENGAL ECO INTELLIGENT PARK, Unit No: C, 6th Floor, EM Block, Sector V, Kolkata, West Bengal 700091</p>
+    <p><span style="color: black">Address:</span> Plot 3, BENGAL ECO INTELLIGENT PARK, Unit No: C, 6th Floor, EM Block, Sector V, Kolkata, West Bengal 700091</p>
 </div>
 </div>
 <div class="dbox w-100 d-flex align-items-center">
@@ -147,7 +147,7 @@ Your message was sent, thank you!
 <span class="fa fa-phone"></span>
 </div>
 <div class="text pl-3 text-white">
-<p><span>Phone:</span>+917824573892</p>
+<p><span style="color: black">Phone:</span> +917824573892</p>
 </div>
 </div>
 <div class="dbox w-100 d-flex align-items-center">
@@ -155,15 +155,15 @@ Your message was sent, thank you!
 <span class="fa fa-paper-plane"></span>
 </div>
 <div class="text pl-3 text-white">
-<p><span>Email:</span> admin1@gmail.com</p>
+<p><span style="color: black">Email:</span> admin1@gmail.com</p>
 </div>
 </div>
 <div class="dbox w-100 d-flex align-items-center">
 <div class="icon d-flex align-items-center justify-content-center">
 <span class="fa fa-globe"></span>
 </div>
-<div class="text pl-3">
-<p><span>Website</span> yoursite.com </p>
+<div class="text pl-3 text-white">
+<p><span style="color: black">Website:</span> yoursite.com </p>
 </div>
 </div>
 </div>
