@@ -8,6 +8,15 @@
     <title>User Profile</title>
 </head>
 <jsp:include page="menu.jsp"></jsp:include>
+<style>
+     input {
+        border-top-style: hidden;
+        border-right-style: hidden;
+        border-left-style: hidden;
+        border-bottom-style: hidden;
+        background-color: white;
+      }
+</style>
     <div id="ultimate">
         <div class="container emp-profile shadow-lg p-3 mb-5 bg-white rounded">
             <form action="SaveUser" method="post" id="saveuser">
@@ -79,49 +88,49 @@
                                 <div class="col-md-6">
                                     <label>User ID</label>
                                 </div>
-                                <input type="text" class="col-md-6" id="floatingInput" name="userId" value="${User.getUserId()}" readonly> 
+                                <input type="text" class="col-md-4" id="floatingInput" name="userId" value="${User.getUserId()}" readonly> 
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
                                     <label>First Name</label>
                                 </div>
-                                <input type="text" class="col-md-6" id="floatingInput" placeholder="name" name="firstName" value="${User.getFirstName()}"> 
+                                <input type="text" class="col-md-4" id="floatingInput" placeholder="name" name="firstName" value="${User.getFirstName()}"> 
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
                                     <label>Last Name</label>
                                 </div>
-                                <input type="text" class="col-md-6" id="floatingInput" placeholder="name" name="lastName" value="${User.getLastName()}"> 
+                                <input type="text" class="col-md-4" id="floatingInput" placeholder="name" name="lastName" value="${User.getLastName()}"> 
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
                                     <label>Email</label>
                                 </div>
-                                <input type="text" class="col-md-6" id="floatingInput" placeholder="example@gmail.com" name="emailAddress" value="${User.getEmailAddress()}" readonly> 
+                                <input type="text" class="col-md-4" id="floatingInput" placeholder="example@gmail.com" name="emailAddress" value="${User.getEmailAddress()}" readonly> 
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
                                     <label>Gender</label>
                                 </div>
-                                <input type="text" class="col-md-6" id="floatingInput" placeholder="Gender" name="gender" value="${User.getGender()}"> 
+                                <input type="text" class="col-md-4" id="floatingInput" placeholder="Gender" name="gender" value="${User.getGender()}"> 
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
                                     <label>Phone</label>
                                 </div>
-                                <input type="text" class="col-md-6" id="floatingInput" placeholder="Phone Number" name="phoneNumber" value="${User.getPhoneNumber()}"> 
+                                <input type="text" class="col-md-4" id="floatingInput" placeholder="Phone Number" name="phoneNumber" value="${User.getPhoneNumber()}"> 
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
                                     <label>Address</label>
                                 </div>
-                                <input type="text" class="col-md-6" id="floatingInput" placeholder="Address" name="address" value="${User.getAddress()}"> 
+                                <input type="text" class="col-md-4" id="floatingInput" placeholder="Address" name="address" value="${User.getAddress()}"> 
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
                                     <label>Country</label>
                                 </div>
-                                <input type="text" class="col-md-6" id="floatingInput" placeholder="Country" name="country" value="${User.getCountry()}" readonly> 
+                                <input type="text" class="col-md-4" id="floatingInput" placeholder="Country" name="country" value="${User.getCountry()}" readonly> 
                             </div>
                             <button class="w-25 btn btn-md btn-primary" type="button" onclick="loadNewContent('ShowUser', 'ultimate')">Save</button> 
                         </div>
