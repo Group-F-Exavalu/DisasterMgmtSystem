@@ -19,7 +19,7 @@
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
 <script>
     function approveStatus(id){
-            alert("hello" + id);
+            //alert("hello" + id);
             $.ajax({
                 url: "ApproveVolunteer",
                 data:{
@@ -66,7 +66,17 @@
                 }
             });
         }
-    
+    function getOrgDetails(url,id,regnNumber){
+            $.ajax({
+                url: url,
+                data: {
+                    registrationNumber : regnNumber
+                },
+                success: function (response) {
+                    $('#' + id).html(response);
+                }
+            });
+        }
 </script>
 <div id="Target">
     <div class="col-lg-auto mb-4">
