@@ -54,6 +54,19 @@
                 }
             });
         }
+        function getInsuranceDetails(url, id, aadharNumber) {
+//                    document.getElementById("MENU").style.display = 'none';
+            $.ajax({
+                url: url,
+                data: {
+                    aadharNumber : aadharNumber
+                },
+                success: function (response) {
+                    $('#' + id).html(response);
+                }
+            });
+        }
+    
 </script>
 <div id="Target">
     <div class="col-lg-auto mb-4">
@@ -73,13 +86,11 @@
                                    <span>Aadhar Number : ${VolunteerForm.getAadharNumber()}</span><br>
                                    <span>Phone Number : ${VolunteerForm.getPhoneNumber()}</span><br>
                                    <!--<span>Event ID : ${EssentialsForm.getEventId()}</span></p><br>-->
-                                <div class="gap-3 column-gap-4" style="display: grid; grid-template-columns: repeat(2, 1fr)">
-                                    <button type="button" class="btn btn-primary w-100" onclick="getInsuranceDetails()">
-                                        Check API Validity
+                                
+                                    <button type="button" class="btn btn-primary w-100" onclick="getInsuranceDetails('trial','api','${VolunteerForm.getAadharNumber()}')">
+                                        Check Aadhar Validity
                                     </button>
-                                    <button type="button" class="btn btn-primary w-100" onclick="getDMVDetails()">
-                                        Check API Validity
-                                    </button>
+                                  <div class="gap-3 column-gap-4" style="display: grid; grid-template-columns: repeat(2, 1fr)">  
                                 <button type="button" class="btn btn-success w-100" onclick="approveStatus('${VolunteerForm.getEmailAddress()}')">
                                     Approve
                                 </button>
@@ -106,5 +117,6 @@
                             </div>-->
 
                         </div>
+                                    <div id="api"></div> 
 </div>
 
