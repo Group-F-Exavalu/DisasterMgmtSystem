@@ -59,6 +59,8 @@ public class SignupService {
             preparedStatement.setString(10, user.getState());
             preparedStatement.setString(11, user.getDistrict());
             
+            System.out.println("prepared statement do signup"+ preparedStatement);
+            
             int row = preparedStatement.executeUpdate();
             
             if(row==1){
@@ -102,6 +104,35 @@ public class SignupService {
 
         }
         return result;
+    }
+    
+     public boolean doCheckUser(String email)
+    {
+        boolean success = false;
+        
+        String sql = "SELECT * FROM users where emailAddress=?";
+        
+        try {
+            Connection con = JDBCConnectionManager.getConnection();
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, email);
+            
+            System.out.println("LoginService :: "+ps);
+            
+            ResultSet rs = ps.executeQuery();
+            
+            if(rs.next())
+            {
+                success = true;
+            }
+            
+        } catch (SQLException ex) {
+            Logger log = Logger.getLogger(LoginService.class.getName());
+            log.error(LocalDateTime.now()+ "Error Code: " + ex.getErrorCode() +"Error Message: " + ex.getMessage());
+        }
+        
+        
+        return success;
     }
     
     

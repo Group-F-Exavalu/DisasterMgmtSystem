@@ -212,20 +212,20 @@ public class User extends ActionSupport implements ApplicationAware, SessionAwar
             System.out.println("returning Success from doLoginAdmin method");
             sessionMap.put("Loggedin", this);
             String revenue = AdminService.getTotalDonation();
-            String totalUsers=AdminService.getTotalUsers();
+            String totalUsers = AdminService.getTotalUsers();
             String totalOrgs = AdminService.getTotalOrganisations();
             String totalVolunteers = AdminService.getTotalVolunteers();
             Admin admin = AdminService.getAdminDetails(emailAddress);
             sessionMap.put("LoggedinStatus", "admin");
-            
+
             sessionMap.put("MoneyList", moneyList);
             sessionMap.put("EssentialList", essentialList);
             sessionMap.put("VolunteerList", volunteerList);
             sessionMap.put("Revenue", revenue);
             sessionMap.put("TotalUsers", totalUsers);
             sessionMap.put("TotalOrgs", totalOrgs);
-            sessionMap.put("TotalVolunteers",totalVolunteers);
-            sessionMap.put("Admin",admin);
+            sessionMap.put("TotalVolunteers", totalVolunteers);
+            sessionMap.put("Admin", admin);
 
             result = "ADMIN";
         } else {
@@ -240,17 +240,26 @@ public class User extends ActionSupport implements ApplicationAware, SessionAwar
     public String doSignUp() throws Exception {
 
         String result = "FAILURE";
-        boolean success = SignupService.getInstance().doSignupUser(this);
-
-        if (success) {
-            sessionMap.put("SuccessSignUp", "Successfully Registered");
-            System.out.println("Returning from success");
-            result = "SUCCESS";
-        } else {
-            Logger log = Logger.getLogger(LoginService.class.getName());
-            log.error(LocalDateTime.now() + "--Email Id already exists");
-            sessionMap.put("FailSignUp", "Email address Already Exists");
-            System.out.println("Returning from failure");
+        boolean success1 = SignupService.getInstance().doCheckUser(this.emailAddress);
+        
+        System.out.println("email address baba:  "+emailAddress);
+        if (!success1) {           
+            boolean success = SignupService.getInstance().doSignupUser(this);
+            
+            
+            if (success) {
+                sessionMap.put("SuccessSignUp", "Successfully Registered");
+                System.out.println("Returning from success");
+                result = "SUCCESS";
+            } else {
+                Logger log = Logger.getLogger(LoginService.class.getName());
+                log.error(LocalDateTime.now() + "--Email Id already exists");
+                sessionMap.put("FailSignUp", "Email address Already Exists");
+                System.out.println("Returning from failure");
+            }
+            
+        } else if(success1) {
+           result = "FAILURE"; 
         }
         System.out.println(sessionMap);
         return result;
@@ -314,7 +323,6 @@ public class User extends ActionSupport implements ApplicationAware, SessionAwar
 //        return result;
 //
 //    }
-
     /**
      * @return the aadharNumber
      */
@@ -333,7 +341,7 @@ public class User extends ActionSupport implements ApplicationAware, SessionAwar
         String res = "FAILURE";
         boolean result = LoginService.updateUser(this);
         User user = LoginService.getUser(emailAddress);
-        
+
         if (result) {
             sessionMap.put("User", user);
             res = "SUCCESS";
