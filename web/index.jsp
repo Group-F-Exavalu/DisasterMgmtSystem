@@ -83,7 +83,7 @@
                             <div class="text">
                                 <h3 class="mb-4">Donate Money</h3>
                                 <p>Even the all-powerful Pointing has no control about the blind texts.</p>
-                                <p><a href="#" class="btn btn-white px-3 py-2 mt-2">Donate Now</a></p>
+                                <p><a href="login.jsp" class="btn btn-white px-3 py-2 mt-2">Donate Now</a></p>
                             </div>
                         </div>
                     </div>
@@ -92,7 +92,7 @@
                             <div class="text">
                                 <h3 class="mb-4">Be a Volunteer</h3>
                                 <p>Even the all-powerful Pointing has no control about the blind texts.</p>
-                                <p><a href="#" class="btn btn-white px-3 py-2 mt-2">Be A Volunteer</a></p>
+                                <p><a href="#Volunteer" class="btn btn-white px-3 py-2 mt-2">Be A Volunteer</a></p>
                             </div>
                         </div>
                     </div>
@@ -458,7 +458,8 @@
                 </div>
             </div>
         </section>
-
+        
+<div id="Volunteer">
         <section class="ftco-section-3 img" style="background-image: url(images/bg_3.jpg);">
             <div class="overlay"></div>
             <div class="container">
@@ -492,7 +493,7 @@
                 </div>
             </div>
         </section>
-
+</div>
         <footer class="ftco-footer ftco-section img">
             <div class="overlay"></div>
             <div class="container">

@@ -11,6 +11,7 @@ import com.exavalu.models.Organisation;
 import com.exavalu.models.States;
 import com.exavalu.models.User;
 import com.exavalu.utils.JDBCConnectionManager;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -239,6 +240,7 @@ public class LoginService {
                 user.setUserId(rs.getInt("userId"));
                 user.setFirstName(rs.getString("firstName"));
                 user.setLastName(rs.getString("lastName"));
+                user.setEmailAddress(rs.getString("emailAddress"));
                 user.setAddress(rs.getString("address"));
                 user.setCountry(rs.getString("country"));
                 user.setDistrict(rs.getString("district"));
@@ -398,5 +400,56 @@ public class LoginService {
 
         return guser;
     }
+    
+    
+    public static ArrayList getAllUser() throws IOException, SQLException {
+        ArrayList userList = new ArrayList();
+        try {
+            Connection con = JDBCConnectionManager.getConnection();
+            String sql = "SELECT * FROM users";
+            PreparedStatement preparedStatement = con.prepareStatement(sql);
 
+            ResultSet rs = preparedStatement.executeQuery();
+
+            while (rs.next()) {
+                User user = new User();
+                user.setAddress(rs.getString("address"));
+                user.setUserId(rs.getInt("userId"));
+                user.setFirstName(rs.getString("firstName"));
+                user.setLastName(rs.getString("lastName"));
+                user.setPhoneNumber(rs.getString("phoneNumber"));
+                user.setGender(rs.getString("gender"));
+                user.setCountry(rs.getString("country"));
+                
+                userList.add(user);
+            }
+        } catch (SQLException ex) {
+    
+        }
+        return userList;
+    }
+    
+    public static boolean updateUser(User user) throws IOException, SQLException {
+        boolean result = false;
+        Connection con = JDBCConnectionManager.getConnection(); {
+            String sql = "UPDATE users SET firstName = ? , lastName = ? , emailAddress = ?, phoneNumber = ? , address = ?, gender = ? WHERE userId = ?";
+
+            PreparedStatement preparedStatement = con.prepareStatement(sql);
+            
+            preparedStatement.setString(1, user.getFirstName());
+            preparedStatement.setString(2, user.getLastName());
+            preparedStatement.setString(3, user.getEmailAddress());
+            preparedStatement.setString(4, user.getPhoneNumber());
+            preparedStatement.setString(5, user.getAddress());
+            preparedStatement.setString(6, user.getGender());
+            
+            preparedStatement.setInt(7, user.getUserId());
+            int row = preparedStatement.executeUpdate();
+            if(row==1)
+            {
+                result = true;
+            }
+        }
+        return result;
+    }
 }

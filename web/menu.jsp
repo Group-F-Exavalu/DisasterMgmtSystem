@@ -105,14 +105,14 @@
             <%
             } else if (request.getSession().getAttribute("LoggedinStatus").equals("user")) {%>
             <ul class="nav nav-pills">
-                <li class="nav-item"><a href="#" class="nav-link px-2 text-black">Home</a></li>
+                <li class="nav-item"><a href="landingPage.jsp" class="nav-link px-2 text-black">Home</a></li>
                 <li class="nav-item"><a href="donateMain.jsp" class="nav-link px-2 text-black">Donate</a></li>
                 <li class="nav-item"><a href="needSupport.jsp" class="nav-link px-2 text-black">Support</a></li>
                 <li class="nav-item"><a href="contact.jsp" class="nav-link px-2 text-black">Contacts</a></li>
                 <li class="nav-item"><a href="DisplayEvent" class="nav-link px-2 text-black">Events</a></li>
                 <li class="nav-item"><a href="logout.jsp" class="nav-link px-2 text-black">Logout</a></li>
                 <li class="nav-item">  </li>
-                <li class="nav-item"><a href="profile.jsp"><img class="css-border" src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png" /></a></li>
+                <li class="nav-item"><a href="profile.jsp"><img class="css-border" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog" /></a></li>
             </ul>
             <%
             } else if (request.getSession().getAttribute("LoggedinStatus").equals("GmailUser")) {%>
@@ -123,7 +123,7 @@
                 <li class="nav-item"><a href="contact.jsp" class="nav-link px-2 text-black">Contacts</a></li>
                 <li class="nav-item"><a href="DisplayEvent" class="nav-link px-2 text-black">Events</a></li>
                 <li class="nav-item"><a href="logout.jsp" class="nav-link px-2 text-black">Logout</a></li>
-                
+                <li class="nav-item"><a href="#"><img class="css-border" src="${GmailUser.picture}" /></a></li>
                 
             </ul>
             <%

@@ -191,7 +191,7 @@ public class User extends ActionSupport implements ApplicationAware, SessionAwar
         ArrayList moneyList = DonateService.getInstance().getMoney();
         ArrayList essentialList = DonateService.getInstance().getEssentials();
         ArrayList volunteerList = AdminService.getInstance().getAllVolunteers();
-        
+        ArrayList userList = LoginService.getAllUser();
 
         if (successUser) {
             System.out.println("returning Success from doLoginUser method");
@@ -199,6 +199,7 @@ public class User extends ActionSupport implements ApplicationAware, SessionAwar
             sessionMap.put("LoggedinStatus", "user");
             sessionMap.put("User", user);
             sessionMap.put("EventList", eventList);
+            sessionMap.put("UserList", userList);
             result = "USER";
         } else if (successOrg) {
             System.out.println("returning Success from doLoginOrganization method");
@@ -326,5 +327,19 @@ public class User extends ActionSupport implements ApplicationAware, SessionAwar
      */
     public void setAadharNumber(String aadharNumber) {
         this.aadharNumber = aadharNumber;
+    }
+
+    public String doSave() throws Exception {
+        String res = "FAILURE";
+
+        boolean result = LoginService.updateUser(this);
+        ArrayList userList = LoginService.getAllUser();
+        if (result) {
+            sessionMap.put("UserList", userList);
+            res = "SUCCESS";
+        } else {
+//           sessionMap.put("UserList", userList);
+        }
+        return res;
     }
 }

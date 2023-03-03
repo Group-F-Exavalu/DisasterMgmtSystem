@@ -152,5 +152,9 @@
             <result name="SUCCESS">adhaarApi.jsp</result>
             <result name="FAILURE">login.jsp</result>
         </action>
+        <action name="SaveUser" class="com.exavalu.models.User" method="doSave">
+            <result name="SUCCESS">profile.jsp</result>
+            <result name="FAILURE">editProfile.jsp</result>
+        </action>
     </package>
 </struts>
