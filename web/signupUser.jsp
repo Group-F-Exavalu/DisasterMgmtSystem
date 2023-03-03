@@ -120,7 +120,7 @@
                     <label for="floatingInput">Last Name</label>
                 </div>
                 <div class="form-floating mb-2">
-                    <input type="text" class="form-control" id="phoneNumber" placeholder="phone number" name="phoneNumber" >
+                    <input type="text" class="form-control" id="phoneNumber" placeholder="phone number" name="phoneNumber" pattern="[789][0-9]{9}" title="Must be a 10 digit phone number">
                     <label for="floatingInput">Phone Number</label>
                 </div>
                 <div class="form-floating mb-2">
@@ -148,7 +148,7 @@
                   
 
                 <div class="form-floating mb-2">
-                    <input type="text" class="form-control" id="govtId" placeholder="aadharNumber" name="aadharNumber" >
+                    <input type="text" class="form-control" id="govtId" placeholder="aadharNumber" name="aadharNumber" pattern="[0-9]{12}" title="Must be a valid 12 digit aadhar number">
                     <label for="floatingInput">Aadhar Card Number</label>
                 </div>
 
