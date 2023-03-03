@@ -136,7 +136,7 @@ public class GmailUser extends ActionSupport implements ApplicationAware, Sessio
         boolean success = LoginService.getInstance().doGmailLoginUser(this.sub, this.email);
 
         GmailUser guser = LoginService.getGmailUser(this.sub);
-        ArrayList eventList = DonateService.getInstance().getEvents();
+        ArrayList eventList = DonateService.getInstance().getApprovedEvents();
 
 //        GmailUser guser = LoginService.getGmailUser(email);
         if (success) {
