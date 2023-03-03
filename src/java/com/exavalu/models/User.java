@@ -331,11 +331,11 @@ public class User extends ActionSupport implements ApplicationAware, SessionAwar
 
     public String doSave() throws Exception {
         String res = "FAILURE";
-
         boolean result = LoginService.updateUser(this);
-        ArrayList userList = LoginService.getAllUser();
+        User user = LoginService.getUser(emailAddress);
+        
         if (result) {
-            sessionMap.put("UserList", userList);
+            sessionMap.put("User", user);
             res = "SUCCESS";
         } else {
 //           sessionMap.put("UserList", userList);
