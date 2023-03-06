@@ -130,7 +130,7 @@
         Reject
     </button>
 </div>-->
-
+<div class="row">
         <div class="col-lg-auto mb-4">
 
                             
@@ -198,6 +198,7 @@
                             </div>-->
 
                         </div>
-                         <div id="api"></div>           
+                         <div class = "col" id="api"></div>           
+</div>
 </div>
                                     
