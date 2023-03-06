@@ -138,6 +138,10 @@
                                     <span>Donor Organisation :  ${Org.getOrganisationName()}</span><br>
 <!--                                   <span>Donor Phone Number : ${User.getPhoneNumber()}</span><br>-->
                                    </c:if>
+                                     <c:if test='${GmailUser!=null}'>
+                                    <span>Gmail User :  ${GmailUser.getFirstName()} ${GmailUser.getLastName()}</span><br>
+<!--                                   <span>Donor Phone Number : ${User.getPhoneNumber()}</span><br>-->
+                                   </c:if>
                                    <span>Essentials : ${EssentialsForm.getEssentialName()}</span><br>
                                    <span>Event ID : ${EssentialsForm.getEventId()}</span><br>
                                    <c:if test='${Aadhar!=null}'>

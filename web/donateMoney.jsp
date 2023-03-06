@@ -138,7 +138,7 @@
 
 
                             <h1 class="h3 mb-3 fw-normal text-center">Monetary Donation</h1>
-
+                            <input type="text" class="form-control" id="floatingInput" placeholder="Donor Type" name="donorType" value="1" hidden>
                             <div class="form-floating">
                                 <input type="text" class="form-control" id="floatingInput" placeholder="user ID" name="donorId" value=${User.userId} readonly>
                                 <label for="floatingInput">User ID</label>
@@ -258,16 +258,17 @@
                                     <input type="text" class="form-control" id="floatingInput" placeholder="transaction Id" name="transactionId" required>
                                     <label for="floatingInput">Transaction ID (Enter after scanning QR)</label>
                                 </div>
+                                <button type="button" class="btn btn-light btn-outline-black px-2 mb-2 w-100" data-toggle="modal" data-target="#exampleModal">Scan QR Code</button>
                                 <!--<button onclick= "GeneratePdf()" class="btn btn-color px-2 mb-2 w-100" type="button" id="button">Generate PDF</button>-->
 
                                 <button class="btn btn-color px-2 mb-2 w-100" type="submit" id="submitBtn">Submit</button>
-                                <button type="button" class="btn btn-primary"data-toggle="modal" data-target="#exampleModal">click to scan</button>
+                                <!--<button type="button" class="btn btn-primary"data-toggle="modal" data-target="#exampleModal">click to scan</button>-->
 
                                 <div class="modal fade" id="exampleModal" tabindex="-1"role="dialog" aria-labelledby="exampleModalLabel"aria-hidden="true">
                                     <div class="modal-body">
                                         <div class="modal-dialog" role="document">
                                             <div class="modal-content">
-                                                <button type="button" class="close"
+                                                <button type="button" class="close btn btn-light btn-outline-black px-2 mb-2 w-100"
                                                         data-dismiss="modal" aria-label="Close">
                                                     <span aria-hidden="true">
                                                         close
@@ -298,7 +299,7 @@
 
 
                             <h1 class="h3 mb-3 fw-normal text-center">Monetary Donation</h1>
-
+                            <input type="text" class="form-control" id="floatingInput" placeholder="Donor Type" name="donorType" value="3" hidden>
                             <div class="form-floating">
                                 <input type="text" class="form-control" id="floatingInput" name="donorId" placeholder="ID" value=${GmailUser.sub} hidden>
                             </div>
@@ -337,21 +338,22 @@
                                     </c:forEach>
                                 </select>
                                 <label for="floatingInput">Event</label>
+                                <button type="button" class="btn btn-light btn-outline-black px-2 mb-2 w-100" data-toggle="modal" data-target="#exampleModal">Scan QR Code</button>
                                 <div class="form-floating">
                                     <input type="text" class="form-control" id="floatingInput" placeholder="Transaction ID" name="transactionId" required>
                                     <label for="floatingInput">Transaction ID (Enter after scanning QR)</label>
                                 </div>
-                                <button onclick= "GeneratePdf()" class="btn btn-color px-2 mb-2 w-100" type="button" id="button">Generate PDF</button>
+                                <!--<button onclick= "GeneratePdf()" class="btn btn-color px-2 mb-2 w-100" type="button" id="button">Generate PDF</button>-->
                             </div>
 
                             <button class="btn btn-color px-2 mb-2 w-100" type="submit" id="submitBtn">Submit</button>
-                            <button type="button" class="btn btn-primary"data-toggle="modal" data-target="#exampleModal">click to scan</button>
+                            <!--<button type="button" class="btn btn-primary"data-toggle="modal" data-target="#exampleModal">click to scan</button>-->
 
                             <div class="modal fade" id="exampleModal" tabindex="-1"role="dialog" aria-labelledby="exampleModalLabel"aria-hidden="true">
                                 <div class="modal-body">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
-                                            <button type="button" class="close"
+                                            <button type="button" class="close btn btn-light btn-outline-black px-2 mb-2 w-100"
                                                     data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">
                                                     close

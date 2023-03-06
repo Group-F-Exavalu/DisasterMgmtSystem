@@ -7,6 +7,7 @@ package com.exavalu.services;
 import com.exavalu.models.Admin;
 import com.exavalu.models.DonateForm;
 import com.exavalu.models.Event;
+import com.exavalu.models.GmailUser;
 import com.exavalu.models.Organisation;
 import com.exavalu.models.User;
 import com.exavalu.models.Volunteer;
@@ -512,6 +513,36 @@ public class AdminService {
           System.out.println("Organisation fetched :" + org.getOrganisationName());
           return org;
         }
+
+    public static GmailUser getGmailDonor(String donorId) {
+        GmailUser gmailUser = new GmailUser();
+        String sql = "SELECT * FROM gmailusers where id=?;";
+        try {
+
+            Connection con = JDBCConnectionManager.getConnection();
+            PreparedStatement preparedStatement = con.prepareStatement(sql);
+            preparedStatement.setString(1, donorId);
+
+            ResultSet rs = preparedStatement.executeQuery();
+
+            while (rs.next()) {
+
+                gmailUser.setEmail(rs.getString("emailAddress"));
+                gmailUser.setFirstName(rs.getString("firstName"));
+                gmailUser.setLastName(rs.getString("lastName"));
+//                user.setPhoneNumber(rs.getString("phoneNumber"));
+//                user.setGender(rs.getString("gender"));
+//                user.setAddress(rs.getString("address"));
+//                user.setAadharNumber(rs.getString("aadharNumber"));
+                
+            }
+
+        } catch (SQLException ex) {
+
+        }
+        System.out.println("User fetched :" + gmailUser.getFirstName());
+        return gmailUser;
+    }
     
     
      

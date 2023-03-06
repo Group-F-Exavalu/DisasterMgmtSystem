@@ -116,6 +116,16 @@ public class Admin extends ActionSupport implements ApplicationAware, SessionAwa
             sessionMap.put("User", null);
             System.out.println("RegnNumber"+regnNumber);
         }
+        else if(moneyform.getDonorType().equals("3")){
+            GmailUser gmailUser = AdminService.getGmailDonor(moneyform.getDonorId());
+            sessionMap.put("Aadhar", null);
+            sessionMap.put("RegnNumber", null);
+            sessionMap.put("GmailUser", gmailUser);
+            sessionMap.put("Org",null);
+            sessionMap.put("User", null);
+            System.out.println("GmailUser"+gmailUser.getFamily_name());
+            
+        }
         sessionMap.put("MoneyForm", moneyform);
         
         
@@ -175,6 +185,15 @@ public class Admin extends ActionSupport implements ApplicationAware, SessionAwa
             sessionMap.put("Org",org);
             sessionMap.put("User", null);
             System.out.println("RegnNumber"+regnNumber);
+        }
+        else if(essentialsform.getDonorType().equals("3")){
+            GmailUser gmailUser = AdminService.getGmailDonor(essentialsform.getDonorId());
+            sessionMap.put("Aadhar", null);
+            sessionMap.put("RegnNumber", null);
+            sessionMap.put("GmailUser", gmailUser);
+            sessionMap.put("Org",null);
+            sessionMap.put("User", null);
+            System.out.println("GmailUser"+gmailUser.getFamily_name());
         }
         sessionMap.put("EssentialsForm", essentialsform);
         return result;
