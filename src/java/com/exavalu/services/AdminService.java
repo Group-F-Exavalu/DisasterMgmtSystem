@@ -85,7 +85,45 @@ public class AdminService {
     }
     public static String getTotalDonation(){
         String total = "";
-        String sql = "SELECT sum(amount) FROM donatemoney";
+        String sql = "SELECT sum(amount) FROM donatemoney WHERE status=1";
+        try {
+            Connection con = JDBCConnectionManager.getConnection();
+            PreparedStatement ps = con.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            
+            while(rs.next())
+            {
+                               
+                total=rs.getString("sum(amount)");
+            }            
+        }
+        catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return total;
+    }
+    public static String getTotalUserDonation(){
+        String total = "";
+        String sql = "SELECT sum(amount) FROM donatemoney WHERE donorType=1 AND status=1;";
+        try {
+            Connection con = JDBCConnectionManager.getConnection();
+            PreparedStatement ps = con.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            
+            while(rs.next())
+            {
+                               
+                total=rs.getString("sum(amount)");
+            }            
+        }
+        catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return total;
+    }
+    public static String getTotalOrgDonation(){
+        String total = "";
+        String sql = "SELECT sum(amount) FROM donatemoney WHERE donorType=2 AND status=1;";
         try {
             Connection con = JDBCConnectionManager.getConnection();
             PreparedStatement ps = con.prepareStatement(sql);
