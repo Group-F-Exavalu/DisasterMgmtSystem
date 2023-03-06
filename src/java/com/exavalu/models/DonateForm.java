@@ -20,6 +20,20 @@ import org.apache.struts2.interceptor.SessionAware;
  * @author Preyangsee
  */
 public class DonateForm extends ActionSupport implements ApplicationAware, SessionAware, Serializable{
+
+    /**
+     * @return the phoneNumber
+     */
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    /**
+     * @param phoneNumber the phoneNumber to set
+     */
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
     
     private String formId;
     private String donorId;
@@ -30,9 +44,17 @@ public class DonateForm extends ActionSupport implements ApplicationAware, Sessi
     private String essentialName;
     private String eventId;
     private String eventName;
+    private String eventTopic;
     private String status;
     private String amount;
     private String transactionId;
+    private String phoneNumber;
+    private String address;
+    private String email;
+    private String given_name;
+    private String family_name;
+    
+    
 
     private SessionMap<String, Object> sessionMap = (SessionMap) ActionContext.getContext().getSession();
 
@@ -51,6 +73,8 @@ public class DonateForm extends ActionSupport implements ApplicationAware, Sessi
         String result = "FAILURE";
         donorType = "1";
         boolean res = DonateService.getInstance().insertMoneyForm(this);
+        eventTopic = DonateService.getInstance().getEventTopicById(this.eventId);
+        sessionMap.put("DonateForm", this);
         if(res){
             result="SUCCESS";
             System.out.println("Payment Record Added to database");
@@ -63,6 +87,8 @@ public class DonateForm extends ActionSupport implements ApplicationAware, Sessi
         String result = "FAILURE";
         donorType = "2";
         boolean res = DonateService.getInstance().insertMoneyForm(this);
+        eventTopic = DonateService.getInstance().getEventTopicById(this.eventId);
+        sessionMap.put("DonateForm", this);
         if(res){
             result="SUCCESS";
             System.out.println("Payment Record Added to database");
@@ -335,6 +361,76 @@ public class DonateForm extends ActionSupport implements ApplicationAware, Sessi
      */
     public void setTransactionId(String transactionId) {
         this.transactionId = transactionId;
+    }
+
+    /**
+     * @return the address
+     */
+    public String getAddress() {
+        return address;
+    }
+
+    /**
+     * @param address the address to set
+     */
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    /**
+     * @return the eventTopic
+     */
+    public String getEventTopic() {
+        return eventTopic;
+    }
+
+    /**
+     * @param eventTopic the eventTopic to set
+     */
+    public void setEventTopic(String eventTopic) {
+        this.eventTopic = eventTopic;
+    }
+
+    /**
+     * @return the email
+     */
+    public String getEmail() {
+        return email;
+    }
+
+    /**
+     * @param email the email to set
+     */
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    /**
+     * @return the given_name
+     */
+    public String getGiven_name() {
+        return given_name;
+    }
+
+    /**
+     * @param given_name the given_name to set
+     */
+    public void setGiven_name(String given_name) {
+        this.given_name = given_name;
+    }
+
+    /**
+     * @return the family_name
+     */
+    public String getFamily_name() {
+        return family_name;
+    }
+
+    /**
+     * @param family_name the family_name to set
+     */
+    public void setFamily_name(String family_name) {
+        this.family_name = family_name;
     }
     
 }

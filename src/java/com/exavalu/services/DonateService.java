@@ -181,6 +181,29 @@ public class DonateService {
         
         return event;
     }
+    public String getEventTopicById(String eventId){
+        String eventTopic = null;
+        String sql = "Select * from events where eventId=?";
+        try {
+            Connection con = JDBCConnectionManager.getConnection();
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, eventId);
+            ResultSet rs = ps.executeQuery();
+            
+            while(rs.next())
+            { 
+                eventTopic=rs.getString("eventTopic");
+                
+            }
+            System.err.println("EVENT present"+ eventTopic);
+            
+        }
+        catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        
+        return eventTopic;
+    }
     public boolean setEventStatus(int eventId){
         boolean result = false;
         String sql = "UPDATE events SET status = ? WHERE eventId =?";

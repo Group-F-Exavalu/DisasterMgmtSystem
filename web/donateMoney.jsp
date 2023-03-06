@@ -179,7 +179,7 @@
                                     <input type="text" class="form-control" id="floatingInput" placeholder="transaction Id" name="transactionId" required>
                                     <label for="floatingInput">UPI Transaction ID (Enter after scanning QR)</label>
                                 </div>
-                                <button onclick= "GeneratePdf()" class="btn btn-color px-2 mb-2 w-100" type="button" id="button">Generate PDF</button>
+                                <!--<button onclick= "GeneratePdf()" class="btn btn-color px-2 mb-2 w-100" type="button" id="button">Generate PDF</button>-->
                             </div>
 
                             <button class="btn btn-color px-2 mb-2 w-100" type="submit" id="submitBtn">Submit</button>
@@ -258,7 +258,7 @@
                                     <input type="text" class="form-control" id="floatingInput" placeholder="transaction Id" name="transactionId" required>
                                     <label for="floatingInput">Transaction ID (Enter after scanning QR)</label>
                                 </div>
-                                <button onclick= "GeneratePdf()" class="btn btn-color px-2 mb-2 w-100" type="button" id="button">Generate PDF</button>
+                                <!--<button onclick= "GeneratePdf()" class="btn btn-color px-2 mb-2 w-100" type="button" id="button">Generate PDF</button>-->
 
                                 <button class="btn btn-color px-2 mb-2 w-100" type="submit" id="submitBtn">Submit</button>
                                 <button type="button" class="btn btn-primary"data-toggle="modal" data-target="#exampleModal">click to scan</button>

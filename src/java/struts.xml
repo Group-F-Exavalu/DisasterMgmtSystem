@@ -36,11 +36,11 @@
             <result name="FAILURE">signupOrg.jsp</result>
         </action>
         <action name="DonateMoneyUser" class="com.exavalu.models.DonateForm" method="insertMoneyFormUser">
-            <result name="SUCCESS">donateMain.jsp</result>
+            <result name="SUCCESS">receipt.jsp</result>
             <result name="FAILURE">donateMoney.jsp</result>
         </action>
         <action name="DonateMoneyOrg" class="com.exavalu.models.DonateForm" method="insertMoneyFormOrg">
-            <result name="SUCCESS">donateMain.jsp</result>
+            <result name="SUCCESS">receipt.jsp</result>
             <result name="FAILURE">donateMoney.jsp</result>
         </action>
         <action name="DonateEssentialUser" class="com.exavalu.models.DonateForm" method="insertEssentialsFormUser">
