@@ -212,6 +212,17 @@ public class User extends ActionSupport implements ApplicationAware, SessionAwar
             System.out.println("returning Success from doLoginAdmin method");
             sessionMap.put("Loggedin", this);
             String revenue = AdminService.getTotalDonation();
+            double revenueInt = Double.parseDouble(AdminService.getTotalDonation());
+            double userDonation = Double.parseDouble(AdminService.getTotalUserDonation());
+            double orgDonation = Double.parseDouble(AdminService.getTotalOrgDonation());
+            double userPercent = (userDonation / revenueInt) * 100;
+            double orgPercent = 100-userPercent;
+
+            System.out.println("revenue Int  " + revenueInt);
+            System.out.println("user Donation  " + userDonation);
+            System.out.println("org Donation  " + orgDonation);
+            System.out.println("User Percentage  " + userPercent);
+            System.out.println("Org Percentage  " + orgPercent);
             String totalUsers = AdminService.getTotalUsers();
             String totalOrgs = AdminService.getTotalOrganisations();
             String totalVolunteers = AdminService.getTotalVolunteers();
@@ -222,6 +233,8 @@ public class User extends ActionSupport implements ApplicationAware, SessionAwar
             sessionMap.put("EssentialList", essentialList);
             sessionMap.put("VolunteerList", volunteerList);
             sessionMap.put("Revenue", revenue);
+            sessionMap.put("UserPercent", userPercent);
+            sessionMap.put("OrgPercent", orgPercent);
             sessionMap.put("TotalUsers", totalUsers);
             sessionMap.put("TotalOrgs", totalOrgs);
             sessionMap.put("TotalVolunteers", totalVolunteers);
@@ -241,12 +254,11 @@ public class User extends ActionSupport implements ApplicationAware, SessionAwar
 
         String result = "FAILURE";
         boolean success1 = SignupService.getInstance().doCheckUser(this.emailAddress);
-        
-        System.out.println("email address baba:  "+emailAddress);
-        if (!success1) {           
+
+        System.out.println("email address baba:  " + emailAddress);
+        if (!success1) {
             boolean success = SignupService.getInstance().doSignupUser(this);
-            
-            
+
             if (success) {
                 sessionMap.put("SuccessSignUp", "Successfully Registered");
                 System.out.println("Returning from success");
@@ -257,9 +269,9 @@ public class User extends ActionSupport implements ApplicationAware, SessionAwar
                 sessionMap.put("FailSignUp", "Email address Already Exists");
                 System.out.println("Returning from failure");
             }
-            
-        } else if(success1) {
-           result = "FAILURE"; 
+
+        } else if (success1) {
+            result = "FAILURE";
         }
         System.out.println(sessionMap);
         return result;

@@ -4,16 +4,17 @@ Chart.defaults.global.defaultFontColor = '#858796';
 
 // Pie Chart Example
 var ctx = document.getElementById("myPieChart");
+var yValues = [${UserPercent}, ${OrgPercent}];
 var myPieChart = new Chart(ctx, {
   type: 'doughnut',
   data: {
-    labels: ["Direct", "Referral", "Social"],
+    labels: ["Individual Donation", "Organisation Donation"],
     datasets: [{
-      data: [55, 30, 15],
-      backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc'],
-      hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf'],
-      hoverBorderColor: "rgba(234, 236, 244, 1)",
-    }],
+      data: [${UserPercent}, ${OrgPercent}],
+      backgroundColor: ['#4e73df', '#1cc88a'],
+      hoverBackgroundColor: ['#2e59d9', '#17a673'],
+      hoverBorderColor: "rgba(234, 236, 244, 1)"
+    }].render();
   },
   options: {
     maintainAspectRatio: false,
@@ -25,11 +26,11 @@ var myPieChart = new Chart(ctx, {
       xPadding: 15,
       yPadding: 15,
       displayColors: false,
-      caretPadding: 10,
+      caretPadding: 10
     },
     legend: {
       display: false
     },
-    cutoutPercentage: 80,
-  },
+    cutoutPercentage: 80
+  }
 });
