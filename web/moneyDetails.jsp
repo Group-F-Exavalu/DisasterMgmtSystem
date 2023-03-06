@@ -151,6 +151,10 @@
                                     <span>Donor Organisation :  ${Org.getOrganisationName()}</span><br>
 <!--                                   <span>Donor Phone Number : ${User.getPhoneNumber()}</span><br>-->
                                    </c:if>
+                                    <c:if test='${GmailUser!=null}'>
+                                    <span>Gmail User :  ${GmailUser.getFirstName()} ${GmailUser.getLastName()}</span><br>
+<!--                                   <span>Donor Phone Number :</span><br>-->
+                                   </c:if>
                                    <span>Amount ($) : ${MoneyForm.getAmount()}</span><br>
                                    <span>Event ID : ${MoneyForm.getEventId()}</span><br>
                                    <c:if test='${Aadhar!=null}'>

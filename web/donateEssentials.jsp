@@ -88,6 +88,7 @@
         <div class="col-lg-6">
             <form action="DonateEssentialUser" method="post" id="myForm" class="shadow-lg p-3 mb-5 bg-white rounded">
                 <h1 class="h3 mb-3 fw-normal text-center">Donation of Essentials</h1>
+                <input type="text" class="form-control" id="floatingInput" placeholder="Donor Type" name="donorType" value="1" hidden>
                 <label for="name">User Id</label>
                 <input type="text" id="userId" name="donorId" value=${User.userId} readonly>
 
@@ -184,6 +185,7 @@
         <div class="col-lg-6">
             <form action="DonateEssentialUser" method="post" id="myForm" class="shadow-lg p-3 mb-5 bg-white rounded">
                 <h1 class="h3 mb-3 fw-normal text-center">Donation of Essentials</h1>
+                <input type="text" class="form-control" id="floatingInput" placeholder="Donor Type" name="donorType" value="3" hidden>
                 <label for="name" hidden>User Id</label>
                 <input type="text" id="userId" name="donorId" value=${GmailUser.sub} readonly hidden>
                 

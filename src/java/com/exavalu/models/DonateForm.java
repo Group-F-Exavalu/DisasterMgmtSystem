@@ -71,16 +71,31 @@ public class DonateForm extends ActionSupport implements ApplicationAware, Sessi
     }
     public String insertMoneyFormUser(){
         String result = "FAILURE";
-        donorType = "1";
-        boolean res = DonateService.getInstance().insertMoneyForm(this);
-        eventTopic = DonateService.getInstance().getEventTopicById(this.eventId);
-        sessionMap.put("DonateForm", this);
-        if(res){
-            result="SUCCESS";
-            System.out.println("Payment Record Added to database");
-            sessionMap.put("SuccessDonation","Thank you for supporting us and our cause! We wish to see you soon!");
-            sessionMap.put("ErrorDonation","Thank you for supporting us but there is some error in the payment process! We wish you to try again!");
+        boolean success = false;
+        if(donorType.equals("3")){
+            success = DonateService.getInstance().insertMoneyForm(this);
+            eventTopic = DonateService.getInstance().getEventTopicById(this.eventId);
+            sessionMap.put("DonateForm", this);
+            if (success) {
+                result = "SUCCESS";
+                System.out.println("Payment Record Added to database");
+                sessionMap.put("SuccessDonation", "Thank you for supporting us and our cause! We wish to see you soon!");
+                sessionMap.put("ErrorDonation", "Thank you for supporting us but there is some error in the payment process! We wish you to try again!");
         }
+        }
+        else{
+            donorType = "1";
+            boolean res = DonateService.getInstance().insertMoneyForm(this);
+            eventTopic = DonateService.getInstance().getEventTopicById(this.eventId);
+            sessionMap.put("DonateForm", this);
+            if (res) {
+                result = "SUCCESS";
+                System.out.println("Payment Record Added to database");
+                sessionMap.put("SuccessDonation", "Thank you for supporting us and our cause! We wish to see you soon!");
+                sessionMap.put("ErrorDonation", "Thank you for supporting us but there is some error in the payment process! We wish you to try again!");
+        }
+        }
+        
         return result;
     }
     public String insertMoneyFormOrg(){
@@ -99,14 +114,27 @@ public class DonateForm extends ActionSupport implements ApplicationAware, Sessi
     }
     public String insertEssentialsFormUser(){
         String result = "FAILURE";
-        donorType = "1";
-        boolean res = DonateService.getInstance().insertEssentialsForm(this);
-        if(res){
+        boolean success = false;
+        if(donorType.equals("3")){
+            success = DonateService.getInstance().insertEssentialsForm(this);
+            if(success){
             result="SUCCESS";
             System.out.println("Essentials Record Added to database");
             sessionMap.put("SuccessEssentials","Thank you for supporting us and our cause! Our agent will be contacting you soon!");
             sessionMap.put("ErrorEssentials","Thank you for supporting us but there is some error in the payment process! We wish you to try again!");
         }
+        }
+        else{
+            donorType = "1";
+            boolean res = DonateService.getInstance().insertEssentialsForm(this);
+            if(res){
+            result="SUCCESS";
+            System.out.println("Essentials Record Added to database");
+            sessionMap.put("SuccessEssentials","Thank you for supporting us and our cause! Our agent will be contacting you soon!");
+            sessionMap.put("ErrorEssentials","Thank you for supporting us but there is some error in the payment process! We wish you to try again!");
+        }
+        }
+        
         return result;
     }
     public String insertEssentialsFormOrg(){
