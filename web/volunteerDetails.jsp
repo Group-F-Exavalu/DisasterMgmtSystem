@@ -79,6 +79,7 @@
         }
 </script>
 <div id="Target">
+    <div class="row">
     <div class="col-lg-auto mb-4">
 
                             
@@ -95,6 +96,8 @@
                                    <span>Volunteer Name : ${VolunteerForm.getName()}</span><br>
                                    <span>Aadhar Number : ${VolunteerForm.getAadharNumber()}</span><br>
                                    <span>Phone Number : ${VolunteerForm.getPhoneNumber()}</span><br>
+                                   <span>Message : ${VolunteerForm.getMesssage()}</span><br>
+                                   <br>
                                    <!--<span>Event ID : ${EssentialsForm.getEventId()}</span></p><br>-->
                                 
                                     <button type="button" class="btn btn-primary w-100" onclick="getInsuranceDetails('trial','api','${VolunteerForm.getAadharNumber()}')">
@@ -127,6 +130,6 @@
                             </div>-->
 
                         </div>
-                                    <div id="api"></div> 
-</div>
+                                    <div class="col" id="api"></div> 
+</div></div>
 

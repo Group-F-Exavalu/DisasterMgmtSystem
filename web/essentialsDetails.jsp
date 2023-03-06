@@ -116,7 +116,7 @@
     <form action="RejectMoney" method="post">
         <button class="btn btn-lg btn-primary" type="submit">Reject</button>
     </form>-->
-    
+<div class="row">
 
                 <div class="col-lg-auto mb-4">
 
@@ -186,7 +186,7 @@
                             </div>-->
 
                         </div>
-<div id="api"></div> </div>
+<div class = "col" id="api"></div> </div> </div>
 <!--    
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
