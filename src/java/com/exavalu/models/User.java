@@ -87,7 +87,15 @@ public class User extends ActionSupport implements ApplicationAware, SessionAwar
     }
     private String firstName;
     private String lastName;
-    private String emailAddress;
+    private String emailAddress, date;
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
 
     public String getEmailAddress() {
         return emailAddress;
@@ -163,10 +171,8 @@ public class User extends ActionSupport implements ApplicationAware, SessionAwar
     public void setPassword(String password) {
         this.password = password;
     }
-    
-    
-    
-   private File image; //(create getter setter)
+
+    private File image; //(create getter setter)
     private String imageData;
 
     public File getImage() {
@@ -176,7 +182,7 @@ public class User extends ActionSupport implements ApplicationAware, SessionAwar
     public void setImage(File image) {
         this.image = image;
     }
-    
+
     public void setImageData(String imageData) {
         this.imageData = imageData;
     }
@@ -184,10 +190,7 @@ public class User extends ActionSupport implements ApplicationAware, SessionAwar
     public String getImageData() {
         return imageData;
     }
-    
-    
-    
-    
+
     private SessionMap<String, Object> sessionMap = (SessionMap) ActionContext.getContext().getSession();
 
     private ApplicationMap map = (ApplicationMap) ActionContext.getContext().getApplication();
@@ -217,6 +220,8 @@ public class User extends ActionSupport implements ApplicationAware, SessionAwar
         ArrayList essentialList = DonateService.getInstance().getEssentials();
         ArrayList volunteerList = AdminService.getInstance().getAllVolunteers();
         ArrayList userList = LoginService.getAllUser();
+        ArrayList dateList = AdminService.getAllDates();
+        ArrayList dateCountList = AdminService.getAllDatesCount();
 
         if (successUser) {
             System.out.println("returning Success from doLoginUser method");
@@ -241,22 +246,28 @@ public class User extends ActionSupport implements ApplicationAware, SessionAwar
             double userDonation = Double.parseDouble(AdminService.getTotalUserDonation());
             double orgDonation = Double.parseDouble(AdminService.getTotalOrgDonation());
             double userPercent = (userDonation / revenueInt) * 100;
-            double orgPercent = 100-userPercent;
+            double orgPercent = 100 - userPercent;
 
             System.out.println("revenue Int  " + revenueInt);
             System.out.println("user Donation  " + userDonation);
             System.out.println("org Donation  " + orgDonation);
             System.out.println("User Percentage  " + userPercent);
             System.out.println("Org Percentage  " + orgPercent);
+            System.out.println("Date List  " + dateList);
+            System.out.println("Date Count List  " + dateCountList);
+
             String totalUsers = AdminService.getTotalUsers();
             String totalOrgs = AdminService.getTotalOrganisations();
             String totalVolunteers = AdminService.getTotalVolunteers();
             Admin admin = AdminService.getAdminDetails(emailAddress);
+
             sessionMap.put("LoggedinStatus", "admin");
 
             sessionMap.put("MoneyList", moneyList);
             sessionMap.put("EssentialList", essentialList);
             sessionMap.put("VolunteerList", volunteerList);
+            sessionMap.put("DateList", dateList);
+            sessionMap.put("DateCountList", dateCountList);
             sessionMap.put("Revenue", revenue);
             sessionMap.put("UserPercent", userPercent);
             sessionMap.put("OrgPercent", orgPercent);

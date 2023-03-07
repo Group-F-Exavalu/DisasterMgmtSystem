@@ -47,7 +47,7 @@ public class SignupService {
         try{
             
             
-            String sql = "INSERT INTO users(emailAddress, password, firstName,lastName,gender,phoneNumber,address,aadharNumber,country,state,district,image)" + "VALUES(? ,? ,? ,? ,?,? ,? ,? ,?,?,?,?)";
+            String sql = "INSERT INTO users(emailAddress, password, firstName,lastName,gender,phoneNumber,address,aadharNumber,country,state,district,image,date)" + "VALUES(? ,? ,? ,? ,?,? ,? ,? ,?,?,?,?,CURDATE())";
             PreparedStatement preparedStatement = con.prepareStatement(sql);
             
             FileInputStream inputStream = new FileInputStream(user.getImage());
@@ -89,7 +89,7 @@ public class SignupService {
         try{
             
             
-            String sql = "INSERT INTO organisations(organisationName, regnNumber,country,state,district,emailAddress,password)" + "VALUES(? ,? ,? ,? ,? ,? ,? )";
+            String sql = "INSERT INTO organisations(organisationName, regnNumber,country,state,district,emailAddress,password,date)" + "VALUES(? ,? ,? ,? ,? ,? ,?,CURDATE() )";
             PreparedStatement preparedStatement = con.prepareStatement(sql);
             preparedStatement.setString(1, org.getOrganisationName());
             preparedStatement.setString(2, org.getRegnNumber());
