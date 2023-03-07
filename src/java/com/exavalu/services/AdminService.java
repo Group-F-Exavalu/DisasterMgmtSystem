@@ -6,7 +6,6 @@ package com.exavalu.services;
 
 import com.exavalu.models.Admin;
 import com.exavalu.models.DonateForm;
-import com.exavalu.models.Event;
 import com.exavalu.models.GmailUser;
 import com.exavalu.models.Organisation;
 import com.exavalu.models.User;
@@ -574,6 +573,51 @@ public class AdminService {
         System.out.println("Volunteer List: "+volunteerList);
         return volunteerList;
         
+    }
+      
+      public static ArrayList getAllDates(){
+        ArrayList dateList = new ArrayList();
+        String sql = "SELECT DISTINCT date FROM users";
+        try {
+            Connection con = JDBCConnectionManager.getConnection();
+            PreparedStatement ps = con.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            
+            while(rs.next())
+            {
+                
+                String date=rs.getString("date");
+                
+                dateList.add(date);
+            }            
+        }
+        catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        
+        return dateList;
+    }
+      
+      public static ArrayList getAllDatesCount(){
+        ArrayList dateCountList = new ArrayList();
+        String sql = "SELECT COUNT(*) FROM users GROUP BY date";
+        try {
+            Connection con = JDBCConnectionManager.getConnection();
+            PreparedStatement ps = con.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            
+            while(rs.next())
+            {
+                int count=rs.getInt("COUNT(*)");
+                
+                dateCountList.add(count);
+            }            
+        }
+        catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        
+        return dateCountList;
     }
     
 }
