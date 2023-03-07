@@ -81,6 +81,18 @@
                             });
             
                 }
+        
+        function previewImage(event) {
+            var input = event.target;
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    var imagePreview = document.getElementById("image-preview");
+                    imagePreview.src = e.target.result;
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
     </script>
 
     <body class="text-center">
@@ -92,7 +104,7 @@
             <div class="col-md-6 offset-md-3">
             <div class="card my-5">
                
-            <form action="SignUpUser" class="card-body cardbody-color p-lg-5 mb-2" method="Post" id="signupForm">
+            <form action="SignUpUser"  enctype="multipart/form-data" class="card-body cardbody-color p-lg-5 mb-2" method="Post" id="signupForm">
                 <div class="text-center">
                     <img src="images/mainlogo.svg" class="img-fluid profile-image-pic img-thumbnail rounded-circle my-4"
                          width="250px" alt="profile">
@@ -184,7 +196,16 @@
 
                     </select>
                 </div>
+                 
+                <div class="form-floating mb-2">
+                    <input type="file" class="form-control" placeholder="Image" id="image-file" name="image" onchange="previewImage(event)">
+                    <label for="floatingInput">Upload photo</label>
+                    <p> </p>
+                    <br>
+                    <img id="image-preview" style="max-width: 200px; max-height: 200px;">    
 
+                </div>    
+                    
                 <div class="checkbox mb-3">
                     <label>
                         <input type="checkbox" value="remember-me"> Remember me

@@ -10,6 +10,7 @@ import com.exavalu.services.LoginService;
 import com.exavalu.services.SignupService;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
+import java.io.File;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -162,7 +163,31 @@ public class User extends ActionSupport implements ApplicationAware, SessionAwar
     public void setPassword(String password) {
         this.password = password;
     }
+    
+    
+    
+   private File image; //(create getter setter)
+    private String imageData;
 
+    public File getImage() {
+        return image;
+    }
+
+    public void setImage(File image) {
+        this.image = image;
+    }
+    
+    public void setImageData(String imageData) {
+        this.imageData = imageData;
+    }
+
+    public String getImageData() {
+        return imageData;
+    }
+    
+    
+    
+    
     private SessionMap<String, Object> sessionMap = (SessionMap) ActionContext.getContext().getSession();
 
     private ApplicationMap map = (ApplicationMap) ActionContext.getContext().getApplication();

@@ -11,13 +11,16 @@ import com.exavalu.models.Organisation;
 import com.exavalu.models.States;
 import com.exavalu.models.User;
 import com.exavalu.utils.JDBCConnectionManager;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Base64;
 import org.apache.log4j.Logger;
 
 /**
@@ -248,6 +251,13 @@ public class LoginService {
                 user.setAadharNumber(rs.getString("aadharNumber"));
                 user.setPhoneNumber(rs.getString("phoneNumber"));
                 
+                Blob imageBlob = rs.getBlob("image");
+                if (imageBlob != null) {
+                    byte[] imageBytes = imageBlob.getBytes(1, (int) imageBlob.length());
+                    String imageString = Base64.getEncoder().encodeToString(imageBytes);
+                    user.setImageData(imageString);
+                }
+                
                 System.out.println("User Phone :" +rs.getString("phoneNumber"));
             }
             
@@ -432,9 +442,10 @@ public class LoginService {
     public static boolean updateUser(User user) throws IOException, SQLException {
         boolean result = false;
         Connection con = JDBCConnectionManager.getConnection(); {
-            String sql = "UPDATE users SET firstName = ? , lastName = ? , emailAddress = ?, phoneNumber = ? , address = ?, gender = ? WHERE userId = ?";
+            String sql = "UPDATE users SET firstName = ? , lastName = ? , emailAddress = ?, phoneNumber = ? , address = ?, gender = ?, image = ? WHERE userId = ?";
 
             PreparedStatement preparedStatement = con.prepareStatement(sql);
+            FileInputStream inputStream = new FileInputStream(user.getImage());
             
             preparedStatement.setString(1, user.getFirstName());
             preparedStatement.setString(2, user.getLastName());
@@ -443,7 +454,9 @@ public class LoginService {
             preparedStatement.setString(5, user.getAddress());
             preparedStatement.setString(6, user.getGender());
             
-            preparedStatement.setInt(7, user.getUserId());
+            preparedStatement.setBinaryStream(7, inputStream);
+            
+            preparedStatement.setInt(8, user.getUserId());
             int row = preparedStatement.executeUpdate();
             if(row==1)
             {

@@ -7,6 +7,8 @@ package com.exavalu.services;
 import com.exavalu.models.Organisation;
 import com.exavalu.models.User;
 import com.exavalu.utils.JDBCConnectionManager;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -38,15 +40,18 @@ public class SignupService {
     }
     
     
-    public boolean doSignupUser(User user){
+    public boolean doSignupUser(User user) throws FileNotFoundException{
         
         boolean result = false;
         Connection con = JDBCConnectionManager.getConnection();
         try{
             
             
-            String sql = "INSERT INTO users(emailAddress, password, firstName,lastName,gender,phoneNumber,address,aadharNumber,country,state,district)" + "VALUES(? ,? ,? ,? ,?,? ,? ,? ,?,?,?)";
+            String sql = "INSERT INTO users(emailAddress, password, firstName,lastName,gender,phoneNumber,address,aadharNumber,country,state,district,image)" + "VALUES(? ,? ,? ,? ,?,? ,? ,? ,?,?,?,?)";
             PreparedStatement preparedStatement = con.prepareStatement(sql);
+            
+            FileInputStream inputStream = new FileInputStream(user.getImage());
+            
             preparedStatement.setString(1, user.getEmailAddress());
             preparedStatement.setString(2, user.getPassword());
             preparedStatement.setString(3, user.getFirstName());
@@ -58,6 +63,8 @@ public class SignupService {
             preparedStatement.setString(9, user.getCountry());
             preparedStatement.setString(10, user.getState());
             preparedStatement.setString(11, user.getDistrict());
+            
+            preparedStatement.setBinaryStream(12, inputStream);
             
             System.out.println("prepared statement do signup"+ preparedStatement);
             
