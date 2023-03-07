@@ -19,15 +19,13 @@
 </style>
     <div id="ultimate">
         <div class="container emp-profile shadow-lg p-3 mb-5 bg-white rounded">
-            <form action="SaveUser" method="post" id="saveuser">
+            <form action="SaveUser" enctype="multipart/form-data" method="post" id="saveuser">
                 <div class="row">
                     <div class="col-md-4">
                         <div class="profile-img">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog" alt=""/>
-                            <div class="file btn btn-lg btn-primary">
-                                Change Photo
-                                <input type="file" name="file"/>
-                            </div>
+<!--                            <img id="photo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog" style="border-radius: 20px 20px 0 0;">-->
+                         <img src="data:image/png;base64,${User.getImageData()}" style="max-width: 200px; max-height: 200px;">
+                            
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -35,9 +33,7 @@
                             <h5>
                             ${User.firstName} ${User.lastName}
                         </h5>
-                        <!--                                    <h6>
-                                                                Web Developer and Designer
-                                                            </h6>-->
+                       
                         <p class="proile-rating">RANKINGS : <span>8/10</span></p>
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                             <li class="nav-item">
@@ -56,15 +52,11 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="profile-work">
-                        <!--                            <p>WORK LINK</p>
-                                                    <a href="">Website Link</a><br/>
-                                                    <a href="">Bootsnipp Profile</a><br/>
-                                                    <a href="">Bootply Profile</a>
-                                                    <p>SKILLS</p>
-                                                    <a href="">Web Designer</a><br/>
-                                                    <a href="">Web Developer</a><br/>
-                                                    <a href="">WordPress</a><br/>-->
-
+                       
+                        <input type="file" id="image-file" name="image" onchange="previewImage(event)"><br>
+                        <img id="image-preview" style="max-width: 200px; max-height: 200px;">
+                        
+                      
                     </div>
                 </div>
 
@@ -189,3 +181,9 @@
         </form>           
     </div>
 </div>
+                            <script>
+                                var loadFile = (event) => {
+                                        let image = document.getElementById('photo');
+                                        image.src = URL.createObjectURL(event.target.files[0]);
+                                };
+                            </script>                         

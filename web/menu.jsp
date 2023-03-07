@@ -112,7 +112,7 @@
                 <li class="nav-item"><a href="DisplayEvent" class="nav-link px-2 text-black">Events</a></li>
                 <li class="nav-item"><a href="logout.jsp" class="nav-link px-2 text-black">Logout</a></li>
                 <li class="nav-item">  </li>
-                <li class="nav-item"><a href="profile.jsp"><img class="css-border" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog" /></a></li>
+                <li class="nav-item"><a href="profile.jsp"><img class="css-border" src="data:image/png;base64,${User.getImageData()}" /></a></li>
             </ul>
             <%
             } else if (request.getSession().getAttribute("LoggedinStatus").equals("GmailUser")) {%>
