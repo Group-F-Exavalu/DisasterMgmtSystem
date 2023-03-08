@@ -25,6 +25,7 @@ public class Event extends ActionSupport implements ApplicationAware, SessionAwa
     private String eventTopic;
     private String eventDetails;
     private String status;
+    private String supportType;
     
 
     private SessionMap<String, Object> sessionMap = (SessionMap) ActionContext.getContext().getSession();
@@ -99,7 +100,7 @@ public class Event extends ActionSupport implements ApplicationAware, SessionAwa
 
     public String insertEventUser() {
         String result = "FAILURE";
-
+        supportType="1";
         boolean res = SupportService.getInstance().insertEvents(this);
         if (res) {
             result = "SUCCESS";
@@ -111,7 +112,7 @@ public class Event extends ActionSupport implements ApplicationAware, SessionAwa
     
     public String insertEventGmailUser() {
         String result = "FAILURE";
-
+        supportType="3";
         boolean res = SupportService.getInstance().insertEvents(this);
         if (res) {
             result = "SUCCESS";
@@ -126,6 +127,7 @@ public class Event extends ActionSupport implements ApplicationAware, SessionAwa
 
     public String insertEventOrg() {
         String result = "FAILURE";
+        supportType="2";
         boolean res = SupportService.getInstance().insertEvents(this);
         if (res) {
             result = "SUCCESS";
@@ -147,5 +149,19 @@ public class Event extends ActionSupport implements ApplicationAware, SessionAwa
      */
     public void setUserId(String userId) {
         this.userId = userId;
+    }
+
+    /**
+     * @return the supportType
+     */
+    public String getSupportType() {
+        return supportType;
+    }
+
+    /**
+     * @param supportType the supportType to set
+     */
+    public void setSupportType(String supportType) {
+        this.supportType = supportType;
     }
 }

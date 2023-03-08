@@ -132,6 +132,18 @@
             <result name="SUCCESS">displayEssentials.jsp</result>
             <result name="FAILURE">dashboard.jsp</result>
         </action>
+        <action name="UsersTable" class="com.exavalu.models.Admin" method="getAllUsers">
+            <result name="SUCCESS">displayUsers.jsp</result>
+            <result name="FAILURE">dashboard.jsp</result>
+        </action>
+        <action name="OrganisationsTable" class="com.exavalu.models.Admin" method="getAllOrgs">
+            <result name="SUCCESS">displayOrganisations.jsp</result>
+            <result name="FAILURE">dashboard.jsp</result>
+        </action>
+        <action name="GmailUsersTable" class="com.exavalu.models.Admin" method="getAllGmailUsers">
+            <result name="SUCCESS">displayGmailUsers.jsp</result>
+            <result name="FAILURE">dashboard.jsp</result>
+        </action>
         <action name="EssentialsEdit" class="com.exavalu.models.DonateForm" method="getAllEssentials">
             <result name="SUCCESS">editEssentials.jsp</result>
             <result name="FAILURE">dashboard.jsp</result>

@@ -11,6 +11,7 @@ import com.exavalu.models.Organisation;
 import com.exavalu.models.User;
 import com.exavalu.models.Volunteer;
 import com.exavalu.utils.JDBCConnectionManager;
+import java.io.IOException;
 import java.sql.SQLException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -574,7 +575,80 @@ public class AdminService {
         return volunteerList;
         
     }
-      
+      public static ArrayList getAllUsers() throws IOException, SQLException {
+        ArrayList userList = new ArrayList();
+        try {
+            Connection con = JDBCConnectionManager.getConnection();
+            String sql = "SELECT * FROM users";
+            PreparedStatement preparedStatement = con.prepareStatement(sql);
+
+            ResultSet rs = preparedStatement.executeQuery();
+
+            while (rs.next()) {
+                User user = new User();
+                user.setAddress(rs.getString("address"));
+                user.setUserId(rs.getInt("userId"));
+                user.setFirstName(rs.getString("firstName"));
+                user.setLastName(rs.getString("lastName"));
+                user.setPhoneNumber(rs.getString("phoneNumber"));
+                user.setAadharNumber(rs.getString("aadharNumber"));
+                user.setEmailAddress(rs.getString("emailAddress"));
+                user.setGender(rs.getString("gender"));
+                user.setCountry(rs.getString("country"));
+                user.setDate(rs.getString("date"));
+                
+                userList.add(user);
+            }
+        } catch (SQLException ex) {
+    
+        }
+        return userList;
+    }
+      public static ArrayList getAllOrgs() throws IOException, SQLException {
+        ArrayList orgList = new ArrayList();
+        try {
+            Connection con = JDBCConnectionManager.getConnection();
+            String sql = "SELECT * FROM organisations";
+            PreparedStatement preparedStatement = con.prepareStatement(sql);
+
+            ResultSet rs = preparedStatement.executeQuery();
+
+            while (rs.next()) {
+                Organisation org = new Organisation();
+                org.setEmailAddress(rs.getString("emailAddress"));
+                org.setOrganisationName(rs.getString("organisationName"));
+                org.setOrganisationId(rs.getInt("organisationId"));
+                org.setRegnNumber(rs.getString("regnNumber"));
+                org.setCountry(rs.getString("country"));
+                org.setState(rs.getString("state"));
+                orgList.add(org);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return orgList;
+    }
+      public static ArrayList getAllGmailUsers() throws IOException, SQLException {
+        ArrayList userList = new ArrayList();
+        try {
+            Connection con = JDBCConnectionManager.getConnection();
+            String sql = "SELECT * FROM gmailusers";
+            PreparedStatement preparedStatement = con.prepareStatement(sql);
+
+            ResultSet rs = preparedStatement.executeQuery();
+
+            while (rs.next()) {
+                GmailUser user = new GmailUser();
+                user.setFirstName(rs.getString("firstName"));
+                user.setLastName(rs.getString("lastName"));
+                user.setEmail(rs.getString("emailAddress"));
+                userList.add(user);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return userList;
+    }
       public static ArrayList getAllDates(){
         ArrayList dateList = new ArrayList();
         String sql = "SELECT DISTINCT date FROM users";
