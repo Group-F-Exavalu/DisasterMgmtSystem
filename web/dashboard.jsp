@@ -59,6 +59,42 @@
                                  }
                                   });
     }
+    function getUsers(){
+        //document.getElementById("menubar").style.display='none';
+            
+             $.ajax({
+                                 url: 'UsersTable',
+                                 
+                                 success: function (responseText) {
+                        //alert(responseText);
+                                       $("#Result").html(responseText);
+                                 }
+                                  });
+    }
+    function getOrgs(){
+        //document.getElementById("menubar").style.display='none';
+            
+             $.ajax({
+                                 url: 'OrganisationsTable',
+                                 
+                                 success: function (responseText) {
+                        //alert(responseText);
+                                       $("#Result").html(responseText);
+                                 }
+                                  });
+    }
+    function getGUsers(){
+        //document.getElementById("menubar").style.display='none';
+            
+             $.ajax({
+                                 url: 'GmailUsersTable',
+                                 
+                                 success: function (responseText) {
+                        //alert(responseText);
+                                       $("#Result").html(responseText);
+                                 }
+                                  });
+    }
     function displayEssentials(){
         $.ajax({
                                  url: 'EssentialsEdit',
@@ -148,6 +184,9 @@
                         <a class="collapse-item" onclick="getEvents()">Events</a>
                         <a class="collapse-item" onclick="getFunds()">Funds</a>
                         <a class="collapse-item" onclick="getEssentials()">Essentials</a>
+                        <a class="collapse-item" onclick="getUsers()">Registered Users</a>
+                        <a class="collapse-item" onclick="getOrgs()">Registered Organisations</a>
+                        <a class="collapse-item" onclick="getGUsers()">Google Users</a>
                     </div>
                 </div>
             </li>

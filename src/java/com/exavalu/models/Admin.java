@@ -8,7 +8,9 @@ import com.exavalu.services.AdminService;
 import com.exavalu.services.DonateService;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
+import java.io.IOException;
 import java.io.Serializable;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Map;
 import org.apache.struts2.dispatcher.ApplicationMap;
@@ -133,7 +135,27 @@ public class Admin extends ActionSupport implements ApplicationAware, SessionAwa
         
         return result;
     }
-
+    public String getAllUsers() throws IOException, SQLException{
+        String result = "FAILURE";
+        ArrayList userList = AdminService.getAllUsers();
+        sessionMap.put("UserList", userList);
+        result="SUCCESS";
+        return result;
+    }
+    public String getAllOrgs() throws IOException, SQLException{
+        String result = "FAILURE";
+        ArrayList orgList = AdminService.getAllOrgs();
+        sessionMap.put("OrgList", orgList);
+        result="SUCCESS";
+        return result;
+    }
+    public String getAllGmailUsers() throws IOException, SQLException{
+        String result = "FAILURE";
+        ArrayList guserList=AdminService.getAllGmailUsers();
+        sessionMap.put("GUserList", guserList);
+        result="SUCCESS";
+        return result;
+    }        
     public String saveMoneyStatus() throws Exception {
         String result = "FAILURE";
         

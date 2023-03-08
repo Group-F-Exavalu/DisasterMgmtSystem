@@ -151,7 +151,7 @@
                         <form action="NeedSupportUser" method="post" id="myForm" class="shadow-lg p-3 mb-5 bg-white rounded">
 
 
-                            <h1 class="h3 mb-3 fw-normal text-center">I Need Help</h1>
+                            <h1 class="h3 mb-3 fw-normal text-center">How can we help you?</h1>
 
                             <div class="form-floating">
                                 <input type="text" class="form-control" id="floatingInput" placeholder="user ID" name="userId" value=${User.userId} readonly>
@@ -165,7 +165,7 @@
 <!--                                <input type="textarea" class="form-control" id="floatingInput" placeholder="event Details" name="eventDetails">
                                 <textarea class="form-control"  placeholder="Your Message" name="eventDetails" type="text" class="txt_3"></textarea>-->
                                 <textarea name="eventDetails" class="form-control" id="message" cols="30" rows="4" placeholder="event Details"></textarea>
-                                <label for="floatingInput">Please Mention Details</label>
+                                <label for="floatingInput">Mention Aadhar Number, UPI/Location </label>
                             </div>
 
 <!--                                <div class="col-md-12">-->
@@ -192,7 +192,7 @@
                         <form action="NeedSupportOrg" method="post" id="myForm" class="shadow-lg p-3 mb-5 bg-white rounded">
 
 
-                            <h1 class="h3 mb-3 fw-normal">I Need Help</h1>
+                            <h1 class="h3 mb-3 fw-normal">How can we help you?</h1>
 
                             <div class="form-floating">
                                 <input type="text" class="form-control" id="floatingInput" placeholder="organisation ID" name="userId" value=${Organisation.organisationId} readonly>
@@ -206,7 +206,7 @@
                                     <!--                                <input type="textarea" class="form-control" id="floatingInput" placeholder="event Details" name="eventDetails">
                                                                     <textarea class="form-control"  placeholder="Your Message" name="eventDetails" type="text" class="txt_3"></textarea>-->
                                     <textarea name="eventDetails" class="form-control" id="message" cols="30" rows="4" placeholder="event Details"></textarea>
-                                    <label for="floatingInput">Please Mention Details</label>
+                                    <label for="floatingInput">Mention Registration Number, UPI/Location</label>
                                 </div>
 
                                 <!--                                <div class="col-md-12">-->
@@ -239,7 +239,7 @@
                         <form action="NeedSupportUser" method="post" id="myForm" class="shadow-lg p-3 mb-5 bg-white rounded">
 
 
-                            <h1 class="h3 mb-3 fw-normal text-center">I Need Help</h1>
+                            <h1 class="h3 mb-3 fw-normal text-center">How can we help you?</h1>
                             <div class="form-floating" hidden>
                                 <input type="text" class="form-control" id="floatingInput" placeholder="user ID" name="userId" value=${GmailUser.sub} readonly>
                                 <label for="floatingInput">User ID</label>
@@ -257,7 +257,7 @@
 <!--                                <input type="textarea" class="form-control" id="floatingInput" placeholder="event Details" name="eventDetails">
                                 <textarea class="form-control"  placeholder="Your Message" name="eventDetails" type="text" class="txt_3"></textarea>-->
                                 <textarea  class="form-control" id="floatingInput" cols="30" rows="4" placeholder="event Details" name="eventDetails"></textarea>
-                                <label for="floatingInput">Please Mention Details</label>
+                                <label for="floatingInput">Mention Aadhar Number, UPI/Location</label>
                             </div>
 
 <!--                                <div class="col-md-12">-->

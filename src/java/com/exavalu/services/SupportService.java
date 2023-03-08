@@ -30,7 +30,7 @@ public class SupportService {
     public boolean insertEvents(Event event){
         
         boolean result = false;
-        String sql = "INSERT INTO events(eventTopic,eventDetails,userId)"+"VALUES(?,? ,?)";
+        String sql = "INSERT INTO events(eventTopic,eventDetails,userId,supportType)"+"VALUES(?,? ,?,?)";
         try {
 
             Connection con = JDBCConnectionManager.getConnection();
@@ -40,6 +40,7 @@ public class SupportService {
                 preparedStatement.setString(1, event.getEventTopic());
                 preparedStatement.setString(2, event.getEventDetails());
                 preparedStatement.setString(3, event.getUserId());
+                preparedStatement.setString(4, event.getSupportType());
                 
                 System.out.println(preparedStatement);
                 int row = preparedStatement.executeUpdate();
