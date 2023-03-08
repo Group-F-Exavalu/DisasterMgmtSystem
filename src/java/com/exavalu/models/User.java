@@ -213,8 +213,12 @@ public class User extends ActionSupport implements ApplicationAware, SessionAwar
         boolean successAdmin = LoginService.getInstance().doLoginAdmin(this.emailAddress, this.password);
 
         User user = LoginService.getUser(emailAddress);
+        ArrayList userStatusMoneyList = DonateService.getInstance().getUserStatusMoneyList(user.getUserId());
+        ArrayList userStatusEssentialList = DonateService.getInstance().getUserStatusEssentialList(user.getUserId());
         System.out.println("User Phone :" + user.getPhoneNumber());
         Organisation organisation = LoginService.getOrganisation(emailAddress);
+        ArrayList orgStatusMoneyList = DonateService.getInstance().getOrgStatusMoneyList(organisation.getOrganisationId());
+        ArrayList orgStatusEssentialList = DonateService.getInstance().getOrgStatusEssentialList(organisation.getOrganisationId());
         ArrayList eventList = DonateService.getInstance().getApprovedEvents();
         ArrayList moneyList = DonateService.getInstance().getMoney();
         ArrayList essentialList = DonateService.getInstance().getEssentials();
@@ -228,6 +232,8 @@ public class User extends ActionSupport implements ApplicationAware, SessionAwar
             sessionMap.put("Loggedin", this);
             sessionMap.put("LoggedinStatus", "user");
             sessionMap.put("User", user);
+            sessionMap.put("MoneyStatus",userStatusMoneyList);
+            sessionMap.put("EssentialStatus",userStatusEssentialList);
             sessionMap.put("EventList", eventList);
             sessionMap.put("UserList", userList);
             result = "USER";
@@ -235,6 +241,8 @@ public class User extends ActionSupport implements ApplicationAware, SessionAwar
             System.out.println("returning Success from doLoginOrganization method");
             sessionMap.put("Loggedin", this);
             sessionMap.put("LoggedinStatus", "org");
+            sessionMap.put("MoneyOrgStatus",orgStatusMoneyList);
+            sessionMap.put("EssentialOrgStatus",orgStatusEssentialList);
             sessionMap.put("Organisation", organisation);
             sessionMap.put("EventList", eventList);
             result = "ORG";

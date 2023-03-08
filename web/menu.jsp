@@ -110,6 +110,7 @@
                 <li class="nav-item"><a href="needSupport.jsp" class="nav-link px-2 text-black">Support</a></li>
                 <li class="nav-item"><a href="contact.jsp" class="nav-link px-2 text-black">Contacts</a></li>
                 <li class="nav-item"><a href="DisplayEvent" class="nav-link px-2 text-black">Events</a></li>
+                <li class="nav-item"><a href="status.jsp" class="nav-link px-2 text-black">Status</a></li>
                 <li class="nav-item"><a href="logout.jsp" class="nav-link px-2 text-black">Logout</a></li>
                 <li class="nav-item">  </li>
                 <li class="nav-item"><a href="profile.jsp"><img class="css-border" src="data:image/png;base64,${User.getImageData()}" /></a></li>
@@ -122,6 +123,7 @@
                 <li class="nav-item"><a href="needSupport.jsp" class="nav-link px-2 text-black">Support</a></li>
                 <li class="nav-item"><a href="contact.jsp" class="nav-link px-2 text-black">Contacts</a></li>
                 <li class="nav-item"><a href="DisplayEvent" class="nav-link px-2 text-black">Events</a></li>
+                <li class="nav-item"><a href="status.jsp" class="nav-link px-2 text-black">Status</a></li>
                 <li class="nav-item"><a href="logout.jsp" class="nav-link px-2 text-black">Logout</a></li>
                 <li class="nav-item"><a href="#"><img class="css-border" src="${GmailUser.picture}" /></a></li>
                 
@@ -135,6 +137,7 @@
                 <li class="nav-item"><a href="needSupport.jsp" class="nav-link px-2 text-black">Support</a></li>
                 <li class="nav-item"><a href="contact.jsp" class="nav-link px-2 text-black">Contacts</a></li>
                 <li class="nav-item"><a href="DisplayEvent" class="nav-link px-2 text-black">Events</a></li>
+                <li class="nav-item"><a href="status.jsp" class="nav-link px-2 text-black">Status</a></li>
                 <li class="nav-item"><a href="logout.jsp" class="nav-link px-2 text-black">Logout</a></li>
                 <li class="nav-item"><img class="css-border" src="https://static.thenounproject.com/png/446003-200.png" /></li>
             </ul>
