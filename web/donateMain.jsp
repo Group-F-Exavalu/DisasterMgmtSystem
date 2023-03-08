@@ -33,20 +33,21 @@
         <div >
         <c:if test="${User!=null}">
             <div class="btn-group-vertical">
-                <button  type="button" class="shadow-lg p-3 mb-5 rounded" onclick="loadNewContent('donateMoney.jsp', 'fetchDetails')">Donate Money</button>
-                <button  type="button" class="shadow-lg p-3 mb-5 rounded" onclick="loadNewContent('donateEssentials.jsp', 'fetchDetails')">Donate Essentials</button>
+                <button  type="button" class="btn btn-white py-3 px-5" onclick="loadNewContent('donateMoney.jsp', 'fetchDetails')">Donate Money</button>
+                <button  type="button" class="btn btn-white py-3 px-5" onclick="loadNewContent('donateEssentials.jsp', 'fetchDetails')">Donate Essentials</button>
             </div></c:if>
         <c:if test="${Organisation!=null}">
             <div class="btn-group-vertical">
-                <button  type="button" onclick="loadNewContent('donateMoney.jsp', 'fetchDetails')">Donate Money</button>
-                <button  type="button" onclick="loadNewContent('donateEssentials.jsp', 'fetchDetails')">Donate Essentials</button>
+                <button  type="button" class="btn btn-white py-3 px-5" onclick="loadNewContent('donateMoney.jsp', 'fetchDetails')">Donate Money</button>
+                <button  type="button" class="btn btn-white py-3 px-5" onclick="loadNewContent('donateEssentials.jsp', 'fetchDetails')">Donate Essentials</button>
             </div></c:if>
             <c:if test="${GmailUser!=null}">
             <div class="btn-group-vertical">
-                <button  type="button" class="shadow-lg p-3 mb-5 rounded" onclick="loadNewContent('donateMoney.jsp', 'fetchDetails')">Donate Money</button>
-                <button  type="button" class="shadow-lg p-3 mb-5 rounded" onclick="loadNewContent('donateEssentials.jsp', 'fetchDetails')">Donate Essentials</button>
+                <button  type="button" class="btn btn-white py-3 px-5" onclick="loadNewContent('donateMoney.jsp', 'fetchDetails')">Donate Money</button>
+                <button  type="button" class="btn btn-white py-3 px-5" onclick="loadNewContent('donateEssentials.jsp', 'fetchDetails')">Donate Essentials</button>
             </div></c:if>
         </div>
+        <!-- class="shadow-lg p-3 mb-5 rounded" -->
         <style>
             .btn-group-vertical {
                 padding-left: 30%;
@@ -88,10 +89,10 @@
 
             /* .btn-group button:hover { */
 
-            .btn-group-vertical button:hover {
+/*            .btn-group-vertical button:hover {
                 background-color: #CD5A00;
                 color: white;
-            }
+            }*/
         </style>
         <c:if test='${SuccessDonation!=null}'>
             <div class="container shadow-lg p-3 mb-5 bg-white rounded" style="padding:50px; background-color: #FBCEB1; width: 600px; border-left-color: #CD5A00">

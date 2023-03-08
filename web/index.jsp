@@ -74,7 +74,7 @@
                             <div class="text">
                                 <span>Served Over</span>
                                 <strong class="number" data-number="69420">0</strong>
-                                <span>Children in 190 countries in the world</span>
+                                <span>Users and Organizations in 190 countries in the world</span>
                             </div>
                         </div>
                     </div>
@@ -82,7 +82,7 @@
                         <div class="block-18 color-2 align-items-stretch">
                             <div class="text">
                                 <h3 class="mb-4">Donate Money</h3>
-                                <p>Even the all-powerful Pointing has no control about the blind texts.</p>
+                                <p>Reach out and support causes that resonate with you.</p>
                                 <p><a href="login.jsp" class="btn btn-white px-3 py-2 mt-2">Donate Now</a></p>
                             </div>
                         </div>
@@ -91,7 +91,7 @@
                         <div class="block-18 color-3 align-items-stretch">
                             <div class="text">
                                 <h3 class="mb-4">Be a Volunteer</h3>
-                                <p>Even the all-powerful Pointing has no control about the blind texts.</p>
+                                <p>Join us and be a part of the narrative. You are always welcome.</p>
                                 <p><a href="#Volunteer" class="btn btn-white px-3 py-2 mt-2">Be A Volunteer</a></p>
                             </div>
                         </div>
@@ -108,7 +108,7 @@
                             <div class="icon d-flex mb-3"><span class="flaticon-donation-1"></span></div>
                             <div class="media-body pl-4">
                                 <h3 class="heading">Make Donation</h3>
-                                <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
+                                <p>Donate for causes that mean something to you.Join non-profits to change the world around you.</p>
                             </div>
                         </div>      
                     </div>
@@ -117,7 +117,7 @@
                             <div class="icon d-flex mb-3"><span class="flaticon-charity"></span></div>
                             <div class="media-body pl-4">
                                 <h3 class="heading">Become A Volunteer</h3>
-                                <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
+                                <p>Join us and help us reach a greater audience.</p>
                             </div>
                         </div>      
                     </div>
@@ -125,8 +125,8 @@
                         <div class="media block-6 d-flex services p-3 py-4 d-block">
                             <div class="icon d-flex mb-3"><span class="flaticon-donation"></span></div>
                             <div class="media-body pl-4">
-                                <h3 class="heading">Sponsorship</h3>
-                                <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
+                                <h3 class="heading">Ask for help</h3>
+                                <p>We are always here for you, to help you in whatever way we can.</p>
                             </div>
                         </div>    
                     </div>
@@ -140,7 +140,7 @@
                 <div class="row justify-content-center mb-5 pb-3">
                     <div class="col-md-5 heading-section ftco-animate text-center">
                         <h2 class="mb-4">Our Causes</h2>
-                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                        <p>We are and want to be involved in the betterment of humankind.</p>
                     </div>
                 </div>
                 <div class="row">
@@ -151,7 +151,7 @@
                                     <a href="#" class="img" style="background-image: url(images/cause-1.jpg);"></a>
                                     <div class="text p-3 p-md-4">
                                         <h3><a href="#">Clean water for the urban area</a></h3>
-                                        <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life</p>
+                                        <p>Dummy data is mock data generated at random as a substitute for live data in testing environments. In other words, dummy data acts as a placeholder for live data, the latter of which testers only introduce once it?s determined that the trail program does not have any unintended, negative impact on the underlying data.For example, a company implementing a new accounting system uses dummy data to ensure its bookings are stored correctly before inputting live accounts.You can think of dummy data like a car crash dummy ? you hope nothing bad happens to it while testing, but if something bad does happen, you can fix the problem with no negative impact on your valuable data assets.</p>
                                         <span class="donation-time mb-3 d-block">Last donation 1w ago</span>
                                         <div class="progress custom-progress-success">
                                             <div class="progress-bar bg-primary" role="progressbar" style="width: 28%" aria-valuenow="28" aria-valuemin="0" aria-valuemax="100"></div>
@@ -164,8 +164,8 @@
                                 <div class="cause-entry">
                                     <a href="#" class="img" style="background-image: url(images/cause-2.jpg);"></a>
                                     <div class="text p-3 p-md-4">
-                                        <h3><a href="#">Clean water for the urban area</a></h3>
-                                        <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life</p>
+                                        <h3><a href="#">Relief Funds for Disasters</a></h3>
+                                        <p>Dummy data is mock data generated at random as a substitute for live data in testing environments. In other words, dummy data acts as a placeholder for live data, the latter of which testers only introduce once it?s determined that the trail program does not have any unintended, negative impact on the underlying data.For example, a company implementing a new accounting system uses dummy data to ensure its bookings are stored correctly before inputting live accounts.You can think of dummy data like a car crash dummy ? you hope nothing bad happens to it while testing, but if something bad does happen, you can fix the problem with no negative impact on your valuable data assets.</p>
                                         <span class="donation-time mb-3 d-block">Last donation 1w ago</span>
                                         <div class="progress custom-progress-success">
                                             <div class="progress-bar bg-primary" role="progressbar" style="width: 28%" aria-valuenow="28" aria-valuemin="0" aria-valuemax="100"></div>
@@ -179,7 +179,7 @@
                                     <a href="#" class="img" style="background-image: url(images/cause-3.jpg);"></a>
                                     <div class="text p-3 p-md-4">
                                         <h3><a href="#">Clean water for the urban area</a></h3>
-                                        <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life</p>
+                                        <p>Dummy data is mock data generated at random as a substitute for live data in testing environments. In other words, dummy data acts as a placeholder for live data, the latter of which testers only introduce once it?s determined that the trail program does not have any unintended, negative impact on the underlying data.For example, a company implementing a new accounting system uses dummy data to ensure its bookings are stored correctly before inputting live accounts.You can think of dummy data like a car crash dummy ? you hope nothing bad happens to it while testing, but if something bad does happen, you can fix the problem with no negative impact on your valuable data assets.</p>
                                         <span class="donation-time mb-3 d-block">Last donation 1w ago</span>
                                         <div class="progress custom-progress-success">
                                             <div class="progress-bar bg-primary" role="progressbar" style="width: 28%" aria-valuenow="28" aria-valuemin="0" aria-valuemax="100"></div>
@@ -193,7 +193,7 @@
                                     <a href="#" class="img" style="background-image: url(images/cause-4.jpg);"></a>
                                     <div class="text p-3 p-md-4">
                                         <h3><a href="#">Clean water for the urban area</a></h3>
-                                        <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life</p>
+                                        <p>Dummy data is mock data generated at random as a substitute for live data in testing environments. In other words, dummy data acts as a placeholder for live data, the latter of which testers only introduce once it?s determined that the trail program does not have any unintended, negative impact on the underlying data.For example, a company implementing a new accounting system uses dummy data to ensure its bookings are stored correctly before inputting live accounts.You can think of dummy data like a car crash dummy ? you hope nothing bad happens to it while testing, but if something bad does happen, you can fix the problem with no negative impact on your valuable data assets.</p>
                                         <span class="donation-time mb-3 d-block">Last donation 1w ago</span>
                                         <div class="progress custom-progress-success">
                                             <div class="progress-bar bg-primary" role="progressbar" style="width: 28%" aria-valuenow="28" aria-valuemin="0" aria-valuemax="100"></div>
@@ -207,7 +207,7 @@
                                     <a href="#" class="img" style="background-image: url(images/cause-5.jpg);"></a>
                                     <div class="text p-3 p-md-4">
                                         <h3><a href="#">Clean water for the urban area</a></h3>
-                                        <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life</p>
+                                        <p>Dummy data is mock data generated at random as a substitute for live data in testing environments. In other words, dummy data acts as a placeholder for live data, the latter of which testers only introduce once it?s determined that the trail program does not have any unintended, negative impact on the underlying data.For example, a company implementing a new accounting system uses dummy data to ensure its bookings are stored correctly before inputting live accounts.You can think of dummy data like a car crash dummy ? you hope nothing bad happens to it while testing, but if something bad does happen, you can fix the problem with no negative impact on your valuable data assets.</p>
                                         <span class="donation-time mb-3 d-block">Last donation 1w ago</span>
                                         <div class="progress custom-progress-success">
                                             <div class="progress-bar bg-primary" role="progressbar" style="width: 28%" aria-valuenow="28" aria-valuemin="0" aria-valuemax="100"></div>
@@ -221,7 +221,7 @@
                                     <a href="#" class="img" style="background-image: url(images/cause-6.jpg);"></a>
                                     <div class="text p-3 p-md-4">
                                         <h3><a href="#">Clean water for the urban area</a></h3>
-                                        <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life</p>
+                                        <p>Dummy data is mock data generated at random as a substitute for live data in testing environments. In other words, dummy data acts as a placeholder for live data, the latter of which testers only introduce once it?s determined that the trail program does not have any unintended, negative impact on the underlying data.For example, a company implementing a new accounting system uses dummy data to ensure its bookings are stored correctly before inputting live accounts.You can think of dummy data like a car crash dummy ? you hope nothing bad happens to it while testing, but if something bad does happen, you can fix the problem with no negative impact on your valuable data assets.</p>
                                         <span class="donation-time mb-3 d-block">Last donation 1w ago</span>
                                         <div class="progress custom-progress-success">
                                             <div class="progress-bar bg-primary" role="progressbar" style="width: 28%" aria-valuenow="28" aria-valuemin="0" aria-valuemax="100"></div>
@@ -338,7 +338,7 @@
             </div>
         </section>
 
-        <section class="ftco-section">
+<!--        <section class="ftco-section">
             <div class="container">
                 <div class="row justify-content-center mb-5 pb-3">
                     <div class="col-md-7 heading-section ftco-animate text-center">
@@ -457,7 +457,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section>-->
         
 <div id="Volunteer">
         <section class="ftco-section-3 img" style="background-image: url(images/bg_3.jpg);">
@@ -498,10 +498,10 @@
             <div class="overlay"></div>
             <div class="container">
                 <div class="row mb-5">
-                    <div class="col-md-3">
+                    <div class="col-md-5">
                         <div class="ftco-footer-widget mb-4">
                             <h2 class="ftco-heading-2">About Us</h2>
-                            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                            <p>Dummy data is mock data generated at random as a substitute for live data in testing environments. In other words, dummy data acts as a placeholder for live data, the latter of which testers only introduce once it?s determined that the trail program does not have any unintended, negative impact on the underlying data.For example, a company implementing a new accounting system uses dummy data to ensure its bookings are stored correctly before inputting live accounts.You can think of dummy data like a car crash dummy ? you hope nothing bad happens to it while testing, but if something bad does happen, you can fix the problem with no negative impact on your valuable data assets.</p>
                             <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
                                 <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
                                 <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
@@ -509,7 +509,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="col-md-4">
+<!--                    <div class="col-md-4">
                         <div class="ftco-footer-widget mb-4">
                             <h2 class="ftco-heading-2">Recent Blog</h2>
                             <div class="block-21 mb-4 d-flex">
@@ -535,23 +535,24 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-2">
+                    </div>-->
+                    <div class="col-md-3">
                         <div class="ftco-footer-widget mb-4 ml-md-4">
-                            <h2 class="ftco-heading-2">Site Links</h2>
+                            <h2 class="ftco-heading-2">Explore Our Site</h2>
                             <ul class="list-unstyled">
-                                <li><a href="#" class="py-2 d-block">Home</a></li>
-                                <li><a href="#" class="py-2 d-block">About</a></li>
-                                <li><a href="#" class="py-2 d-block">Donate</a></li>
-                                <li><a href="#" class="py-2 d-block">Causes</a></li>
-                                <li><a href="#" class="py-2 d-block">Event</a></li>
-                                <li><a href="#" class="py-2 d-block">Blog</a></li>
+                                <li><a href="landingPage.jsp" class="py-2 d-block">Home</a></li>
+                                <li><a href="login.jsp" class="py-2 d-block">Donate</a></li>
+                                <li><a href="login.jsp" class="py-2 d-block">Support</a></li>
+                                <li><a href="contact.jsp" class="py-2 d-block">Contacts</a></li>
+                                <li><a href="DisplayEvent" class="py-2 d-block">Events</a></li>
+                                <li><a href="login.jsp" class="py-2 d-block">Login</a></li>
+                                <li><a href="signupMain.jsp" class="py-2 d-block">Sign Up</a></li>
                             </ul>
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="ftco-footer-widget mb-4">
-                            <h2 class="ftco-heading-2">Have a Questions?</h2>
+                            <h2 class="ftco-heading-2">Have Questions?</h2>
                             <div class="block-23 mb-3">
                                 <ul>
                                     <li><span class="icon icon-map-marker"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
