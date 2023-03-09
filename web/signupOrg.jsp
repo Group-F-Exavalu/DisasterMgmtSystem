@@ -98,20 +98,20 @@
                 <h1 id="titles" class="h3 mb-3 fw-normal text-center">Create Organisation Account</h1>
 
                 <div class="form-floating mb-2">
-                    <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="emailAddress" >
+                    <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="emailAddress" required >
                     <label for="floatingInput">Email address</label>
                 </div>
                 <div class="form-floating mb-2">
-                    <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password" >
+                    <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password" required >
                     <label for="floatingPassword">Password</label>
                 </div>
                 <div class="form-floating mb-2">
-                    <input type="text" class="form-control" id="organisationName" placeholder="organisationName" name="organisationName" >
+                    <input type="text" class="form-control" id="organisationName" placeholder="organisationName" name="organisationName" required>
                     <label for="floatingInput">Organisation Name</label>
                 </div>
                 
                 <div class="form-floating mb-2">
-                    <input type="text" class="form-control" id="regnNumber" placeholder="regnNumber" name="regnNumber" >
+                    <input type="text" class="form-control" id="regnNumber" placeholder="regnNumber" name="regnNumber" required>
                     <label for="floatingInput">Organisation Registration Number</label>
                 </div>
           

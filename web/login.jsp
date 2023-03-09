@@ -52,6 +52,11 @@
                                 <img src="images/mainlogo.svg" class="img-fluid profile-image-pic img-thumbnail rounded-circle my-4"
                                      width="250px" alt="profile">
                             </div>
+                             <c:if test= "${ErrorMsg!=null}" >
+      <div class="alert alert-danger" role="alert">
+          <c:out value  = "${ErrorMsg}" />
+          </div>
+              </c:if>
 
                             <div class="mb-3">
                                 <input type="email" class="form-control" id="emailAddress" name="emailAddress" aria-describedby="emailHelp"

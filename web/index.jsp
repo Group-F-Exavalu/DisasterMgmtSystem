@@ -471,19 +471,19 @@
                         <h3 class="mb-3">Be a volunteer</h3>
                         <form action="Volunteer" class="volunter-form">
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Your Name" name="name">
+                                <input type="text" class="form-control" placeholder="Your Name" name="name" required>
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Your Email" name="emailAddress">
+                                <input type="email" class="form-control" placeholder="Your Email" name="emailAddress" required>
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Phone Number" name="phoneNumber">
+                                <input type="text" class="form-control" placeholder="Phone Number" name="phoneNumber" pattern="[789][0-9]{9}" title="Must be a 10 digit phone number">
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Aadhar Number" name="aadharNumber">
+                                <input type="text" class="form-control" placeholder="Aadhar Number" name="aadharNumber" pattern="[0-9]{12}" title="Must be a valid 12 digit aadhar number">
                             </div>
                             <div class="form-group">
-                                <textarea name="messsage" id="" cols="30" rows="3" class="form-control" placeholder="Message"></textarea>
+                                <textarea name="messsage" id="" cols="30" rows="3" class="form-control" placeholder="Message" required></textarea>
                             </div>
                             <div class="form-group">
                                 <input type="submit" value="Send Message" class="btn btn-white py-3 px-5">

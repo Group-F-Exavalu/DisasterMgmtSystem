@@ -297,6 +297,8 @@ public class User extends ActionSupport implements ApplicationAware, SessionAwar
             Logger log = Logger.getLogger(LoginService.class.getName());
             log.error(LocalDateTime.now() + "--Wrong email ID or password");
             System.out.println("returning Failure from doLogin method");
+            String errorMsg ="Either Email Address or Password is Wrong. Please Try Again !!";
+            getSessionMap().put("ErrorMsg", errorMsg);
         }
 
         return result;
