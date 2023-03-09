@@ -30,9 +30,7 @@ import org.apache.log4j.Logger;
 
 public class User extends ActionSupport implements ApplicationAware, SessionAware, Serializable {
 
-    /**
-     * @param args the command line arguments
-     */
+    
     private int userId;
 
     public int getUserId() {

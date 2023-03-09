@@ -118,18 +118,7 @@ public class APIUser extends ActionSupport implements ApplicationAware, SessionA
         setSessionMap((SessionMap<String, Object>) (SessionMap) session);
     }
 
-    /**
-     * @param stateName the stateName to set
-     *
-     *
-     * /
-     **
-     * @param districtName the districtName to set
-     *
-     * /
-     **
-     * @return the sessionMap
-     */
+   
     public SessionMap<String, Object> getSessionMap() {
         return sessionMap;
     }
