@@ -111,6 +111,10 @@
             <result name="SUCCESS">volunteerDetails.jsp</result>
             <result name="FAILURE">editVolunteer.jsp</result>
         </action>
+        <action name="SendVolunteerStatus" class="com.exavalu.models.Volunteer" method="editVolunteerForm">
+            <result name="SUCCESS">sendMail.jsp</result>
+            <result name="FAILURE">editVolunteers.jsp</result>
+        </action>
         <action name="ApproveVolunteer" class="com.exavalu.models.Volunteer" method="saveVolunteerStatus">
             <result name="SUCCESS">editVolunteer.jsp</result>
             <result name="FAILURE">volunteerDetails.jsp</result>
