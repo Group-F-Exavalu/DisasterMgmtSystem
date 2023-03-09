@@ -172,6 +172,18 @@
             <result name="SUCCESS">orgApi.jsp</result>
             <result name="FAILURE">login.jsp</result>
         </action>
+        <action name="Status" class="com.exavalu.models.User" method="getStatus">
+            <result name="SUCCESS">status.jsp</result>
+            <result name="FAILURE">menu.jsp</result>
+        </action>
+        <action name="OrgStatus" class="com.exavalu.models.Organisation" method="getStatus">
+            <result name="SUCCESS">status.jsp</result>
+            <result name="FAILURE">menu.jsp</result>
+        </action>
+        <action name="GUserStatus" class="com.exavalu.models.GmailUser" method="getStatus">
+            <result name="SUCCESS">status.jsp</result>
+            <result name="FAILURE">menu.jsp</result>
+        </action>
         
         <action name="SaveUser" class="com.exavalu.models.User" method="doSave">
             <result name="SUCCESS">profile.jsp</result>

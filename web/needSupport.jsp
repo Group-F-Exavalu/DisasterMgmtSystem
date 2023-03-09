@@ -20,6 +20,13 @@
 
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@500&family=Overpass:wght@500&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Dosis&family=Overpass:wght@500&display=swap" rel="stylesheet">
         <!--        <link href="css/header.css" rel="stylesheet">-->
         <!--        <link rel="stylesheet" href="css/all.min.css">
                 <link rel="stylesheet" href="css/reset-min.css">
@@ -128,7 +135,7 @@
     </style>
     <!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.8.1/html2pdf.bundle.min.js"></script>
-    <body class="text-center">
+    <body>
         <jsp:include page="menu.jsp"></jsp:include>
         <c:if test='${SuccessSupport!=null}'>
             <div class="container shadow-lg p-3 mb-5 bg-white rounded" style="padding:50px; background-color: #FBCEB1; width: 400px; border-left-color: #CD5A00">
@@ -151,26 +158,34 @@
                         <form action="NeedSupportUser" method="post" id="myForm" class="shadow-lg p-3 mb-5 bg-white rounded">
 
 
-                            <h1 class="h3 mb-3 fw-normal text-center">How can we help you?</h1>
+                            <h1 class="h3 mb-3 fw-normal text-center" style="font-family: 'Dosis', sans-serif; color:#DC582A">How can we help you?</h1>
 
-                            <div class="form-floating">
+                            <div class="form-group">
+                                <label for="floatingInput" style="font-family: 'Overpass', sans-serif;">User ID</label>
                                 <input type="text" class="form-control" id="floatingInput" placeholder="user ID" name="userId" value=${User.userId} readonly>
-                                <label for="floatingInput">User ID</label>
+                                
                             </div>
-                            <div class="form-floating">
-                                <input type="text" class="form-control" id="floatingInput" placeholder="event Topic" name="eventTopic">
-                                <label for="floatingInput">Support Topic</label>
+                            <div class="form-group">
+                                <label for="floatingInput" style="font-family: 'Overpass', sans-serif;">Name</label>
+                                <input type="text" class="form-control" id="floatingInput" placeholder="Name of User" value="${User.firstName} ${User.lastName}"  readonly>
+                                
                             </div>
-                            <div class="form-floating">
+                            <div class="form-group">
+                                <label for="floatingInput" style="font-family: 'Overpass', sans-serif;">Subject</label>
+                                <input type="text" class="form-control" id="floatingInput" placeholder="Enter the subject of your article" name="eventTopic">
+                                
+                            </div>
+                            <div class="form-group">
+                                <label for="floatingInput" style="font-family: 'Overpass', sans-serif;">Details</label>
 <!--                                <input type="textarea" class="form-control" id="floatingInput" placeholder="event Details" name="eventDetails">
                                 <textarea class="form-control"  placeholder="Your Message" name="eventDetails" type="text" class="txt_3"></textarea>-->
-                                <textarea name="eventDetails" class="form-control" id="message" cols="30" rows="4" placeholder="event Details"></textarea>
-                                <label for="floatingInput">Mention Aadhar Number, UPI/Location </label>
+                                <textarea name="eventDetails" class="form-control" id="message" cols="30" rows="4" placeholder="Mention Aadhar Number, UPI and convenient location so we can reach you quickly!"></textarea>
+                                
                             </div>
 
 <!--                                <div class="col-md-12">-->
                                     <div class="form-group">
-                                        <input type="submit" value="Submit" class="btn btn-primary px-2 mb-2 w-100" id="submitBtn">
+                                        <input type="submit" value="Submit" class="btn btn-primary px-2 mb-2 w-100 text-center" id="submitBtn">
                                         <div class="submitting"></div>
                                     </div>
 <!--                                </div>-->
@@ -192,21 +207,29 @@
                         <form action="NeedSupportOrg" method="post" id="myForm" class="shadow-lg p-3 mb-5 bg-white rounded">
 
 
-                            <h1 class="h3 mb-3 fw-normal">How can we help you?</h1>
+                            <h1 class="h3 mb-3 fw-normal text-center" style="font-family: 'Dosis', sans-serif; color:#DC582A">How can we help you?</h1>
 
-                            <div class="form-floating">
+                            <div class="form-group">
+                                <label for="floatingInput" style="font-family: 'Overpass', sans-serif;">Organisation ID</label>
                                 <input type="text" class="form-control" id="floatingInput" placeholder="organisation ID" name="userId" value=${Organisation.organisationId} readonly>
-                                <label for="floatingInput">Organisation ID</label>
+                                
                             </div>
-                            <div class="form-floating">
-                                <input type="text" class="form-control" id="floatingInput" placeholder="event Topic" name="eventTopic">
-                                <label for="floatingInput">Support Topic</label>
+                            <div class="form-group">
+                                <label for="floatingInput" style="font-family: 'Overpass', sans-serif;">Organisation Name</label>
+                                <input type="text" class="form-control" id="floatingInput" placeholder="Name of User" value="${Organisation.organisationName}"  readonly>
+                                
                             </div>
-                                <div class="form-floating">
+                            <div class="form-group">
+                                <label for="floatingInput" style="font-family: 'Overpass', sans-serif;">Subject</label>
+                                <input type="text" class="form-control" id="floatingInput" placeholder="Enter the subject of your article" name="eventTopic">
+                                
+                            </div>
+                                <div class="form-group">
+                                    <label for="floatingInput" style="font-family: 'Overpass', sans-serif;">Details</label>
                                     <!--                                <input type="textarea" class="form-control" id="floatingInput" placeholder="event Details" name="eventDetails">
                                                                     <textarea class="form-control"  placeholder="Your Message" name="eventDetails" type="text" class="txt_3"></textarea>-->
-                                    <textarea name="eventDetails" class="form-control" id="message" cols="30" rows="4" placeholder="event Details"></textarea>
-                                    <label for="floatingInput">Mention Registration Number, UPI/Location</label>
+                                    <textarea name="eventDetails" class="form-control" id="message" cols="30" rows="4" placeholder="Mention Registration Number, UPI/Location"></textarea>
+                                    
                                 </div>
 
                                 <!--                                <div class="col-md-12">-->
@@ -239,25 +262,32 @@
                         <form action="NeedSupportUser" method="post" id="myForm" class="shadow-lg p-3 mb-5 bg-white rounded">
 
 
-                            <h1 class="h3 mb-3 fw-normal text-center">How can we help you?</h1>
-                            <div class="form-floating" hidden>
+                            <h1 class="h3 mb-3 fw-normal text-center" style="font-family: 'Dosis', sans-serif; color:#DC582A">How can we help you?</h1>
+                            <div class="form-group" hidden>
                                 <input type="text" class="form-control" id="floatingInput" placeholder="user ID" name="userId" value=${GmailUser.sub} readonly>
                                 <label for="floatingInput">User ID</label>
                             </div>
-
-                            <div class="form-floating">
+                            <div class="form-group">
+                                <label for="floatingInput" style="font-family: 'Overpass', sans-serif;">Name</label>
+                                <input type="text" class="form-control" id="floatingInput" placeholder="Name of User" value="${GmailUser.given_name} ${GmailUser.family_name}"  readonly>
+                                
+                            </div>
+                            <div class="form-group">
+                                <label for="floatingInput" style="font-family: 'Overpass', sans-serif;">Email Address</label>
                                 <input type="text" class="form-control" id="floatingInput" placeholder="Email Address" name="email" value=${GmailUser.email} readonly>
-                                <label for="floatingInput">Email Address</label>
+                                
                             </div>
-                            <div class="form-floating">
-                                <input type="text" class="form-control" id="floatingInput" placeholder="event Topic" name="eventTopic">
-                                <label for="floatingInput">Support Topic</label>
+                            <div class="form-group">
+                                <label for="floatingInput" style="font-family: 'Overpass', sans-serif;">Subject</label>
+                                <input type="text" class="form-control" id="floatingInput" placeholder="Enter the subject of your article" name="eventTopic">
+                                
                             </div>
-                            <div class="form-floating">
+                            <div class="form-group">
+                                <label for="floatingInput" style="font-family: 'Overpass', sans-serif;">Details</label>
 <!--                                <input type="textarea" class="form-control" id="floatingInput" placeholder="event Details" name="eventDetails">
                                 <textarea class="form-control"  placeholder="Your Message" name="eventDetails" type="text" class="txt_3"></textarea>-->
-                                <textarea  class="form-control" id="floatingInput" cols="30" rows="4" placeholder="event Details" name="eventDetails"></textarea>
-                                <label for="floatingInput">Mention Aadhar Number, UPI/Location</label>
+                                <textarea  class="form-control" id="floatingInput" cols="30" rows="4" placeholder="Mention Aadhar Number, UPI and convenient location so we can reach you quickly!" name="eventDetails"></textarea>
+                                
                             </div>
 
 <!--                                <div class="col-md-12">-->
