@@ -177,5 +177,9 @@
             <result name="SUCCESS">profile.jsp</result>
             <result name="FAILURE">editProfile.jsp</result>
         </action>
+        <action name="SendGmail" class="com.exavalu.models.TestGmail" method="sendGmail">
+            <result name="SUCCESS">dashboard.jsp</result>
+            <result name="FAILURE">dashboard.jsp</result>
+        </action>
     </package>
 </struts>
