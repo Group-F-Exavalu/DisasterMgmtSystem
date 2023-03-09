@@ -5,6 +5,7 @@
  */
 package com.exavalu.models;
 
+import com.exavalu.services.DonateService;
 import com.exavalu.services.LoginService;
 import com.exavalu.services.SignupService;
 import com.opensymphony.xwork2.ActionContext;
@@ -192,6 +193,17 @@ public class Organisation extends ActionSupport implements ApplicationAware, Ses
 //
 //        }
 
+        return result;
+    }
+    public String getStatus() {
+        String result = "FAILURE";
+
+        ArrayList orgStatusMoneyList = DonateService.getInstance().getOrgStatusMoneyList(organisationId);
+        ArrayList orgStatusEssentialList = DonateService.getInstance().getOrgStatusEssentialList(organisationId);
+        System.out.println(this.organisationId);
+        sessionMap.put("MoneyOrgStatus",orgStatusMoneyList);
+        sessionMap.put("EssentialOrgStatus",orgStatusEssentialList);
+        result = "SUCCESS";
         return result;
     }
 }

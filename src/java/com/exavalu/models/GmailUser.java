@@ -137,15 +137,13 @@ public class GmailUser extends ActionSupport implements ApplicationAware, Sessio
 
         GmailUser guser = LoginService.getGmailUser(this.sub);
         ArrayList eventList = DonateService.getInstance().getApprovedEvents();
-        ArrayList gUserStatusMoneyList = DonateService.getInstance().getGUserStatusMoneyList(guser.getEmail());
-        ArrayList gUserStatusEssentialList = DonateService.getInstance().getGUserStatusEssentialList(guser.getEmail());
+        
 //        GmailUser guser = LoginService.getGmailUser(email);
         if (success) {
             sessionMap.put("Loggedin", this);
             sessionMap.put("LoggedinStatus", "GmailUser");
             sessionMap.put("GmailUser", guser);
-            sessionMap.put("MoneyStatus",gUserStatusMoneyList);
-            sessionMap.put("EssentialStatus",gUserStatusEssentialList);
+            
             sessionMap.put("EventList", eventList);
             
             result = "GMAILUSER";
@@ -155,8 +153,6 @@ public class GmailUser extends ActionSupport implements ApplicationAware, Sessio
                 sessionMap.put("Loggedin", this);
                 sessionMap.put("LoggedinStatus", "user");
                 sessionMap.put("GmailUser", guser);
-                sessionMap.put("MoneyStatus",gUserStatusMoneyList);
-                sessionMap.put("EssentialStatus",gUserStatusEssentialList);
                 sessionMap.put("EventList", eventList);
                 result = "GMAILUSER";
             }
@@ -172,6 +168,16 @@ public class GmailUser extends ActionSupport implements ApplicationAware, Sessio
 
     }
 
+    public String getStatus() {
+        String result = "FAILURE";
+        ArrayList gUserStatusMoneyList = DonateService.getInstance().getGUserStatusMoneyList(email);
+        ArrayList gUserStatusEssentialList = DonateService.getInstance().getGUserStatusEssentialList(email);
+        System.out.println(this.email);
+        sessionMap.put("MoneyStatus",gUserStatusMoneyList);
+        sessionMap.put("EssentialStatus",gUserStatusEssentialList);
+        result = "SUCCESS";
+        return result;
+    }
     /**
      * @return the sub
      */

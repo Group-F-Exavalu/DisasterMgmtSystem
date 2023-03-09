@@ -84,6 +84,43 @@
                     }
                 });
             }
+            function loadUserStatus(id){
+                $.ajax({
+                    url: "Status",
+                    data:{
+                        userId:id
+                    },
+                    success: function (response) {
+                        //alert(response);
+                        window.location.href = 'status.jsp';
+                    }
+                });
+            }
+            function loadOrgStatus(id){
+                $.ajax({
+                    url: "OrgStatus",
+                    data:{
+                        organisationId:id
+                    },
+                    success: function (response) {
+                        //alert(response);
+                        window.location.href = 'status.jsp';
+                    }
+                });
+            }
+            function loadGStatus(id){
+                //alert(id);
+                $.ajax({
+                    url: "GUserStatus",
+                    data:{
+                        email:id
+                    },
+                    success: function (response) {
+                        //alert(response);
+                        window.location.href = 'status.jsp';
+                    }
+                });
+            }
         </script>
         <header class="d-flex site-header sticky-lg-top justify-content-around py-3 mb-4 border-bottom" id="menuback">
             <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
@@ -110,7 +147,7 @@
                 <li class="nav-item"><a href="needSupport.jsp" class="nav-link px-2 text-black">Support</a></li>
                 <li class="nav-item"><a href="contact.jsp" class="nav-link px-2 text-black">Contacts</a></li>
                 <li class="nav-item"><a href="DisplayEvent" class="nav-link px-2 text-black">Events</a></li>
-                <li class="nav-item"><a href="status.jsp" class="nav-link px-2 text-black">Status</a></li>
+                <li class="nav-item"><a onclick="loadUserStatus(<c:out value="${User.getUserId()}"/>)" class="nav-link px-2 text-black">Status</a></li>
                 <li class="nav-item"><a href="logout.jsp" class="nav-link px-2 text-black">Logout</a></li>
                 <li class="nav-item">  </li>
                 <li class="nav-item"><a href="profile.jsp"><img class="css-border" src="data:image/png;base64,${User.getImageData()}" /></a></li>
@@ -123,7 +160,7 @@
                 <li class="nav-item"><a href="needSupport.jsp" class="nav-link px-2 text-black">Support</a></li>
                 <li class="nav-item"><a href="contact.jsp" class="nav-link px-2 text-black">Contacts</a></li>
                 <li class="nav-item"><a href="DisplayEvent" class="nav-link px-2 text-black">Events</a></li>
-                <li class="nav-item"><a href="status.jsp" class="nav-link px-2 text-black">Status</a></li>
+                <li class="nav-item"><a onclick="loadGStatus('${GmailUser.getEmail()}')" class="nav-link px-2 text-black">Status</a></li>
                 <li class="nav-item"><a href="logout.jsp" class="nav-link px-2 text-black">Logout</a></li>
                 <li class="nav-item"><a href="#"><img class="css-border" src="${GmailUser.picture}" /></a></li>
                 
@@ -137,7 +174,7 @@
                 <li class="nav-item"><a href="needSupport.jsp" class="nav-link px-2 text-black">Support</a></li>
                 <li class="nav-item"><a href="contact.jsp" class="nav-link px-2 text-black">Contacts</a></li>
                 <li class="nav-item"><a href="DisplayEvent" class="nav-link px-2 text-black">Events</a></li>
-                <li class="nav-item"><a href="status.jsp" class="nav-link px-2 text-black">Status</a></li>
+                <li class="nav-item"><a onclick="loadOrgStatus(<c:out value="${Organisation.getOrganisationId()}"/>)" class="nav-link px-2 text-black">Status</a></li>
                 <li class="nav-item"><a href="logout.jsp" class="nav-link px-2 text-black">Logout</a></li>
                 <li class="nav-item"><img class="css-border" src="https://static.thenounproject.com/png/446003-200.png" /></li>
             </ul>
@@ -147,6 +184,8 @@
         </header>
     </div>
         </div>
+<!--        
+        <div id="id"></div>-->
     <!--    <header class="p-3 text-bg-light">
             <div class="container">
                 <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
