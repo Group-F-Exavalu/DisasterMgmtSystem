@@ -15,7 +15,7 @@ import org.json.simple.parser.ParseException;
 
 /**
  *
- * @author Avijit Chattopadhyay
+ * @author Azel Karthak
  */
 public class APIUser extends ActionSupport implements ApplicationAware, SessionAware, Serializable {
     

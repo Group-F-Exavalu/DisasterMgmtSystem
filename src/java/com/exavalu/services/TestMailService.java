@@ -16,7 +16,7 @@ import javax.mail.internet.MimeMessage;
 
 /**
  *
- * @author hp
+ * @author Raktim Ghosal
  */
 public class TestMailService {
 

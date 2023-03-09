@@ -6,7 +6,7 @@ package com.exavalu.models;
 
 /**
  *
- * @author hp
+ * @author Debjit Das
  */
 public class Country {
     private String country, countryName;

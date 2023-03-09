@@ -635,10 +635,10 @@
                                     </div>
                                     <div class="mt-4 text-center small">
                                         <span class="mr-2">
-                                            <i class="fas fa-circle text-primary"></i> Individual Donation
+                                            <i class="fas fa-circle text-primary"></i> Individual 
                                         </span>
                                         <span class="mr-2">
-                                            <i class="fas fa-circle text-success"></i> Organisation Donation
+                                            <i class="fas fa-circle text-success"></i> Organisation 
                                         </span>
                                         
                                     </div>

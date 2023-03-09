@@ -20,7 +20,7 @@ import org.apache.struts2.interceptor.SessionAware;
 
 /**
  *
- * @author Ayshik Palit
+ * @author Ayshik Palit,Debjit Das,Reetangsee Dutta
  */
 public class Admin extends ActionSupport implements ApplicationAware, SessionAware, Serializable {
 

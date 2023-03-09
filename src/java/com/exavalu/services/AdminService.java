@@ -17,11 +17,12 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.Date;
 
 
 /**
  *
- * @author Ayshik Palit
+ * @author Debjit Das,Ayshik Palit
  */
 public class AdminService {
     public static AdminService adminService = null;
@@ -660,10 +661,12 @@ public class AdminService {
             while(rs.next())
             {
                 
-                String date=rs.getString("date");
+                Date date=rs.getDate("date");
                 
                 dateList.add(date);
-            }            
+            }
+            System.out.println(dateList);
+
         }
         catch (SQLException ex) {
             ex.printStackTrace();
