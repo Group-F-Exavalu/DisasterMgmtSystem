@@ -18,7 +18,7 @@ import org.apache.struts2.interceptor.SessionAware;
 
 /**
  *
- * @author Preyangsee
+ * @author Raktim Ghosal
  */
 public class GmailUser extends ActionSupport implements ApplicationAware, SessionAware, Serializable {
 

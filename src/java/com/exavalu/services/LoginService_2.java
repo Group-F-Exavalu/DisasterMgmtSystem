@@ -13,7 +13,7 @@ import java.sql.SQLException;
 
 /**
  *
- * @author Avijit Chattopadhyay
+ * @author Reetangsee Dutta
  */
 public class LoginService_2 {
     

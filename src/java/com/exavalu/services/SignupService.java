@@ -19,7 +19,7 @@ import org.apache.log4j.Logger;
 
 /**
  *
- * @author Avijit Chattopadhyay
+ * @author Raktim Ghosal, Azel Karthak
  */
 public class SignupService {
     

@@ -21,7 +21,7 @@ import org.apache.struts2.interceptor.SessionAware;
 
 /**
  *
- * @author Ayshik Palit
+ * @author Azel Karthak
  */
 public class Volunteer extends ActionSupport implements ApplicationAware, SessionAware, Serializable{
     

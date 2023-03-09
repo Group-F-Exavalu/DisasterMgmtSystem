@@ -25,7 +25,7 @@ import org.apache.log4j.Logger;
 
 /**
  *
- * @author Avijit Chattopadhyay
+ * @author Reetangsee Dutta
  */
 public class LoginService {
     

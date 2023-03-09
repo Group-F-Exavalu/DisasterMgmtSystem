@@ -21,7 +21,7 @@ import org.apache.struts2.interceptor.SessionAware;
 
 /**
  *
- * @author itssh
+ * @author Azel Karthak
  */
 public class Organisation extends ActionSupport implements ApplicationAware, SessionAware, Serializable{
     private int organisationId;

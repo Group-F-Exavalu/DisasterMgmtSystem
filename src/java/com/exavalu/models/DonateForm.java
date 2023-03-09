@@ -17,7 +17,7 @@ import org.apache.struts2.interceptor.SessionAware;
 
 /**
  *
- * @author Preyangsee
+ * @author Reetangsee Dutta
  */
 public class DonateForm extends ActionSupport implements ApplicationAware, SessionAware, Serializable{
 

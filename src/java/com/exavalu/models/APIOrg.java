@@ -19,7 +19,7 @@ import org.json.simple.parser.ParseException;
 
 /**
  *
- * @author Preyangsee
+ * @author Reetangsee Dutta
  */
 public class APIOrg extends ActionSupport implements ApplicationAware, SessionAware, Serializable {
     

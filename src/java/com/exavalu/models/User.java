@@ -4,6 +4,10 @@
  */
 package com.exavalu.models;
 
+/**
+ *
+ * @author Debjit Das
+ */
 import com.exavalu.services.AdminService;
 import com.exavalu.services.DonateService;
 import com.exavalu.services.LoginService;
@@ -15,6 +19,7 @@ import java.io.File;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Map;
 import org.apache.struts2.dispatcher.ApplicationMap;
 import org.apache.struts2.dispatcher.SessionMap;
@@ -226,6 +231,12 @@ public class User extends ActionSupport implements ApplicationAware, SessionAwar
         ArrayList userList = LoginService.getAllUser();
         ArrayList dateList = AdminService.getAllDates();
         ArrayList dateCountList = AdminService.getAllDatesCount();
+//        ArrayList newDateList = new ArrayList(dateList.size());
+//        for(int i=0;i<dateList.size();i++)
+//        {
+//            newDateList.get(i)=new Date(dateList.get(i));
+//            
+//        }
 
         if (successUser) {
             System.out.println("returning Success from doLoginUser method");
