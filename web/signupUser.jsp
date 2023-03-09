@@ -113,22 +113,22 @@
 
                 <div class="form-floating mb-2">
                     
-                    <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="emailAddress" >
+                    <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="emailAddress" required >
                     <label for="floatingInput">Email Address</label>
                 </div>
                 <div class="form-floating mb-2">
                     
-                    <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password" >
+                    <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password" required >
                     <label for="floatingInput">Password</label>
                 </div>
                 <div class="form-floating mb-2">
                      
-                    <input type="text" class="form-control" id="firstName" placeholder="first name" name="firstName" >
+                    <input type="text" class="form-control" id="firstName" placeholder="first name" name="firstName" required >
                    <label for="floatingInput">First Name</label>
                 </div>
                 <div class="form-floating mb-2">
                     
-                    <input type="text" class="form-control" id="lastName" placeholder="last name" name="lastName" >
+                    <input type="text" class="form-control" id="lastName" placeholder="last name" name="lastName" required>
                     <label for="floatingInput">Last Name</label>
                 </div>
                 <div class="form-floating mb-2">
@@ -165,7 +165,7 @@
                 </div>
 
                 <div class="form-floating mb-2">
-                    <input type="text" class="form-control" id="address" placeholder="address" name="address" >
+                    <input type="text" class="form-control" id="address" placeholder="address" name="address" required>
                     <label for="floatingInput">Address Line 1</label>
                 </div>
 
