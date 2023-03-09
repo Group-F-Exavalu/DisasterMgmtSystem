@@ -22,42 +22,27 @@
 
 
 <script>
-//   $("sendGmail").on("submit", function () {
+    function gmailSend(){
 //            var dataString = $(this).serialize();
-//            //alert(dataString);
-//             $.ajax({
-//                type: "POST",
-//                url: "SendGmail",
-//                data: dataString,
-//                success: function (responseText) {
-//                                alert(responseText);
-//                               $.getScript('dashboard.jsp', function () {
-//                    displayVolunteers();
-//                });
-//                document.getElementById("display-body").style.display = 'none';
-//                                $("#Target").html(responseText);
-//                            }
-//            });
-////            e.preventDefault();
-//        });
-    
-//    function sendGmail() {
-//                    //alert("hello" + id);
-//                var dataString = $(this).serialize();
-////        gmailSubmit.submit();
-//                    $.ajax({
-//                            url: "SendGmail",
-//                            data: dataString,
-//                            success: function (responseText) {
-//                                alert(responseText);
-//                               $.getScript('dashboard.jsp', function () {
-//                    displayVolunteers();
-//                });
-//                document.getElementById("display-body").style.display = 'none';
-//                                $("#Target").html(responseText);
-//                            }
-//                    });
-//            }
+            //alert(dataString);
+             $.ajax({
+                
+                url: "SendGmail",
+                data: {
+                    email:$('#email').val(),
+                    subject:$('#subject').val(),
+                    message:$('#message').val()
+                },
+                success: function (responseText) {
+//                alert(responseText);
+                $.getScript('dashboard.jsp', function () {
+                    displayVolunteers();
+                });
+                document.getElementById("display-body").style.display = 'none';
+                                
+                            }
+            });
+    }
 </script>
 
 <div id="Target">           
@@ -70,7 +55,7 @@
                 <p>
                     <span>Volunteer Name : ${VolunteerForm.getName()}</span><br>
                     <span>Aadhar Number : ${VolunteerForm.getAadharNumber()}</span>
-                <form action="SendGmail" method="post" id="sendGmail">
+                <!--<form method="post" id="sendGmail">-->
                     <div class="form-group" id="gmailSubmit">
                         <label for="floatingInput">Email Address </label> <input type="email" class="form-control" id="email" placeholder="name@example.com" name="email" value="${VolunteerForm.getEmailAddress()}" readonly ><br>
                         <label for="floatingInput">Mail Subject </label> <input type="text" class="form-control"id="subject" placeholder="Enter Subject of Your Mail" name="subject"><br>
@@ -78,10 +63,10 @@
                         <!--<input type="textarea" class="form-control"id="message" placeholder="Enter Your Message" name="message"><br>-->
                     </div>
 
-                        <button type="submit" class="btn btn-primary w-100">
+                        <button type="button" class="btn btn-primary w-100" onclick="gmailSend()" >
                         Send Mail To ${VolunteerForm.getName()}
                     </button>
-                </form>
+                <!--</form>-->
 
             </div>
         </div>

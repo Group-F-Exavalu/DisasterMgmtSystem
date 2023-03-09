@@ -161,7 +161,7 @@
                                             <td>${volunteer.getMesssage()}</td>
                                             <td><c:if test='${volunteer.getStatus()==0}'>Pending</c:if><c:if test='${volunteer.getStatus()==1}'>Approved</c:if><c:if test='${volunteer.getStatus()==-1}'>Rejected</c:if></td>
                                              <td>  
-                                                         <button class="btn-light"><a onclick="editVolunteer('EditVolunteerStatus','edit','${volunteer.getEmailAddress()}')">Edit</a></button><button class="btn-light"><a onclick="emailVolunteer('SendVolunteerStatus','edit','${volunteer.getEmailAddress()}')">Send</a></button>
+                                                         <button class="btn-light"><a onclick="editVolunteer('EditVolunteerStatus','edit','${volunteer.getEmailAddress()}')">Edit</a></button><button class="btn-light"><a onclick="emailVolunteer('SendVolunteerStatus','edit','${volunteer.getEmailAddress()}')">Send Mail</a></button>
                                             </td>
                                         </tr>
                                             </c:forEach>

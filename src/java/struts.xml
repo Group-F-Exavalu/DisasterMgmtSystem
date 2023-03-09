@@ -179,7 +179,7 @@
         </action>
         <action name="SendGmail" class="com.exavalu.models.TestGmail" method="sendGmail">
             <result name="SUCCESS">dashboard.jsp</result>
-            <result name="FAILURE">dashboard.jsp</result>
+            <result name="FAILURE">login.jsp</result>
         </action>
     </package>
 </struts>
