@@ -336,6 +336,7 @@ public class User extends ActionSupport implements ApplicationAware, SessionAwar
 
         } else if (success1) {
             result = "FAILURE";
+
             String errorMsg ="You are Already Registered with us. Please try to Login";
             getSessionMap().put("ErrorMsg", errorMsg);
         }

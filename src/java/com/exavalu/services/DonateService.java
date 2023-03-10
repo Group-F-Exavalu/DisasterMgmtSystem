@@ -18,7 +18,7 @@ import org.apache.log4j.Logger;
 
 /**
  *
- * @author Preyangsee
+ * @author Reetangsee Dutta
  */
 public class DonateService {
     
