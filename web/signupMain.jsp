@@ -28,11 +28,21 @@
             }
         </script>
         <div >
+            
             <div class="btn-group-vertical">
                 <button  type="button" onclick="loadNewContent('PreSignUp', 'fetchDetails')">Individual User</button>
                 <button  type="button" onclick="loadNewContent('PreSignUpOrg', 'fetchDetails')">Organisation</button>
             </div>
+            
         </div>
+        
+     
+            <c:if test= "${ErrorMsg!=null}" >
+                <div class="alert alert-danger" role="alert">
+                <c:out value  = "${ErrorMsg}" />
+                 </div>
+                </c:if>
+           
         <style>
             .btn-group-vertical {
                 padding-left: 30%;

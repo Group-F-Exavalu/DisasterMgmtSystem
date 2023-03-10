@@ -155,6 +155,8 @@ public class Organisation extends ActionSupport implements ApplicationAware, Ses
             log.error(LocalDateTime.now() + "--Email Id already exists");
             sessionMap.put("FailSignUp", "Email address Already Exists");
             System.out.println("Returning from failure");
+            String errorMsg ="You are Already Registered with us. Please try to Login";
+            getSessionMap().put("ErrorMsg", errorMsg);
         }
         System.out.println(sessionMap);
         return result;
