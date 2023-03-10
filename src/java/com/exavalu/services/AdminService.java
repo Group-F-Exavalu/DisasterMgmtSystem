@@ -61,7 +61,8 @@ public class AdminService {
 //
 //        return result;
 //    }
-    public static Admin getAdminDetails(String emailAddress){
+    public static Admin getAdminDetails(String emailAddress)//to get details of every admin
+    {
         Admin admin = new Admin();
         String sql = "SELECT * FROM admins where emailAddress=? ;";
         try {
