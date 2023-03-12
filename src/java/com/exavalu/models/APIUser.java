@@ -14,7 +14,7 @@ import org.json.JSONException;
 import org.json.simple.parser.ParseException;
 
 /**
- *
+ * This class fetches the REST API data for User validation 
  * @author Azel Karthak
  */
 public class APIUser extends ActionSupport implements ApplicationAware, SessionAware, Serializable {

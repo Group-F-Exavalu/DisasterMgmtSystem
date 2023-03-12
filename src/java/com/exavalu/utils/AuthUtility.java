@@ -10,8 +10,8 @@ import java.io.IOException;
 import java.util.Properties;
 
 /**
- *
- * @author hp
+ * This class access the value of authentication credentials for Gmail Credentials
+ * @author Raktim Ghosal
  */
 public class AuthUtility {
     

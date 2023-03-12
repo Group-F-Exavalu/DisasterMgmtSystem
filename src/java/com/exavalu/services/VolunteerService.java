@@ -16,7 +16,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import org.apache.log4j.Logger;
 /**
- *
+ * This class serves as the connection between the JAVA Environment and DataBase for Volunteer entity Interaction 
  * @author Azel Karthak
  */
 

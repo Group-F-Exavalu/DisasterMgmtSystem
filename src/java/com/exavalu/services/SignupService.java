@@ -14,11 +14,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import org.apache.log4j.Logger;
 
 /**
- *
+ * This class serves as the connection between the JAVA Environment and DataBase for Signing up into the system
  * @author Raktim Ghosal, Azel Karthak
  */
 public class SignupService {

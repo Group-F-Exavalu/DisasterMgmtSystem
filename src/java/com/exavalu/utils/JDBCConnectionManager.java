@@ -5,8 +5,8 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 /**
- *
- * @author Avijit Chattopadhyay
+ *  This class establishes connection between the JAVA Environment and DataBase
+ * @author Raktim Ghosal
  */
 public class JDBCConnectionManager {
 

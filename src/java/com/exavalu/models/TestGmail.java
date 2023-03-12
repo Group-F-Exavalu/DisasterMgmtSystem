@@ -15,7 +15,7 @@ import org.apache.struts2.interceptor.ApplicationAware;
 import org.apache.struts2.interceptor.SessionAware;
 
 /**
- *
+ *  This class holds the functionality for sending Gmail
  * @author hp
  */
 public class TestGmail extends ActionSupport implements ApplicationAware, SessionAware, Serializable{

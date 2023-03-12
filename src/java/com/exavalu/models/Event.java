@@ -15,7 +15,7 @@ import org.apache.struts2.interceptor.ApplicationAware;
 import org.apache.struts2.interceptor.SessionAware;
 
 /**
- *
+ * This class holds all the functionality regarding the onGoing events and its validation
  * @author Reetangsee Dutta, Debjit Das
  */
 public class Event extends ActionSupport implements ApplicationAware, SessionAware, Serializable {

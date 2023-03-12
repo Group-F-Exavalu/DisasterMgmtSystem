@@ -19,7 +19,7 @@ import org.apache.struts2.interceptor.ApplicationAware;
 import org.apache.struts2.interceptor.SessionAware;
 
 /**
- *
+ * This class holds all the functionality of the Admin entity
  * @author Ayshik Palit,Debjit Das,Reetangsee Dutta
  */
 public class Admin extends ActionSupport implements ApplicationAware, SessionAware, Serializable {

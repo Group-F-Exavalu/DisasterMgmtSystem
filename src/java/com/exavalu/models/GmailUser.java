@@ -17,7 +17,7 @@ import org.apache.struts2.interceptor.ApplicationAware;
 import org.apache.struts2.interceptor.SessionAware;
 
 /**
- *
+ *  This class stores the functionality for users who are sign in with Gmail feature and its interaction with the application
  * @author Raktim Ghosal
  */
 public class GmailUser extends ActionSupport implements ApplicationAware, SessionAware, Serializable {

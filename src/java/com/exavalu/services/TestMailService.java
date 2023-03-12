@@ -5,6 +5,7 @@
 package com.exavalu.services;
 
 import com.exavalu.utils.AuthUtility;
+import java.time.LocalDateTime;
 import java.util.Properties;
 import javax.mail.Message;
 import javax.mail.MessagingException;
@@ -13,9 +14,10 @@ import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import org.apache.log4j.Logger;
 
 /**
- *
+ *  This service class integrates the sending gmail functionality from the application
  * @author Raktim Ghosal
  */
 public class TestMailService {
@@ -51,8 +53,9 @@ public class TestMailService {
             //send message  
             Transport.send(message);
             System.out.println("message sent successfully");
-        } catch (MessagingException e) {
-            throw new RuntimeException(e);
+        } catch (MessagingException ex) {
+            Logger log = Logger.getLogger(TestMailService.class.getName());
+            log.error(LocalDateTime.now()+ " Error Message: " + ex.getMessage()+" Class : TestMailService, Method : send");
         }         
             System.out.println(from+" "+to+" "+password);
     }

@@ -10,9 +10,11 @@ import com.exavalu.utils.JDBCConnectionManager;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.time.LocalDateTime;
+import org.apache.log4j.Logger;
 
 /**
- *
+ * This class serves as the connection between the JAVA Environment and DataBase for the support functionality
  * @author Debjit Das, Ayshik Palit
  */
 
@@ -54,7 +56,8 @@ public class SupportService {
                 }
 
         } catch (SQLException ex) {
-	     ex.printStackTrace();
+	     Logger log = Logger.getLogger(SupportService.class.getName());
+            log.error(LocalDateTime.now()+ " Error Code: " + ex.getErrorCode()+ " Error Message: " + ex.getMessage()+" Class : SupportService, Method : insertEvents");
             }
         return result;
     }

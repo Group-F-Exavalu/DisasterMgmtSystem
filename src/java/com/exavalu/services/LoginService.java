@@ -24,7 +24,7 @@ import java.util.Base64;
 import org.apache.log4j.Logger;
 
 /**
- *
+ * This class serves as the connection between the JAVA Environment and DataBase for Login in to the system
  * @author Reetangsee Dutta
  */
 public class LoginService {

@@ -11,10 +11,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.Scanner;
-import org.apache.log4j.Logger;
-import org.json.simple.parser.JSONParser;
 import org.apache.log4j.Logger;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -25,7 +22,7 @@ import org.json.simple.parser.ParseException;
 
 
 /**
- *
+ * This Service is responsible for fetching REST API for Data Validation
  * @author Azel Karthak
  */
 public class APIService {

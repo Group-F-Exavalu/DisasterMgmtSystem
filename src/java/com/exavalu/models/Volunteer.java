@@ -20,7 +20,7 @@ import org.apache.struts2.interceptor.ApplicationAware;
 import org.apache.struts2.interceptor.SessionAware;
 
 /**
- *
+ * This class hold all the functionality regarding the Volunteer entity and its interaction with the application 
  * @author Azel Karthak
  */
 public class Volunteer extends ActionSupport implements ApplicationAware, SessionAware, Serializable{

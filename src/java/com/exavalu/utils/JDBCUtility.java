@@ -10,8 +10,8 @@ import java.io.IOException;
 import java.util.Properties;
 
 /**
- *
- * @author Avijit Chattopadhyay
+ * This class access the value of authentication credentials for DataBase connection
+ * @author Raktim Ghosal
  */
 public class JDBCUtility {
 

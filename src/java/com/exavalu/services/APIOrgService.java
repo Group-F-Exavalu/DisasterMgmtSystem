@@ -5,7 +5,6 @@
 package com.exavalu.services;
 
 import com.exavalu.models.APIOrg;
-import com.exavalu.models.APIUser;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
@@ -19,7 +18,7 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 /**
- *
+ * This Service is responsible for fetching REST API for Data Validation
  * @author Reetangsee Dutta
  */
 public class APIOrgService {

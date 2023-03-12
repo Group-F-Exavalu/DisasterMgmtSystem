@@ -5,7 +5,7 @@
 package com.exavalu.models;
 
 /**
- *
+ * The JAVA Bean for Country entity
  * @author Debjit Das
  */
 public class Country {

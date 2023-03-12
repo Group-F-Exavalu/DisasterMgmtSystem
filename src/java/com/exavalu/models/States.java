@@ -5,7 +5,7 @@
 package com.exavalu.models;
 
 /**
- *
+ * The JAVA Bean for States entity
  * @author Debjit Das
  */
 public class States {

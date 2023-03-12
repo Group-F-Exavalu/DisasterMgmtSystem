@@ -4,10 +4,7 @@
  */
 package com.exavalu.models;
 
-/**
- *
- * @author Debjit Das
- */
+
 import com.exavalu.services.AdminService;
 import com.exavalu.services.DonateService;
 import com.exavalu.services.LoginService;
@@ -19,7 +16,6 @@ import java.io.File;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.Map;
 import org.apache.struts2.dispatcher.ApplicationMap;
 import org.apache.struts2.dispatcher.SessionMap;
@@ -28,6 +24,10 @@ import org.apache.struts2.interceptor.SessionAware;
 
 import org.apache.log4j.Logger;
 
+/**
+ * This class hold all the functionality regarding the USER entity and its interaction with the application
+ * @author Debjit Das
+ */
 public class User extends ActionSupport implements ApplicationAware, SessionAware, Serializable {
 
     
