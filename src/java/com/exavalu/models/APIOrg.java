@@ -18,7 +18,7 @@ import org.json.JSONException;
 import org.json.simple.parser.ParseException;
 
 /**
- *
+ * This class fetches the REST API data for Organization validation 
  * @author Reetangsee Dutta
  */
 public class APIOrg extends ActionSupport implements ApplicationAware, SessionAware, Serializable {
