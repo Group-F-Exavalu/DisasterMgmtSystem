@@ -16,7 +16,7 @@ import org.apache.struts2.interceptor.SessionAware;
 
 /**
  *
- * @author Reetangsee Dutta
+ * @author Reetangsee Dutta, Debjit Das
  */
 public class Event extends ActionSupport implements ApplicationAware, SessionAware, Serializable {
 

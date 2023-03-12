@@ -20,7 +20,7 @@ import org.json.simple.parser.ParseException;
 
 /**
  *
- * @author Preyangsee
+ * @author Reetangsee Dutta
  */
 public class APIOrgService {
 

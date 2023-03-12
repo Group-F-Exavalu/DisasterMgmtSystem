@@ -19,25 +19,23 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.Date;
 
-
-/**
- *
- * @author Debjit Das,Ayshik Palit
- */
 public class AdminService {
+
     public static AdminService adminService = null;
-    public static AdminService getInstance()
-    {
-        if(adminService==null)
-        {
+
+    public static AdminService getInstance() {
+        if (adminService == null) {
             return new AdminService();
-        }
-        else
-        {
+        } else {
             return adminService;
         }
     }
-    
+
+    /**
+     *
+     * @author Debjit Das,Ayshik Palit
+     */
+
 //    public static boolean updateEventStatus(int eventId, int status) {
 //        boolean result = false;
 //        try {
@@ -70,137 +68,130 @@ public class AdminService {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, emailAddress);
             ResultSet rs = ps.executeQuery();
-            
-            while(rs.next())
-            {
-                               
+
+            while (rs.next()) {
+
                 admin.setAdminId(rs.getInt("adminId"));
                 admin.setAdminName(rs.getString("adminName"));
                 admin.setEmailAddress(rs.getString("emailAddress"));
                 admin.setPassword(rs.getString("password"));
-                
-            }            
-        }
-        catch (SQLException ex) {
+
+            }
+        } catch (SQLException ex) {
             ex.printStackTrace();
         }
         return admin;
     }
-    public static String getTotalDonation(){
+
+    public static String getTotalDonation() {
         String total = "";
         String sql = "SELECT sum(amount) FROM donatemoney WHERE status=1";
         try {
             Connection con = JDBCConnectionManager.getConnection();
             PreparedStatement ps = con.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
-            
-            while(rs.next())
-            {
-                               
-                total=rs.getString("sum(amount)");
-            }            
-        }
-        catch (SQLException ex) {
+
+            while (rs.next()) {
+
+                total = rs.getString("sum(amount)");
+            }
+        } catch (SQLException ex) {
             ex.printStackTrace();
         }
         return total;
     }
-    public static String getTotalUserDonation(){
+
+    public static String getTotalUserDonation() {
         String total = "";
         String sql = "SELECT sum(amount) FROM donatemoney WHERE donorType=1 AND status=1;";
         try {
             Connection con = JDBCConnectionManager.getConnection();
             PreparedStatement ps = con.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
-            
-            while(rs.next())
-            {
-                               
-                total=rs.getString("sum(amount)");
-            }            
-        }
-        catch (SQLException ex) {
+
+            while (rs.next()) {
+
+                total = rs.getString("sum(amount)");
+            }
+        } catch (SQLException ex) {
             ex.printStackTrace();
         }
         return total;
     }
-    public static String getTotalOrgDonation(){
+
+    public static String getTotalOrgDonation() {
         String total = "";
         String sql = "SELECT sum(amount) FROM donatemoney WHERE donorType=2 AND status=1;";
         try {
             Connection con = JDBCConnectionManager.getConnection();
             PreparedStatement ps = con.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
-            
-            while(rs.next())
-            {
-                               
-                total=rs.getString("sum(amount)");
-            }            
-        }
-        catch (SQLException ex) {
+
+            while (rs.next()) {
+
+                total = rs.getString("sum(amount)");
+            }
+        } catch (SQLException ex) {
             ex.printStackTrace();
         }
         return total;
     }
-    public static String getTotalUsers(){
+
+    public static String getTotalUsers() {
         String total = "";
         String sql = "SELECT count(*) FROM users;";
         try {
             Connection con = JDBCConnectionManager.getConnection();
             PreparedStatement ps = con.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
-            
-            while(rs.next())
-            {
-                               
-                total=rs.getString("count(*)");
-            }            
-        }
-        catch (SQLException ex) {
+
+            while (rs.next()) {
+
+                total = rs.getString("count(*)");
+            }
+        } catch (SQLException ex) {
             ex.printStackTrace();
         }
         return total;
     }
-    public static String getTotalOrganisations(){
+
+    public static String getTotalOrganisations() {
         String total = "";
         String sql = "SELECT count(*) FROM organisations;";
         try {
             Connection con = JDBCConnectionManager.getConnection();
             PreparedStatement ps = con.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
-            
-            while(rs.next())
-            {
-                               
-                total=rs.getString("count(*)");
-            }            
-        }
-        catch (SQLException ex) {
+
+            while (rs.next()) {
+
+                total = rs.getString("count(*)");
+            }
+        } catch (SQLException ex) {
             ex.printStackTrace();
         }
         return total;
     }
-    public static String getTotalVolunteers(){
+
+    public static String getTotalVolunteers() {
         String total = "";
         String sql = "SELECT count(*) FROM volunteer where status=0;";
         try {
             Connection con = JDBCConnectionManager.getConnection();
             PreparedStatement ps = con.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
-            
-            while(rs.next())
-            {
-                               
-                total=rs.getString("count(*)");
-            }            
-        }
-        catch (SQLException ex) {
+
+            while (rs.next()) {
+
+                total = rs.getString("count(*)");
+            }
+        } catch (SQLException ex) {
             ex.printStackTrace();
         }
         return total;
     }
-    public static DonateForm getMoneybyId(int formId){
+
+    public static DonateForm getMoneybyId(int formId) {
         DonateForm donateform = new DonateForm();
         String sql = "Select * from donatemoney where formId=?";
         try {
@@ -208,10 +199,9 @@ public class AdminService {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, formId);
             ResultSet rs = ps.executeQuery();
-            
-            while(rs.next())
-            {
-                               
+
+            while (rs.next()) {
+
                 donateform.setEventId(rs.getString("eventId"));
                 donateform.setFormId(rs.getString("formId"));
                 donateform.setDonorId(rs.getString("donorId"));
@@ -219,17 +209,16 @@ public class AdminService {
                 donateform.setAmount(rs.getString("amount"));
                 donateform.setStatus(rs.getString("status"));
                 donateform.setTransactionId(rs.getString("transactionId"));
-                
-            } 
+
+            }
             System.out.println("donate type" + donateform.getDonorType());
-        }
-        catch (SQLException ex) {
+        } catch (SQLException ex) {
             ex.printStackTrace();
         }
         return donateform;
     }
-    
-    public static DonateForm getEssentialsbyId(int formId){
+
+    public static DonateForm getEssentialsbyId(int formId) {
         DonateForm donateform = new DonateForm();
         String sql = "Select * from donateessentials where formId=?";
         try {
@@ -237,40 +226,35 @@ public class AdminService {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, formId);
             ResultSet rs = ps.executeQuery();
-            
-            while(rs.next())
-            {
-                
-                
+
+            while (rs.next()) {
+
                 donateform.setEventId(rs.getString("eventId"));
                 donateform.setFormId(rs.getString("formId"));
                 donateform.setDonorId(rs.getString("donorId"));
                 donateform.setDonorType(rs.getString("donorType"));
                 donateform.setEssentialName(rs.getString("essentialName"));
                 donateform.setStatus(rs.getString("status"));
-                
-                
-            }            
-        }
-        catch (SQLException ex) {
+
+            }
+        } catch (SQLException ex) {
             ex.printStackTrace();
         }
-        
+
         return donateform;
     }
-    
-     public static ArrayList getAllMoney(){
+
+    public static ArrayList getAllMoney() {
         ArrayList eventList = new ArrayList();
         String sql = "Select * from donatemoney";
         try {
             Connection con = JDBCConnectionManager.getConnection();
             PreparedStatement ps = con.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
-            
-            while(rs.next())
-            {
+
+            while (rs.next()) {
                 DonateForm donateform = new DonateForm();
-                
+
                 donateform.setEventId(rs.getString("eventId"));
                 donateform.setFormId(rs.getString("formId"));
                 donateform.setDonorId(rs.getString("donorId"));
@@ -278,45 +262,43 @@ public class AdminService {
                 donateform.setAmount(rs.getString("amount"));
                 donateform.setStatus(rs.getString("status"));
                 donateform.setTransactionId(rs.getString("transactionId"));
-                
+
                 eventList.add(donateform);
-            }            
-        }
-        catch (SQLException ex) {
+            }
+        } catch (SQLException ex) {
             ex.printStackTrace();
         }
-        
+
         return eventList;
     }
-     public static ArrayList getAllEssential(){
+
+    public static ArrayList getAllEssential() {
         ArrayList eventList = new ArrayList();
         String sql = "Select * from donateessentials";
         try {
             Connection con = JDBCConnectionManager.getConnection();
             PreparedStatement ps = con.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
-            
-            while(rs.next())
-            {
+
+            while (rs.next()) {
                 DonateForm donateform = new DonateForm();
-                
+
                 donateform.setEventId(rs.getString("eventId"));
                 donateform.setFormId(rs.getString("formId"));
                 donateform.setDonorId(rs.getString("donorId"));
                 donateform.setDonorType(rs.getString("donorType"));
                 donateform.setEssentialName(rs.getString("essentialName"));
                 donateform.setStatus(rs.getString("status"));
-                
+
                 eventList.add(donateform);
-            }            
-        }
-        catch (SQLException ex) {
+            }
+        } catch (SQLException ex) {
             ex.printStackTrace();
         }
-        
+
         return eventList;
     }
-    
+
     public static boolean ApproveDonateMoneyStatus(int formId) {
         boolean result = false;
         try {
@@ -335,11 +317,12 @@ public class AdminService {
             }
 
         } catch (SQLException ex) {
-           
+
         }
 
         return result;
     }
+
     public static boolean ApproveDonateEssentialStatus(int formId) {
         boolean result = false;
         try {
@@ -358,11 +341,12 @@ public class AdminService {
             }
 
         } catch (SQLException ex) {
-           
+
         }
 
         return result;
     }
+
     public static boolean RejectDonateMoneyStatus(int formId) {
         boolean result = false;
         try {
@@ -381,11 +365,12 @@ public class AdminService {
             }
 
         } catch (SQLException ex) {
-           
+
         }
 
         return result;
     }
+
     public static boolean RejectDonateEssentialStatus(int formId) {
         boolean result = false;
         try {
@@ -404,58 +389,56 @@ public class AdminService {
             }
 
         } catch (SQLException ex) {
-           
+
         }
 
         return result;
     }
 
     public static String getGovtNumber(String donorId, String donorType) {
-        String result=null;
-        if(donorType.equals("1")){
+        String result = null;
+        if (donorType.equals("1")) {
             String sql = "SELECT * FROM users where userId=?;";
             try {
 
-            Connection con = JDBCConnectionManager.getConnection();
-            PreparedStatement preparedStatement = con.prepareStatement(sql);
-            preparedStatement.setString(1, donorId);
+                Connection con = JDBCConnectionManager.getConnection();
+                PreparedStatement preparedStatement = con.prepareStatement(sql);
+                preparedStatement.setString(1, donorId);
 
-            ResultSet rs = preparedStatement.executeQuery();
-            while(rs.next())
-            {
-                result = rs.getString("aadharNumber");
-            }            
-            
-        } catch (SQLException ex) {
-           
-        }
-          System.out.println("Aadhar Number fetched :" + result);
-          return result;
-        }
-        else{
+                ResultSet rs = preparedStatement.executeQuery();
+                while (rs.next()) {
+                    result = rs.getString("aadharNumber");
+                }
+
+            } catch (SQLException ex) {
+
+            }
+            System.out.println("Aadhar Number fetched :" + result);
+            return result;
+        } else {
             String sql = "SELECT * FROM organisations where organisationId=?;";
             try {
 
-            Connection con = JDBCConnectionManager.getConnection();
-            PreparedStatement preparedStatement = con.prepareStatement(sql);
-            preparedStatement.setString(1, donorId);
+                Connection con = JDBCConnectionManager.getConnection();
+                PreparedStatement preparedStatement = con.prepareStatement(sql);
+                preparedStatement.setString(1, donorId);
 
-            ResultSet rs = preparedStatement.executeQuery();
-            while(rs.next())
-            {
-                result = rs.getString("regnNumber");
-            }            
-            
-        } catch (SQLException ex) {
-           
-        }
-          System.out.println("Registration Number fetched :" + result);
-          return result;
+                ResultSet rs = preparedStatement.executeQuery();
+                while (rs.next()) {
+                    result = rs.getString("regnNumber");
+                }
+
+            } catch (SQLException ex) {
+
+            }
+            System.out.println("Registration Number fetched :" + result);
+            return result;
         }
     }
+
     public static User getDonorUser(String donorId) {
         User user = new User();
-        
+
         String sql = "SELECT * FROM users where userId=?;";
         try {
 
@@ -474,7 +457,7 @@ public class AdminService {
                 user.setGender(rs.getString("gender"));
                 user.setAddress(rs.getString("address"));
                 user.setAadharNumber(rs.getString("aadharNumber"));
-                
+
             }
 
         } catch (SQLException ex) {
@@ -482,23 +465,21 @@ public class AdminService {
         }
         System.out.println("User fetched :" + user.getFirstName());
         return user;
-     
+
     }
-        
-        public static Organisation getDonorOrg(String donorId) {
-            Organisation org = new Organisation();
-            String sql = "SELECT * FROM organisations where organisationId=?;";
-            try {
+
+    public static Organisation getDonorOrg(String donorId) {
+        Organisation org = new Organisation();
+        String sql = "SELECT * FROM organisations where organisationId=?;";
+        try {
 
             Connection con = JDBCConnectionManager.getConnection();
             PreparedStatement preparedStatement = con.prepareStatement(sql);
             preparedStatement.setString(1, donorId);
 
             ResultSet rs = preparedStatement.executeQuery();
-            
 
-            while(rs.next())
-            {
+            while (rs.next()) {
 
                 org.setOrganisationId(rs.getInt("organisationId"));
                 org.setOrganisationName(rs.getString("organisationName"));
@@ -506,15 +487,15 @@ public class AdminService {
                 org.setCountry(rs.getString("country"));
                 org.setDistrict(rs.getString("district"));
                 org.setState(rs.getString("state"));
-                
-            }          
-            
+
+            }
+
         } catch (SQLException ex) {
-           
+
         }
-          System.out.println("Organisation fetched :" + org.getOrganisationName());
-          return org;
-        }
+        System.out.println("Organisation fetched :" + org.getOrganisationName());
+        return org;
+    }
 
     public static GmailUser getGmailDonor(String donorId) {
         GmailUser gmailUser = new GmailUser();
@@ -536,7 +517,7 @@ public class AdminService {
 //                user.setGender(rs.getString("gender"));
 //                user.setAddress(rs.getString("address"));
 //                user.setAadharNumber(rs.getString("aadharNumber"));
-                
+
             }
 
         } catch (SQLException ex) {
@@ -545,39 +526,36 @@ public class AdminService {
         System.out.println("User fetched :" + gmailUser.getFirstName());
         return gmailUser;
     }
-    
-    
-     
-      public ArrayList getAllVolunteers(){
+
+    public ArrayList getAllVolunteers() {
         ArrayList volunteerList = new ArrayList();
         String sql = "Select * from volunteer";
         try {
             Connection con = JDBCConnectionManager.getConnection();
             PreparedStatement ps = con.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
-            
-            while(rs.next())
-            {
+
+            while (rs.next()) {
                 Volunteer volunteer = new Volunteer();
-                
+
                 volunteer.setEmailAddress(rs.getString("emailAddress"));
                 volunteer.setName(rs.getString("volunteerName"));
                 volunteer.setMesssage(rs.getString("message"));
                 volunteer.setPhoneNumber(rs.getString("phoneNumber"));
                 volunteer.setAadharNumber(rs.getString("aadharNumber"));
                 volunteer.setStatus(rs.getInt("status"));
-                
+
                 volunteerList.add(volunteer);
-            }            
-        }
-        catch (SQLException ex) {
+            }
+        } catch (SQLException ex) {
             ex.printStackTrace();
         }
-        System.out.println("Volunteer List: "+volunteerList);
+        System.out.println("Volunteer List: " + volunteerList);
         return volunteerList;
-        
+
     }
-      public static ArrayList getAllUsers() throws IOException, SQLException {
+
+    public static ArrayList getAllUsers() throws IOException, SQLException {
         ArrayList userList = new ArrayList();
         try {
             Connection con = JDBCConnectionManager.getConnection();
@@ -598,15 +576,16 @@ public class AdminService {
                 user.setGender(rs.getString("gender"));
                 user.setCountry(rs.getString("country"));
                 user.setDate(rs.getString("date"));
-                
+
                 userList.add(user);
             }
         } catch (SQLException ex) {
-    
+
         }
         return userList;
     }
-      public static ArrayList getAllOrgs() throws IOException, SQLException {
+
+    public static ArrayList getAllOrgs() throws IOException, SQLException {
         ArrayList orgList = new ArrayList();
         try {
             Connection con = JDBCConnectionManager.getConnection();
@@ -630,7 +609,8 @@ public class AdminService {
         }
         return orgList;
     }
-      public static ArrayList getAllGmailUsers() throws IOException, SQLException {
+
+    public static ArrayList getAllGmailUsers() throws IOException, SQLException {
         ArrayList userList = new ArrayList();
         try {
             Connection con = JDBCConnectionManager.getConnection();
@@ -651,51 +631,48 @@ public class AdminService {
         }
         return userList;
     }
-      public static ArrayList getAllDates(){
+
+    public static ArrayList getAllDates() {
         ArrayList dateList = new ArrayList();
         String sql = "SELECT DISTINCT date FROM users";
         try {
             Connection con = JDBCConnectionManager.getConnection();
             PreparedStatement ps = con.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
-            
-            while(rs.next())
-            {
-                
-                Date date=rs.getDate("date");
-                
+
+            while (rs.next()) {
+
+                Date date = rs.getDate("date");
+
                 dateList.add(date);
             }
             System.out.println(dateList);
 
-        }
-        catch (SQLException ex) {
+        } catch (SQLException ex) {
             ex.printStackTrace();
         }
-        
+
         return dateList;
     }
-      
-      public static ArrayList getAllDatesCount(){
+
+    public static ArrayList getAllDatesCount() {
         ArrayList dateCountList = new ArrayList();
-        String sql = "SELECT COUNT(*) FROM users GROUP BY date";
+        String sql = "SELECT COUNT(*) FROM users GROUP BY date order by date desc LIMIT 5";
         try {
             Connection con = JDBCConnectionManager.getConnection();
             PreparedStatement ps = con.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
-            
-            while(rs.next())
-            {
-                int count=rs.getInt("COUNT(*)");
-                
+
+            while (rs.next()) {
+                int count = rs.getInt("COUNT(*)");
+
                 dateCountList.add(count);
-            }            
-        }
-        catch (SQLException ex) {
+            }
+        } catch (SQLException ex) {
             ex.printStackTrace();
         }
-        
+
         return dateCountList;
     }
-    
+
 }

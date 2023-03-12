@@ -581,7 +581,7 @@
                                 <!-- Card Header - Dropdown -->
                                 <div
                                     class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">Users Registered Overview</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">Users Registered In Last 5 Days</h6>
                                     <div class="dropdown no-arrow">
                                         <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -936,11 +936,13 @@ function number_format(number, decimals, dec_point, thousands_sep) {
 
 // Area Chart Example
 var ctx = document.getElementById("myAreaChart");
-//alert(${DateList});
+//const numbers =${DateList};
+//alert(numbers[0]);
+
 var myLineChart = new Chart(ctx, {
   type: 'line',
   data: {
-    labels: ${DateList},
+    labels: ["Day 5","Day 4","Day 3","Day 2","Day 1"],
     datasets: [{
       label: "Users Registered",
       lineTension: 0.3,
