@@ -523,7 +523,7 @@
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">${Revenue}</div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                            <i class="fas fa-rupee-sign fa-2x text-gray-300"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -635,10 +635,10 @@
                                     </div>
                                     <div class="mt-4 text-center small">
                                         <span class="mr-2">
-                                            <i class="fas fa-circle text-primary"></i> Individual 
+                                            <i class="fas fa-circle text-primary"></i> Individual (in %) 
                                         </span>
                                         <span class="mr-2">
-                                            <i class="fas fa-circle text-success"></i> Organisation 
+                                            <i class="fas fa-circle text-success"></i> Organisation (in %) 
                                         </span>
                                         
                                     </div>
