@@ -3,6 +3,8 @@ package com.exavalu.utils;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.time.LocalDateTime;
+import org.apache.log4j.Logger;
 
 /**
  *  This class establishes connection between the JAVA Environment and DataBase
@@ -34,9 +36,10 @@ public class JDBCConnectionManager {
 
             }
 
-        } catch (ClassNotFoundException | SQLException e) {
+        } catch (ClassNotFoundException | SQLException ex) {
 
-            e.printStackTrace();
+            Logger log = Logger.getLogger(JDBCConnectionManager.class.getName());
+            log.error(LocalDateTime.now() + " Error Message: " + ex.getMessage() + " Class : JDBCConnectionManager, Method : getConnection");
         }
 
         return connection;

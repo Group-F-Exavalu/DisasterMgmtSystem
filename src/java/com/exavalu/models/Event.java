@@ -32,11 +32,19 @@ public class Event extends ActionSupport implements ApplicationAware, SessionAwa
 
     private ApplicationMap map = (ApplicationMap) ActionContext.getContext().getApplication();
 
+    /**
+     *
+     * @param application
+     */
     @Override
     public void setApplication(Map<String, Object> application) {
         map = (ApplicationMap) application;
     }
 
+    /**
+     *
+     * @param session
+     */
     @Override
     public void setSession(Map<String, Object> session) {
         sessionMap = (SessionMap) session;
@@ -98,6 +106,10 @@ public class Event extends ActionSupport implements ApplicationAware, SessionAwa
         this.status = status;
     }
 
+    /**
+     *
+     * @return
+     */
     public String insertEventUser() {
         String result = "FAILURE";
         supportType="1";
@@ -110,6 +122,10 @@ public class Event extends ActionSupport implements ApplicationAware, SessionAwa
         return result;
     }
     
+    /**
+     *
+     * @return
+     */
     public String insertEventGmailUser() {
         String result = "FAILURE";
         supportType="3";
@@ -125,6 +141,10 @@ public class Event extends ActionSupport implements ApplicationAware, SessionAwa
         return result;
     }
 
+    /**
+     *
+     * @return
+     */
     public String insertEventOrg() {
         String result = "FAILURE";
         supportType="2";

@@ -36,11 +36,19 @@ public class APIOrg extends ActionSupport implements ApplicationAware, SessionAw
 
     private ApplicationMap map = (ApplicationMap) ActionContext.getContext().getApplication();
     
+    /**
+     *
+     * @param application
+     */
     @Override
     public void setApplication(Map<String, Object> application) {
         map = (ApplicationMap) application;
     }
 
+    /**
+     *
+     * @param session
+     */
     @Override
     public void setSession(Map<String, Object> session) {
         sessionMap = (SessionMap) session;
@@ -157,6 +165,14 @@ public class APIOrg extends ActionSupport implements ApplicationAware, SessionAw
     public void setId(String id) {
         this.id = id;
     }
+
+    /**
+     *
+     * @return
+     * @throws ParseException
+     * @throws freemarker.core.ParseException
+     * @throws JSONException
+     */
     public String getOrgData() throws ParseException, freemarker.core.ParseException, JSONException{
         String result = "FAILURE";
         APIOrg apiOrg = APIOrgService.consumeOrgFromAPI(this.registrationNumber);

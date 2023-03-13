@@ -7,7 +7,9 @@ package com.exavalu.utils;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.time.LocalDateTime;
 import java.util.Properties;
+import org.apache.log4j.Logger;
 
 /**
  * This class access the value of authentication credentials for DataBase connection
@@ -35,9 +37,10 @@ public class JDBCUtility {
 
             value = prop.getProperty(param);
 
-        } catch (IOException e) {
+        } catch (IOException ex) {
             // TODO Auto-generated catch block
-            e.printStackTrace();
+            Logger log = Logger.getLogger(JDBCUtility.class.getName());
+            log.error(LocalDateTime.now() + " Error Message: " + ex.getMessage() + " Class : JDBCUtility, Method : getPropertyValue");
         }
 
         return value;

@@ -60,15 +60,28 @@ public class DonateForm extends ActionSupport implements ApplicationAware, Sessi
 
     private ApplicationMap map = (ApplicationMap) ActionContext.getContext().getApplication();
 
+    /**
+     *
+     * @param application
+     */
     @Override
     public void setApplication(Map<String, Object> application) {
         map = (ApplicationMap) application;
     }
 
+    /**
+     *
+     * @param session
+     */
     @Override
     public void setSession(Map<String, Object> session) {
         sessionMap = (SessionMap) session;
     }
+
+    /**
+     *
+     * @return
+     */
     public String insertMoneyFormUser(){
         String result = "FAILURE";
         boolean success = false;
@@ -98,6 +111,11 @@ public class DonateForm extends ActionSupport implements ApplicationAware, Sessi
         
         return result;
     }
+
+    /**
+     *
+     * @return
+     */
     public String insertMoneyFormOrg(){
         String result = "FAILURE";
         donorType = "2";
@@ -112,6 +130,11 @@ public class DonateForm extends ActionSupport implements ApplicationAware, Sessi
         }
         return result;
     }
+
+    /**
+     *
+     * @return
+     */
     public String insertEssentialsFormUser(){
         String result = "FAILURE";
         boolean success = false;
@@ -137,6 +160,11 @@ public class DonateForm extends ActionSupport implements ApplicationAware, Sessi
         
         return result;
     }
+
+    /**
+     *
+     * @return
+     */
     public String insertEssentialsFormOrg(){
         String result = "FAILURE";
         donorType = "2";
@@ -149,6 +177,11 @@ public class DonateForm extends ActionSupport implements ApplicationAware, Sessi
         }
         return result;
     }
+
+    /**
+     *
+     * @return
+     */
     public String updateStatusEssentials(){
         String result = "FAILURE";
         boolean res = DonateService.getInstance().setEssentialStatus(status,formId);
@@ -158,6 +191,11 @@ public class DonateForm extends ActionSupport implements ApplicationAware, Sessi
         }
         return result;
     }
+
+    /**
+     *
+     * @return
+     */
     public String updateStatusMoney(){
         String result = "FAILURE";
         boolean res = DonateService.getInstance().setPaymentStatus(status,formId);
@@ -167,6 +205,11 @@ public class DonateForm extends ActionSupport implements ApplicationAware, Sessi
         }
         return result;
     }
+
+    /**
+     *
+     * @return
+     */
     public String getEvent(){
         String result = "FAILURE";
         Event event = DonateService.getInstance().getEventById(Integer.parseInt(eventId));
@@ -178,6 +221,11 @@ public class DonateForm extends ActionSupport implements ApplicationAware, Sessi
         }
         return result;
     }
+
+    /**
+     *
+     * @return
+     */
     public String getAllEventsTable(){
         String result = "FAILURE";
         ArrayList eventList = DonateService.getInstance().getEvents();
@@ -189,6 +237,11 @@ public class DonateForm extends ActionSupport implements ApplicationAware, Sessi
         }
         return result;
     }
+
+    /**
+     *
+     * @return
+     */
     public String getAllEvents(){
         String result = "FAILURE";
         ArrayList eventList = DonateService.getInstance().getApprovedEvents();
@@ -200,6 +253,11 @@ public class DonateForm extends ActionSupport implements ApplicationAware, Sessi
         }
         return result;
     }
+
+    /**
+     *
+     * @return
+     */
     public String getAllFunds(){
         String result = "FAILURE";
         ArrayList moneyList = DonateService.getInstance().getMoney();
@@ -211,6 +269,11 @@ public class DonateForm extends ActionSupport implements ApplicationAware, Sessi
         }
         return result;
     }
+
+    /**
+     *
+     * @return
+     */
     public String getAllEssentials(){
         String result = "FAILURE";
         ArrayList essentialsList = DonateService.getInstance().getEssentials();

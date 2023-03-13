@@ -26,10 +26,18 @@ public class Admin extends ActionSupport implements ApplicationAware, SessionAwa
 
     private int adminId, formId, status, eventId;
 
+    /**
+     *
+     * @return
+     */
     public int getEventId() {
         return eventId;
     }
 
+    /**
+     *
+     * @param eventId
+     */
     public void setEventId(int eventId) {
         this.eventId = eventId;
     }
@@ -39,64 +47,125 @@ public class Admin extends ActionSupport implements ApplicationAware, SessionAwa
 
     private ApplicationMap map = (ApplicationMap) ActionContext.getContext().getApplication();
 
+    /**
+     *
+     * @param application
+     */
     @Override
     public void setApplication(Map<String, Object> application) {
         map = (ApplicationMap) application;
     }
 
+    /**
+     *
+     * @param session
+     */
     @Override
     public void setSession(Map<String, Object> session) {
         sessionMap = (SessionMap) session;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getStatus() {
         return status;
     }
 
+    /**
+     *
+     * @param status
+     */
     public void setStatus(int status) {
         this.status = status;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getAdminId() {
         return adminId;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getFormId() {
         return formId;
     }
 
+    /**
+     *
+     * @param formId
+     */
     public void setFormId(int formId) {
         this.formId = formId;
     }
 
+    /**
+     *
+     * @param adminId
+     */
     public void setAdminId(int adminId) {
         this.adminId = adminId;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getAdminName() {
         return adminName;
     }
 
+    /**
+     *
+     * @param adminName
+     */
     public void setAdminName(String adminName) {
         this.adminName = adminName;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getEmailAddress() {
         return emailAddress;
     }
 
+    /**
+     *
+     * @param emailAddress
+     */
     public void setEmailAddress(String emailAddress) {
         this.emailAddress = emailAddress;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getPassword() {
         return password;
     }
 
+    /**
+     *
+     * @param password
+     */
     public void setPassword(String password) {
         this.password = password;
     }
 
+    /**
+     *
+     * @return
+     * @throws Exception
+     */
     public String editMoneyForm() throws Exception {
         String result = "SUCCESS";
         DonateForm moneyform = AdminService.getMoneybyId(this.formId);
@@ -135,6 +204,13 @@ public class Admin extends ActionSupport implements ApplicationAware, SessionAwa
         
         return result;
     }
+
+    /**
+     *
+     * @return
+     * @throws IOException
+     * @throws SQLException
+     */
     public String getAllUsers() throws IOException, SQLException{
         String result = "FAILURE";
         ArrayList userList = AdminService.getAllUsers();
@@ -142,6 +218,13 @@ public class Admin extends ActionSupport implements ApplicationAware, SessionAwa
         result="SUCCESS";
         return result;
     }
+
+    /**
+     *
+     * @return
+     * @throws IOException
+     * @throws SQLException
+     */
     public String getAllOrgs() throws IOException, SQLException{
         String result = "FAILURE";
         ArrayList orgList = AdminService.getAllOrgs();
@@ -149,6 +232,13 @@ public class Admin extends ActionSupport implements ApplicationAware, SessionAwa
         result="SUCCESS";
         return result;
     }
+
+    /**
+     *
+     * @return
+     * @throws IOException
+     * @throws SQLException
+     */
     public String getAllGmailUsers() throws IOException, SQLException{
         String result = "FAILURE";
         ArrayList guserList=AdminService.getAllGmailUsers();
@@ -156,6 +246,12 @@ public class Admin extends ActionSupport implements ApplicationAware, SessionAwa
         result="SUCCESS";
         return result;
     }        
+
+    /**
+     *
+     * @return
+     * @throws Exception
+     */
     public String saveMoneyStatus() throws Exception {
         String result = "FAILURE";
         
@@ -172,7 +268,13 @@ public class Admin extends ActionSupport implements ApplicationAware, SessionAwa
     }
     return result;
 }
-     public String deleteMoneyStatus() throws Exception {
+
+    /**
+     *
+     * @return
+     * @throws Exception
+     */
+    public String deleteMoneyStatus() throws Exception {
         String result = "FAILURE";
         
         boolean success = AdminService.RejectDonateMoneyStatus(formId);
@@ -188,7 +290,13 @@ public class Admin extends ActionSupport implements ApplicationAware, SessionAwa
     }
     return result;
 }
-        public String editEssentialsForm() throws Exception {
+
+    /**
+     *
+     * @return
+     * @throws Exception
+     */
+    public String editEssentialsForm() throws Exception {
         String result = "SUCCESS";
         DonateForm essentialsform = AdminService.getEssentialsbyId(this.formId);
         System.out.println("form id : "+this.formId);
@@ -225,8 +333,12 @@ public class Admin extends ActionSupport implements ApplicationAware, SessionAwa
         return result;
     }
 
-     
-      public String saveEssentialStatus() throws Exception {
+    /**
+     *
+     * @return
+     * @throws Exception
+     */
+    public String saveEssentialStatus() throws Exception {
         String result = "FAILURE";
         
         boolean success = AdminService.ApproveDonateEssentialStatus(formId);
@@ -242,7 +354,13 @@ public class Admin extends ActionSupport implements ApplicationAware, SessionAwa
     }
     return result;
 }
-     public String deleteEssentialStatus() throws Exception {
+
+    /**
+     *
+     * @return
+     * @throws Exception
+     */
+    public String deleteEssentialStatus() throws Exception {
         String result = "FAILURE";
         
         boolean success = AdminService.RejectDonateEssentialStatus(formId);
@@ -258,14 +376,26 @@ public class Admin extends ActionSupport implements ApplicationAware, SessionAwa
     }
     return result;
 }
-      public String editEventsForm() throws Exception {
+
+    /**
+     *
+     * @return
+     * @throws Exception
+     */
+    public String editEventsForm() throws Exception {
         String result = "SUCCESS";
         Event eventform = DonateService.getInstance().getEventById(this.eventId);
         System.out.println("event id : "+this.eventId);
         sessionMap.put("EventForm", eventform);
         return result;
     }
-      public String saveEventStatus() throws Exception {
+
+    /**
+     *
+     * @return
+     * @throws Exception
+     */
+    public String saveEventStatus() throws Exception {
         String result = "FAILURE";
         
         boolean success = DonateService.getInstance().setEventStatus(this.eventId);
@@ -281,7 +411,13 @@ public class Admin extends ActionSupport implements ApplicationAware, SessionAwa
     }
     return result;
 }
-     public String deleteEventStatus() throws Exception {
+
+    /**
+     *
+     * @return
+     * @throws Exception
+     */
+    public String deleteEventStatus() throws Exception {
         String result = "FAILURE";
         
         boolean success = DonateService.getInstance().rejectEventStatus(this.eventId);

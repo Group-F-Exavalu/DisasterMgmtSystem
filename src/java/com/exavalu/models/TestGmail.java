@@ -28,11 +28,19 @@ public class TestGmail extends ActionSupport implements ApplicationAware, Sessio
 
     private ApplicationMap map = (ApplicationMap) ActionContext.getContext().getApplication();
 
+    /**
+     *
+     * @param application
+     */
     @Override
     public void setApplication(Map<String, Object> application) {
         map = (ApplicationMap) application;
     }
 
+    /**
+     *
+     * @param session
+     */
     @Override
     public void setSession(Map<String, Object> session) {
         sessionMap = (SessionMap) session;
@@ -80,6 +88,10 @@ public class TestGmail extends ActionSupport implements ApplicationAware, Sessio
         this.message = message;
     }
     
+    /**
+     *
+     * @return
+     */
     public String sendGmail(){
         String result="SUCCESS";
         

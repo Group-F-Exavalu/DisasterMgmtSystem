@@ -27,18 +27,34 @@ public class Volunteer extends ActionSupport implements ApplicationAware, Sessio
     
     private String emailAddress,name,messsage,phoneNumber,aadharNumber;
 
+    /**
+     *
+     * @return
+     */
     public String getPhoneNumber() {
         return phoneNumber;
     }
 
+    /**
+     *
+     * @param phoneNumber
+     */
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getAadharNumber() {
         return aadharNumber;
     }
 
+    /**
+     *
+     * @param aadharNumber
+     */
     public void setAadharNumber(String aadharNumber) {
         this.aadharNumber = aadharNumber;
     }
@@ -48,11 +64,19 @@ public class Volunteer extends ActionSupport implements ApplicationAware, Sessio
 
     private ApplicationMap map = (ApplicationMap) ActionContext.getContext().getApplication();
 
+    /**
+     *
+     * @param application
+     */
     @Override
     public void setApplication(Map<String, Object> application) {
         setMap((ApplicationMap) application);
     }
 
+    /**
+     *
+     * @param session
+     */
     @Override
     public void setSession(Map<String, Object> session) {
         setSessionMap((SessionMap<String, Object>) (SessionMap) session);
@@ -88,39 +112,76 @@ public class Volunteer extends ActionSupport implements ApplicationAware, Sessio
         this.map = map;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getEmailAddress() {
         return emailAddress;
     }
 
+    /**
+     *
+     * @param emailAddress
+     */
     public void setEmailAddress(String emailAddress) {
         this.emailAddress = emailAddress;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     *
+     * @param name
+     */
     public void setName(String name) {
         this.name = name;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getMesssage() {
         return messsage;
     }
 
+    /**
+     *
+     * @param messsage
+     */
     public void setMesssage(String messsage) {
         this.messsage = messsage;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getStatus() {
         return status;
     }
 
+    /**
+     *
+     * @param status
+     */
     public void setStatus(int status) {
         this.status = status;
     }
     
-      public String beVolunteer() throws Exception {
+    /**
+     *
+     * @return
+     * @throws Exception
+     */
+    public String beVolunteer() throws Exception {
 
         String result = "FAILURE";
         boolean success = VolunteerService.getInstance().beVolunteerInput(this);
@@ -139,6 +200,11 @@ public class Volunteer extends ActionSupport implements ApplicationAware, Sessio
         return result;
 
     }
+
+    /**
+     *
+     * @return
+     */
     public String getAllVolunteers(){
         String result = "FAILURE";
         ArrayList volunteerList = VolunteerService.getInstance().getAllVolunteers();
@@ -149,6 +215,12 @@ public class Volunteer extends ActionSupport implements ApplicationAware, Sessio
         }
         return result;
     }
+
+    /**
+     *
+     * @return
+     * @throws Exception
+     */
     public String editVolunteerForm() throws Exception {
         String result = "SUCCESS";
         Volunteer volunteerform = VolunteerService.getVolunteersbyId(this.emailAddress);
@@ -156,7 +228,13 @@ public class Volunteer extends ActionSupport implements ApplicationAware, Sessio
         sessionMap.put("VolunteerForm", volunteerform);
         return result;
     }
-     public String saveVolunteerStatus() throws Exception {
+
+    /**
+     *
+     * @return
+     * @throws Exception
+     */
+    public String saveVolunteerStatus() throws Exception {
         String result = "FAILURE";
         
         boolean success = VolunteerService.ApproveVolunteerStatus(this.emailAddress);
@@ -173,7 +251,12 @@ public class Volunteer extends ActionSupport implements ApplicationAware, Sessio
     return result;
 }
     
-     public String deleteVolunteerStatus() throws Exception {
+    /**
+     *
+     * @return
+     * @throws Exception
+     */
+    public String deleteVolunteerStatus() throws Exception {
         String result = "FAILURE";
         
         boolean success = VolunteerService.RejectVolunteerStatus(this.emailAddress);

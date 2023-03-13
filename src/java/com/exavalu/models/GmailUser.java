@@ -30,18 +30,34 @@ public class GmailUser extends ActionSupport implements ApplicationAware, Sessio
     private String email;
     private String picture;
 
+    /**
+     *
+     * @return
+     */
     public String getFirstName() {
         return firstName;
     }
 
+    /**
+     *
+     * @param firstName
+     */
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getLastName() {
         return lastName;
     }
 
+    /**
+     *
+     * @param lastName
+     */
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
@@ -64,11 +80,19 @@ public class GmailUser extends ActionSupport implements ApplicationAware, Sessio
 
     private ApplicationMap map = (ApplicationMap) ActionContext.getContext().getApplication();
 
+    /**
+     *
+     * @param application
+     */
     @Override
     public void setApplication(Map<String, Object> application) {
         map = (ApplicationMap) application;
     }
 
+    /**
+     *
+     * @param session
+     */
     @Override
     public void setSession(Map<String, Object> session) {
         sessionMap = (SessionMap) session;
@@ -129,6 +153,10 @@ public class GmailUser extends ActionSupport implements ApplicationAware, Sessio
         this.email = email;
     }
 
+    /**
+     *
+     * @return
+     */
     public String gmailLogin() {
         String result = "FAILURE";
 //        boolean success= false;
@@ -168,6 +196,10 @@ public class GmailUser extends ActionSupport implements ApplicationAware, Sessio
 
     }
 
+    /**
+     *
+     * @return
+     */
     public String getStatus() {
         String result = "FAILURE";
         ArrayList gUserStatusMoneyList = DonateService.getInstance().getGUserStatusMoneyList(email);

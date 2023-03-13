@@ -33,66 +33,130 @@ public class Organisation extends ActionSupport implements ApplicationAware, Ses
     private String district;
     private String emailAddress;
 
+    /**
+     *
+     * @return
+     */
     public int getOrganisationId() {
         return organisationId;
     }
 
+    /**
+     *
+     * @param organisationId
+     */
     public void setOrganisationId(int organisationId) {
         this.organisationId = organisationId;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getOrganisationName() {
         return organisationName;
     }
 
+    /**
+     *
+     * @param organisationName
+     */
     public void setOrganisationName(String organisationName) {
         this.organisationName = organisationName;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getRegnNumber() {
         return regnNumber;
     }
 
+    /**
+     *
+     * @param regnNumber
+     */
     public void setRegnNumber(String regnNumber) {
         this.regnNumber = regnNumber;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getCountry() {
         return country;
     }
 
+    /**
+     *
+     * @param country
+     */
     public void setCountry(String country) {
         this.country = country;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getState() {
         return state;
     }
 
+    /**
+     *
+     * @param state
+     */
     public void setState(String state) {
         this.state = state;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getDistrict() {
         return district;
     }
 
+    /**
+     *
+     * @param district
+     */
     public void setDistrict(String district) {
         this.district = district;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getEmailAddress() {
         return emailAddress;
     }
 
+    /**
+     *
+     * @param emailAddress
+     */
     public void setEmailAddress(String emailAddress) {
         this.emailAddress = emailAddress;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getPassword() {
         return password;
     }
 
+    /**
+     *
+     * @param password
+     */
     public void setPassword(String password) {
         this.password = password;
     }
@@ -103,16 +167,29 @@ public class Organisation extends ActionSupport implements ApplicationAware, Ses
 
     private ApplicationMap map = (ApplicationMap) ActionContext.getContext().getApplication();
 
+    /**
+     *
+     * @param application
+     */
     @Override
     public void setApplication(Map<String, Object> application) {
         setMap((ApplicationMap) application);
     }
 
+    /**
+     *
+     * @param session
+     */
     @Override
     public void setSession(Map<String, Object> session) {
         setSessionMap((SessionMap<String, Object>) (SessionMap) session);
     }
- public SessionMap<String, Object> getSessionMap() {
+
+    /**
+     *
+     * @return
+     */
+    public SessionMap<String, Object> getSessionMap() {
         return sessionMap;
     }
 
@@ -139,6 +216,7 @@ public class Organisation extends ActionSupport implements ApplicationAware, Ses
 
     /**
      * @return the vehicleNumber
+     * @throws java.lang.Exception
      */
     
     public String doSignUpOrg() throws Exception {
@@ -162,7 +240,13 @@ public class Organisation extends ActionSupport implements ApplicationAware, Ses
         return result;
 
     }
-        public String doPreSignUp() throws Exception {
+
+    /**
+     *
+     * @return
+     * @throws Exception
+     */
+    public String doPreSignUp() throws Exception {
         sessionMap.clear();
         String result = "SUCCESS";
         //check all data and submit
@@ -197,6 +281,11 @@ public class Organisation extends ActionSupport implements ApplicationAware, Ses
 
         return result;
     }
+
+    /**
+     *
+     * @return
+     */
     public String getStatus() {
         String result = "FAILURE";
 

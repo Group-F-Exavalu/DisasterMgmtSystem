@@ -23,75 +23,146 @@ public class APIUser extends ActionSupport implements ApplicationAware, SessionA
     private String id,city,name,gender,voterId,dateOfBirth,aadharNumber,drivingLicence;
     private int formId;
 
+    /**
+     *
+     * @return
+     */
     public int getFormId() {
         return formId;
     }
 
+    /**
+     *
+     * @param formId
+     */
     public void setFormId(int formId) {
         this.formId = formId;
     }
 
-   
+    /**
+     *
+     * @return
+     */
     public String getId() {
         return id;
     }
 
+    /**
+     *
+     * @param id
+     */
     public void setId(String id) {
         this.id = id;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getCity() {
         return city;
     }
 
+    /**
+     *
+     * @param city
+     */
     public void setCity(String city) {
         this.city = city;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     *
+     * @param name
+     */
     public void setName(String name) {
         this.name = name;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getGender() {
         return gender;
     }
 
+    /**
+     *
+     * @param gender
+     */
     public void setGender(String gender) {
         this.gender = gender;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getVoterId() {
         return voterId;
     }
 
+    /**
+     *
+     * @param voterId
+     */
     public void setVoterId(String voterId) {
         this.voterId = voterId;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getDateOfBirth() {
         return dateOfBirth;
     }
 
+    /**
+     *
+     * @param dateOfBirth
+     */
     public void setDateOfBirth(String dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getAadharNumber() {
         return aadharNumber;
     }
 
+    /**
+     *
+     * @param aadharNumber
+     */
     public void setAadharNumber(String aadharNumber) {
         this.aadharNumber = aadharNumber;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getDrivingLicence() {
         return drivingLicence;
     }
 
+    /**
+     *
+     * @param drivingLicence
+     */
     public void setDrivingLicence(String drivingLicence) {
         this.drivingLicence = drivingLicence;
     }
@@ -108,17 +179,28 @@ public class APIUser extends ActionSupport implements ApplicationAware, SessionA
 
     private ApplicationMap map = (ApplicationMap) ActionContext.getContext().getApplication();
 
+    /**
+     *
+     * @param application
+     */
     @Override
     public void setApplication(Map<String, Object> application) {
         setMap((ApplicationMap) application);
     }
 
+    /**
+     *
+     * @param session
+     */
     @Override
     public void setSession(Map<String, Object> session) {
         setSessionMap((SessionMap<String, Object>) (SessionMap) session);
     }
 
-   
+    /**
+     *
+     * @return
+     */
     public SessionMap<String, Object> getSessionMap() {
         return sessionMap;
     }

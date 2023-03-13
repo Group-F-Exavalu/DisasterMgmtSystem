@@ -33,58 +33,114 @@ public class User extends ActionSupport implements ApplicationAware, SessionAwar
     
     private int userId;
 
+    /**
+     *
+     * @return
+     */
     public int getUserId() {
         return userId;
     }
 
+    /**
+     *
+     * @param userId
+     */
     public void setUserId(int userId) {
         this.userId = userId;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getGender() {
         return gender;
     }
 
+    /**
+     *
+     * @param gender
+     */
     public void setGender(String gender) {
         this.gender = gender;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getAddress() {
         return address;
     }
 
+    /**
+     *
+     * @param address
+     */
     public void setAddress(String address) {
         this.address = address;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getCountry() {
         return country;
     }
 
+    /**
+     *
+     * @param country
+     */
     public void setCountry(String country) {
         this.country = country;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getState() {
         return state;
     }
 
+    /**
+     *
+     * @param state
+     */
     public void setState(String state) {
         this.state = state;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getDistrict() {
         return district;
     }
 
+    /**
+     *
+     * @param district
+     */
     public void setDistrict(String district) {
         this.district = district;
     }
 
+    /**
+     *
+     * @return
+     */
     public static com.opensymphony.xwork2.util.logging.Logger getLOG() {
         return LOG;
     }
 
+    /**
+     *
+     * @param LOG
+     */
     public static void setLOG(com.opensymphony.xwork2.util.logging.Logger LOG) {
         ActionSupport.LOG = LOG;
     }
@@ -92,43 +148,83 @@ public class User extends ActionSupport implements ApplicationAware, SessionAwar
     private String lastName;
     private String emailAddress, date;
 
+    /**
+     *
+     * @return
+     */
     public String getDate() {
         return date;
     }
 
+    /**
+     *
+     * @param date
+     */
     public void setDate(String date) {
         this.date = date;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getEmailAddress() {
         return emailAddress;
     }
 
+    /**
+     *
+     * @param emailAddress
+     */
     public void setEmailAddress(String emailAddress) {
         this.emailAddress = emailAddress;
     }
     private String password, gender, phoneNumber, address, country, state, district, aadharNumber;
 
+    /**
+     *
+     * @return
+     */
     public String getPhoneNumber() {
         return phoneNumber;
     }
 
+    /**
+     *
+     * @param phoneNumber
+     */
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
+    /**
+     *
+     * @return
+     */
     public SessionMap<String, Object> getSessionMap() {
         return sessionMap;
     }
 
+    /**
+     *
+     * @param sessionMap
+     */
     public void setSessionMap(SessionMap<String, Object> sessionMap) {
         this.sessionMap = sessionMap;
     }
 
+    /**
+     *
+     * @return
+     */
     public ApplicationMap getMap() {
         return map;
     }
 
+    /**
+     *
+     * @param map
+     */
     public void setMap(ApplicationMap map) {
         this.map = map;
     }
@@ -178,18 +274,34 @@ public class User extends ActionSupport implements ApplicationAware, SessionAwar
     private File image; //(create getter setter)
     private String imageData;
 
+    /**
+     *
+     * @return
+     */
     public File getImage() {
         return image;
     }
 
+    /**
+     *
+     * @param image
+     */
     public void setImage(File image) {
         this.image = image;
     }
 
+    /**
+     *
+     * @param imageData
+     */
     public void setImageData(String imageData) {
         this.imageData = imageData;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getImageData() {
         return imageData;
     }
@@ -198,16 +310,29 @@ public class User extends ActionSupport implements ApplicationAware, SessionAwar
 
     private ApplicationMap map = (ApplicationMap) ActionContext.getContext().getApplication();
 
+    /**
+     *
+     * @param application
+     */
     @Override
     public void setApplication(Map<String, Object> application) {
         map = (ApplicationMap) application;
     }
 
+    /**
+     *
+     * @param session
+     */
     @Override
     public void setSession(Map<String, Object> session) {
         sessionMap = (SessionMap) session;
     }
 
+    /**
+     *
+     * @return
+     * @throws Exception
+     */
     public String doLogin() throws Exception {
         String result = "FAILURE";
 
@@ -303,6 +428,11 @@ public class User extends ActionSupport implements ApplicationAware, SessionAwar
 
         return result;
     }
+
+    /**
+     *
+     * @return
+     */
     public String getStatus(){
         String result = "FAILURE";
         
@@ -314,6 +444,12 @@ public class User extends ActionSupport implements ApplicationAware, SessionAwar
         result = "SUCCESS";
         return result;
     }
+
+    /**
+     *
+     * @return
+     * @throws Exception
+     */
     public String doSignUp() throws Exception {
 
         String result = "FAILURE";
@@ -345,6 +481,11 @@ public class User extends ActionSupport implements ApplicationAware, SessionAwar
 
     }
 
+    /**
+     *
+     * @return
+     * @throws Exception
+     */
     public String doPreSignUp() throws Exception {
         sessionMap.clear();
         String result = "SUCCESS";
@@ -380,6 +521,10 @@ public class User extends ActionSupport implements ApplicationAware, SessionAwar
         return result;
     }
 
+    /**
+     *
+     * @return
+     */
     public String doLogout() {
         String result = "SUCCESS";
         sessionMap.clear();
@@ -416,6 +561,11 @@ public class User extends ActionSupport implements ApplicationAware, SessionAwar
         this.aadharNumber = aadharNumber;
     }
 
+    /**
+     *
+     * @return
+     * @throws Exception
+     */
     public String doSave() throws Exception {
         String res = "FAILURE";
         boolean result = LoginService.updateUser(this);
