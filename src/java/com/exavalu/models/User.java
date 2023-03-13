@@ -386,7 +386,7 @@ public class User extends ActionSupport implements ApplicationAware, SessionAwar
             double revenueInt = Double.parseDouble(AdminService.getTotalDonation());
             double userDonation = Double.parseDouble(AdminService.getTotalUserDonation());
             double orgDonation = Double.parseDouble(AdminService.getTotalOrgDonation());
-            double userPercent = (userDonation / revenueInt) * 100;
+            double userPercent = Math.round((userDonation / revenueInt) * 100);
             double orgPercent = 100 - userPercent;
 
             System.out.println("revenue Int  " + revenueInt);
