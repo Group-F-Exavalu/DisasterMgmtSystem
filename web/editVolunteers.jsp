@@ -44,18 +44,18 @@
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-    function editVolunteer(url,id,emailId){
-        $.ajax({
-                url: url,
-                data:{
-                    emailAddress : emailId
-                },
-                success: function (responseText) {
-                //alert(responseText);
-                $('#'+id).html(responseText);
-                }
-            });
-    }
+//    function editVolunteer(url,id,emailId){
+//        $.ajax({
+//                url: url,
+//                data:{
+//                    emailAddress : emailId
+//                },
+//                success: function (responseText) {
+//                //alert(responseText);
+//                $('#'+id).html(responseText);
+//                }
+//            });
+//    }
     function editVolunteer(url,id,emailId){
         $.ajax({
                 url: url,

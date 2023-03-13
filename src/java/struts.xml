@@ -156,7 +156,7 @@
             <result name="SUCCESS">editFunds.jsp</result>
             <result name="FAILURE">dashboard.jsp</result>
         </action>
-        <action name="VolunteersEdit" class="com.exavalu.models.DonateForm" method="getAllFunds">
+        <action name="VolunteersEdit" class="com.exavalu.models.DonateForm" method="getAllVolunteers">
             <result name="SUCCESS">editVolunteers.jsp</result>
             <result name="FAILURE">dashboard.jsp</result>
         </action>

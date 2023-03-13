@@ -4,6 +4,7 @@
  */
 package com.exavalu.models;
 
+import com.exavalu.services.AdminService;
 import com.exavalu.services.DonateService;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
@@ -79,8 +80,8 @@ public class DonateForm extends ActionSupport implements ApplicationAware, Sessi
     }
 
     /**
-     *
-     * @return
+     * Function to insert Payment details on donation into the database
+     * @return SUCCESS only after checking whether the data have been successfully added to database
      */
     public String insertMoneyFormUser(){
         String result = "FAILURE";
@@ -261,7 +262,6 @@ public class DonateForm extends ActionSupport implements ApplicationAware, Sessi
     public String getAllFunds(){
         String result = "FAILURE";
         ArrayList moneyList = DonateService.getInstance().getMoney();
-        
         if(moneyList!=null){
             result="SUCCESS";
             sessionMap.put("MoneyList", moneyList);
@@ -269,6 +269,18 @@ public class DonateForm extends ActionSupport implements ApplicationAware, Sessi
         }
         return result;
     }
+    
+    public String getAllVolunteers(){
+        String result = "FAILURE";
+        ArrayList volunteerList = AdminService.getInstance().getAllVolunteers();
+        if(volunteerList!=null){
+            result="SUCCESS";
+            sessionMap.put("VolunteerList", volunteerList);
+            System.out.println("Volunteer List updated");
+        }
+        return result;
+    }
+    
 
     /**
      *
