@@ -1,6 +1,5 @@
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <div class="card">
-    <div class="card-header bg-black"></div>
     <div class="card-body">
         <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
         <jsp:include page="menu.jsp"></jsp:include>
@@ -121,10 +120,25 @@
             </script>
 
         </div>
+        <div class="button-container">
+            <button onclick= "GeneratePdf()" class="btn btn-primary px-5 mb-2" type="button" id="Pdfbutton" >Generate PDF</button>
+        </div>
+        <style>
+            .button-container {
+                position: relative;
+                width: 100%;
+                margin-top: 50px; /* adjust as needed */
+                text-align: center;
+            }
 
-        <button onclick= "GeneratePdf()" class="btn btn-color px-2 mb-2 w-100" type="button" id="Pdfbutton">Generate PDF</button>
+            #Pdfbutton {
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                transform: translateX(-50%);
+            }
 
+        </style>
 
     </div>
-    <div class="card-footer bg-black"></div>
 </div>
