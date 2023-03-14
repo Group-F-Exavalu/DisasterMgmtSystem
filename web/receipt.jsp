@@ -3,6 +3,7 @@
     <div class="card-header bg-black"></div>
     <div class="card-body">
         <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+        <jsp:include page="menu.jsp"></jsp:include>
         <div id="myForm">
             <div class="container">
                 <!--      <div class="row">
