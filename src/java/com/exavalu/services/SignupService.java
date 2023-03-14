@@ -50,9 +50,9 @@ public class SignupService {
             PreparedStatement preparedStatement = con.prepareStatement(sql);
             
             FileInputStream inputStream = new FileInputStream(user.getImage());
-            
+            String encryptPassword = LoginService.getMd5(user.getPassword());
             preparedStatement.setString(1, user.getEmailAddress());
-            preparedStatement.setString(2, user.getPassword());
+            preparedStatement.setString(2, encryptPassword);
             preparedStatement.setString(3, user.getFirstName());
             preparedStatement.setString(4, user.getLastName());
             preparedStatement.setString(5,user.getGender());
@@ -87,7 +87,7 @@ public class SignupService {
         Connection con = JDBCConnectionManager.getConnection();
         try{
             
-            
+            String encryptPassword = LoginService.getMd5(org.getPassword());
             String sql = "INSERT INTO organisations(organisationName, regnNumber,country,state,district,emailAddress,password,date)" + "VALUES(? ,? ,? ,? ,? ,? ,?,CURDATE() )";
             PreparedStatement preparedStatement = con.prepareStatement(sql);
             preparedStatement.setString(1, org.getOrganisationName());
@@ -96,7 +96,7 @@ public class SignupService {
             preparedStatement.setString(4, org.getState());
             preparedStatement.setString(5, org.getDistrict());
             preparedStatement.setString(6, org.getEmailAddress());
-            preparedStatement.setString(7, org.getPassword());
+            preparedStatement.setString(7, encryptPassword);
             
             
             int row = preparedStatement.executeUpdate();
