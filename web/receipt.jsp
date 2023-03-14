@@ -98,7 +98,7 @@
                             </script><span class="text-muted"></span></p>
 
                     </div>
-                    <p class="fw-bold mt-3">Signature: <img src="image/Signature.jpg" style="width:128px;height:70px;"></p>
+                    <p class="fw-bold mt-3">Signature: <img src="image/Signature.jpeg" style="width:128px;height:70px;"></p>
                 </div>
             </div>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script>
