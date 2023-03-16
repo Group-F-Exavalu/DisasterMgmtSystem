@@ -60,7 +60,7 @@ public class LoginService {
             ps.setString(1, emailAddress);
             ps.setString(2, enPassword);
             
-            System.out.println("LoginService :: "+ps);
+//            System.out.println("LoginService :: "+ps);
             
             ResultSet rs = ps.executeQuery();
             
@@ -90,7 +90,7 @@ public class LoginService {
             ps.setString(1, emailAddress);
             ps.setString(2, enPassword);
             
-            System.out.println("LoginService :: "+ps);
+//            System.out.println("LoginService :: "+ps);
             
             ResultSet rs = ps.executeQuery();
             
@@ -122,7 +122,7 @@ public class LoginService {
             ps.setString(1, emailAddress);
             ps.setString(2, password);
             
-            System.out.println("LoginService :: "+ps);
+//            System.out.println("LoginService :: "+ps);
             
             ResultSet rs = ps.executeQuery();
             
@@ -173,7 +173,7 @@ public class LoginService {
 //        }
 //        return result;
 //    }
-    public ArrayList getAllCountries()
+    public ArrayList<Country> getAllCountries()
     {
         ArrayList countryList = new ArrayList();
         try {
@@ -181,7 +181,7 @@ public class LoginService {
             //String sql = "SELECT employeeId, firstName, lastName, phone, address, gender, age, basicSalary, .employees, employeedb.departments, employeedb.roles where employees.departmentId = departments.departmentId and employees.roleId = roles.roleId carAllowance, departmentName, roleName FROM employeedb.employees, employeedb.departments, employeedb.roles where employees.departmentId = departments.departmentId and employees.roleId = roles.roleId order by employeeId;";
             String sql = "Select * from countries";
             PreparedStatement preparedStatement = con.prepareStatement(sql);
-            System.out.println("prep statement:" +preparedStatement);
+//            System.out.println("prep statement:" +preparedStatement);
 
             ResultSet rs = preparedStatement.executeQuery();
 
@@ -198,16 +198,17 @@ public class LoginService {
 
             }
 
-            System.err.println("Number of countries = "+countryList.size());
+//            System.err.println("Number of countries = "+countryList.size());
                preparedStatement.close();
                rs.close();
         } catch (SQLException ex) {
-            ex.printStackTrace();
+            Logger log = Logger.getLogger(LoginService.class.getName());
+            log.error(LocalDateTime.now()+ "Error Message: " + ex.getMessage());
         }
         
         return countryList;
     }
-    public ArrayList getAllStates(String countryCode)
+    public ArrayList<States> getAllStates(String countryCode)
     {
         ArrayList stateList = new ArrayList();
         try {
@@ -236,9 +237,10 @@ public class LoginService {
 
 
         } catch (SQLException ex) {
-            ex.printStackTrace();
+            Logger log = Logger.getLogger(LoginService.class.getName());
+            log.error(LocalDateTime.now()+ "Error Message: " + ex.getMessage());
         }
-        System.err.println("Number of states = "+stateList.size());
+//        System.err.println("Number of states = "+stateList.size());
         return stateList;
     }
 //    
@@ -272,12 +274,13 @@ public class LoginService {
                     user.setImageData(imageString);
                 }
                 
-                System.out.println("User Phone :" +rs.getString("phoneNumber"));
+                //System.out.println("User Phone :" +rs.getString("phoneNumber"));
             }
              preparedStatement.close();
                rs.close();
         } catch (SQLException ex) {
-            ex.printStackTrace();
+            Logger log = Logger.getLogger(LoginService.class.getName());
+            log.error(LocalDateTime.now()+ "Error Message: " + ex.getMessage());
         }
 
         return user;
@@ -306,13 +309,14 @@ public class LoginService {
              preparedStatement.close();
                rs.close();
         } catch (SQLException ex) {
-
+            Logger log = Logger.getLogger(LoginService.class.getName());
+            log.error(LocalDateTime.now()+ "Error Message: " + ex.getMessage());
         }
 
         return org;
     }
 
-    public ArrayList getAllDistricts(String stateCode) {
+    public ArrayList<Districts> getAllDistricts(String stateCode) {
         
         ArrayList districtList = new ArrayList();
         try {
@@ -340,9 +344,10 @@ public class LoginService {
 
 
         } catch (SQLException ex) {
-            ex.printStackTrace();
+            Logger log = Logger.getLogger(LoginService.class.getName());
+            log.error(LocalDateTime.now()+ "Error Message: " + ex.getMessage());
         }
-        System.err.println("Number of districts = "+districtList.size());
+//        System.err.println("Number of districts = "+districtList.size());
         return districtList;
     }
     public boolean doGmailLoginUser(String id, String email)
@@ -357,7 +362,7 @@ public class LoginService {
             ps.setString(1, email);
             ps.setString(2, id);
             
-            System.out.println("LoginService :: "+ps);
+//            System.out.println("LoginService :: "+ps);
             
             ResultSet rs = ps.executeQuery();
             
@@ -428,14 +433,15 @@ public class LoginService {
              rs.close();
              
         } catch (SQLException ex) {
-            ex.printStackTrace();
+            Logger log = Logger.getLogger(LoginService.class.getName());
+            log.error(LocalDateTime.now()+ "Error Message: " + ex.getMessage());
         }
 
         return guser;
     }
     
     
-    public static ArrayList getAllUser() throws IOException, SQLException {
+    public static ArrayList<User> getAllUser() throws IOException, SQLException {
         ArrayList userList = new ArrayList();
         try {
             Connection con = JDBCConnectionManager.getConnection();
@@ -459,7 +465,8 @@ public class LoginService {
               preparedStatement.close();
              rs.close();
         } catch (SQLException ex) {
-    
+            Logger log = Logger.getLogger(LoginService.class.getName());
+            log.error(LocalDateTime.now()+ "Error Message: " + ex.getMessage());
         }
         return userList;
     }

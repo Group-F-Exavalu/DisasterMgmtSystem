@@ -48,7 +48,7 @@ public class SupportService {
                 preparedStatement.setString(3, event.getUserId());
                 preparedStatement.setString(4, event.getSupportType());
                 
-                System.out.println(preparedStatement);
+                //System.out.println(preparedStatement);
                 int row = preparedStatement.executeUpdate();
 
                 if (row == 1) {

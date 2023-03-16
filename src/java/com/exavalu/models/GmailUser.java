@@ -185,13 +185,13 @@ public class GmailUser extends ActionSupport implements ApplicationAware, Sessio
                 result = "GMAILUSER";
             }
         }
-        System.out.println(this.sub);
-        System.out.println(this.email);
-        System.out.println(this.family_name);
-        System.out.println(this.given_name);
-        System.out.println(this.picture);
+//        System.out.println(this.sub);
+//        System.out.println(this.email);
+//        System.out.println(this.family_name);
+//        System.out.println(this.given_name);
+//        System.out.println(this.picture);
 //        System.out.println(this.);
-        System.out.println("the result is: " + result);
+        //System.out.println("the result is: " + result);
         return result;
 
     }
@@ -204,7 +204,7 @@ public class GmailUser extends ActionSupport implements ApplicationAware, Sessio
         String result = "FAILURE";
         ArrayList gUserStatusMoneyList = DonateService.getInstance().getGUserStatusMoneyList(email);
         ArrayList gUserStatusEssentialList = DonateService.getInstance().getGUserStatusEssentialList(email);
-        System.out.println(this.email);
+        //System.out.println(this.email);
         sessionMap.put("MoneyStatus",gUserStatusMoneyList);
         sessionMap.put("EssentialStatus",gUserStatusEssentialList);
         result = "SUCCESS";

@@ -92,7 +92,7 @@ public class DonateForm extends ActionSupport implements ApplicationAware, Sessi
             sessionMap.put("DonateForm", this);
             if (success) {
                 result = "SUCCESS";
-                System.out.println("Payment Record Added to database");
+                //System.out.println("Payment Record Added to database");
                 sessionMap.put("SuccessDonation", "Thank you for supporting us and our cause! We wish to see you soon!");
                 sessionMap.put("ErrorDonation", "Thank you for supporting us but there is some error in the payment process! We wish you to try again!");
         }
@@ -104,7 +104,7 @@ public class DonateForm extends ActionSupport implements ApplicationAware, Sessi
             sessionMap.put("DonateForm", this);
             if (res) {
                 result = "SUCCESS";
-                System.out.println("Payment Record Added to database");
+                //System.out.println("Payment Record Added to database");
                 sessionMap.put("SuccessDonation", "Thank you for supporting us and our cause! We wish to see you soon!");
                 sessionMap.put("ErrorDonation", "Thank you for supporting us but there is some error in the payment process! We wish you to try again!");
         }
@@ -125,7 +125,7 @@ public class DonateForm extends ActionSupport implements ApplicationAware, Sessi
         sessionMap.put("DonateForm", this);
         if(res){
             result="SUCCESS";
-            System.out.println("Payment Record Added to database");
+            //System.out.println("Payment Record Added to database");
             sessionMap.put("SuccessDonation","Thank you for supporting us and our cause! We wish to see you soon!");
             sessionMap.put("ErrorDonation","Thank you for supporting us but there is some error in the payment process! We wish you to try again!");
         }
@@ -143,7 +143,7 @@ public class DonateForm extends ActionSupport implements ApplicationAware, Sessi
             success = DonateService.getInstance().insertEssentialsForm(this);
             if(success){
             result="SUCCESS";
-            System.out.println("Essentials Record Added to database");
+            //System.out.println("Essentials Record Added to database");
             sessionMap.put("SuccessEssentials","Thank you for supporting us and our cause! Our agent will be contacting you soon!");
             sessionMap.put("ErrorEssentials","Thank you for supporting us but there is some error in the payment process! We wish you to try again!");
         }
@@ -153,7 +153,7 @@ public class DonateForm extends ActionSupport implements ApplicationAware, Sessi
             boolean res = DonateService.getInstance().insertEssentialsForm(this);
             if(res){
             result="SUCCESS";
-            System.out.println("Essentials Record Added to database");
+            //System.out.println("Essentials Record Added to database");
             sessionMap.put("SuccessEssentials","Thank you for supporting us and our cause! Our agent will be contacting you soon!");
             sessionMap.put("ErrorEssentials","Thank you for supporting us but there is some error in the payment process! We wish you to try again!");
         }
@@ -172,7 +172,7 @@ public class DonateForm extends ActionSupport implements ApplicationAware, Sessi
         boolean res = DonateService.getInstance().insertEssentialsForm(this);
         if(res){
             result="SUCCESS";
-            System.out.println("Essentials Record Added to database");
+            //System.out.println("Essentials Record Added to database");
             sessionMap.put("SuccessEssentials","Thank you for supporting us and our cause! Our agent will be contacting you soon!");
             sessionMap.put("ErrorEssentials","Thank you for supporting us but there is some error in the process! We wish you to try again!");
         }
@@ -188,7 +188,7 @@ public class DonateForm extends ActionSupport implements ApplicationAware, Sessi
         boolean res = DonateService.getInstance().setEssentialStatus(status,formId);
         if(res){
             result="SUCCESS";
-            System.out.println("Essentials Record Status updated with"+status);
+            //System.out.println("Essentials Record Status updated with"+status);
         }
         return result;
     }
@@ -202,7 +202,7 @@ public class DonateForm extends ActionSupport implements ApplicationAware, Sessi
         boolean res = DonateService.getInstance().setPaymentStatus(status,formId);
         if(res){
             result="SUCCESS";
-            System.out.println("Payment Record Status updated with"+status);
+            //System.out.println("Payment Record Status updated with"+status);
         }
         return result;
     }
@@ -218,7 +218,7 @@ public class DonateForm extends ActionSupport implements ApplicationAware, Sessi
         if(event!=null){
             result="SUCCESS";
             sessionMap.put("Event", event);
-            System.out.println("Event updated");
+            //System.out.println("Event updated");
         }
         return result;
     }
@@ -234,7 +234,7 @@ public class DonateForm extends ActionSupport implements ApplicationAware, Sessi
         if(eventList!=null){
             result="SUCCESS";
             sessionMap.put("EventList", eventList);
-            System.out.println("EventList updated");
+            //System.out.println("EventList updated");
         }
         return result;
     }
@@ -250,7 +250,7 @@ public class DonateForm extends ActionSupport implements ApplicationAware, Sessi
         if(eventList!=null){
             result="SUCCESS";
             sessionMap.put("EventList", eventList);
-            System.out.println("EventList updated");
+            //System.out.println("EventList updated");
         }
         return result;
     }
@@ -265,7 +265,7 @@ public class DonateForm extends ActionSupport implements ApplicationAware, Sessi
         if(moneyList!=null){
             result="SUCCESS";
             sessionMap.put("MoneyList", moneyList);
-            System.out.println("MoneyList updated");
+            //System.out.println("MoneyList updated");
         }
         return result;
     }
@@ -276,7 +276,7 @@ public class DonateForm extends ActionSupport implements ApplicationAware, Sessi
         if(volunteerList!=null){
             result="SUCCESS";
             sessionMap.put("VolunteerList", volunteerList);
-            System.out.println("Volunteer List updated");
+            //System.out.println("Volunteer List updated");
         }
         return result;
     }
@@ -293,7 +293,7 @@ public class DonateForm extends ActionSupport implements ApplicationAware, Sessi
         if(essentialsList!=null){
             result="SUCCESS";
             sessionMap.put("EssentialsList", essentialsList);
-            System.out.println("EssentialsList updated");
+            //System.out.println("EssentialsList updated");
         }
         return result;
     }

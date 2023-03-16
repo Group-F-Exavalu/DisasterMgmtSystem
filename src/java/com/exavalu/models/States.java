@@ -9,7 +9,8 @@ package com.exavalu.models;
  * @author Debjit Das
  */
 public class States {
-    private String state,stateName;
+    private String state;
+    private String stateName;
 
     /**
      * @return the stateCode

@@ -4,16 +4,12 @@
  */
 package com.exavalu.models;
 
-import com.exavalu.services.AdminService;
-import com.exavalu.services.LoginService;
 import com.exavalu.services.VolunteerService;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import java.io.Serializable;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Map;
-import org.apache.log4j.Logger;
 import org.apache.struts2.dispatcher.ApplicationMap;
 import org.apache.struts2.dispatcher.SessionMap;
 import org.apache.struts2.interceptor.ApplicationAware;
@@ -25,7 +21,11 @@ import org.apache.struts2.interceptor.SessionAware;
  */
 public class Volunteer extends ActionSupport implements ApplicationAware, SessionAware, Serializable{
     
-    private String emailAddress,name,messsage,phoneNumber,aadharNumber;
+    private String emailAddress;
+    private String name;
+    private String messsage;
+    private String phoneNumber;
+    private String aadharNumber;
 
     /**
      *
@@ -188,15 +188,16 @@ public class Volunteer extends ActionSupport implements ApplicationAware, Sessio
 
         if (success) {            
             //sessionMap.put("SuccessSignUp", "Successfully Registered");
-            System.out.println("Returning from success");
+            //System.out.println("Returning from success");
             result = "SUCCESS";
-        } else {
-           // Logger log = Logger.getLogger(VolunteerService.class.getName());
-            //log.error(LocalDateTime.now() + "--Email Id already exists");
-           // sessionMap.put("FailSignUp", "Email address Already Exists");
-            System.out.println("Returning from failure");
-        }
-        System.out.println(sessionMap);
+        } 
+//        else {
+//           // Logger log = Logger.getLogger(VolunteerService.class.getName());
+//            //log.error(LocalDateTime.now() + "--Email Id already exists");
+//           // sessionMap.put("FailSignUp", "Email address Already Exists");
+//            System.out.println("Returning from failure");
+//        }
+//        System.out.println(sessionMap);
         return result;
 
     }
@@ -211,7 +212,7 @@ public class Volunteer extends ActionSupport implements ApplicationAware, Sessio
         if(volunteerList!=null){
             result="SUCCESS";
             sessionMap.put("VolunteerList", volunteerList);
-            System.out.println("VolunteerList updated");
+//            System.out.println("VolunteerList updated");
         }
         return result;
     }
@@ -224,7 +225,7 @@ public class Volunteer extends ActionSupport implements ApplicationAware, Sessio
     public String editVolunteerForm() throws Exception {
         String result = "SUCCESS";
         Volunteer volunteerform = VolunteerService.getVolunteersbyId(this.emailAddress);
-        System.out.println("email id : "+this.emailAddress);
+//        System.out.println("email id : "+this.emailAddress);
         sessionMap.put("VolunteerForm", volunteerform);
         return result;
     }
@@ -238,15 +239,15 @@ public class Volunteer extends ActionSupport implements ApplicationAware, Sessio
         String result = "FAILURE";
         
         boolean success = VolunteerService.ApproveVolunteerStatus(this.emailAddress);
-        System.out.println(this.emailAddress);
+//        System.out.println(this.emailAddress);
         if (success){
         ArrayList volunteerList = VolunteerService.getInstance().getAllVolunteers();
         sessionMap.put("VolunteerList", volunteerList);
-        System.out.println("returning Success from saveVolunteerStatus method");
+//        System.out.println("returning Success from saveVolunteerStatus method");
         result = "SUCCESS";
     }
     else {
-        System.out.println("returning Failure from saveVolunteerStatus method");
+//        System.out.println("returning Failure from saveVolunteerStatus method");
     }
     return result;
 }
@@ -260,15 +261,15 @@ public class Volunteer extends ActionSupport implements ApplicationAware, Sessio
         String result = "FAILURE";
         
         boolean success = VolunteerService.RejectVolunteerStatus(this.emailAddress);
-        System.out.println(this.emailAddress);
+//        System.out.println(this.emailAddress);
         if (success){
         ArrayList volunteerList = VolunteerService.getInstance().getAllVolunteers();
         sessionMap.put("VolunteerList", volunteerList);
-        System.out.println("returning Success from deleteVolunteerStatus method");
+//        System.out.println("returning Success from deleteVolunteerStatus method");
         result = "SUCCESS";
     }
     else {
-        System.out.println("returning Failure from deleteVolunteerStatus method");
+//        System.out.println("returning Failure from deleteVolunteerStatus method");
     }
     return result;
 }

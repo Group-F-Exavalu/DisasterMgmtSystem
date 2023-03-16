@@ -65,7 +65,7 @@ public class APIOrgService {
                     String rgnNumber = obj.get("RegistrationNumber").toString();
                     String validTill = obj.get("ValidTill").toString();
                         
-                    System.out.println("value" + address);
+                    //System.out.println("value" + address);
 
                     apiOrg.setId(id);
                     apiOrg.setAddress(address);
@@ -78,7 +78,7 @@ public class APIOrgService {
                     
                     //}
                    
-                    System.out.println("set everything with api org");
+                    //System.out.println("set everything with api org");
                 }
                  
 

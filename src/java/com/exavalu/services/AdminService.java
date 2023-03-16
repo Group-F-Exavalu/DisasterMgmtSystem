@@ -23,7 +23,7 @@ import org.apache.log4j.Logger;
 
 /**
      * This class serves as the connection between the JAVA Environment and DataBase for Admin entity Interaction
-     * @author Debjit Das,Ayshik Palit 
+     * @author Debjit Das,Ayshik Palit,Reetangsee Dutta 
      */
 public class AdminService {
 
@@ -232,7 +232,7 @@ public class AdminService {
                 donateform.setTransactionId(rs.getString("transactionId"));
 
             }
-            System.out.println("donate type" + donateform.getDonorType());
+//            System.out.println("donate type" + donateform.getDonorType());
                ps.close();
                rs.close(); 
         } catch (SQLException ex) {
@@ -271,8 +271,8 @@ public class AdminService {
         return donateform;
     }
 
-    public static ArrayList getAllMoney() {
-        ArrayList eventList = new ArrayList();
+    public static ArrayList<DonateForm> getAllMoney() {
+        ArrayList<DonateForm> eventList = new ArrayList<>();
         String sql = "Select * from donatemoney";
         try {
             Connection con = JDBCConnectionManager.getConnection();
@@ -302,8 +302,8 @@ public class AdminService {
         return eventList;
     }
 
-    public static ArrayList getAllEssential() {
-        ArrayList eventList = new ArrayList();
+    public static ArrayList<DonateForm> getAllEssential() {
+        ArrayList eventList = new ArrayList<>();
         String sql = "Select * from donateessentials";
         try {
             Connection con = JDBCConnectionManager.getConnection();
@@ -457,7 +457,7 @@ public class AdminService {
                 Logger log = Logger.getLogger(AdminService.class.getName());
                 log.error(LocalDateTime.now()+ "Error Message: " + ex.getMessage()+" Class : AdminService, Method : getGovtNumber");
             }
-            System.out.println("Aadhar Number fetched :" + result);
+//            System.out.println("Aadhar Number fetched :" + result);
             return result;
         } else {
             String sql = "SELECT * FROM organisations where organisationId=?;";
@@ -477,7 +477,7 @@ public class AdminService {
                 Logger log = Logger.getLogger(AdminService.class.getName());
                 log.error(LocalDateTime.now()+ "Error Message: " + ex.getMessage()+" Class : AdminService, Method : getGovtNumber");
             }
-            System.out.println("Registration Number fetched :" + result);
+//            System.out.println("Registration Number fetched :" + result);
             return result;
         }
     }
@@ -512,7 +512,7 @@ public class AdminService {
             Logger log = Logger.getLogger(AdminService.class.getName());
             log.error(LocalDateTime.now()+ "Error Message: " + ex.getMessage()+" Class : AdminService, Method : getDonorUser");
         }
-        System.out.println("User fetched :" + user.getFirstName());
+//        System.out.println("User fetched :" + user.getFirstName());
         return user;
 
     }
@@ -545,7 +545,7 @@ public class AdminService {
             Logger log = Logger.getLogger(AdminService.class.getName());
             log.error(LocalDateTime.now()+ "Error Message: " + ex.getMessage()+" Class : AdminService, Method : getDonorOrg");
         }
-        System.out.println("Organisation fetched :" + org.getOrganisationName());
+//        System.out.println("Organisation fetched :" + org.getOrganisationName());
         return org;
     }
 
@@ -578,12 +578,12 @@ public class AdminService {
             Logger log = Logger.getLogger(AdminService.class.getName());
             log.error(LocalDateTime.now()+ "Error Message: " + ex.getMessage()+" Class : AdminService, Method : getGmailDonor");
         }
-        System.out.println("User fetched :" + gmailUser.getFirstName());
+//        System.out.println("User fetched :" + gmailUser.getFirstName());
         return gmailUser;
     }
 
-    public ArrayList getAllVolunteers() {
-        ArrayList volunteerList = new ArrayList();
+    public ArrayList<Volunteer> getAllVolunteers() {
+        ArrayList<Volunteer> volunteerList = new ArrayList<>();
         String sql = "Select * from volunteer";
         try {
             Connection con = JDBCConnectionManager.getConnection();
@@ -608,13 +608,13 @@ public class AdminService {
             Logger log = Logger.getLogger(AdminService.class.getName());
             log.error(LocalDateTime.now()+ "Error Message: " + ex.getMessage()+" Class : AdminService, Method : getAllVolunteers");
         }
-        System.out.println("Volunteer List: " + volunteerList);
+//        System.out.println("Volunteer List: " + volunteerList);
         return volunteerList;
 
     }
 
-    public static ArrayList getAllUsers() throws IOException, SQLException {
-        ArrayList userList = new ArrayList();
+    public static ArrayList<User> getAllUsers() throws IOException, SQLException {
+        ArrayList<User> userList = new ArrayList<>();
         try {
             Connection con = JDBCConnectionManager.getConnection();
             String sql = "SELECT * FROM users";
@@ -646,8 +646,8 @@ public class AdminService {
         return userList;
     }
 
-    public static ArrayList getAllOrgs() throws IOException, SQLException {
-        ArrayList orgList = new ArrayList();
+    public static ArrayList<Organisation> getAllOrgs() throws IOException, SQLException {
+        ArrayList<Organisation> orgList = new ArrayList<>();
         try {
             Connection con = JDBCConnectionManager.getConnection();
             String sql = "SELECT * FROM organisations";
@@ -674,8 +674,8 @@ public class AdminService {
         return orgList;
     }
 
-    public static ArrayList getAllGmailUsers() throws IOException, SQLException {
-        ArrayList userList = new ArrayList();
+    public static ArrayList<GmailUser> getAllGmailUsers() throws IOException, SQLException {
+        ArrayList<GmailUser> userList = new ArrayList<>();
         try {
             Connection con = JDBCConnectionManager.getConnection();
             String sql = "SELECT * FROM gmailusers";
@@ -699,8 +699,8 @@ public class AdminService {
         return userList;
     }
 
-    public static ArrayList getAllDates() {
-        ArrayList dateList = new ArrayList();
+    public static ArrayList<Date> getAllDates() {
+        ArrayList<Date> dateList = new ArrayList<>();
         String sql = "SELECT DISTINCT date FROM users";
         try {
             Connection con = JDBCConnectionManager.getConnection();
@@ -715,7 +715,7 @@ public class AdminService {
             }
             ps.close();
             rs.close();
-            System.out.println(dateList);
+            //System.out.println(dateList);
 
         } catch (SQLException ex) {
             Logger log = Logger.getLogger(AdminService.class.getName());
@@ -725,8 +725,8 @@ public class AdminService {
         return dateList;
     }
 
-    public static ArrayList getAllDatesCount() {
-        ArrayList dateCountList = new ArrayList();
+    public static ArrayList<Integer> getAllDatesCount() {
+        ArrayList<Integer> dateCountList = new ArrayList<>();
         String sql = "SELECT COUNT(*) FROM users GROUP BY date order by date desc LIMIT 5";
         try {
             Connection con = JDBCConnectionManager.getConnection();

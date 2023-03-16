@@ -146,7 +146,8 @@ public class User extends ActionSupport implements ApplicationAware, SessionAwar
     }
     private String firstName;
     private String lastName;
-    private String emailAddress, date;
+    private String emailAddress;
+    private String date;
 
     /**
      *
@@ -179,7 +180,14 @@ public class User extends ActionSupport implements ApplicationAware, SessionAwar
     public void setEmailAddress(String emailAddress) {
         this.emailAddress = emailAddress;
     }
-    private String password, gender, phoneNumber, address, country, state, district, aadharNumber;
+    private String password;
+    private String gender;
+    private String phoneNumber;
+    private String address;
+    private String country;
+    private String state;
+    private String district;
+    private String aadharNumber;
 
     /**
      *
@@ -344,7 +352,7 @@ public class User extends ActionSupport implements ApplicationAware, SessionAwar
         this.userId=user.getUserId();
 //        ArrayList userStatusMoneyList = DonateService.getInstance().getUserStatusMoneyList(user.getUserId());
 //        ArrayList userStatusEssentialList = DonateService.getInstance().getUserStatusEssentialList(user.getUserId());
-        System.out.println("User Phone :" + user.getPhoneNumber());
+        //System.out.println("User Phone :" + user.getPhoneNumber());
         Organisation organisation = LoginService.getOrganisation(emailAddress);
         
         ArrayList eventList = DonateService.getInstance().getApprovedEvents();
@@ -362,7 +370,7 @@ public class User extends ActionSupport implements ApplicationAware, SessionAwar
 //        }
 
         if (successUser) {
-            System.out.println("returning Success from doLoginUser method");
+            //System.out.println("returning Success from doLoginUser method");
             sessionMap.put("Loggedin", this);
             sessionMap.put("LoggedinStatus", "user");
             sessionMap.put("User", user);
@@ -372,7 +380,7 @@ public class User extends ActionSupport implements ApplicationAware, SessionAwar
             sessionMap.put("UserList", userList);
             result = "USER";
         } else if (successOrg) {
-            System.out.println("returning Success from doLoginOrganization method");
+            //System.out.println("returning Success from doLoginOrganization method");
             sessionMap.put("Loggedin", this);
             sessionMap.put("LoggedinStatus", "org");
             
@@ -380,7 +388,7 @@ public class User extends ActionSupport implements ApplicationAware, SessionAwar
             sessionMap.put("EventList", eventList);
             result = "ORG";
         } else if (successAdmin) {
-            System.out.println("returning Success from doLoginAdmin method");
+            //System.out.println("returning Success from doLoginAdmin method");
             sessionMap.put("Loggedin", this);
             String revenue = AdminService.getTotalDonation();
             double revenueInt = Double.parseDouble(AdminService.getTotalDonation());
@@ -389,13 +397,13 @@ public class User extends ActionSupport implements ApplicationAware, SessionAwar
             double userPercent = Math.round((userDonation / revenueInt) * 100);
             double orgPercent = 100 - userPercent;
 
-            System.out.println("revenue Int  " + revenueInt);
-            System.out.println("user Donation  " + userDonation);
-            System.out.println("org Donation  " + orgDonation);
-            System.out.println("User Percentage  " + userPercent);
-            System.out.println("Org Percentage  " + orgPercent);
-            System.out.println("Date List  " + dateList);
-            System.out.println("Date Count List  " + dateCountList);
+//            System.out.println("revenue Int  " + revenueInt);
+//            System.out.println("user Donation  " + userDonation);
+//            System.out.println("org Donation  " + orgDonation);
+//            System.out.println("User Percentage  " + userPercent);
+//            System.out.println("Org Percentage  " + orgPercent);
+//            System.out.println("Date List  " + dateList);
+//            System.out.println("Date Count List  " + dateCountList);
 
             String totalUsers = AdminService.getTotalUsers();
             String totalOrgs = AdminService.getTotalOrganisations();
@@ -421,7 +429,7 @@ public class User extends ActionSupport implements ApplicationAware, SessionAwar
         } else {
             Logger log = Logger.getLogger(LoginService.class.getName());
             log.error(LocalDateTime.now() + "--Wrong email ID or password");
-            System.out.println("returning Failure from doLogin method");
+            //System.out.println("returning Failure from doLogin method");
             String errorMsg ="Either Email Address or Password is Wrong. Please Try Again !!";
             getSessionMap().put("ErrorMsg", errorMsg);
         }
@@ -438,7 +446,7 @@ public class User extends ActionSupport implements ApplicationAware, SessionAwar
         
         ArrayList userStatusMoneyList = DonateService.getInstance().getUserStatusMoneyList(this.userId);
         ArrayList userStatusEssentialList = DonateService.getInstance().getUserStatusEssentialList(userId);
-        System.out.println(this.userId);
+        //System.out.println(this.userId);
         sessionMap.put("MoneyStatus",userStatusMoneyList);
         sessionMap.put("EssentialStatus",userStatusEssentialList);
         result = "SUCCESS";
@@ -455,19 +463,19 @@ public class User extends ActionSupport implements ApplicationAware, SessionAwar
         String result = "FAILURE";
         boolean success1 = SignupService.getInstance().doCheckUser(this.emailAddress);
 
-        System.out.println("email address baba:  " + emailAddress);
+        //System.out.println("email address baba:  " + emailAddress);
         if (!success1) {
             boolean success = SignupService.getInstance().doSignupUser(this);
 
             if (success) {
                 sessionMap.put("SuccessSignUp", "Successfully Registered");
-                System.out.println("Returning from success");
+                //System.out.println("Returning from success");
                 result = "SUCCESS";
             } else {
                 Logger log = Logger.getLogger(LoginService.class.getName());
                 log.error(LocalDateTime.now() + "--Email Id already exists");
                 sessionMap.put("FailSignUp", "Email address Already Exists");
-                System.out.println("Returning from failure");
+                //System.out.println("Returning from failure");
             }
 
         } else if (success1) {
@@ -476,7 +484,7 @@ public class User extends ActionSupport implements ApplicationAware, SessionAwar
             String errorMsg ="You are Already Registered with us. Please try to Login";
             getSessionMap().put("ErrorMsg", errorMsg);
         }
-        System.out.println(sessionMap);
+        //System.out.println(sessionMap);
         return result;
 
     }
@@ -491,16 +499,16 @@ public class User extends ActionSupport implements ApplicationAware, SessionAwar
         String result = "SUCCESS";
         //check all data and submit
         ArrayList countryList = LoginService.getInstance().getAllCountries();
-        System.err.println("country list: " + countryList);
+        //System.err.println("country list: " + countryList);
         ArrayList stateList = null;
         ArrayList distList = null;
         sessionMap.put("CountryList", countryList);
-        System.out.println("countries are" + this.country);
-        System.out.println("States are" + this.state);
+        //System.out.println("countries are" + this.country);
+        //System.out.println("States are" + this.state);
 
         if (this.country != null) {
             stateList = LoginService.getInstance().getAllStates(this.country);
-            System.err.println("Country is: " + this.country);
+            //System.err.println("Country is: " + this.country);
             sessionMap.put("StateList", stateList);
             sessionMap.put("User", this);
             result = "STATELIST";

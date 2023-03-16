@@ -116,7 +116,7 @@ public class Event extends ActionSupport implements ApplicationAware, SessionAwa
         boolean res = SupportService.getInstance().insertEvents(this);
         if (res) {
             result = "SUCCESS";
-            System.out.println("Events submitted");
+            //System.out.println("Events submitted");
             sessionMap.put("SuccessSupport","You have successfully submitted details! We hope to reach you and help you soon!");
         }
         return result;
@@ -132,10 +132,10 @@ public class Event extends ActionSupport implements ApplicationAware, SessionAwa
         boolean res = SupportService.getInstance().insertEvents(this);
         if (res) {
             result = "SUCCESS";
-            System.out.println("Events submitted");
-            System.out.println(this.eventDetails);
-            System.out.println(this.eventTopic);
-            System.out.println(this.userId);
+//            System.out.println("Events submitted");
+//            System.out.println(this.eventDetails);
+//            System.out.println(this.eventTopic);
+//            System.out.println(this.userId);
             sessionMap.put("SuccessSupport","You have successfully submitted details! We hope to reach you and help you soon!");
         }
         return result;
@@ -151,7 +151,7 @@ public class Event extends ActionSupport implements ApplicationAware, SessionAwa
         boolean res = SupportService.getInstance().insertEvents(this);
         if (res) {
             result = "SUCCESS";
-            System.out.println("Events submitted");
+            //System.out.println("Events submitted");
             sessionMap.put("SuccessSupport","You have successfully submitted details! We hope to reach you and help you soon!");
         }
         return result;

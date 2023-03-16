@@ -24,7 +24,10 @@ import org.apache.struts2.interceptor.SessionAware;
  */
 public class Admin extends ActionSupport implements ApplicationAware, SessionAware, Serializable {
 
-    private int adminId, formId, status, eventId;
+    private int adminId;
+    private int formId;
+    private int status;
+    private int eventId;
 
     /**
      *
@@ -41,7 +44,9 @@ public class Admin extends ActionSupport implements ApplicationAware, SessionAwa
     public void setEventId(int eventId) {
         this.eventId = eventId;
     }
-    private String adminName, emailAddress, password, donorType;
+    private String adminName;
+    private String emailAddress;
+    private String password;
 
     private SessionMap<String, Object> sessionMap = (SessionMap) ActionContext.getContext().getSession();
 
@@ -177,7 +182,7 @@ public class Admin extends ActionSupport implements ApplicationAware, SessionAwa
             sessionMap.put("User", user);
             sessionMap.put("Org",null);
             sessionMap.put("GmailUser", null);
-            System.out.println("Aadhar"+aadharNumber);
+            //System.out.println("Aadhar"+aadharNumber);
         }
         else if(moneyform.getDonorType().equals("2")){
             String regnNumber = AdminService.getGovtNumber(moneyform.getDonorId(),moneyform.getDonorType());
@@ -187,7 +192,7 @@ public class Admin extends ActionSupport implements ApplicationAware, SessionAwa
             sessionMap.put("Org",org);
             sessionMap.put("User", null);
             sessionMap.put("GmailUser", null);
-            System.out.println("RegnNumber"+regnNumber);
+            //System.out.println("RegnNumber"+regnNumber);
         }
         else if(moneyform.getDonorType().equals("3")){
             GmailUser gmailUser = AdminService.getGmailDonor(moneyform.getDonorId());
@@ -196,7 +201,7 @@ public class Admin extends ActionSupport implements ApplicationAware, SessionAwa
             sessionMap.put("GmailUser", gmailUser);
             sessionMap.put("Org",null);
             sessionMap.put("User", null);
-            System.out.println("GmailUser"+gmailUser.getFamily_name());
+            //System.out.println("GmailUser"+gmailUser.getFamily_name());
             
         }
         sessionMap.put("MoneyForm", moneyform);
@@ -256,16 +261,16 @@ public class Admin extends ActionSupport implements ApplicationAware, SessionAwa
         String result = "FAILURE";
         
         boolean success = AdminService.ApproveDonateMoneyStatus(formId);
-        System.out.println(this.formId);
+        //System.out.println(this.formId);
         if (success){
         ArrayList moneyList = AdminService.getAllMoney();
         sessionMap.put("MoneyList", moneyList);
-        System.out.println("returning Success from saveMoneyStatus method");
+        //System.out.println("returning Success from saveMoneyStatus method");
         result = "SUCCESS";
     }
-    else {
-        System.out.println("returning Failure from saveMoneyStatus method");
-    }
+//    else {
+//        //System.out.println("returning Failure from saveMoneyStatus method");
+//    }
     return result;
 }
 
@@ -278,16 +283,16 @@ public class Admin extends ActionSupport implements ApplicationAware, SessionAwa
         String result = "FAILURE";
         
         boolean success = AdminService.RejectDonateMoneyStatus(formId);
-        System.out.println(this.formId);
+        //System.out.println(this.formId);
         if (success){
         ArrayList moneyList = AdminService.getAllMoney();
         sessionMap.put("MoneyList", moneyList);
-        System.out.println("returning Success from deleteMoneyStatus method");
+        //System.out.println("returning Success from deleteMoneyStatus method");
         result = "SUCCESS";
     }
-    else {
-        System.out.println("returning Failure from deleteMoneyStatus method");
-    }
+//    else {
+//        //System.out.println("returning Failure from deleteMoneyStatus method");
+//    }
     return result;
 }
 
@@ -299,7 +304,7 @@ public class Admin extends ActionSupport implements ApplicationAware, SessionAwa
     public String editEssentialsForm() throws Exception {
         String result = "SUCCESS";
         DonateForm essentialsform = AdminService.getEssentialsbyId(this.formId);
-        System.out.println("form id : "+this.formId);
+        //System.out.println("form id : "+this.formId);
         if(essentialsform.getDonorType().equals("1")){
             String aadharNumber = AdminService.getGovtNumber(essentialsform.getDonorId(),essentialsform.getDonorType());
             User user = AdminService.getDonorUser(essentialsform.getDonorId());
@@ -308,7 +313,7 @@ public class Admin extends ActionSupport implements ApplicationAware, SessionAwa
             sessionMap.put("User", user);
             sessionMap.put("Org",null);
             sessionMap.put("GmailUser", null);
-            System.out.println("Aadhar"+aadharNumber);
+            //System.out.println("Aadhar"+aadharNumber);
         }
         else if(essentialsform.getDonorType().equals("2")){
             String regnNumber = AdminService.getGovtNumber(essentialsform.getDonorId(),essentialsform.getDonorType());
@@ -318,7 +323,7 @@ public class Admin extends ActionSupport implements ApplicationAware, SessionAwa
             sessionMap.put("Org",org);
             sessionMap.put("User", null);
             sessionMap.put("GmailUser", null);
-            System.out.println("RegnNumber"+regnNumber);
+            //System.out.println("RegnNumber"+regnNumber);
         }
         else if(essentialsform.getDonorType().equals("3")){
             GmailUser gmailUser = AdminService.getGmailDonor(essentialsform.getDonorId());
@@ -327,7 +332,7 @@ public class Admin extends ActionSupport implements ApplicationAware, SessionAwa
             sessionMap.put("GmailUser", gmailUser);
             sessionMap.put("Org",null);
             sessionMap.put("User", null);
-            System.out.println("GmailUser"+gmailUser.getFamily_name());
+            //System.out.println("GmailUser"+gmailUser.getFamily_name());
         }
         sessionMap.put("EssentialsForm", essentialsform);
         return result;
@@ -342,16 +347,16 @@ public class Admin extends ActionSupport implements ApplicationAware, SessionAwa
         String result = "FAILURE";
         
         boolean success = AdminService.ApproveDonateEssentialStatus(formId);
-        System.out.println(this.formId);
+        //System.out.println(this.formId);
         if (success){
         ArrayList essentialList = AdminService.getAllEssential();
         sessionMap.put("EssentialList", essentialList);
-        System.out.println("returning Success from saveEssentialStatus method");
+        //System.out.println("returning Success from saveEssentialStatus method");
         result = "SUCCESS";
     }
-    else {
-        System.out.println("returning Failure from saveEssentialStatus method");
-    }
+//    else {
+//        System.out.println("returning Failure from saveEssentialStatus method");
+//    }
     return result;
 }
 
@@ -364,15 +369,15 @@ public class Admin extends ActionSupport implements ApplicationAware, SessionAwa
         String result = "FAILURE";
         
         boolean success = AdminService.RejectDonateEssentialStatus(formId);
-        System.out.println(this.formId);
+        //System.out.println(this.formId);
         if (success){
         ArrayList essentialList = AdminService.getAllEssential();
         sessionMap.put("EssentialList", essentialList);
-        System.out.println("returning Success from deleteEssentialStatus method");
+        //System.out.println("returning Success from deleteEssentialStatus method");
         result = "SUCCESS";
     }
     else {
-        System.out.println("returning Failure from deleteEssentialStatus method");
+        //System.out.println("returning Failure from deleteEssentialStatus method");
     }
     return result;
 }
@@ -385,7 +390,7 @@ public class Admin extends ActionSupport implements ApplicationAware, SessionAwa
     public String editEventsForm() throws Exception {
         String result = "SUCCESS";
         Event eventform = DonateService.getInstance().getEventById(this.eventId);
-        System.out.println("event id : "+this.eventId);
+        //System.out.println("event id : "+this.eventId);
         sessionMap.put("EventForm", eventform);
         return result;
     }
@@ -399,16 +404,16 @@ public class Admin extends ActionSupport implements ApplicationAware, SessionAwa
         String result = "FAILURE";
         
         boolean success = DonateService.getInstance().setEventStatus(this.eventId);
-        System.out.println(this.eventId);
+        //System.out.println(this.eventId);
         if (success){
         ArrayList eventList = DonateService.getInstance().getEvents();
         sessionMap.put("EventList", eventList);
-        System.out.println("returning Success from saveEventStatus method");
+        //System.out.println("returning Success from saveEventStatus method");
         result = "SUCCESS";
     }
-    else {
-        System.out.println("returning Failure from saveEventStatus method");
-    }
+//    else {
+//        System.out.println("returning Failure from saveEventStatus method");
+//    }
     return result;
 }
 
@@ -421,16 +426,16 @@ public class Admin extends ActionSupport implements ApplicationAware, SessionAwa
         String result = "FAILURE";
         
         boolean success = DonateService.getInstance().rejectEventStatus(this.eventId);
-        System.out.println(this.eventId);
+        //System.out.println(this.eventId);
         if (success){
         ArrayList eventList = DonateService.getInstance().getEvents();
         sessionMap.put("EventList", eventList);
-        System.out.println("returning Success from deleteEventStatus method");
+        //System.out.println("returning Success from deleteEventStatus method");
         result = "SUCCESS";
     }
-    else {
-        System.out.println("returning Failure from deleteEventStatus method");
-    }
+//    else {
+//        System.out.println("returning Failure from deleteEventStatus method");
+//    }
     return result;
 }
      
