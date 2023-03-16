@@ -58,7 +58,8 @@ public class DonateService {
                 eventList.add(donateform);
             }
             
-            
+            ps.close();
+            rs.close();
         }
         catch (SQLException ex) {
             Logger log = Logger.getLogger(DonateService.class.getName());
@@ -94,7 +95,8 @@ public class DonateService {
                 statusList.add(donateform);
             }
             
-            
+            ps.close();
+            rs.close();
         }
         catch (SQLException ex) {
             Logger log = Logger.getLogger(DonateService.class.getName());
@@ -130,7 +132,8 @@ public class DonateService {
                 statusList.add(donateform);
             }
             
-            
+            ps.close();
+            rs.close();
         }
         catch (SQLException ex) {
             Logger log = Logger.getLogger(DonateService.class.getName());
@@ -164,7 +167,8 @@ public class DonateService {
                 
                 statusList.add(donateform);
             }
-            
+            ps.close();
+            rs.close();
             
         }
         catch (SQLException ex) {
@@ -199,7 +203,8 @@ public class DonateService {
                 statusList.add(donateform);
             }
             
-            
+            ps.close();
+            rs.close();
         }
         catch (SQLException ex) {
             Logger log = Logger.getLogger(DonateService.class.getName());
@@ -235,7 +240,8 @@ public class DonateService {
                 statusList.add(donateform);
             }
             
-            
+            ps.close();
+            rs.close();
         }
         catch (SQLException ex) {
             Logger log = Logger.getLogger(DonateService.class.getName());
@@ -270,7 +276,8 @@ public class DonateService {
                 statusList.add(donateform);
             }
             
-            
+            ps.close();
+            rs.close();
         }
         catch (SQLException ex) {
             Logger log = Logger.getLogger(DonateService.class.getName());
@@ -300,7 +307,8 @@ public class DonateService {
                 donateform.setEventName(rs.getString("eventTopic"));
                 eventList.add(donateform);
             }
-            
+            ps.close();
+            rs.close();
             
         }
         catch (SQLException ex) {
@@ -330,7 +338,8 @@ public class DonateService {
                 
                 eventList.add(event);
             }
-            
+            ps.close();
+            rs.close();
             
         }
         catch (SQLException ex) {
@@ -359,7 +368,8 @@ public class DonateService {
                 
                 eventList.add(event);
             }
-            
+            ps.close();
+            rs.close();
             
         }
         catch (SQLException ex) {
@@ -389,6 +399,8 @@ public class DonateService {
                 
             }
             System.err.println("EVENT present");
+            ps.close();
+            rs.close();
             
         }
         catch (SQLException ex) {
@@ -413,7 +425,8 @@ public class DonateService {
                 
             }
             System.err.println("EVENT present"+ eventTopic);
-            
+            ps.close();
+            rs.close();   
         }
         catch (SQLException ex) {
             Logger log = Logger.getLogger(DonateService.class.getName());
@@ -437,6 +450,9 @@ public class DonateService {
                 if (row == 1) {
                     result = true;
                 }
+                
+               
+            
         }
         catch (SQLException ex) {
             Logger log = Logger.getLogger(DonateService.class.getName());
@@ -458,6 +474,7 @@ public class DonateService {
                 if (row == 1) {
                     result = true;
                 }
+                ps.close();
         }
         catch (SQLException ex) {
             Logger log = Logger.getLogger(DonateService.class.getName());
@@ -488,6 +505,7 @@ public class DonateService {
                 if (row == 1) {
                     result = true;
                 }
+                preparedStatement.close();
 
         } catch (SQLException ex) {
 	     Logger log = Logger.getLogger(DonateService.class.getName());
@@ -517,6 +535,7 @@ public class DonateService {
                 if (row == 1) {
                     result = true;
                 }
+                   preparedStatement.close();
 
         } catch (SQLException ex) {
 	     Logger log = Logger.getLogger(DonateService.class.getName());
@@ -538,6 +557,7 @@ public class DonateService {
                 if (row == 1) {
                     result = true;
                 }
+                   ps.close();
         }
         catch (SQLException ex) {
             Logger log = Logger.getLogger(DonateService.class.getName());
@@ -559,6 +579,7 @@ public class DonateService {
                 if (row == 1) {
                     result = true;
                 }
+                   ps.close();
         }
         catch (SQLException ex) {
             Logger log = Logger.getLogger(DonateService.class.getName());

@@ -25,7 +25,7 @@ public class APIOrgService {
 
     
     public static APIOrg consumeOrgFromAPI(String registrationNumber) throws ParseException {
-        System.out.println("test"+registrationNumber);
+        //System.out.println("test"+registrationNumber);
          
         APIOrg apiOrg = new APIOrg();
          try {
@@ -51,7 +51,7 @@ public class APIOrgService {
                     JSONParser parse = new JSONParser();
                     JSONArray jsonArray = (JSONArray)parse.parse(inline);
                     //JSONArray jsonArray = data_obj.getJSONArra("languages");
-                     System.out.println("Size of Json List"+jsonArray.size());
+          //           System.out.println("Size of Json List"+jsonArray.size());
                     //for(int i = 0; i < jsonArray.size(); i++){
                         
                         
@@ -62,7 +62,7 @@ public class APIOrgService {
                     String numberOfMembers = obj.get("NumberOfMembers").toString();
                     String phoneNumber = obj.get("PhoneNumber").toString();
                     String address = obj.get("Address").toString();
-                    registrationNumber = obj.get("RegistrationNumber").toString();
+                    String rgnNumber = obj.get("RegistrationNumber").toString();
                     String validTill = obj.get("ValidTill").toString();
                         
                     System.out.println("value" + address);
@@ -73,7 +73,7 @@ public class APIOrgService {
                     apiOrg.setNameOfPresident(nameOfPresident);
                     apiOrg.setNumberOfMembers(numberOfMembers);
                     apiOrg.setPhoneNumber(phoneNumber);
-                    apiOrg.setRegistrationNumber(registrationNumber);
+                    apiOrg.setRegistrationNumber(rgnNumber);
                     apiOrg.setValidTill(validTill);
                     
                     //}

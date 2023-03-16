@@ -77,6 +77,8 @@ public class AdminService {
                 admin.setPassword(rs.getString("password"));
 
             }
+                ps.close();
+                rs.close(); 
         } catch (SQLException ex) {
             Logger log = Logger.getLogger(AdminService.class.getName());
             log.error(LocalDateTime.now()+ "Error Message: " + ex.getMessage()+" Class : AdminService, Method : getAdminDetails");
@@ -96,6 +98,8 @@ public class AdminService {
 
                 total = rs.getString("sum(amount)");
             }
+               ps.close();
+               rs.close(); 
         } catch (SQLException ex) {
             Logger log = Logger.getLogger(AdminService.class.getName());
             log.error(LocalDateTime.now()+ "Error Message: " + ex.getMessage()+" Class : AdminService, Method : getTotalDonation");
@@ -115,6 +119,8 @@ public class AdminService {
 
                 total = rs.getString("sum(amount)");
             }
+               ps.close();
+               rs.close(); 
         } catch (SQLException ex) {
             Logger log = Logger.getLogger(AdminService.class.getName());
             log.error(LocalDateTime.now()+ "Error Message: " + ex.getMessage()+" Class : AdminService, Method : getTotalUserDonation");
@@ -134,6 +140,8 @@ public class AdminService {
 
                 total = rs.getString("sum(amount)");
             }
+               ps.close();
+               rs.close(); 
         } catch (SQLException ex) {
             Logger log = Logger.getLogger(AdminService.class.getName());
             log.error(LocalDateTime.now()+ "Error Message: " + ex.getMessage()+" Class : AdminService, Method : getTotalOrgDonation");
@@ -153,6 +161,8 @@ public class AdminService {
 
                 total = rs.getString("count(*)");
             }
+               ps.close();
+               rs.close(); 
         } catch (SQLException ex) {
             Logger log = Logger.getLogger(AdminService.class.getName());
             log.error(LocalDateTime.now()+ "Error Message: " + ex.getMessage()+" Class : AdminService, Method : getTotalUsers");
@@ -172,6 +182,8 @@ public class AdminService {
 
                 total = rs.getString("count(*)");
             }
+               ps.close();
+               rs.close(); 
         } catch (SQLException ex) {
             Logger log = Logger.getLogger(AdminService.class.getName());
             log.error(LocalDateTime.now()+ "Error Message: " + ex.getMessage()+" Class : AdminService, Method : getTotalOrganisations");
@@ -191,6 +203,8 @@ public class AdminService {
 
                 total = rs.getString("count(*)");
             }
+               ps.close();
+               rs.close(); 
         } catch (SQLException ex) {
             Logger log = Logger.getLogger(AdminService.class.getName());
             log.error(LocalDateTime.now()+ "Error Message: " + ex.getMessage()+" Class : AdminService, Method : getTotalVolunteers");
@@ -219,6 +233,8 @@ public class AdminService {
 
             }
             System.out.println("donate type" + donateform.getDonorType());
+               ps.close();
+               rs.close(); 
         } catch (SQLException ex) {
             Logger log = Logger.getLogger(AdminService.class.getName());
             log.error(LocalDateTime.now()+ "Error Message: " + ex.getMessage()+" Class : AdminService, Method : getMoneybyId");
@@ -245,6 +261,8 @@ public class AdminService {
                 donateform.setStatus(rs.getString("status"));
 
             }
+               ps.close();
+               rs.close(); 
         } catch (SQLException ex) {
             Logger log = Logger.getLogger(AdminService.class.getName());
             log.error(LocalDateTime.now()+ "Error Message: " + ex.getMessage()+" Class : AdminService, Method : getEssentialsbyId");
@@ -274,6 +292,8 @@ public class AdminService {
 
                 eventList.add(donateform);
             }
+             ps.close();
+               rs.close(); 
         } catch (SQLException ex) {
             Logger log = Logger.getLogger(AdminService.class.getName());
             log.error(LocalDateTime.now()+ "Error Message: " + ex.getMessage()+" Class : AdminService, Method : getAllMoney");
@@ -302,6 +322,8 @@ public class AdminService {
 
                 eventList.add(donateform);
             }
+             ps.close();
+               rs.close(); 
         } catch (SQLException ex) {
             Logger log = Logger.getLogger(AdminService.class.getName());
             log.error(LocalDateTime.now()+ "Error Message: " + ex.getMessage()+" Class : AdminService, Method : getAllEssential");
@@ -326,6 +348,8 @@ public class AdminService {
             if (row == 1) {
                 result = true;
             }
+             preparedStatement.close();
+             
 
         } catch (SQLException ex) {
             Logger log = Logger.getLogger(AdminService.class.getName());
@@ -351,6 +375,7 @@ public class AdminService {
             if (row == 1) {
                 result = true;
             }
+            preparedStatement.close();
 
         } catch (SQLException ex) {
             Logger log = Logger.getLogger(AdminService.class.getName());
@@ -376,6 +401,7 @@ public class AdminService {
             if (row == 1) {
                 result = true;
             }
+            preparedStatement.close();
 
         } catch (SQLException ex) {
             Logger log = Logger.getLogger(AdminService.class.getName());
@@ -401,6 +427,7 @@ public class AdminService {
             if (row == 1) {
                 result = true;
             }
+            preparedStatement.close();
 
         } catch (SQLException ex) {
             Logger log = Logger.getLogger(AdminService.class.getName());
@@ -424,6 +451,7 @@ public class AdminService {
                 while (rs.next()) {
                     result = rs.getString("aadharNumber");
                 }
+                preparedStatement.close();
 
             } catch (SQLException ex) {
                 Logger log = Logger.getLogger(AdminService.class.getName());
@@ -443,6 +471,7 @@ public class AdminService {
                 while (rs.next()) {
                     result = rs.getString("regnNumber");
                 }
+                preparedStatement.close();
 
             } catch (SQLException ex) {
                 Logger log = Logger.getLogger(AdminService.class.getName());
@@ -476,6 +505,8 @@ public class AdminService {
                 user.setAadharNumber(rs.getString("aadharNumber"));
 
             }
+            preparedStatement.close();
+            rs.close();
 
         } catch (SQLException ex) {
             Logger log = Logger.getLogger(AdminService.class.getName());
@@ -507,6 +538,8 @@ public class AdminService {
                 org.setState(rs.getString("state"));
 
             }
+            preparedStatement.close();
+            rs.close();
 
         } catch (SQLException ex) {
             Logger log = Logger.getLogger(AdminService.class.getName());
@@ -538,6 +571,8 @@ public class AdminService {
 //                user.setAadharNumber(rs.getString("aadharNumber"));
 
             }
+            preparedStatement.close();
+            rs.close();
 
         } catch (SQLException ex) {
             Logger log = Logger.getLogger(AdminService.class.getName());
@@ -567,6 +602,8 @@ public class AdminService {
 
                 volunteerList.add(volunteer);
             }
+             ps.close();
+            rs.close();
         } catch (SQLException ex) {
             Logger log = Logger.getLogger(AdminService.class.getName());
             log.error(LocalDateTime.now()+ "Error Message: " + ex.getMessage()+" Class : AdminService, Method : getAllVolunteers");
@@ -600,6 +637,8 @@ public class AdminService {
 
                 userList.add(user);
             }
+             preparedStatement.close();
+            rs.close();
         } catch (SQLException ex) {
             Logger log = Logger.getLogger(AdminService.class.getName());
             log.error(LocalDateTime.now()+ "Error Message: " + ex.getMessage()+" Class : AdminService, Method : getAllUsers");
@@ -626,6 +665,8 @@ public class AdminService {
                 org.setState(rs.getString("state"));
                 orgList.add(org);
             }
+            preparedStatement.close();
+            rs.close();
         } catch (SQLException ex) {
             Logger log = Logger.getLogger(AdminService.class.getName());
             log.error(LocalDateTime.now()+ "Error Message: " + ex.getMessage()+" Class : AdminService, Method : getAllOrgs");
@@ -649,6 +690,8 @@ public class AdminService {
                 user.setEmail(rs.getString("emailAddress"));
                 userList.add(user);
             }
+            preparedStatement.close();
+            rs.close();
         } catch (SQLException ex) {
             Logger log = Logger.getLogger(AdminService.class.getName());
             log.error(LocalDateTime.now()+ "Error Message: " + ex.getMessage()+" Class : AdminService, Method : getAllGmailUsers");
@@ -670,6 +713,8 @@ public class AdminService {
 
                 dateList.add(date);
             }
+            ps.close();
+            rs.close();
             System.out.println(dateList);
 
         } catch (SQLException ex) {
@@ -693,6 +738,8 @@ public class AdminService {
 
                 dateCountList.add(count);
             }
+            ps.close();
+            rs.close();
         } catch (SQLException ex) {
             Logger log = Logger.getLogger(AdminService.class.getName());
             log.error(LocalDateTime.now()+ "Error Message: " + ex.getMessage()+" Class : AdminService, Method : getAllDatesCount");
