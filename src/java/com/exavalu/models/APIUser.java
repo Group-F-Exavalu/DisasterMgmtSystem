@@ -20,7 +20,14 @@ import org.json.simple.parser.ParseException;
 public class APIUser extends ActionSupport implements ApplicationAware, SessionAware, Serializable {
     
     
-    private String id,city,name,gender,voterId,dateOfBirth,aadharNumber,drivingLicence;
+    private String id;
+    private String city;
+    private String name;
+    private String gender;
+    private String voterId;
+    private String dateOfBirth;
+    private String aadharNumber;
+    private String drivingLicence;
     private int formId;
 
     /**
@@ -244,9 +251,9 @@ public class APIUser extends ActionSupport implements ApplicationAware, SessionA
         //APIUser apiUser = new APIUser();
         //boolean res = APIService.insertDataInDB(apiUsers);
         //if(!apiUsers.isEmpty()){
-            System.out.println("Iam"+ apiUsers.getId());
-            System.out.println("Iam"+ apiUsers.getAadharNumber());
-            System.out.println("Iam"+ apiUsers.getDrivingLicence());
+            //System.out.println("Iam"+ apiUsers.getId());
+            //System.out.println("Iam"+ apiUsers.getAadharNumber());
+            //System.out.println("Iam"+ apiUsers.getDrivingLicence());
             
             //String successMsg = "Entered API Data into Database!";
             getSessionMap().put("APIUsers", apiUsers);

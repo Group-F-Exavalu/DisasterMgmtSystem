@@ -81,12 +81,12 @@ public class TestMailService {
             message.setContent(multipart);
             //send message  
             Transport.send(message);
-            System.out.println("message sent successfully");
+            //System.out.println("message sent successfully");
         } catch (MessagingException ex) {
             Logger log = Logger.getLogger(TestMailService.class.getName());
             log.error(LocalDateTime.now() + " Error Message: " + ex.getMessage() + " Class : TestMailService, Method : send");
         }
-        System.out.println(from + " " + to + " " + password);
+        //System.out.println(from + " " + to + " " + password);
     }
 
 }

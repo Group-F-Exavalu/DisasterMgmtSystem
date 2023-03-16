@@ -5,7 +5,6 @@
 package com.exavalu.models;
 
 import com.exavalu.services.APIOrgService;
-import com.exavalu.services.APIService;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import java.io.Serializable;
@@ -179,9 +178,9 @@ public class APIOrg extends ActionSupport implements ApplicationAware, SessionAw
         //APIUser apiUser = new APIUser();
         //boolean res = APIService.insertDataInDB(apiUsers);
         //if(!apiUsers.isEmpty()){
-            System.out.println("Iam +"+ apiOrg.getId());
-            System.out.println("Iam +"+ apiOrg.getRegistrationNumber());
-            System.out.println("Iam +"+ apiOrg.getValidTill());
+            //System.out.println("Iam +"+ apiOrg.getId());
+            //System.out.println("Iam +"+ apiOrg.getRegistrationNumber());
+            //System.out.println("Iam +"+ apiOrg.getValidTill());
             
             //String successMsg = "Entered API Data into Database!";
             sessionMap.put("APIOrg", apiOrg);

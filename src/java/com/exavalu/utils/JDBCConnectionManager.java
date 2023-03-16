@@ -24,7 +24,7 @@ public class JDBCConnectionManager {
         String dbNname = jdbcUtility.getPropertyValue("dbNname");
         String url = jdbcUtility.getPropertyValue("url");
         
-        System.out.println("URL ="+url);
+        //System.out.println("URL ="+url);
 
         try {
 

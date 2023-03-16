@@ -34,7 +34,7 @@ public class DonateService {
             return donateService;
         }
     }
-    public ArrayList getMoney(){
+    public ArrayList<DonateForm> getMoney(){
         ArrayList eventList = new ArrayList();
         String sql = "SELECT * FROM donatemoney d, events e where d.eventId=e.eventId;";
         try {
@@ -65,10 +65,10 @@ public class DonateService {
             Logger log = Logger.getLogger(DonateService.class.getName());
             log.error(LocalDateTime.now()+ "Error Message: " + ex.getMessage()+" Class : DonateService, Method : getMoney");
         }
-        System.err.println("Total rows:"+eventList.size());
+//        System.err.println("Total rows:"+eventList.size());
         return eventList;
     }
-    public ArrayList getUserStatusMoneyList(int userId){
+    public ArrayList<DonateForm> getUserStatusMoneyList(int userId){
         ArrayList statusList = new ArrayList();
         String sql = "SELECT * FROM donatemoney d, events e, users u where d.eventId=e.eventId and d.donorId=u.userId and d.donorType=1 and u.userId=?;";
         try {
@@ -102,10 +102,10 @@ public class DonateService {
             Logger log = Logger.getLogger(DonateService.class.getName());
             log.error(LocalDateTime.now()+ "Error Message: " + ex.getMessage()+" Class : DonateService, Method : getUserStatusMoneyList");
         }
-        System.err.println("Total rows:"+statusList.size());
+//        System.err.println("Total rows:"+statusList.size());
         return statusList;
     }
-    public ArrayList getUserStatusEssentialList(int userId){
+    public ArrayList<DonateForm> getUserStatusEssentialList(int userId){
         ArrayList statusList = new ArrayList();
         String sql = "SELECT * FROM donateessentials d, events e, users u where d.eventId=e.eventId and d.donorId=u.userId and d.donorType=1 and u.userId=?;";
         try {
@@ -139,10 +139,10 @@ public class DonateService {
             Logger log = Logger.getLogger(DonateService.class.getName());
             log.error(LocalDateTime.now()+ "Error Message: " + ex.getMessage()+" Class : DonateService, Method : getUserStatusEssentialList");
         }
-        System.err.println("Total rows:"+statusList.size());
+//        System.err.println("Total rows:"+statusList.size());
         return statusList;
     }
-    public ArrayList getOrgStatusMoneyList(int organisationId){
+    public ArrayList<DonateForm> getOrgStatusMoneyList(int organisationId){
         ArrayList statusList = new ArrayList();
         String sql = "SELECT * FROM donatemoney d, events e, organisations o where d.eventId=e.eventId and d.donorId=o.organisationId and d.donorType=2 and o.organisationId=?;";
         try {
@@ -175,10 +175,10 @@ public class DonateService {
             Logger log = Logger.getLogger(DonateService.class.getName());
             log.error(LocalDateTime.now()+ "Error Message: " + ex.getMessage()+" Class : DonateService, Method : getOrgStatusMoneyList");
         }
-        System.err.println("Total rows:"+statusList.size());
+//        System.err.println("Total rows:"+statusList.size());
         return statusList;
     }
-    public ArrayList getOrgStatusEssentialList(int organisationId){
+    public ArrayList<DonateForm> getOrgStatusEssentialList(int organisationId){
         ArrayList statusList = new ArrayList();
         String sql = "SELECT * FROM donateessentials d, events e, organisations o where d.eventId=e.eventId and d.donorId=o.organisationId and d.donorType=2 and o.organisationId=?;";
         try {
@@ -210,10 +210,10 @@ public class DonateService {
             Logger log = Logger.getLogger(DonateService.class.getName());
             log.error(LocalDateTime.now()+ "Error Message: " + ex.getMessage()+" Class : DonateService, Method : getOrgStatusEssentialList");
         }
-        System.err.println("Total rows:"+statusList.size());
+//        System.err.println("Total rows:"+statusList.size());
         return statusList;
     }
-    public ArrayList getGUserStatusMoneyList(String email){
+    public ArrayList<DonateForm> getGUserStatusMoneyList(String email){
         ArrayList statusList = new ArrayList();
         String sql = "SELECT * FROM donatemoney d, events e, gmailusers g where d.eventId=e.eventId and d.donorId=g.id and d.donorType=3 and g.emailAddress=?;";
         try {
@@ -247,10 +247,10 @@ public class DonateService {
             Logger log = Logger.getLogger(DonateService.class.getName());
             log.error(LocalDateTime.now()+ "Error Message: " + ex.getMessage()+" Class : DonateService, Method : getGUserStatusMoneyList");
         }
-        System.err.println("Total rows:"+statusList.size());
+//        System.err.println("Total rows:"+statusList.size());
         return statusList;
     }
-    public ArrayList getGUserStatusEssentialList(String email){
+    public ArrayList<DonateForm> getGUserStatusEssentialList(String email){
         ArrayList statusList = new ArrayList();
         String sql = "SELECT * FROM donateessentials d, events e, gmailusers g where d.eventId=e.eventId and d.donorId=g.id and d.donorType=3 and g.emailAddress=?;";
         try {
@@ -283,10 +283,10 @@ public class DonateService {
             Logger log = Logger.getLogger(DonateService.class.getName());
             log.error(LocalDateTime.now()+ "Error Message: " + ex.getMessage()+" Class : DonateService, Method : getGUserStatusEssentialList");
         }
-        System.err.println("Total rows:"+statusList.size());
+//        System.err.println("Total rows:"+statusList.size());
         return statusList;
     }
-    public ArrayList getEssentials(){
+    public ArrayList<DonateForm> getEssentials(){
         ArrayList eventList = new ArrayList();
         String sql = "Select * from donateessentials d, events e where d.eventId=e.eventId;";
         try {
@@ -315,10 +315,10 @@ public class DonateService {
             Logger log = Logger.getLogger(DonateService.class.getName());
             log.error(LocalDateTime.now()+ "Error Message: " + ex.getMessage()+" Class : DonateService, Method : getEssentials");
         }
-        System.err.println("Total rows:"+eventList.size());
+//        System.err.println("Total rows:"+eventList.size());
         return eventList;
     }
-    public ArrayList getEvents(){
+    public ArrayList<Event> getEvents(){
         ArrayList eventList = new ArrayList();
         String sql = "Select * from events";
         try {
@@ -346,10 +346,10 @@ public class DonateService {
             Logger log = Logger.getLogger(DonateService.class.getName());
             log.error(LocalDateTime.now()+ "Error Message: " + ex.getMessage()+" Class : DonateService, Method : getEvents");
         }
-        System.err.println("Total rows:"+eventList.size());
+//        System.err.println("Total rows:"+eventList.size());
         return eventList;
     }
-    public ArrayList getApprovedEvents(){
+    public ArrayList<Event> getApprovedEvents(){
         ArrayList eventList = new ArrayList();
         String sql = "Select * from events where status=1";
         try {
@@ -376,7 +376,7 @@ public class DonateService {
             Logger log = Logger.getLogger(DonateService.class.getName());
             log.error(LocalDateTime.now()+ "Error Message: " + ex.getMessage()+" Class : DonateService, Method : getApprovedEvents");
         }
-        System.err.println("Total rows:"+eventList.size());
+//        System.err.println("Total rows:"+eventList.size());
         return eventList;
     }
     public Event getEventById(int eventId){
@@ -398,7 +398,7 @@ public class DonateService {
                 event.setStatus(rs.getString("status"));
                 
             }
-            System.err.println("EVENT present");
+//            System.err.println("EVENT present");
             ps.close();
             rs.close();
             
@@ -424,7 +424,7 @@ public class DonateService {
                 eventTopic=rs.getString("eventTopic");
                 
             }
-            System.err.println("EVENT present"+ eventTopic);
+//            System.err.println("EVENT present"+ eventTopic);
             ps.close();
             rs.close();   
         }
@@ -443,7 +443,7 @@ public class DonateService {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1,1);
             ps.setInt(2,eventId);
-            System.out.println("Event ID:  "+eventId);
+//            System.out.println("Event ID:  "+eventId);
             
             int row = ps.executeUpdate();
 
@@ -499,7 +499,7 @@ public class DonateService {
                 preparedStatement.setInt(5, 0);
                 preparedStatement.setString(6, donateForm.getTransactionId());
                 
-                System.out.println(preparedStatement);
+//                System.out.println(preparedStatement);
                 int row = preparedStatement.executeUpdate();
 
                 if (row == 1) {
@@ -529,7 +529,7 @@ public class DonateService {
                 preparedStatement.setString(4, donateForm.getEventId());
                 preparedStatement.setInt(5, 0);
                 
-                System.out.println(preparedStatement);
+//                System.out.println(preparedStatement);
                 int row = preparedStatement.executeUpdate();
 
                 if (row == 1) {

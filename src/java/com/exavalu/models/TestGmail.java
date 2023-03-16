@@ -96,7 +96,7 @@ public class TestGmail extends ActionSupport implements ApplicationAware, Sessio
         String result="SUCCESS";
         
         TestMailService.send(this.email, this.subject, this.message); 
-        System.out.println(email);
+        //System.out.println(email);
         
         return result;
     }

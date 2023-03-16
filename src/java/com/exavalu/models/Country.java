@@ -9,7 +9,8 @@ package com.exavalu.models;
  * @author Debjit Das
  */
 public class Country {
-    private String country, countryName;
+    private String country;
+    private String countryName;
 
     /**
      * @return the countryCode

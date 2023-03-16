@@ -226,17 +226,17 @@ public class Organisation extends ActionSupport implements ApplicationAware, Ses
 
         if (success) {            
             sessionMap.put("SuccessSignUp", "Successfully Registered");
-            System.out.println("Returning from success");
+            //System.out.println("Returning from success");
             result = "SUCCESS";
         } else {
             Logger log = Logger.getLogger(LoginService.class.getName());
             log.error(LocalDateTime.now() + "--Email Id already exists");
             sessionMap.put("FailSignUp", "Email address Already Exists");
-            System.out.println("Returning from failure");
+            //System.out.println("Returning from failure");
             String errorMsg ="You are Already Registered with us. Please try to Login";
             getSessionMap().put("ErrorMsg", errorMsg);
         }
-        System.out.println(sessionMap);
+        //System.out.println(sessionMap);
         return result;
 
     }
@@ -251,16 +251,16 @@ public class Organisation extends ActionSupport implements ApplicationAware, Ses
         String result = "SUCCESS";
         //check all data and submit
         ArrayList countryList = LoginService.getInstance().getAllCountries();
-        System.err.println("country list: "+countryList);
+        //System.err.println("country list: "+countryList);
         ArrayList stateList = null;
         ArrayList distList = null;
         sessionMap.put("CountryList", countryList);
-        System.out.println("countries are" + this.country);
-        System.out.println("States are" + this.state);
+//        System.out.println("countries are" + this.country);
+//        System.out.println("States are" + this.state);
 
         if (this.country != null) {
             stateList = LoginService.getInstance().getAllStates(this.country);
-            System.err.println("Country is: "+this.country);
+            //System.err.println("Country is: "+this.country);
             sessionMap.put("StateList", stateList);
             sessionMap.put("Organisation", this);
             result = "STATELIST";
@@ -291,7 +291,7 @@ public class Organisation extends ActionSupport implements ApplicationAware, Ses
 
         ArrayList orgStatusMoneyList = DonateService.getInstance().getOrgStatusMoneyList(organisationId);
         ArrayList orgStatusEssentialList = DonateService.getInstance().getOrgStatusEssentialList(organisationId);
-        System.out.println(this.organisationId);
+        //System.out.println(this.organisationId);
         sessionMap.put("MoneyOrgStatus",orgStatusMoneyList);
         sessionMap.put("EssentialOrgStatus",orgStatusEssentialList);
         result = "SUCCESS";

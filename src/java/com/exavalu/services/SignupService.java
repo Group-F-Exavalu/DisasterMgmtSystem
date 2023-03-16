@@ -65,7 +65,7 @@ public class SignupService {
             
             preparedStatement.setBinaryStream(12, inputStream);
             
-            System.out.println("prepared statement do signup"+ preparedStatement);
+            //System.out.println("prepared statement do signup"+ preparedStatement);
             
             int row = preparedStatement.executeUpdate();
             
@@ -108,7 +108,7 @@ public class SignupService {
             }
             preparedStatement.close();
         }catch(SQLException ex){
-            Logger log = Logger.getLogger(LoginService.class.getName());
+            Logger log = Logger.getLogger(SignupService.class.getName());
             log.error(LocalDateTime.now()+ " Error Code: " + ex.getErrorCode()+ " Error Message: " + ex.getMessage());
 
         }
@@ -126,7 +126,7 @@ public class SignupService {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, email);
             
-            System.out.println("LoginService :: "+ps);
+//            System.out.println("LoginService :: "+ps);
             
             ResultSet rs = ps.executeQuery();
             
@@ -138,8 +138,8 @@ public class SignupService {
             rs.close();
             
         } catch (SQLException ex) {
-            Logger log = Logger.getLogger(LoginService.class.getName());
-            log.error(LocalDateTime.now()+ "Error Code: " + ex.getErrorCode() +"Error Message: " + ex.getMessage());
+            Logger log = Logger.getLogger(SignupService.class.getName());
+            log.error(LocalDateTime.now()+ " Error Code: " + ex.getErrorCode()+ " Error Message: " + ex.getMessage());
         }
         
         

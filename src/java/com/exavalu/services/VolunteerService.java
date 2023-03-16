@@ -4,8 +4,6 @@
  */
 package com.exavalu.services;
 
-import com.exavalu.models.DonateForm;
-import com.exavalu.models.User;
 import com.exavalu.models.Volunteer;
 import com.exavalu.utils.JDBCConnectionManager;
 import java.sql.Connection;
@@ -56,7 +54,7 @@ public class VolunteerService {
           
 
         }catch(SQLException ex){
-            Logger log = Logger.getLogger(LoginService.class.getName());
+            Logger log = Logger.getLogger(VolunteerService.class.getName());
             log.error(LocalDateTime.now()+ " Error Code: " + ex.getErrorCode()+ " Error Message: " + ex.getMessage());
 
         }
@@ -64,7 +62,7 @@ public class VolunteerService {
     }
 
   
-    public ArrayList getAllVolunteers() {
+    public ArrayList<Volunteer> getAllVolunteers() {
         ArrayList volunteerList = new ArrayList();
         String sql = "SELECT * FROM volunteer;";
         try {
@@ -90,9 +88,10 @@ public class VolunteerService {
 
         }
         catch (SQLException ex) {
-            ex.printStackTrace();
+            Logger log = Logger.getLogger(VolunteerService.class.getName());
+            log.error(LocalDateTime.now()+ " Error Code: " + ex.getErrorCode()+ " Error Message: " + ex.getMessage());
         }
-        System.err.println("Total rows:"+volunteerList.size());
+        //System.err.println("Total rows:"+volunteerList.size());
         return volunteerList;
     }
 
@@ -123,7 +122,8 @@ public class VolunteerService {
 
         }
         catch (SQLException ex) {
-            ex.printStackTrace();
+            Logger log = Logger.getLogger(VolunteerService.class.getName());
+            log.error(LocalDateTime.now()+ " Error Code: " + ex.getErrorCode()+ " Error Message: " + ex.getMessage());
         }
         
         return volunteer;
@@ -149,7 +149,8 @@ public class VolunteerService {
 
 
         } catch (SQLException ex) {
-           
+           Logger log = Logger.getLogger(VolunteerService.class.getName());
+            log.error(LocalDateTime.now()+ " Error Code: " + ex.getErrorCode()+ " Error Message: " + ex.getMessage());
         }
 
         return result;
@@ -175,7 +176,8 @@ public class VolunteerService {
            
 
         } catch (SQLException ex) {
-           
+           Logger log = Logger.getLogger(VolunteerService.class.getName());
+            log.error(LocalDateTime.now()+ " Error Code: " + ex.getErrorCode()+ " Error Message: " + ex.getMessage());
         }
 
         return result;

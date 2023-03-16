@@ -9,7 +9,8 @@ package com.exavalu.models;
  * @author Debjit Das
  */
 public class Districts {
-    private String district, districtName;
+    private String district;
+    private String districtName;
 
     /**
      * @return the districtCode

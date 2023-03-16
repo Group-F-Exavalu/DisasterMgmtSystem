@@ -71,7 +71,7 @@ public class APIService {
                     JSONParser parse = new JSONParser();
                     JSONArray jsonArray = (JSONArray)parse.parse(inline);
                     //JSONArray jsonArray = data_obj.getJSONArra("languages");
-                     System.out.println("Size of Json List"+jsonArray.size());
+//                     System.out.println("Size of Json List"+jsonArray.size());
                     //for(int i = 0; i < jsonArray.size(); i++){
                         
                         
@@ -85,7 +85,7 @@ public class APIService {
                         aadharNumber = obj.get("aadharNumber").toString();
                         String drivingLicence = obj.get("drivingLicence").toString();
                         
-                        System.out.println("value"+voterId);
+//                        System.out.println("value"+voterId);
                       
                         apiUser.setId(id);
                         apiUser.setCity(city);
