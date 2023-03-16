@@ -568,9 +568,15 @@ public class User extends ActionSupport implements ApplicationAware, SessionAwar
      */
     public String doSave() throws Exception {
         String res = "FAILURE";
-        boolean result = LoginService.updateUser(this);
+//        boolean result = LoginService.updateUser(this);
+        boolean result = false;
+        if (this.image!=null){
+                result = LoginService.updateUser(this);
+        }
+        else{
+            result = LoginService.updateUserWithoutImage(this);
+        }      
         User user = LoginService.getUser(emailAddress);
-
         if (result) {
             sessionMap.put("User", user);
             res = "SUCCESS";
