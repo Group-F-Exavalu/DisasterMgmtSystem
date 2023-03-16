@@ -68,7 +68,8 @@ public class LoginService {
             {
                 success = true;
             }
-            
+            ps.close();
+            rs.close();
         } catch (SQLException ex) {
             Logger log = Logger.getLogger(LoginService.class.getName());
             log.error(LocalDateTime.now()+ "Error Code: " + ex.getErrorCode() +"Error Message: " + ex.getMessage());
@@ -97,8 +98,11 @@ public class LoginService {
             {
                 success = true;
             }
-            
-        } catch (SQLException ex) {
+               ps.close();
+               rs.close();    
+        } 
+               
+        catch (SQLException ex) {
             Logger log = Logger.getLogger(LoginService.class.getName());
             log.error(LocalDateTime.now()+ "Error Code: " + ex.getErrorCode() +"Error Message: " + ex.getMessage());
         }
@@ -126,6 +130,8 @@ public class LoginService {
             {
                 success = true;
             }
+               ps.close();
+               rs.close();
             
         } catch (SQLException ex) {
             Logger log = Logger.getLogger(LoginService.class.getName());
@@ -193,6 +199,8 @@ public class LoginService {
             }
 
             System.err.println("Number of countries = "+countryList.size());
+               preparedStatement.close();
+               rs.close();
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
@@ -222,6 +230,9 @@ public class LoginService {
                 stateList.add(state);
 
             }
+             preparedStatement.close();
+               rs.close();
+            
 
 
         } catch (SQLException ex) {
@@ -263,7 +274,8 @@ public class LoginService {
                 
                 System.out.println("User Phone :" +rs.getString("phoneNumber"));
             }
-            
+             preparedStatement.close();
+               rs.close();
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
@@ -291,7 +303,8 @@ public class LoginService {
                 org.setState(rs.getString("state"));
                 
             }
-            
+             preparedStatement.close();
+               rs.close();
         } catch (SQLException ex) {
 
         }
@@ -322,6 +335,8 @@ public class LoginService {
                 districtList.add(district);
 
             }
+             preparedStatement.close();
+               rs.close();
 
 
         } catch (SQLException ex) {
@@ -350,7 +365,8 @@ public class LoginService {
             {
                 success = true;
             }
-            
+               ps.close();
+               rs.close();
         } catch (SQLException ex) {
             Logger log = Logger.getLogger(LoginService.class.getName());
             log.error(LocalDateTime.now()+ "Error Code: " + ex.getErrorCode() +"Error Message: " + ex.getMessage());
@@ -379,6 +395,8 @@ public class LoginService {
             if(row==1){
                 result = true;
             }
+            preparedStatement.close();
+              
         }catch(SQLException ex){
             Logger log = Logger.getLogger(LoginService.class.getName());
             log.error(LocalDateTime.now()+ " Error Code: " + ex.getErrorCode()+ " Error Message: " + ex.getMessage());
@@ -406,7 +424,9 @@ public class LoginService {
                 
 //                System.out.println("User Phone :" +rs.getString("phoneNumber"));
             }
-            
+             preparedStatement.close();
+             rs.close();
+             
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
@@ -436,6 +456,8 @@ public class LoginService {
                 
                 userList.add(user);
             }
+              preparedStatement.close();
+             rs.close();
         } catch (SQLException ex) {
     
         }
@@ -465,6 +487,8 @@ public class LoginService {
             {
                 result = true;
             }
+              preparedStatement.close();
+            
         }
         return result;
     }    
@@ -490,7 +514,10 @@ public class LoginService {
             {
                 result = true;
             }
+              preparedStatement.close();
+            
         }
+        
         return result;
     }    
     public static String getMd5(String input)

@@ -54,6 +54,8 @@ public class SupportService {
                 if (row == 1) {
                     result = true;
                 }
+                  preparedStatement.close();
+        
 
         } catch (SQLException ex) {
 	     Logger log = Logger.getLogger(SupportService.class.getName());

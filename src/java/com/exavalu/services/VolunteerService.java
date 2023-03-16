@@ -52,6 +52,9 @@ public class VolunteerService {
             if(row==1){
                 result = true;
             }
+             preparedStatement.close();
+          
+
         }catch(SQLException ex){
             Logger log = Logger.getLogger(LoginService.class.getName());
             log.error(LocalDateTime.now()+ " Error Code: " + ex.getErrorCode()+ " Error Message: " + ex.getMessage());
@@ -82,7 +85,9 @@ public class VolunteerService {
                 volunteerList.add(volunteer);
             }
             
-            
+             ps.close();
+            rs.close();
+
         }
         catch (SQLException ex) {
             ex.printStackTrace();
@@ -112,7 +117,10 @@ public class VolunteerService {
                 volunteer.setStatus(rs.getInt("status"));
                 
                 
-            }            
+            }  
+             ps.close();
+            rs.close();
+
         }
         catch (SQLException ex) {
             ex.printStackTrace();
@@ -136,6 +144,9 @@ public class VolunteerService {
             if (row == 1) {
                 result = true;
             }
+             preparedStatement.close();
+           
+
 
         } catch (SQLException ex) {
            
@@ -160,6 +171,8 @@ public class VolunteerService {
             if (row == 1) {
                 result = true;
             }
+ preparedStatement.close();
+           
 
         } catch (SQLException ex) {
            

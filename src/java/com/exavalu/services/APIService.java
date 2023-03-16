@@ -45,9 +45,7 @@ public class APIService {
     
     public static APIUser consumeAadharFromAPI(String aadharNumber) throws ParseException, org.json.simple.parser.ParseException{
         
-        //String result = null;
-        //ArrayList<APIUser> policyList = new ArrayList();
-        System.out.println("test"+aadharNumber);
+        
          
         APIUser apiUser = new APIUser();
          try {

@@ -51,6 +51,8 @@ public class UserService {
                 user.setAadharNumber(rs.getString("aadharNumber"));
                 
             }
+            preparedStatement.close();
+            rs.close();
 
         } catch (SQLException ex) {
             Logger log = Logger.getLogger(UserService.class.getName());
