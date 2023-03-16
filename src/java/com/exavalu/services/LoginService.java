@@ -468,6 +468,31 @@ public class LoginService {
         }
         return result;
     }    
+    
+    public static boolean updateUserWithoutImage(User user) throws IOException, SQLException {
+        boolean result = false;
+        Connection con = JDBCConnectionManager.getConnection(); {
+            String sql = "UPDATE users SET firstName = ? , lastName = ? , emailAddress = ?, phoneNumber = ? , address = ?, gender = ? WHERE userId = ?";
+
+            PreparedStatement preparedStatement = con.prepareStatement(sql);
+                     
+            preparedStatement.setString(1, user.getFirstName());
+            preparedStatement.setString(2, user.getLastName());
+            preparedStatement.setString(3, user.getEmailAddress());
+            preparedStatement.setString(4, user.getPhoneNumber());
+            preparedStatement.setString(5, user.getAddress());
+            preparedStatement.setString(6, user.getGender());
+            
+            
+            preparedStatement.setInt(7, user.getUserId());
+            int row = preparedStatement.executeUpdate();
+            if(row==1)
+            {
+                result = true;
+            }
+        }
+        return result;
+    }    
     public static String getMd5(String input)
     {
         try {
