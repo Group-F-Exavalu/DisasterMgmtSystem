@@ -20,6 +20,7 @@ import org.apache.log4j.Logger;
  * This class serves as the connection between the JAVA Environment and DataBase for Donate entity Interaction
  * @author Reetangsee Dutta
  */
+//@SuppressWarnings("PMD")
 public class DonateService {
     
     public static DonateService donateService = null;

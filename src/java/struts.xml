@@ -44,11 +44,11 @@
             <result name="FAILURE">donateMoney.jsp</result>
         </action>
         <action name="DonateEssentialUser" class="com.exavalu.models.DonateForm" method="insertEssentialsFormUser">
-            <result name="SUCCESS">donateMain.jsp</result>
+            <result name="SUCCESS">receiptEssentials.jsp</result>
             <result name="FAILURE">donateEssentials.jsp</result>
         </action>
         <action name="DonateEssentialOrg" class="com.exavalu.models.DonateForm" method="insertEssentialsFormOrg">
-            <result name="SUCCESS">donateMain.jsp</result>
+            <result name="SUCCESS">receiptEssentials.jsp</result>
             <result name="FAILURE">donateEssentials.jsp</result>
         </action>
         <action name="NeedSupportUser" class="com.exavalu.models.Event" method="insertEventUser">

@@ -50,18 +50,15 @@
                         <thead>
                             <tr>
                                 <th scope="col">Description of Support Event</th>
-                                <th scope="col">Amount Paid</th>
+                                <th scope="col">Essentials Donated</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td>${DonateForm.eventTopic}</td>
-                                <td><span>&#8377;</span> ${DonateForm.amount}</td>
+                                <td> ${DonateForm.essentialName}</td>
                             </tr>
-                            <tr>
-                                <td><b>UPI Transaction ID</b></td>
-                                <td>${DonateForm.transactionId}</td>
-                            </tr>
+                            
                         </tbody>
                     </table>
 
@@ -78,13 +75,13 @@
                         </div>
                       </div>-->
                 <!--<hr>-->
-                <div class="row">
+<!--                <div class="row">
                     <div class="col-xl-8" style="margin-left:60px">
                         <p class="float-end"
                            style="font-size: 30px; color: orangered; font-weight: 400;font-family: Arial, Helvetica, sans-serif;">
                             Total:
                             <span>&#8377;</span> ${DonateForm.amount}</p>
-                    </div>
+                    </div>-->
 
                 </div>
 

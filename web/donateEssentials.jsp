@@ -73,13 +73,7 @@
                 color: white;
         }
     </style>
-        <script>
-                      // Function to GeneratePdf
-            function GeneratePdf() {
-                var element = document.getElementById('myForm');
-                html2pdf(element);
-            }
-        </script>
+        
     </head>
     <body>
         <c:if test='${User!=null}'>
@@ -117,9 +111,7 @@
                 <label for="name"> Essential Name </label>
                 <input type="text" id="essential" placeholder = "Clothes, Food, Drinks.." name="essentialName">
                 
-                <div>
-                <button onclick= "GeneratePdf()" class="btn btn-color px-2 mb-2 w-100" type="button" id="button">Generate PDF</button>
-                    </div>
+                
 
                     <button class="btn btn-color px-2 mb-2 w-100" type="submit" id="submitBtn">Submit</button>
             </form>
@@ -163,9 +155,7 @@
                 
                 <div>
                 
-                <div>
-                <button onclick= "GeneratePdf()" class="btn btn-color px-2 mb-2 w-100" type="button" id="button">Generate PDF</button>
-                    </div>
+                
 
                     <button class="btn btn-color px-2 mb-2 w-100" type="submit" id="submitBtn">Submit</button>
                    </div>
@@ -215,9 +205,7 @@
                 
                 <div>
                 
-                <div>
-                <button onclick= "GeneratePdf()" class="btn btn-color px-2 mb-2 w-100" type="button" id="button">Generate PDF</button>
-                    </div>
+                
 
                     <button class="btn btn-color px-2 mb-2 w-100" type="submit" id="submitBtn">Submit</button>
                    </div>

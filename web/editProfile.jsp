@@ -8,32 +8,32 @@
     <title>User Profile</title>
 </head>
 <jsp:include page="menu.jsp"></jsp:include>
-<style>
-     input {
-        border-top-style: hidden;
-        border-right-style: hidden;
-        border-left-style: hidden;
-        border-bottom-style: hidden;
-        background-color: white;
-      }
-</style>
+    <style>
+        input {
+            border-top-style: hidden;
+            border-right-style: hidden;
+            border-left-style: hidden;
+            border-bottom-style: hidden;
+            background-color: white;
+        }
+    </style>
     <div id="ultimate">
         <div class="container emp-profile shadow-lg p-3 mb-5 bg-white rounded">
             <form action="SaveUser" enctype="multipart/form-data" method="post" id="saveuser">
                 <div class="row">
                     <div class="col-md-4">
                         <div class="profile-img">
-<!--                            <img id="photo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog" style="border-radius: 20px 20px 0 0;">-->
-                         <img src="data:image/png;base64,${User.getImageData()}" style="max-width: 200px; max-height: 200px;">
-                            
-                        </div>
+                            <!--                            <img id="photo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog" style="border-radius: 20px 20px 0 0;">-->
+                            <img src="data:image/png;base64,${User.getImageData()}" style="max-width: 200px; max-height: 200px;"  >
+
                     </div>
-                    <div class="col-md-6">
-                        <div class="profile-head">
-                            <h5>
+                </div>
+                <div class="col-md-6">
+                    <div class="profile-head">
+                        <h5>
                             ${User.firstName} ${User.lastName}
                         </h5>
-                       
+
                         <p class="proile-rating">RANKINGS : <span>8/10</span></p>
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                             <li class="nav-item">
@@ -52,11 +52,11 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="profile-work">
-                       
-                        <input type="file" id="image-file" name="image" onchange="previewImage(event)"><br>
+
+                        <input type="file" id="image-file" name="image" onchange="previewImage()" ><br>
                         <img id="image-preview" style="max-width: 200px; max-height: 200px;">
-                        
-                      
+
+
                     </div>
                 </div>
 
@@ -181,9 +181,10 @@
         </form>           
     </div>
 </div>
-                            <script>
-                                var loadFile = (event) => {
-                                        let image = document.getElementById('photo');
-                                        image.src = URL.createObjectURL(event.target.files[0]);
-                                };
-                            </script>                         
+<script>
+   
+    function previewImage(){
+        let image = document.getElementById('photo');
+        image.src = URL.createObjectURL(event.target.files[0]);
+    };
+</script>                         

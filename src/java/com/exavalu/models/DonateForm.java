@@ -141,6 +141,8 @@ public class DonateForm extends ActionSupport implements ApplicationAware, Sessi
         boolean success = false;
         if(donorType.equals("3")){
             success = DonateService.getInstance().insertEssentialsForm(this);
+            eventTopic = DonateService.getInstance().getEventTopicById(this.eventId);
+            sessionMap.put("DonateForm", this);
             if(success){
             result="SUCCESS";
             //System.out.println("Essentials Record Added to database");
@@ -151,6 +153,8 @@ public class DonateForm extends ActionSupport implements ApplicationAware, Sessi
         else{
             donorType = "1";
             boolean res = DonateService.getInstance().insertEssentialsForm(this);
+            eventTopic = DonateService.getInstance().getEventTopicById(this.eventId);
+            sessionMap.put("DonateForm", this);
             if(res){
             result="SUCCESS";
             //System.out.println("Essentials Record Added to database");
@@ -170,6 +174,8 @@ public class DonateForm extends ActionSupport implements ApplicationAware, Sessi
         String result = "FAILURE";
         donorType = "2";
         boolean res = DonateService.getInstance().insertEssentialsForm(this);
+        eventTopic = DonateService.getInstance().getEventTopicById(this.eventId);
+        sessionMap.put("DonateForm", this);
         if(res){
             result="SUCCESS";
             //System.out.println("Essentials Record Added to database");
