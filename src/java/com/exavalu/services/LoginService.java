@@ -24,6 +24,7 @@ import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Base64;
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
 /**
@@ -72,7 +73,11 @@ public class LoginService {
             rs.close();
         } catch (SQLException ex) {
             Logger log = Logger.getLogger(LoginService.class.getName());
-            log.error(LocalDateTime.now()+ "Error Code: " + ex.getErrorCode() +"Error Message: " + ex.getMessage());
+            if (log.isEnabledFor(Level.ERROR)) {
+                String errorMessage = LocalDateTime.now() + " Error Code: " + ex.getErrorCode() + " Error Message: " + ex.getMessage();
+                log.error(errorMessage);
+            }
+            //log.error(LocalDateTime.now()+ "Error Code: " + ex.getErrorCode() +"Error Message: " + ex.getMessage());
         }
         
         
@@ -104,7 +109,11 @@ public class LoginService {
                
         catch (SQLException ex) {
             Logger log = Logger.getLogger(LoginService.class.getName());
-            log.error(LocalDateTime.now()+ "Error Code: " + ex.getErrorCode() +"Error Message: " + ex.getMessage());
+            if (log.isEnabledFor(Level.ERROR)) {
+                String errorMessage = LocalDateTime.now() + " Error Code: " + ex.getErrorCode() + " Error Message: " + ex.getMessage();
+                log.error(errorMessage);
+            }
+            //log.error(LocalDateTime.now()+ "Error Code: " + ex.getErrorCode() +"Error Message: " + ex.getMessage());
         }
         
         
@@ -135,7 +144,11 @@ public class LoginService {
             
         } catch (SQLException ex) {
             Logger log = Logger.getLogger(LoginService.class.getName());
-            log.error(LocalDateTime.now()+ "Error Code: " + ex.getErrorCode() +"Error Message: " + ex.getMessage());
+            if (log.isEnabledFor(Level.ERROR)) {
+                String errorMessage = LocalDateTime.now() + " Error Code: " + ex.getErrorCode() + " Error Message: " + ex.getMessage();
+                log.error(errorMessage);
+            }
+            //log.error(LocalDateTime.now()+ "Error Code: " + ex.getErrorCode() +"Error Message: " + ex.getMessage());
         }
         
         
@@ -203,7 +216,11 @@ public class LoginService {
                rs.close();
         } catch (SQLException ex) {
             Logger log = Logger.getLogger(LoginService.class.getName());
-            log.error(LocalDateTime.now()+ "Error Message: " + ex.getMessage());
+            if (log.isEnabledFor(Level.ERROR)) {
+                String errorMessage = LocalDateTime.now() + " Error Code: " + ex.getErrorCode() + " Error Message: " + ex.getMessage();
+                log.error(errorMessage);
+            }
+            //log.error(LocalDateTime.now()+ "Error Message: " + ex.getMessage());
         }
         
         return countryList;
@@ -238,7 +255,11 @@ public class LoginService {
 
         } catch (SQLException ex) {
             Logger log = Logger.getLogger(LoginService.class.getName());
-            log.error(LocalDateTime.now()+ "Error Message: " + ex.getMessage());
+            if (log.isEnabledFor(Level.ERROR)) {
+                String errorMessage = LocalDateTime.now() + " Error Code: " + ex.getErrorCode() + " Error Message: " + ex.getMessage();
+                log.error(errorMessage);
+            }
+            //log.error(LocalDateTime.now()+ "Error Message: " + ex.getMessage());
         }
 //        System.err.println("Number of states = "+stateList.size());
         return stateList;
@@ -280,7 +301,11 @@ public class LoginService {
                rs.close();
         } catch (SQLException ex) {
             Logger log = Logger.getLogger(LoginService.class.getName());
-            log.error(LocalDateTime.now()+ "Error Message: " + ex.getMessage());
+            if (log.isEnabledFor(Level.ERROR)) {
+                String errorMessage = LocalDateTime.now() + " Error Code: " + ex.getErrorCode() + " Error Message: " + ex.getMessage();
+                log.error(errorMessage);
+            }
+            //log.error(LocalDateTime.now()+ "Error Message: " + ex.getMessage());
         }
 
         return user;
@@ -310,7 +335,11 @@ public class LoginService {
                rs.close();
         } catch (SQLException ex) {
             Logger log = Logger.getLogger(LoginService.class.getName());
-            log.error(LocalDateTime.now()+ "Error Message: " + ex.getMessage());
+            if (log.isEnabledFor(Level.ERROR)) {
+                String errorMessage = LocalDateTime.now() + " Error Code: " + ex.getErrorCode() + " Error Message: " + ex.getMessage();
+                log.error(errorMessage);
+            }
+            //log.error(LocalDateTime.now()+ "Error Message: " + ex.getMessage());
         }
 
         return org;
@@ -345,7 +374,11 @@ public class LoginService {
 
         } catch (SQLException ex) {
             Logger log = Logger.getLogger(LoginService.class.getName());
-            log.error(LocalDateTime.now()+ "Error Message: " + ex.getMessage());
+            if (log.isEnabledFor(Level.ERROR)) {
+                String errorMessage = LocalDateTime.now() + " Error Code: " + ex.getErrorCode() + " Error Message: " + ex.getMessage();
+                log.error(errorMessage);
+            }
+            //log.error(LocalDateTime.now()+ "Error Message: " + ex.getMessage());
         }
 //        System.err.println("Number of districts = "+districtList.size());
         return districtList;
@@ -374,7 +407,11 @@ public class LoginService {
                rs.close();
         } catch (SQLException ex) {
             Logger log = Logger.getLogger(LoginService.class.getName());
-            log.error(LocalDateTime.now()+ "Error Code: " + ex.getErrorCode() +"Error Message: " + ex.getMessage());
+            if (log.isEnabledFor(Level.ERROR)) {
+                String errorMessage = LocalDateTime.now() + " Error Code: " + ex.getErrorCode() + " Error Message: " + ex.getMessage();
+                log.error(errorMessage);
+            }
+            //log.error(LocalDateTime.now()+ "Error Code: " + ex.getErrorCode() +"Error Message: " + ex.getMessage());
         }
         
         
@@ -404,7 +441,11 @@ public class LoginService {
               
         }catch(SQLException ex){
             Logger log = Logger.getLogger(LoginService.class.getName());
-            log.error(LocalDateTime.now()+ " Error Code: " + ex.getErrorCode()+ " Error Message: " + ex.getMessage());
+            if (log.isEnabledFor(Level.ERROR)) {
+                String errorMessage = LocalDateTime.now() + " Error Code: " + ex.getErrorCode() + " Error Message: " + ex.getMessage();
+                log.error(errorMessage);
+            }
+            //log.error(LocalDateTime.now()+ " Error Code: " + ex.getErrorCode()+ " Error Message: " + ex.getMessage());
 
         }
         return result;
@@ -434,7 +475,11 @@ public class LoginService {
              
         } catch (SQLException ex) {
             Logger log = Logger.getLogger(LoginService.class.getName());
-            log.error(LocalDateTime.now()+ "Error Message: " + ex.getMessage());
+            if (log.isEnabledFor(Level.ERROR)) {
+                String errorMessage = LocalDateTime.now() + " Error Code: " + ex.getErrorCode() + " Error Message: " + ex.getMessage();
+                log.error(errorMessage);
+            }
+            //log.error(LocalDateTime.now()+ "Error Message: " + ex.getMessage());
         }
 
         return guser;
@@ -466,7 +511,11 @@ public class LoginService {
              rs.close();
         } catch (SQLException ex) {
             Logger log = Logger.getLogger(LoginService.class.getName());
-            log.error(LocalDateTime.now()+ "Error Message: " + ex.getMessage());
+            if (log.isEnabledFor(Level.ERROR)) {
+                String errorMessage = LocalDateTime.now() + " Error Code: " + ex.getErrorCode() + " Error Message: " + ex.getMessage();
+                log.error(errorMessage);
+            }
+            //log.error(LocalDateTime.now()+ "Error Message: " + ex.getMessage());
         }
         return userList;
     }

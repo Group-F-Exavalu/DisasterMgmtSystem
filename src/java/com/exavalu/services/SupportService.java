@@ -11,6 +11,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
 /**
@@ -58,8 +59,13 @@ public class SupportService {
         
 
         } catch (SQLException ex) {
-	     Logger log = Logger.getLogger(SupportService.class.getName());
-            log.error(LocalDateTime.now()+ " Error Code: " + ex.getErrorCode()+ " Error Message: " + ex.getMessage()+" Class : SupportService, Method : insertEvents");
+//	     Logger log = Logger.getLogger(SupportService.class.getName());
+//            log.error(LocalDateTime.now()+ " Error Code: " + ex.getErrorCode()+ " Error Message: " + ex.getMessage()+" Class : SupportService, Method : insertEvents");
+            Logger log = Logger.getLogger(SupportService.class.getName());
+            if (log.isEnabledFor(Level.ERROR)) {
+                String errorMessage = LocalDateTime.now() + " Error Code: " + ex.getErrorCode() + " Error Message: " + ex.getMessage();
+                log.error(errorMessage);
+            }
             }
         return result;
     }

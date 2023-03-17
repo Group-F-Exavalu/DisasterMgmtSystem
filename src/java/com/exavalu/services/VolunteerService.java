@@ -12,6 +12,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 /**
  * This class serves as the connection between the JAVA Environment and DataBase for Volunteer entity Interaction 
@@ -55,8 +56,10 @@ public class VolunteerService {
 
         }catch(SQLException ex){
             Logger log = Logger.getLogger(VolunteerService.class.getName());
-            log.error(LocalDateTime.now()+ " Error Code: " + ex.getErrorCode()+ " Error Message: " + ex.getMessage());
-
+            if (log.isEnabledFor(Level.ERROR)) {
+                String errorMessage = LocalDateTime.now() + " Error Code: " + ex.getErrorCode() + " Error Message: " + ex.getMessage();
+                log.error(errorMessage);
+            }
         }
         return result;
     }
@@ -89,7 +92,10 @@ public class VolunteerService {
         }
         catch (SQLException ex) {
             Logger log = Logger.getLogger(VolunteerService.class.getName());
-            log.error(LocalDateTime.now()+ " Error Code: " + ex.getErrorCode()+ " Error Message: " + ex.getMessage());
+            if (log.isEnabledFor(Level.ERROR)) {
+                String errorMessage = LocalDateTime.now() + " Error Code: " + ex.getErrorCode() + " Error Message: " + ex.getMessage();
+                log.error(errorMessage);
+            }
         }
         //System.err.println("Total rows:"+volunteerList.size());
         return volunteerList;
@@ -123,7 +129,12 @@ public class VolunteerService {
         }
         catch (SQLException ex) {
             Logger log = Logger.getLogger(VolunteerService.class.getName());
-            log.error(LocalDateTime.now()+ " Error Code: " + ex.getErrorCode()+ " Error Message: " + ex.getMessage());
+            if (log.isEnabledFor(Level.ERROR)) {
+                String errorMessage = LocalDateTime.now() + " Error Code: " + ex.getErrorCode() + " Error Message: " + ex.getMessage();
+                log.error(errorMessage);
+            }
+//            Logger log = Logger.getLogger(VolunteerService.class.getName());
+//            log.error(LocalDateTime.now()+ " Error Code: " + ex.getErrorCode()+ " Error Message: " + ex.getMessage());
         }
         
         return volunteer;
@@ -149,8 +160,13 @@ public class VolunteerService {
 
 
         } catch (SQLException ex) {
-           Logger log = Logger.getLogger(VolunteerService.class.getName());
-            log.error(LocalDateTime.now()+ " Error Code: " + ex.getErrorCode()+ " Error Message: " + ex.getMessage());
+//           Logger log = Logger.getLogger(VolunteerService.class.getName());
+//            log.error(LocalDateTime.now()+ " Error Code: " + ex.getErrorCode()+ " Error Message: " + ex.getMessage());
+            Logger log = Logger.getLogger(VolunteerService.class.getName());
+            if (log.isEnabledFor(Level.ERROR)) {
+                String errorMessage = LocalDateTime.now() + " Error Code: " + ex.getErrorCode() + " Error Message: " + ex.getMessage();
+                log.error(errorMessage);
+            }
         }
 
         return result;
@@ -176,8 +192,13 @@ public class VolunteerService {
            
 
         } catch (SQLException ex) {
-           Logger log = Logger.getLogger(VolunteerService.class.getName());
-            log.error(LocalDateTime.now()+ " Error Code: " + ex.getErrorCode()+ " Error Message: " + ex.getMessage());
+            Logger log = Logger.getLogger(VolunteerService.class.getName());
+            if (log.isEnabledFor(Level.ERROR)) {
+                String errorMessage = LocalDateTime.now() + " Error Code: " + ex.getErrorCode() + " Error Message: " + ex.getMessage();
+                log.error(errorMessage);
+            }
+//           Logger log = Logger.getLogger(VolunteerService.class.getName());
+//            log.error(LocalDateTime.now()+ " Error Code: " + ex.getErrorCode()+ " Error Message: " + ex.getMessage());
         }
 
         return result;
