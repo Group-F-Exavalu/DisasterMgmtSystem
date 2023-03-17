@@ -11,6 +11,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 /**
  * This class serves as the connection between the JAVA Environment and DataBase for User entity Interaction
@@ -55,9 +56,13 @@ public class UserService {
             rs.close();
 
         } catch (SQLException ex) {
-            Logger log = Logger.getLogger(UserService.class.getName());
-            log.error(LocalDateTime.now()+ " Error Code: " + ex.getErrorCode()+ " Error Message: " + ex.getMessage()+" Class : UserService, Method : getUser");
-        }
+                        Logger log = Logger.getLogger(UserService.class.getName());
+
+            if(log.isEnabledFor(Level.ERROR)){
+//            Logger log = Logger.getLogger(UserService.class.getName());
+            String errorMessage=LocalDateTime.now()+ " Error Code: " + ex.getErrorCode()+ " Error Message: " + ex.getMessage()+" Class : UserService, Method : getUser";
+            log.error(errorMessage);
+        }}
 
         return user;
     }
