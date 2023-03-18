@@ -14,6 +14,7 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Map;
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.apache.struts2.dispatcher.ApplicationMap;
 import org.apache.struts2.dispatcher.SessionMap;
@@ -230,7 +231,10 @@ public class Organisation extends ActionSupport implements ApplicationAware, Ses
             result = "SUCCESS";
         } else {
             Logger log = Logger.getLogger(LoginService.class.getName());
-            log.error(LocalDateTime.now() + "--Email Id already exists");
+            if (log.isEnabledFor(Level.ERROR)) {
+                String errorMessage = LocalDateTime.now() + " Error Message: --Email Id already exists";
+                log.error(errorMessage);
+            }
             sessionMap.put("FailSignUp", "Email address Already Exists");
             //System.out.println("Returning from failure");
             String errorMsg ="You are Already Registered with us. Please try to Login";

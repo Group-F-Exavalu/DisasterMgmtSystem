@@ -11,6 +11,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.LocalDateTime;
 import java.util.Scanner;
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -75,7 +76,7 @@ public class APIOrgService {
                     apiOrg.setPhoneNumber(phoneNumber);
                     apiOrg.setRegistrationNumber(rgnNumber);
                     apiOrg.setValidTill(validTill);
-                    
+                    scanner.close();
                     //}
                    
                     //System.out.println("set everything with api org");
@@ -85,12 +86,18 @@ public class APIOrgService {
 	  } catch (MalformedURLException e) {
 
             Logger log = Logger.getLogger(APIOrgService.class.getName());
-            log.error(LocalDateTime.now()+ "Error Message: " + e.getMessage());
+            if (log.isEnabledFor(Level.ERROR)) {
+                String errorMessage = LocalDateTime.now() + " Error Message: " + e.getMessage();
+                log.error(errorMessage);
+            }
 
 	  } catch (IOException e) {
 
             Logger log = Logger.getLogger(APIOrgService.class.getName());
-            log.error(LocalDateTime.now()+ "Error Message: " + e.getMessage());
+            if (log.isEnabledFor(Level.ERROR)) {
+                String errorMessage = LocalDateTime.now() + " Error Message: " + e.getMessage();
+                log.error(errorMessage);
+            }
 
 	  }
           return apiOrg;

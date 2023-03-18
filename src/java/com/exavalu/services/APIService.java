@@ -12,6 +12,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.LocalDateTime;
 import java.util.Scanner;
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -100,19 +101,25 @@ public class APIService {
                         
                     //}
                    
-                    
+                    scanner.close();
                 }
                  
 
 	  } catch (MalformedURLException e) {
 
             Logger log = Logger.getLogger(APIService.class.getName());
-            log.error(LocalDateTime.now()+ "Error Message: " + e.getMessage()+" Class : APIService, Method : consumeDataFromAPI()");
+            if (log.isEnabledFor(Level.ERROR)) {
+                String errorMessage = LocalDateTime.now() + " Error Message: " + e.getMessage();
+                log.error(errorMessage);
+            }
 
 	  } catch (IOException e) {
 
             Logger log = Logger.getLogger(APIService.class.getName());
-            log.error(LocalDateTime.now()+ "Error Message: " + e.getMessage()+" Class : APIService, Method : consumeDataFromAPI()");
+            if (log.isEnabledFor(Level.ERROR)) {
+                String errorMessage = LocalDateTime.now() + " Error Message: " + e.getMessage();
+                log.error(errorMessage);
+            }
 
 	  }
           return apiUser;

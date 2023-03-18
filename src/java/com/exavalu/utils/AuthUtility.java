@@ -7,7 +7,10 @@ package com.exavalu.utils;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.time.LocalDateTime;
 import java.util.Properties;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
 
 /**
  * This class access the value of authentication credentials for Gmail Credentials
@@ -35,8 +38,12 @@ public class AuthUtility {
             value = prop.getProperty(param);
 
         } catch (IOException e) {
+            Logger log = Logger.getLogger(AuthUtility.class.getName());
             // TODO Auto-generated catch block
-            e.printStackTrace();
+            if (log.isEnabledFor(Level.ERROR)) {
+                String errorMessage = LocalDateTime.now() + " Error Message: " + e.getMessage();
+                log.error(errorMessage);
+            }
         }
 
         return value;

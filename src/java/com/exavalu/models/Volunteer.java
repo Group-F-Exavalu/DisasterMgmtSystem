@@ -246,9 +246,9 @@ public class Volunteer extends ActionSupport implements ApplicationAware, Sessio
 //        System.out.println("returning Success from saveVolunteerStatus method");
         result = "SUCCESS";
     }
-    else {
-//        System.out.println("returning Failure from saveVolunteerStatus method");
-    }
+//    else {
+////        System.out.println("returning Failure from saveVolunteerStatus method");
+//    }
     return result;
 }
     
@@ -268,9 +268,9 @@ public class Volunteer extends ActionSupport implements ApplicationAware, Sessio
 //        System.out.println("returning Success from deleteVolunteerStatus method");
         result = "SUCCESS";
     }
-    else {
-//        System.out.println("returning Failure from deleteVolunteerStatus method");
-    }
+//    else {
+////        System.out.println("returning Failure from deleteVolunteerStatus method");
+//    }
     return result;
 }
 }
