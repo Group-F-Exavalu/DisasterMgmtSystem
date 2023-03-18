@@ -376,9 +376,9 @@ public class Admin extends ActionSupport implements ApplicationAware, SessionAwa
         //System.out.println("returning Success from deleteEssentialStatus method");
         result = "SUCCESS";
     }
-    else {
-        //System.out.println("returning Failure from deleteEssentialStatus method");
-    }
+//    else {
+//        //System.out.println("returning Failure from deleteEssentialStatus method");
+//    }
     return result;
 }
 

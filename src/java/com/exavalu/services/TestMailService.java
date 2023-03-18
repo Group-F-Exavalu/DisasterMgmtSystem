@@ -19,6 +19,7 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
 /**
@@ -84,7 +85,10 @@ public class TestMailService {
             //System.out.println("message sent successfully");
         } catch (MessagingException ex) {
             Logger log = Logger.getLogger(TestMailService.class.getName());
-            log.error(LocalDateTime.now() + " Error Message: " + ex.getMessage() + " Class : TestMailService, Method : send");
+            if (log.isEnabledFor(Level.ERROR)) {
+                String errorMessage = LocalDateTime.now() + "Error Message: " + ex.getMessage();
+                log.error(errorMessage);
+            }
         }
         //System.out.println(from + " " + to + " " + password);
     }

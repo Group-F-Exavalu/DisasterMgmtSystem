@@ -17,6 +17,7 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Map;
+import org.apache.log4j.Level;
 import org.apache.struts2.dispatcher.ApplicationMap;
 import org.apache.struts2.dispatcher.SessionMap;
 import org.apache.struts2.interceptor.ApplicationAware;
@@ -133,17 +134,13 @@ public class User extends ActionSupport implements ApplicationAware, SessionAwar
      *
      * @return
      */
-    public static com.opensymphony.xwork2.util.logging.Logger getLOG() {
-        return LOG;
-    }
+   
 
     /**
      *
      * @param LOG
      */
-    public static void setLOG(com.opensymphony.xwork2.util.logging.Logger LOG) {
-        ActionSupport.LOG = LOG;
-    }
+   
     private String firstName;
     private String lastName;
     private String emailAddress;
@@ -428,7 +425,10 @@ public class User extends ActionSupport implements ApplicationAware, SessionAwar
             result = "ADMIN";
         } else {
             Logger log = Logger.getLogger(LoginService.class.getName());
-            log.error(LocalDateTime.now() + "--Wrong email ID or password");
+            if (log.isEnabledFor(Level.ERROR)) {
+                String errorMessage = LocalDateTime.now() + " Error Message: --Wrong email ID or password";
+                log.error(errorMessage);
+            }
             //System.out.println("returning Failure from doLogin method");
             String errorMsg ="Either Email Address or Password is Wrong. Please Try Again !!";
             getSessionMap().put("ErrorMsg", errorMsg);
@@ -473,7 +473,10 @@ public class User extends ActionSupport implements ApplicationAware, SessionAwar
                 result = "SUCCESS";
             } else {
                 Logger log = Logger.getLogger(LoginService.class.getName());
-                log.error(LocalDateTime.now() + "--Email Id already exists");
+                if (log.isEnabledFor(Level.ERROR)) {
+                String errorMessage = LocalDateTime.now() + " Error Message:--Email Id already exists";
+                log.error(errorMessage);
+            }
                 sessionMap.put("FailSignUp", "Email address Already Exists");
                 //System.out.println("Returning from failure");
             }
@@ -588,9 +591,10 @@ public class User extends ActionSupport implements ApplicationAware, SessionAwar
         if (result) {
             sessionMap.put("User", user);
             res = "SUCCESS";
-        } else {
-//           sessionMap.put("UserList", userList);
-        }
+        } 
+//        else {
+////           sessionMap.put("UserList", userList);
+//        }
         return res;
     }
 }

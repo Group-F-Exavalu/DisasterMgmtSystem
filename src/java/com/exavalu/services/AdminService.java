@@ -132,7 +132,10 @@ public class AdminService {
                rs.close(); 
         } catch (SQLException ex) {
             Logger log = Logger.getLogger(AdminService.class.getName());
-            log.error(LocalDateTime.now()+ "Error Message: " + ex.getMessage()+" Class : AdminService, Method : getTotalUserDonation");
+            if (log.isEnabledFor(Level.ERROR)) {
+                String errorMessage = LocalDateTime.now() + " Error Code: " + ex.getErrorCode() + " Error Message: " + ex.getMessage();
+                log.error(errorMessage);
+            }
         }
         return total;
     }
@@ -153,7 +156,10 @@ public class AdminService {
                rs.close(); 
         } catch (SQLException ex) {
             Logger log = Logger.getLogger(AdminService.class.getName());
-            log.error(LocalDateTime.now()+ "Error Message: " + ex.getMessage()+" Class : AdminService, Method : getTotalOrgDonation");
+            if (log.isEnabledFor(Level.ERROR)) {
+                String errorMessage = LocalDateTime.now() + " Error Code: " + ex.getErrorCode() + " Error Message: " + ex.getMessage();
+                log.error(errorMessage);
+            }
         }
         return total;
     }
@@ -174,7 +180,10 @@ public class AdminService {
                rs.close(); 
         } catch (SQLException ex) {
             Logger log = Logger.getLogger(AdminService.class.getName());
-            log.error(LocalDateTime.now()+ "Error Message: " + ex.getMessage()+" Class : AdminService, Method : getTotalUsers");
+            if (log.isEnabledFor(Level.ERROR)) {
+                String errorMessage = LocalDateTime.now() + " Error Code: " + ex.getErrorCode() + " Error Message: " + ex.getMessage();
+                log.error(errorMessage);
+            }
         }
         return total;
     }
@@ -195,7 +204,10 @@ public class AdminService {
                rs.close(); 
         } catch (SQLException ex) {
             Logger log = Logger.getLogger(AdminService.class.getName());
-            log.error(LocalDateTime.now()+ "Error Message: " + ex.getMessage()+" Class : AdminService, Method : getTotalOrganisations");
+            if (log.isEnabledFor(Level.ERROR)) {
+                String errorMessage = LocalDateTime.now() + " Error Code: " + ex.getErrorCode() + " Error Message: " + ex.getMessage();
+                log.error(errorMessage);
+            }
         }
         return total;
     }
@@ -216,7 +228,10 @@ public class AdminService {
                rs.close(); 
         } catch (SQLException ex) {
             Logger log = Logger.getLogger(AdminService.class.getName());
-            log.error(LocalDateTime.now()+ "Error Message: " + ex.getMessage()+" Class : AdminService, Method : getTotalVolunteers");
+            if (log.isEnabledFor(Level.ERROR)) {
+                String errorMessage = LocalDateTime.now() + " Error Code: " + ex.getErrorCode() + " Error Message: " + ex.getMessage();
+                log.error(errorMessage);
+            }
         }
         return total;
     }
@@ -246,7 +261,10 @@ public class AdminService {
                rs.close(); 
         } catch (SQLException ex) {
             Logger log = Logger.getLogger(AdminService.class.getName());
-            log.error(LocalDateTime.now()+ "Error Message: " + ex.getMessage()+" Class : AdminService, Method : getMoneybyId");
+            if (log.isEnabledFor(Level.ERROR)) {
+                String errorMessage = LocalDateTime.now() + " Error Code: " + ex.getErrorCode() + " Error Message: " + ex.getMessage();
+                log.error(errorMessage);
+            }
         }
         return donateform;
     }
@@ -274,7 +292,10 @@ public class AdminService {
                rs.close(); 
         } catch (SQLException ex) {
             Logger log = Logger.getLogger(AdminService.class.getName());
-            log.error(LocalDateTime.now()+ "Error Message: " + ex.getMessage()+" Class : AdminService, Method : getEssentialsbyId");
+            if (log.isEnabledFor(Level.ERROR)) {
+                String errorMessage = LocalDateTime.now() + " Error Code: " + ex.getErrorCode() + " Error Message: " + ex.getMessage();
+                log.error(errorMessage);
+            }
         }
 
         return donateform;
@@ -305,7 +326,10 @@ public class AdminService {
                rs.close(); 
         } catch (SQLException ex) {
             Logger log = Logger.getLogger(AdminService.class.getName());
-            log.error(LocalDateTime.now()+ "Error Message: " + ex.getMessage()+" Class : AdminService, Method : getAllMoney");
+            if (log.isEnabledFor(Level.ERROR)) {
+                String errorMessage = LocalDateTime.now() + " Error Code: " + ex.getErrorCode() + " Error Message: " + ex.getMessage();
+                log.error(errorMessage);
+            }
         }
 
         return eventList;
@@ -335,7 +359,10 @@ public class AdminService {
                rs.close(); 
         } catch (SQLException ex) {
             Logger log = Logger.getLogger(AdminService.class.getName());
-            log.error(LocalDateTime.now()+ "Error Message: " + ex.getMessage()+" Class : AdminService, Method : getAllEssential");
+            if (log.isEnabledFor(Level.ERROR)) {
+                String errorMessage = LocalDateTime.now() + " Error Code: " + ex.getErrorCode() + " Error Message: " + ex.getMessage();
+                log.error(errorMessage);
+            }
         }
 
         return eventList;
@@ -362,7 +389,10 @@ public class AdminService {
 
         } catch (SQLException ex) {
             Logger log = Logger.getLogger(AdminService.class.getName());
-            log.error(LocalDateTime.now()+ "Error Message: " + ex.getMessage()+" Class : AdminService, Method : ApproveDonateMoneyStatus");
+            if (log.isEnabledFor(Level.ERROR)) {
+                String errorMessage = LocalDateTime.now() + " Error Code: " + ex.getErrorCode() + " Error Message: " + ex.getMessage();
+                log.error(errorMessage);
+            }
         }
 
         return result;
@@ -388,7 +418,10 @@ public class AdminService {
 
         } catch (SQLException ex) {
             Logger log = Logger.getLogger(AdminService.class.getName());
-            log.error(LocalDateTime.now()+ "Error Message: " + ex.getMessage()+" Class : AdminService, Method : ApproveDonateEssentialStatus");
+            if (log.isEnabledFor(Level.ERROR)) {
+                String errorMessage = LocalDateTime.now() + " Error Code: " + ex.getErrorCode() + " Error Message: " + ex.getMessage();
+                log.error(errorMessage);
+            }
         }
 
         return result;
@@ -414,7 +447,10 @@ public class AdminService {
 
         } catch (SQLException ex) {
             Logger log = Logger.getLogger(AdminService.class.getName());
-            log.error(LocalDateTime.now()+ "Error Message: " + ex.getMessage()+" Class : AdminService, Method : RejectDonateMoneyStatus");
+            if (log.isEnabledFor(Level.ERROR)) {
+                String errorMessage = LocalDateTime.now() + " Error Code: " + ex.getErrorCode() + " Error Message: " + ex.getMessage();
+                log.error(errorMessage);
+            }
         }
 
         return result;
@@ -439,8 +475,10 @@ public class AdminService {
             preparedStatement.close();
 
         } catch (SQLException ex) {
-            Logger log = Logger.getLogger(AdminService.class.getName());
-            log.error(LocalDateTime.now()+ "Error Message: " + ex.getMessage()+" Class : AdminService, Method : RejectDonateEssentialStatus");
+            Logger log = Logger.getLogger(AdminService.class.getName());if (log.isEnabledFor(Level.ERROR)) {
+                String errorMessage = LocalDateTime.now() + " Error Code: " + ex.getErrorCode() + " Error Message: " + ex.getMessage();
+                log.error(errorMessage);
+            }
         }
 
         return result;
@@ -464,7 +502,10 @@ public class AdminService {
 
             } catch (SQLException ex) {
                 Logger log = Logger.getLogger(AdminService.class.getName());
-                log.error(LocalDateTime.now()+ "Error Message: " + ex.getMessage()+" Class : AdminService, Method : getGovtNumber");
+                if (log.isEnabledFor(Level.ERROR)) {
+                String errorMessage = LocalDateTime.now() + " Error Code: " + ex.getErrorCode() + " Error Message: " + ex.getMessage();
+                log.error(errorMessage);
+            }
             }
 //            System.out.println("Aadhar Number fetched :" + result);
             return result;
@@ -484,7 +525,10 @@ public class AdminService {
 
             } catch (SQLException ex) {
                 Logger log = Logger.getLogger(AdminService.class.getName());
-                log.error(LocalDateTime.now()+ "Error Message: " + ex.getMessage()+" Class : AdminService, Method : getGovtNumber");
+                if (log.isEnabledFor(Level.ERROR)) {
+                String errorMessage = LocalDateTime.now() + " Error Code: " + ex.getErrorCode() + " Error Message: " + ex.getMessage();
+                log.error(errorMessage);
+            }
             }
 //            System.out.println("Registration Number fetched :" + result);
             return result;
@@ -519,7 +563,10 @@ public class AdminService {
 
         } catch (SQLException ex) {
             Logger log = Logger.getLogger(AdminService.class.getName());
-            log.error(LocalDateTime.now()+ "Error Message: " + ex.getMessage()+" Class : AdminService, Method : getDonorUser");
+            if (log.isEnabledFor(Level.ERROR)) {
+                String errorMessage = LocalDateTime.now() + " Error Code: " + ex.getErrorCode() + " Error Message: " + ex.getMessage();
+                log.error(errorMessage);
+            }
         }
 //        System.out.println("User fetched :" + user.getFirstName());
         return user;
@@ -552,7 +599,10 @@ public class AdminService {
 
         } catch (SQLException ex) {
             Logger log = Logger.getLogger(AdminService.class.getName());
-            log.error(LocalDateTime.now()+ "Error Message: " + ex.getMessage()+" Class : AdminService, Method : getDonorOrg");
+            if (log.isEnabledFor(Level.ERROR)) {
+                String errorMessage = LocalDateTime.now() + " Error Code: " + ex.getErrorCode() + " Error Message: " + ex.getMessage();
+                log.error(errorMessage);
+            }
         }
 //        System.out.println("Organisation fetched :" + org.getOrganisationName());
         return org;
@@ -585,7 +635,10 @@ public class AdminService {
 
         } catch (SQLException ex) {
             Logger log = Logger.getLogger(AdminService.class.getName());
-            log.error(LocalDateTime.now()+ "Error Message: " + ex.getMessage()+" Class : AdminService, Method : getGmailDonor");
+            if (log.isEnabledFor(Level.ERROR)) {
+                String errorMessage = LocalDateTime.now() + " Error Code: " + ex.getErrorCode() + " Error Message: " + ex.getMessage();
+                log.error(errorMessage);
+            }
         }
 //        System.out.println("User fetched :" + gmailUser.getFirstName());
         return gmailUser;
@@ -615,7 +668,10 @@ public class AdminService {
             rs.close();
         } catch (SQLException ex) {
             Logger log = Logger.getLogger(AdminService.class.getName());
-            log.error(LocalDateTime.now()+ "Error Message: " + ex.getMessage()+" Class : AdminService, Method : getAllVolunteers");
+            if (log.isEnabledFor(Level.ERROR)) {
+                String errorMessage = LocalDateTime.now() + " Error Code: " + ex.getErrorCode() + " Error Message: " + ex.getMessage();
+                log.error(errorMessage);
+            }
         }
 //        System.out.println("Volunteer List: " + volunteerList);
         return volunteerList;
@@ -650,7 +706,10 @@ public class AdminService {
             rs.close();
         } catch (SQLException ex) {
             Logger log = Logger.getLogger(AdminService.class.getName());
-            log.error(LocalDateTime.now()+ "Error Message: " + ex.getMessage()+" Class : AdminService, Method : getAllUsers");
+            if (log.isEnabledFor(Level.ERROR)) {
+                String errorMessage = LocalDateTime.now() + " Error Code: " + ex.getErrorCode() + " Error Message: " + ex.getMessage();
+                log.error(errorMessage);
+            }
         }
         return userList;
     }
@@ -678,7 +737,10 @@ public class AdminService {
             rs.close();
         } catch (SQLException ex) {
             Logger log = Logger.getLogger(AdminService.class.getName());
-            log.error(LocalDateTime.now()+ "Error Message: " + ex.getMessage()+" Class : AdminService, Method : getAllOrgs");
+            if (log.isEnabledFor(Level.ERROR)) {
+                String errorMessage = LocalDateTime.now() + " Error Code: " + ex.getErrorCode() + " Error Message: " + ex.getMessage();
+                log.error(errorMessage);
+            }
         }
         return orgList;
     }
@@ -703,7 +765,10 @@ public class AdminService {
             rs.close();
         } catch (SQLException ex) {
             Logger log = Logger.getLogger(AdminService.class.getName());
-            log.error(LocalDateTime.now()+ "Error Message: " + ex.getMessage()+" Class : AdminService, Method : getAllGmailUsers");
+            if (log.isEnabledFor(Level.ERROR)) {
+                String errorMessage = LocalDateTime.now() + " Error Code: " + ex.getErrorCode() + " Error Message: " + ex.getMessage();
+                log.error(errorMessage);
+            }
         }
         return userList;
     }
@@ -728,7 +793,10 @@ public class AdminService {
 
         } catch (SQLException ex) {
             Logger log = Logger.getLogger(AdminService.class.getName());
-            log.error(LocalDateTime.now()+ "Error Message: " + ex.getMessage()+" Class : AdminService, Method : getAllDates");
+            if (log.isEnabledFor(Level.ERROR)) {
+                String errorMessage = LocalDateTime.now() + " Error Code: " + ex.getErrorCode() + " Error Message: " + ex.getMessage();
+                log.error(errorMessage);
+            }
         }
 
         return dateList;
@@ -751,7 +819,10 @@ public class AdminService {
             rs.close();
         } catch (SQLException ex) {
             Logger log = Logger.getLogger(AdminService.class.getName());
-            log.error(LocalDateTime.now()+ "Error Message: " + ex.getMessage()+" Class : AdminService, Method : getAllDatesCount");
+            if (log.isEnabledFor(Level.ERROR)) {
+                String errorMessage = LocalDateTime.now() + " Error Code: " + ex.getErrorCode() + " Error Message: " + ex.getMessage();
+                log.error(errorMessage);
+            }
         }
 
         return dateCountList;

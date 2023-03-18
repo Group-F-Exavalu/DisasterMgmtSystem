@@ -9,6 +9,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.Properties;
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
 /**
@@ -40,7 +41,10 @@ public class JDBCUtility {
         } catch (IOException ex) {
             // TODO Auto-generated catch block
             Logger log = Logger.getLogger(JDBCUtility.class.getName());
-            log.error(LocalDateTime.now() + " Error Message: " + ex.getMessage() + " Class : JDBCUtility, Method : getPropertyValue");
+            if (log.isEnabledFor(Level.ERROR)) {
+                String errorMessage = LocalDateTime.now() + " Error Message: " + ex.getMessage();
+                log.error(errorMessage);
+            }
         }
 
         return value;

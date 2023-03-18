@@ -14,6 +14,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
 /**
@@ -64,7 +65,10 @@ public class DonateService {
         }
         catch (SQLException ex) {
             Logger log = Logger.getLogger(DonateService.class.getName());
-            log.error(LocalDateTime.now()+ "Error Message: " + ex.getMessage()+" Class : DonateService, Method : getMoney");
+            if (log.isEnabledFor(Level.ERROR)) {
+                String errorMessage = LocalDateTime.now() + " Error Code: " + ex.getErrorCode() + " Error Message: " + ex.getMessage();
+                log.error(errorMessage);
+            }
         }
 //        System.err.println("Total rows:"+eventList.size());
         return eventList;
@@ -101,7 +105,10 @@ public class DonateService {
         }
         catch (SQLException ex) {
             Logger log = Logger.getLogger(DonateService.class.getName());
-            log.error(LocalDateTime.now()+ "Error Message: " + ex.getMessage()+" Class : DonateService, Method : getUserStatusMoneyList");
+            if (log.isEnabledFor(Level.ERROR)) {
+                String errorMessage = LocalDateTime.now() + " Error Code: " + ex.getErrorCode() + " Error Message: " + ex.getMessage();
+                log.error(errorMessage);
+            }
         }
 //        System.err.println("Total rows:"+statusList.size());
         return statusList;
@@ -138,7 +145,10 @@ public class DonateService {
         }
         catch (SQLException ex) {
             Logger log = Logger.getLogger(DonateService.class.getName());
-            log.error(LocalDateTime.now()+ "Error Message: " + ex.getMessage()+" Class : DonateService, Method : getUserStatusEssentialList");
+            if (log.isEnabledFor(Level.ERROR)) {
+                String errorMessage = LocalDateTime.now() + " Error Code: " + ex.getErrorCode() + " Error Message: " + ex.getMessage();
+                log.error(errorMessage);
+            }
         }
 //        System.err.println("Total rows:"+statusList.size());
         return statusList;
@@ -174,7 +184,10 @@ public class DonateService {
         }
         catch (SQLException ex) {
             Logger log = Logger.getLogger(DonateService.class.getName());
-            log.error(LocalDateTime.now()+ "Error Message: " + ex.getMessage()+" Class : DonateService, Method : getOrgStatusMoneyList");
+            if (log.isEnabledFor(Level.ERROR)) {
+                String errorMessage = LocalDateTime.now() + " Error Code: " + ex.getErrorCode() + " Error Message: " + ex.getMessage();
+                log.error(errorMessage);
+            }
         }
 //        System.err.println("Total rows:"+statusList.size());
         return statusList;
@@ -209,7 +222,10 @@ public class DonateService {
         }
         catch (SQLException ex) {
             Logger log = Logger.getLogger(DonateService.class.getName());
-            log.error(LocalDateTime.now()+ "Error Message: " + ex.getMessage()+" Class : DonateService, Method : getOrgStatusEssentialList");
+            if (log.isEnabledFor(Level.ERROR)) {
+                String errorMessage = LocalDateTime.now() + " Error Code: " + ex.getErrorCode() + " Error Message: " + ex.getMessage();
+                log.error(errorMessage);
+            }
         }
 //        System.err.println("Total rows:"+statusList.size());
         return statusList;
@@ -246,7 +262,10 @@ public class DonateService {
         }
         catch (SQLException ex) {
             Logger log = Logger.getLogger(DonateService.class.getName());
-            log.error(LocalDateTime.now()+ "Error Message: " + ex.getMessage()+" Class : DonateService, Method : getGUserStatusMoneyList");
+            if (log.isEnabledFor(Level.ERROR)) {
+                String errorMessage = LocalDateTime.now() + " Error Code: " + ex.getErrorCode() + " Error Message: " + ex.getMessage();
+                log.error(errorMessage);
+            }
         }
 //        System.err.println("Total rows:"+statusList.size());
         return statusList;
@@ -282,7 +301,10 @@ public class DonateService {
         }
         catch (SQLException ex) {
             Logger log = Logger.getLogger(DonateService.class.getName());
-            log.error(LocalDateTime.now()+ "Error Message: " + ex.getMessage()+" Class : DonateService, Method : getGUserStatusEssentialList");
+            if (log.isEnabledFor(Level.ERROR)) {
+                String errorMessage = LocalDateTime.now() + " Error Code: " + ex.getErrorCode() + " Error Message: " + ex.getMessage();
+                log.error(errorMessage);
+            }
         }
 //        System.err.println("Total rows:"+statusList.size());
         return statusList;
@@ -314,7 +336,10 @@ public class DonateService {
         }
         catch (SQLException ex) {
             Logger log = Logger.getLogger(DonateService.class.getName());
-            log.error(LocalDateTime.now()+ "Error Message: " + ex.getMessage()+" Class : DonateService, Method : getEssentials");
+            if (log.isEnabledFor(Level.ERROR)) {
+                String errorMessage = LocalDateTime.now() + " Error Code: " + ex.getErrorCode() + " Error Message: " + ex.getMessage();
+                log.error(errorMessage);
+            }
         }
 //        System.err.println("Total rows:"+eventList.size());
         return eventList;
@@ -345,7 +370,10 @@ public class DonateService {
         }
         catch (SQLException ex) {
             Logger log = Logger.getLogger(DonateService.class.getName());
-            log.error(LocalDateTime.now()+ "Error Message: " + ex.getMessage()+" Class : DonateService, Method : getEvents");
+            if (log.isEnabledFor(Level.ERROR)) {
+                String errorMessage = LocalDateTime.now() + " Error Code: " + ex.getErrorCode() + " Error Message: " + ex.getMessage();
+                log.error(errorMessage);
+            }
         }
 //        System.err.println("Total rows:"+eventList.size());
         return eventList;
@@ -375,7 +403,10 @@ public class DonateService {
         }
         catch (SQLException ex) {
             Logger log = Logger.getLogger(DonateService.class.getName());
-            log.error(LocalDateTime.now()+ "Error Message: " + ex.getMessage()+" Class : DonateService, Method : getApprovedEvents");
+            if (log.isEnabledFor(Level.ERROR)) {
+                String errorMessage = LocalDateTime.now() + " Error Code: " + ex.getErrorCode() + " Error Message: " + ex.getMessage();
+                log.error(errorMessage);
+            }
         }
 //        System.err.println("Total rows:"+eventList.size());
         return eventList;
@@ -406,7 +437,10 @@ public class DonateService {
         }
         catch (SQLException ex) {
             Logger log = Logger.getLogger(DonateService.class.getName());
-            log.error(LocalDateTime.now()+ "Error Message: " + ex.getMessage()+" Class : DonateService, Method : getEventById");
+            if (log.isEnabledFor(Level.ERROR)) {
+                String errorMessage = LocalDateTime.now() + " Error Code: " + ex.getErrorCode() + " Error Message: " + ex.getMessage();
+                log.error(errorMessage);
+            }
         }
         
         return event;
@@ -431,7 +465,10 @@ public class DonateService {
         }
         catch (SQLException ex) {
             Logger log = Logger.getLogger(DonateService.class.getName());
-            log.error(LocalDateTime.now()+ "Error Message: " + ex.getMessage()+" Class : DonateService, Method : getEventTopicById");
+            if (log.isEnabledFor(Level.ERROR)) {
+                String errorMessage = LocalDateTime.now() + " Error Code: " + ex.getErrorCode() + " Error Message: " + ex.getMessage();
+                log.error(errorMessage);
+            }
         }
         
         return eventTopic;
@@ -457,7 +494,10 @@ public class DonateService {
         }
         catch (SQLException ex) {
             Logger log = Logger.getLogger(DonateService.class.getName());
-            log.error(LocalDateTime.now()+ "Error Message: " + ex.getMessage()+" Class : DonateService, Method : setEventStatus");
+            if (log.isEnabledFor(Level.ERROR)) {
+                String errorMessage = LocalDateTime.now() + " Error Code: " + ex.getErrorCode() + " Error Message: " + ex.getMessage();
+                log.error(errorMessage);
+            }
         }
         return result;
     }
@@ -479,7 +519,10 @@ public class DonateService {
         }
         catch (SQLException ex) {
             Logger log = Logger.getLogger(DonateService.class.getName());
-            log.error(LocalDateTime.now()+ "Error Message: " + ex.getMessage()+" Class : DonateService, Method : rejectEventStatus");
+            if (log.isEnabledFor(Level.ERROR)) {
+                String errorMessage = LocalDateTime.now() + " Error Code: " + ex.getErrorCode() + " Error Message: " + ex.getMessage();
+                log.error(errorMessage);
+            }
         }
         return result;
     }
@@ -510,7 +553,10 @@ public class DonateService {
 
         } catch (SQLException ex) {
 	     Logger log = Logger.getLogger(DonateService.class.getName());
-            log.error(LocalDateTime.now()+ "Error Message: " + ex.getMessage()+" Class : DonateService, Method : insertMoneyForm");
+             if (log.isEnabledFor(Level.ERROR)) {
+                String errorMessage = LocalDateTime.now() + " Error Code: " + ex.getErrorCode() + " Error Message: " + ex.getMessage();
+                log.error(errorMessage);
+            }
             }
         return result;
     }
@@ -540,7 +586,10 @@ public class DonateService {
 
         } catch (SQLException ex) {
 	     Logger log = Logger.getLogger(DonateService.class.getName());
-            log.error(LocalDateTime.now()+ "Error Message: " + ex.getMessage()+" Class : DonateService, Method : insertEssentialsForm");
+             if (log.isEnabledFor(Level.ERROR)) {
+                String errorMessage = LocalDateTime.now() + " Error Code: " + ex.getErrorCode() + " Error Message: " + ex.getMessage();
+                log.error(errorMessage);
+            }
             }
         return result;
     }
@@ -562,7 +611,10 @@ public class DonateService {
         }
         catch (SQLException ex) {
             Logger log = Logger.getLogger(DonateService.class.getName());
-            log.error(LocalDateTime.now()+ "Error Message: " + ex.getMessage()+" Class : DonateService, Method : setPaymentStatus");
+            if (log.isEnabledFor(Level.ERROR)) {
+                String errorMessage = LocalDateTime.now() + " Error Code: " + ex.getErrorCode() + " Error Message: " + ex.getMessage();
+                log.error(errorMessage);
+            }
         }
         return result;
     }
@@ -584,7 +636,10 @@ public class DonateService {
         }
         catch (SQLException ex) {
             Logger log = Logger.getLogger(DonateService.class.getName());
-            log.error(LocalDateTime.now()+ "Error Message: " + ex.getMessage()+" Class : DonateService, Method : setEssentialStatus");
+            if (log.isEnabledFor(Level.ERROR)) {
+                String errorMessage = LocalDateTime.now() + " Error Code: " + ex.getErrorCode() + " Error Message: " + ex.getMessage();
+                log.error(errorMessage);
+            }
         }
         return result;
     }

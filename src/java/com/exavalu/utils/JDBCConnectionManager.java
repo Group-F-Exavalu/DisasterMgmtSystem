@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
 /**
@@ -39,7 +40,10 @@ public class JDBCConnectionManager {
         } catch (ClassNotFoundException | SQLException ex) {
 
             Logger log = Logger.getLogger(JDBCConnectionManager.class.getName());
-            log.error(LocalDateTime.now() + " Error Message: " + ex.getMessage() + " Class : JDBCConnectionManager, Method : getConnection");
+            if (log.isEnabledFor(Level.ERROR)) {
+                String errorMessage = LocalDateTime.now()+ " Error Message: " + ex.getMessage();
+                log.error(errorMessage);
+            }
         }
 
         return connection;
