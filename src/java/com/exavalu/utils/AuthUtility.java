@@ -18,6 +18,7 @@ import org.apache.log4j.Logger;
  *
  * @author Raktim Ghosal
  */
+@SuppressWarnings({"PMD.ClassWithOnlyPrivateConstructorsShouldBeFinal"})
 public class AuthUtility {
 
     public static AuthUtility authUtility = null;

@@ -33,6 +33,7 @@ import org.apache.log4j.Logger;
  *
  * @author Reetangsee Dutta
  */
+@SuppressWarnings({"PMD.LooseCoupling","PMD.SingletonClassReturningNewInstance","PMD.ClassWithOnlyPrivateConstructorsShouldBeFinal"})
 public class LoginService {
 
     public static LoginService loginService = null;

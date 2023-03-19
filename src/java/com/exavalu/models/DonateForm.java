@@ -20,6 +20,7 @@ import org.apache.struts2.interceptor.SessionAware;
  * This class holds the functionality of the Donation contributed
  * @author Reetangsee Dutta
  */
+@SuppressWarnings({"PMD.LiteralsFirstInComparisons","PMD.MethodNamingConventions","PMD.FormalParameterNamingConventions"})
 public class DonateForm extends ActionSupport implements ApplicationAware, SessionAware, Serializable{
 
     /**

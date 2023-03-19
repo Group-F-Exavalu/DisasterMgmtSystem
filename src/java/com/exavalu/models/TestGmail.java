@@ -18,6 +18,7 @@ import org.apache.struts2.interceptor.SessionAware;
  *  This class holds the functionality for sending Gmail
  * @author hp
  */
+@SuppressWarnings({"PMD.SingularField","PMD.UnusedPrivateField"})
 public class TestGmail extends ActionSupport implements ApplicationAware, SessionAware, Serializable{
     
     private String email;

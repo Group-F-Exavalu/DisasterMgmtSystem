@@ -22,7 +22,7 @@ import org.apache.log4j.Logger;
  *
  * @author Reetangsee Dutta
  */
-//@SuppressWarnings("PMD")
+@SuppressWarnings({"PMD.LooseCoupling","PMD.SingletonClassReturningNewInstance"})
 public class DonateService {
 
     public static DonateService donateService = null;

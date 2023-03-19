@@ -21,7 +21,7 @@ import org.apache.log4j.Logger;
  *
  * @author Azel Karthak
  */
-
+@SuppressWarnings({"PMD.MethodNamingConventions","PMD.LooseCoupling","PMD.SingletonClassReturningNewInstance"})
 public class VolunteerService {
 
     public static VolunteerService userService = null;

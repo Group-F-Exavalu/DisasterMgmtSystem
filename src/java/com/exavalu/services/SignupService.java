@@ -24,6 +24,7 @@ import org.apache.log4j.Logger;
  *
  * @author Raktim Ghosal, Azel Karthak
  */
+@SuppressWarnings({"PMD.ClassWithOnlyPrivateConstructorsShouldBeFinal"})
 public class SignupService {
 
     public static SignupService loginService = null;

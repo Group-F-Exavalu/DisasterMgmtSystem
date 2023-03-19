@@ -28,6 +28,7 @@ import org.apache.log4j.Logger;
  *
  * @author Debjit Das,Ayshik Palit,Reetangsee Dutta
  */
+@SuppressWarnings({"PMD.MethodNamingConventions","PMD.LooseCoupling","PMD.SingletonClassReturningNewInstance"})
 public class AdminService {
 
     public static AdminService adminService = null;

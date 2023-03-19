@@ -24,6 +24,7 @@ import org.json.simple.parser.ParseException;
  *
  * @author Azel Karthak
  */
+@SuppressWarnings({"PMD.SingletonClassReturningNewInstance","PMD.ClassWithOnlyPrivateConstructorsShouldBeFinal"})
 public class APIService {
 
     public static APIService loginService = null;
