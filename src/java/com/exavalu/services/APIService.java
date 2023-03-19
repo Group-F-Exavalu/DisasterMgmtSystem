@@ -19,93 +19,79 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-
-
-
 /**
  * This Service is responsible for fetching REST API for Data Validation
+ *
  * @author Azel Karthak
  */
 public class APIService {
-    
+
     public static APIService loginService = null;
-    
-    private APIService(){}
-    
-    public static APIService getInstance()
-    {
-        if(loginService==null)
-        {
+
+    private APIService() {
+    }
+
+    public static APIService getInstance() {
+        if (loginService == null) {
             return new APIService();
-        }
-        else
-        {
+        } else {
             return loginService;
         }
     }
-    
-    public static APIUser consumeAadharFromAPI(String aadharNumber) throws ParseException, org.json.simple.parser.ParseException{
-        
-        
-         
+
+    public static APIUser consumeAadharFromAPI(String aadharNumber) throws ParseException, org.json.simple.parser.ParseException {
+
         APIUser apiUser = new APIUser();
-         try {
+        try {
 
-		URL url = new URL("https://retoolapi.dev/EFub8v/data?aadharNumber="+aadharNumber);
-               
-		HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-		conn.setRequestMethod("GET");
-		conn.setRequestProperty("Accept", "application/json");
+            URL url = new URL("https://retoolapi.dev/EFub8v/data?aadharNumber=" + aadharNumber);
 
-		if (conn.getResponseCode() != 200) {
-			throw new RuntimeException("Failed : HTTP error code : "
-					+ conn.getResponseCode());
-		}
-                else{
-                    
-                    String inline = "";
-                    Scanner scanner = new Scanner(url.openStream());
-                    while(scanner.hasNext()){
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            conn.setRequestMethod("GET");
+            conn.setRequestProperty("Accept", "application/json");
+
+            if (conn.getResponseCode() != 200) {
+                throw new RuntimeException("Failed : HTTP error code : "
+                        + conn.getResponseCode());
+            } else {
+
+                String inline = "";
+                try (Scanner scanner = new Scanner(url.openStream())) {
+                    while (scanner.hasNext()) {
                         inline += scanner.nextLine();
                     }
-                    scanner.close();
+
                     JSONParser parse = new JSONParser();
-                    JSONArray jsonArray = (JSONArray)parse.parse(inline);
+                    JSONArray jsonArray = (JSONArray) parse.parse(inline);
                     //JSONArray jsonArray = data_obj.getJSONArra("languages");
 //                     System.out.println("Size of Json List"+jsonArray.size());
                     //for(int i = 0; i < jsonArray.size(); i++){
-                        
-                        
-                        JSONObject obj = (JSONObject)jsonArray.get(0);
-                         String id = obj.get("id").toString();
-                        String city = obj.get("city").toString();
-                        String name = obj.get("name").toString();
-                        String gender = obj.get("gender").toString();
-                        String voterId = obj.get("voterId").toString();
-                        String dateOfBirth = obj.get("dateOfBirth").toString();
-                        aadharNumber = obj.get("aadharNumber").toString();
-                        String drivingLicence = obj.get("drivingLicence").toString();
-                        
+
+                    JSONObject obj = (JSONObject) jsonArray.get(0);
+                    String id = obj.get("id").toString();
+                    String city = obj.get("city").toString();
+                    String name = obj.get("name").toString();
+                    String gender = obj.get("gender").toString();
+                    String voterId = obj.get("voterId").toString();
+                    String dateOfBirth = obj.get("dateOfBirth").toString();
+                    aadharNumber = obj.get("aadharNumber").toString();
+                    String drivingLicence = obj.get("drivingLicence").toString();
+
 //                        System.out.println("value"+voterId);
-                      
-                        apiUser.setId(id);
-                        apiUser.setCity(city);
-                        apiUser.setName(name);
-                        apiUser.setGender(gender);
-                        apiUser.setVoterId(voterId);
-                        apiUser.setDateOfBirth(dateOfBirth);
-                        apiUser.setAadharNumber(aadharNumber);
-                        apiUser.setDrivingLicence(drivingLicence);
-                                
-                       
-                        
+                    apiUser.setId(id);
+                    apiUser.setCity(city);
+                    apiUser.setName(name);
+                    apiUser.setGender(gender);
+                    apiUser.setVoterId(voterId);
+                    apiUser.setDateOfBirth(dateOfBirth);
+                    apiUser.setAadharNumber(aadharNumber);
+                    apiUser.setDrivingLicence(drivingLicence);
+
                     //}
-                   
-                    scanner.close();
                 }
-                 
+            }
 
-	  } catch (MalformedURLException e) {
+        } catch (MalformedURLException e) {
 
             Logger log = Logger.getLogger(APIService.class.getName());
             if (log.isEnabledFor(Level.ERROR)) {
@@ -113,7 +99,7 @@ public class APIService {
                 log.error(errorMessage);
             }
 
-	  } catch (IOException e) {
+        } catch (IOException e) {
 
             Logger log = Logger.getLogger(APIService.class.getName());
             if (log.isEnabledFor(Level.ERROR)) {
@@ -121,13 +107,8 @@ public class APIService {
                 log.error(errorMessage);
             }
 
-	  }
-          return apiUser;
-	}
-    
-    
-   
-    
-    
-    
+        }
+        return apiUser;
+    }
+
 }

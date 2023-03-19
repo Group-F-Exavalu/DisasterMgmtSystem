@@ -14,9 +14,10 @@ import org.apache.log4j.Logger;
 public class JDBCConnectionManager {
 
     public static JDBCConnectionManager connectionManager = null;
-    public static Connection connection = null;
+    
 
     public static Connection getConnection() {
+        Connection connection = null;
 
         JDBCUtility jdbcUtility = JDBCUtility.getInstanceOfJDBCUtility();
 

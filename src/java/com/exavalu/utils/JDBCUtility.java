@@ -13,7 +13,9 @@ import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
 /**
- * This class access the value of authentication credentials for DataBase connection
+ * This class access the value of authentication credentials for DataBase
+ * connection
+ *
  * @author Raktim Ghosal
  */
 public class JDBCUtility {
@@ -30,14 +32,15 @@ public class JDBCUtility {
 
             String path = JDBCUtility.class.getClassLoader().getResource("settings.properties").getPath();
 
-            BufferedReader input = new BufferedReader(new FileReader(path));
+            try (BufferedReader input = new BufferedReader(new FileReader(path))) {
 
-            Properties prop = new Properties();
+                Properties prop = new Properties();
 
-            prop.load(input);
+                prop.load(input);
 
-            value = prop.getProperty(param);
+                value = prop.getProperty(param);
 
+            }
         } catch (IOException ex) {
             // TODO Auto-generated catch block
             Logger log = Logger.getLogger(JDBCUtility.class.getName());
@@ -60,6 +63,5 @@ public class JDBCUtility {
         }
         return jdbcUtility;
     }
-
 
 }

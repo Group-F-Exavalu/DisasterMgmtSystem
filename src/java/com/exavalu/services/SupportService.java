@@ -4,7 +4,6 @@
  */
 package com.exavalu.services;
 
-
 import com.exavalu.models.Event;
 import com.exavalu.utils.JDBCConnectionManager;
 import java.sql.Connection;
@@ -15,48 +14,43 @@ import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
 /**
- * This class serves as the connection between the JAVA Environment and DataBase for the support functionality
+ * This class serves as the connection between the JAVA Environment and DataBase
+ * for the support functionality
+ *
  * @author Debjit Das, Ayshik Palit
  */
-
 public class SupportService {
-    
+
     public static SupportService supportService = null;
-    public static SupportService getInstance()
-    {
-        if(supportService==null)
-        {
+
+    public static SupportService getInstance() {
+        if (supportService == null) {
             return new SupportService();
-        }
-        else
-        {
+        } else {
             return supportService;
         }
     }
-    
-    public boolean insertEvents(Event event){
-        
+
+    public boolean insertEvents(Event event) {
+
         boolean result = false;
-        String sql = "INSERT INTO events(eventTopic,eventDetails,userId,supportType)"+"VALUES(?,? ,?,?)";
-        try {
+        String sql = "INSERT INTO events(eventTopic,eventDetails,userId,supportType)" + "VALUES(?,? ,?,?)";
+        try (Connection con = JDBCConnectionManager.getConnection()) {
 
-            Connection con = JDBCConnectionManager.getConnection();
+            try (PreparedStatement preparedStatement = con.prepareStatement(sql)) {
 
-            PreparedStatement preparedStatement = con.prepareStatement(sql);
-            
                 preparedStatement.setString(1, event.getEventTopic());
                 preparedStatement.setString(2, event.getEventDetails());
                 preparedStatement.setString(3, event.getUserId());
                 preparedStatement.setString(4, event.getSupportType());
-                
+
                 //System.out.println(preparedStatement);
                 int row = preparedStatement.executeUpdate();
 
                 if (row == 1) {
                     result = true;
                 }
-                  preparedStatement.close();
-        
+            }
 
         } catch (SQLException ex) {
 //	     Logger log = Logger.getLogger(SupportService.class.getName());
@@ -66,9 +60,8 @@ public class SupportService {
                 String errorMessage = LocalDateTime.now() + " Error Code: " + ex.getErrorCode() + " Error Message: " + ex.getMessage();
                 log.error(errorMessage);
             }
-            }
+        }
         return result;
     }
-    
-   
+
 }

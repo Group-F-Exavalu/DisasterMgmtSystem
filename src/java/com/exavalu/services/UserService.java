@@ -13,8 +13,11 @@ import java.sql.SQLException;
 import java.time.LocalDateTime;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
+
 /**
- * This class serves as the connection between the JAVA Environment and DataBase for User entity Interaction
+ * This class serves as the connection between the JAVA Environment and DataBase
+ * for User entity Interaction
+ *
  * @author Reetangsee Dutta
  */
 
@@ -29,40 +32,40 @@ public class UserService {
             return userService;
         }
     }
-    
+
     public static User getUser(int userId) {
         User user = new User();
-        try {
-            Connection con = JDBCConnectionManager.getConnection();
+        try (Connection con = JDBCConnectionManager.getConnection()) {
             String sql = "select * from users where userId =?";
 
-            PreparedStatement preparedStatement = con.prepareStatement(sql);
-            preparedStatement.setInt(1, userId);
+            try (PreparedStatement preparedStatement = con.prepareStatement(sql)) {
+                preparedStatement.setInt(1, userId);
 
-            ResultSet rs = preparedStatement.executeQuery();
+                try (ResultSet rs = preparedStatement.executeQuery()) {
 
-            while (rs.next()) {
+                    while (rs.next()) {
 
-                user.setUserId(rs.getInt("userId"));
-                user.setFirstName(rs.getString("firstName"));
-                user.setLastName(rs.getString("lastName"));
-                user.setPhoneNumber(rs.getString("phoneNumber"));
-                user.setGender(rs.getString("gender"));
-                user.setAddress(rs.getString("address"));
-                user.setAadharNumber(rs.getString("aadharNumber"));
-                
+                        user.setUserId(rs.getInt("userId"));
+                        user.setFirstName(rs.getString("firstName"));
+                        user.setLastName(rs.getString("lastName"));
+                        user.setPhoneNumber(rs.getString("phoneNumber"));
+                        user.setGender(rs.getString("gender"));
+                        user.setAddress(rs.getString("address"));
+                        user.setAadharNumber(rs.getString("aadharNumber"));
+
+                    }
+                }
             }
-            preparedStatement.close();
-            rs.close();
 
         } catch (SQLException ex) {
-                        Logger log = Logger.getLogger(UserService.class.getName());
+            Logger log = Logger.getLogger(UserService.class.getName());
 
-            if(log.isEnabledFor(Level.ERROR)){
+            if (log.isEnabledFor(Level.ERROR)) {
 //            Logger log = Logger.getLogger(UserService.class.getName());
-            String errorMessage=LocalDateTime.now()+ " Error Code: " + ex.getErrorCode()+ " Error Message: " + ex.getMessage()+" Class : UserService, Method : getUser";
-            log.error(errorMessage);
-        }}
+                String errorMessage = LocalDateTime.now() + " Error Code: " + ex.getErrorCode() + " Error Message: " + ex.getMessage() + " Class : UserService, Method : getUser";
+                log.error(errorMessage);
+            }
+        }
 
         return user;
     }
@@ -99,7 +102,6 @@ public class UserService {
 //        System.err.println("Total rows:" + empList.size());
 //        return empList;
 //    }
-
 //    public boolean Edit(Employee emp) {
 //        boolean result = false;
 //        try {
@@ -136,7 +138,6 @@ public class UserService {
 //        }
 //        return result;
 //    }
-
 //    public boolean addEmployee(Employee emp) {
 //        boolean result = false;
 //        String sql = "INSERT INTO employeedatabase.employees\n"
@@ -179,7 +180,6 @@ public class UserService {
 //        }
 //        return result;
 //    }
-
 //    public ArrayList searchEmployee(Employee emp) {
 //        ArrayList empList = new ArrayList<>();
 //        try {
@@ -222,7 +222,4 @@ public class UserService {
 //        return empList;
 //
 //    }
-    
-    
 }
-

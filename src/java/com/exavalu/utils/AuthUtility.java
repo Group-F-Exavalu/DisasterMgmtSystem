@@ -13,13 +13,15 @@ import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
 /**
- * This class access the value of authentication credentials for Gmail Credentials
+ * This class access the value of authentication credentials for Gmail
+ * Credentials
+ *
  * @author Raktim Ghosal
  */
 public class AuthUtility {
-    
+
     public static AuthUtility authUtility = null;
-    
+
     public String getPropertyValue(String param) {
 
         String value = null;
@@ -29,14 +31,15 @@ public class AuthUtility {
 
             String path = AuthUtility.class.getClassLoader().getResource("GmailLog.properties").getPath();
 
-            BufferedReader input = new BufferedReader(new FileReader(path));
+            try (BufferedReader input = new BufferedReader(new FileReader(path))) {
 
-            Properties prop = new Properties();
+                Properties prop = new Properties();
 
-            prop.load(input);
+                prop.load(input);
 
-            value = prop.getProperty(param);
+                value = prop.getProperty(param);
 
+            }
         } catch (IOException e) {
             Logger log = Logger.getLogger(AuthUtility.class.getName());
             // TODO Auto-generated catch block
@@ -59,5 +62,5 @@ public class AuthUtility {
         }
         return authUtility;
     }
-    
+
 }
