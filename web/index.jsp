@@ -469,7 +469,7 @@
                     </div>
                     <div class="col-md-6 volunteer pl-md-5 ftco-animate">
                         <h3 class="mb-3">Be a volunteer</h3>
-                        <form action="Volunteer" class="volunter-form">
+                        <form action="Volunteer" class="volunter-form" method="POST">
                             <div class="form-group">
                                 <input type="text" class="form-control" placeholder="Your Name" name="name" required>
                             </div>

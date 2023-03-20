@@ -238,7 +238,7 @@
                                                     <label for="floatingInput">Phone Number</label>
                                                 </div>-->
                             <div class="form-floating">
-                                <input type="text" class="form-control" id="floatingInput" placeholder="Address" name="address" value=${Organisation.district} readonly>
+                                <input type="text" class="form-control" id="floatingInput" placeholder="Address" name="address" value="${Organisation.districtName} , ${Organisation.stateName} , ${Organisation.countryName}" readonly>
                                 <label for="floatingInput">Address</label>
                             </div>
                             <div class="form-floating">

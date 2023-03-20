@@ -30,10 +30,13 @@ public class Organisation extends ActionSupport implements ApplicationAware, Ses
     private String organisationName; 
     private String regnNumber;
     private String country;
+    private String countryName;
+    private String stateName;
+    private String districtName;
     private String state; 
     private String district;
     private String emailAddress;
-
+    
     /**
      *
      * @return
@@ -300,5 +303,47 @@ public class Organisation extends ActionSupport implements ApplicationAware, Ses
         sessionMap.put("EssentialOrgStatus",orgStatusEssentialList);
         result = "SUCCESS";
         return result;
+    }
+
+    /**
+     * @return the countryName
+     */
+    public String getCountryName() {
+        return countryName;
+    }
+
+    /**
+     * @param countryName the countryName to set
+     */
+    public void setCountryName(String countryName) {
+        this.countryName = countryName;
+    }
+
+    /**
+     * @return the stateName
+     */
+    public String getStateName() {
+        return stateName;
+    }
+
+    /**
+     * @param stateName the stateName to set
+     */
+    public void setStateName(String stateName) {
+        this.stateName = stateName;
+    }
+
+    /**
+     * @return the districtName
+     */
+    public String getDistrictName() {
+        return districtName;
+    }
+
+    /**
+     * @param districtName the districtName to set
+     */
+    public void setDistrictName(String districtName) {
+        this.districtName = districtName;
     }
 }
